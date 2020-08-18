@@ -60,6 +60,8 @@ namespace Kati.Data_Modules.GlobalClasses {
         }
 
         public bool RuleDirectory(string[] arr) {
+            foreach (string s in arr) {
+            }
             bool remove;
             (string key, string[] temp) = PopQueue(arr);
             if (temp.Length < 1)
@@ -102,15 +104,18 @@ namespace Kati.Data_Modules.GlobalClasses {
         }
 
         protected bool CheckScalarTrait(string[] temp) {
-            int value = 0;
-            if (temp.Length < 2 || !Ctrl.Npc.InitiatorScalarList.ContainsKey(temp[0]))
+            int npcHas;
+            int threshold;
+            if (temp.Length < 2 || !Ctrl.Npc.InitiatorPersonalList.ContainsKey(temp[0]))
                 return true;
             try {
-                value = Int32.Parse(temp[1]);
+                npcHas = Int32.Parse(Ctrl.Npc.InitiatorPersonalList[temp[0]]);
+                threshold = Int32.Parse(temp[1]);
             } catch (FormatException) {
                 return true;
             }
-            return Ctrl.Npc.InitiatorScalarList[temp[0]]<value;
+            //return true to delete dialogue
+            return threshold>npcHas;
         }
 
         protected bool CheckPhysicalFeatures(string[] temp) {

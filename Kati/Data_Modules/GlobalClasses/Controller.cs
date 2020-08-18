@@ -19,7 +19,7 @@ namespace Kati.Data_Modules.GlobalClasses {
         public Controller(string path) {
             Lib = new ModuleLib(path);
             Game = new GameData();
-            Npc = new CharacterData();
+            Npc = CharacterData.GetCharacterData();
             parser = new Parser(this);
         }
 
