@@ -1,0 +1,37 @@
+﻿Topics:
+	Dreams:   Dreams that the NPC had at night or day dreams
+	Trivia:   Random facts and thoughts
+	Wonder:   I always liked hubig pies I wonder what's the secret to their yumminess.
+	Goals:    I would love to move out of this dump someday. I've always wanted to join a 
+	What ifs: what if the world just caught on fire and everything exploded
+
+Old choice complexity reuse
+1. Statement and questions Branching : neutral & 8 attributes
+2. response branching Positive+ to Negative+
+3. Using Statement, Question, and Response types for each.
+3. "end_conversation" --> breaks out of dialogue chain.
+
+New choice complexity ideas
+1. Options based on attribute threshold --> I'll only tell close friends this.
+2. dreams: 
+	"dreamDesc": labels dialogue that is a dream description --> leads to & req
+	"personal": information that only someone close would be told --> leads to & req
+	"friend","lover","enemy": req a relationship with an npc (positive, romantic,negative)
+3. [leads to]Question [req]Response: "your_dreams"--> response about player's dreams; 
+	"my_dreams"-->response about npc's dream
+	"dream_philosophy"--> what do you think about dreams
+4. req: "attribute.<character_attribute>": speaker must have this attribute for this option to be available
+
+New features (could these be reused?)
+1. Replace keys with game characters that the speaker has a certain relationship with
+	ex: npc_friendly.120 (some threshold), npc_romance.300, npc.hatred.110
+2. Tracery style sentence structures. #Pron1#,#pron1#,#Pron2#,#pron2#
+3. force next text_box: #new_text_box#
+4. "attribute.<characterBooleanAttribute>"
+5. #art_<emotion>#: signals game to display emotion icon: laugh blush, angry, sad, scared, skeptical, happy, sick, mean 
+6. 
+
+Gossip Features
+1. #npc_friend#, #npc_lover#, #npc_enemy# #npc_neutral#--> replace value with a game character that the 
+	speaker has those feelings for
+
