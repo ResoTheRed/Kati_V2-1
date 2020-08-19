@@ -36,7 +36,7 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
             Assert.IsTrue(lib.Data[lib.Keys["dream"][lib.STATEMENT]]["romance"].Count == 8);
             Assert.IsTrue(lib.Data[lib.Keys["dream"][lib.STATEMENT]]["friend"].Count == 14);
             Assert.IsTrue(lib.Data[lib.Keys["dream"][lib.STATEMENT]]["respect"].Count == 1);
-            Assert.IsTrue(lib.Data[lib.Keys["dream"][lib.STATEMENT]]["admiration"].Count == 2);
+            Assert.IsTrue(lib.Data[lib.Keys["dream"][lib.STATEMENT]]["affinity"].Count == 2);
             Assert.IsTrue(lib.Data[lib.Keys["dream"][lib.STATEMENT]]["rivalry"].Count == 5);
             Assert.IsTrue(lib.Data[lib.Keys["dream"][lib.STATEMENT]]["disgust"].Count == 1);
             Assert.IsTrue(lib.Data[lib.Keys["dream"][lib.STATEMENT]]["disgust"].ContainsKey

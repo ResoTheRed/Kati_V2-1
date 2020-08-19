@@ -17,14 +17,17 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
         }
 
         public void SetNpcTone(double[] val) {
-            ctrl.Npc.InitiatorsTone["romance"] = val[0];
-            ctrl.Npc.InitiatorsTone["friend"] = val[1];
-            ctrl.Npc.InitiatorsTone["professional"] = val[2];
-            ctrl.Npc.InitiatorsTone["respect"] = val[3];
-            ctrl.Npc.InitiatorsTone["affinity"] = val[4];
-            ctrl.Npc.InitiatorsTone["disgust"] = val[5];
-            ctrl.Npc.InitiatorsTone["hate"] = val[6];
-            ctrl.Npc.InitiatorsTone["rivalry"] = val[7];
+            Dictionary<string, double> temp = new Dictionary<string, double> {
+                ["romance"] = val[0],
+                ["friend"] = val[1],
+                ["professional"] = val[2],
+                ["respect"] = val[3],
+                ["affinity"] = val[4],
+                ["disgust"] = val[5],
+                ["hate"] = val[6],
+                ["rivalry"] = val[7]
+            };
+            Kati.Module_Hub.CharacterData.SetInitiatorCharacterData("Evalyn", "female",temp, null, null);
         }
 
         [TestMethod]

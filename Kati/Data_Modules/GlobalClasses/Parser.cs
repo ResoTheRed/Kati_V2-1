@@ -13,6 +13,7 @@ namespace Kati.Data_Modules.GlobalClasses {
         private BranchDecision branch;
         private GameRules game;
         private PersonalCharacterRules personal;
+        private SocialCharacterRules social;
 
         public string Topic { get => topic; set => topic = value; }
         public string Type { get => type; set => type = value; }
@@ -22,12 +23,14 @@ namespace Kati.Data_Modules.GlobalClasses {
         public BranchDecision Branch { get => branch; set => branch = value; }
         public GameRules Game { get => game; set => game = value; }
         public PersonalCharacterRules Personal { get => personal; set => personal = value; }
+        public SocialCharacterRules Social { get => social; set => social = value; }
 
         public Parser(Controller ctrl) {
             Ctrl = ctrl;
             Branch = new BranchDecision(Ctrl);
             Game = new GameRules(Ctrl);
             Personal = new PersonalCharacterRules(Ctrl);
+            Social = new SocialCharacterRules(Ctrl);
         }
 
         public void Setup(string topic, string type,

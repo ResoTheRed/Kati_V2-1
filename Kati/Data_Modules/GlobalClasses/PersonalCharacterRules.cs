@@ -63,12 +63,12 @@ namespace Kati.Data_Modules.GlobalClasses {
             foreach (string s in arr) {
             }
             bool remove;
-            (string key, string[] temp) = PopQueue(arr);
+            (string key, string[] temp) = dequeue(arr);
             if (temp.Length < 1)
                 return true;
             bool inverse = temp[0].Equals("not");
             if (inverse) {
-                var t = PopQueue(temp);
+                var t = dequeue(temp);
                 temp = t.Item2;
             }
             remove = RulesDirectory(key, temp);
@@ -90,7 +90,7 @@ namespace Kati.Data_Modules.GlobalClasses {
             return remove;
         }
         //pop first element and return the element and the shortend array
-        public (string, string[]) PopQueue(string[] arr) {
+        public (string, string[]) dequeue(string[] arr) {
             string key = "";
             string[] temp = { };
             if (arr.Length > 0) {

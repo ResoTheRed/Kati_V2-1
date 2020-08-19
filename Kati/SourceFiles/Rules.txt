@@ -146,26 +146,29 @@ the "not" keyword: execute the dialogue if the speaker doesn't have the attribut
     2. Social Schema Rules: Attributes relating to others
 
         1.  Relational Attributes Rules: [req] core status that a character has with another
-            Format::"attribute.<stat>.<threshold>"-->"attribute.friend.375": npc && player || player && npc
-            Format::"attribute.npc.<stat>.<threshold>"-->"attribute.npc.hate.500": npc speaker && any npc 
-            Format::"attribute.<name>.<stat>.<threshold>"-->"attribute.bob.hate.500": npc speaker && specific npc
+            Format::"social.attribute.player.<optional not>.<stat>.<threshold>"-->"social.attribute.player.friend.375": npc && player || player && npc
+                -directed to the player
+            Format::"social.attribute.npc.<optional not>.<stat>.<threshold>"-->"social.attribute.npc.hate.500": npc speaker && any npc 
+                -directed to any npc
+            Format::"social.attribute.<name>.<optional not>.<stat>.<threshold>"-->"social.attribute.bob.hate.500": npc speaker && specific npc
+                -directed to a specific npc
             "attribute": //scalar 0-1000
             [
                 "romance", "friend", "professional", "disgust", "hate", "rivalry", "respect", "affinity" 
             ]
 
         2. Relationship State Rules: [req] speakers relationship status with another npc (2-way)
-            Format::"relationship.<state>"-->"relationship.involved with": npc && player || player && npc
-            Format::"relationship.npc.<state>"-->"relationship.npc.involved with": npc speaker && any npc 
-            Format::"relationship.<name>.<stat>"-->"relationship.bob.involved with": npc speaker && specific npc
+            Format::"social.relationship.player.<state>"-->"social.relationship.player.involved with": npc && player || player && npc
+            Format::"social.relationship.npc.<state>"-->"social.relationship.npc.involved with": npc speaker && any npc 
+            Format::"social.relationship.<name>.<stat>"-->"social.relationship.bob.involved with": npc speaker && specific npc
             "relationship":
             [
                 "trust", "loyal to","friends with", "involved with", "related to", "works with", "lives with", "sleeping with", "stranger to"
             ]
         3. Directed status Rules: [req] a one-way relationship state the speaker has with another
-            Format::"directed.<state>"-->"directed.in love with": npc && player || player && npc
-            Format::"directed.npc.<state>"-->"directed.npc.in love with": npc speaker && any npc 
-            Format::"directed.<name>.<stat>"-->"directed.bob.in love with": npc speaker && specific npc
+            Format::"social.directed.player.<optional not>.<state>"-->"social.directed.player.in love with": npc && player || player && npc
+            Format::"social.directed.npc.<optional not>.<state>"-->"social.directed.npc.in love with": npc speaker && any npc 
+            Format::"social.directed.<name>.<optional not>.<stat>"-->"social.directed.bob.in love with": npc speaker && specific npc
             "directed":
             [
                 "interested in","attracted to","curious about","in love with","betrayed by","worried about",

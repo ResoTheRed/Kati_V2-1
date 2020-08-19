@@ -3,8 +3,7 @@ using Kati.SourceFiles;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
 
 namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
     [TestClass]
@@ -21,7 +20,6 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
 
         public void SetCharacterData(Kati.Module_Hub.CharacterData d) {
             Dictionary<string, string> con = new Dictionary<string, string>();
-            Dictionary<string, int> scal = new Dictionary<string, int>();
             string[] arr = 
                 {  "active","adventurous","agreeable","articulate","clever","calm","cheerful","Greedy",
                 "courteous","dramatic","forgiving","generous","honest","humble","humorous","logical"};
@@ -49,24 +47,24 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
                 { "charm","confident","leader","popular","attractive","persuasive","creative",
                 "style","athletics","charisma","luck" };
             foreach (string s in arr) {
-                scal[s] = 500;
+                con[s] = "500";
             }
-            d.InitiatorPersonalList = con;
-            d.InitiatorScalarList = scal;
+            Kati.Module_Hub.CharacterData.SetInitiatorCharacterData("Evalyn","female",null,con,null);
+            
         }
 
         [TestMethod]
         public void TestPopQueue() {
             string[] arr = { "trait", "not", "humble","extra" };
             string key = "";
-            (key, arr) = p.PopQueue(arr); 
+            (key, arr) = p.dequeue(arr); 
             Assert.IsTrue(key.Equals("trait"));
             Assert.IsTrue(arr[0].Equals("not"));
             Assert.IsTrue(arr.Length == 3);
-            (key, arr)= p.PopQueue(arr);
+            (key, arr)= p.dequeue(arr);
             Assert.IsTrue(key.Equals("not"));
             Assert.IsTrue(arr.Length == 2);
-            (key, arr) = p.PopQueue(arr);
+            (key, arr) = p.dequeue(arr);
             Assert.IsTrue(key.Equals("humble"));
             Assert.IsTrue(arr.Length == 1);
         }

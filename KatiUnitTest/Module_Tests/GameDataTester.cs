@@ -147,7 +147,7 @@ namespace KatiUnitTest.Module_Tests{
 
         [TestInitialize]
         public void Start() {
-            data = new CharacterData();
+            data = CharacterData.GetCharacterData();
         }
         /*
         [TestMethod]

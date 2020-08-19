@@ -8,11 +8,11 @@ namespace Kati.SourceFiles{
     /// </summary>
     public class Constants{
         /*collection of paths for GlobalKeys*/
-        public const string pronoun = "C:/Users/User/Documents/NLG/Kati/SourceFiles/json_files/pronoun.json";
-        public const string time = "C:/Users/User/Documents/NLG/Kati/SourceFiles/json_files/time.json";
-        public const string smallTalk = "C:/Users/User/Documents/NLG/Kati/SourceFiles/json_files/smallTalk.json";
-        public const string DayDreamWonder = "C:/Users/User/Documents/NLG/Kati/SourceFiles/json_files/DayDreamWonder.json";
-        public const string TestJson = "C:/Users/User/Documents/NLG/KatiUnitTest/Module_Tests/GlobalModuleTest/RuleTester.json";
+        public const string pronoun = "C:/Users/User/Documents/Kati_V2-1/Kati/SourceFiles/json_files/pronoun.json";
+        public const string time = "C:/Users/User/Documents/Kati_V2-1/Kati/SourceFiles/json_files/time.json";
+        public const string smallTalk = "C:/Users/User/Documents/Kati_V2-1/Kati/SourceFiles/json_files/smallTalk.json";
+        public const string DayDreamWonder = "C:/Users/User/Documents/Kati_V2-1/Kati/SourceFiles/json_files/DayDreamWonder.json";
+        public const string TestJson = "C:/Users/User/Documents/Kati_V2-1/KatiUnitTest/Module_Tests/GlobalModuleTest/RuleTester.json";
 
     }
 }
