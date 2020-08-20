@@ -52,7 +52,7 @@ namespace Kati.Data_Modules.GlobalClasses {
             }
             return null;
         }
-
+        //topic: dream  type: _statement
         public Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> DeepCopyDictionaryByTopic
             (string topic, int type) {
             string key = Keys[topic][type];

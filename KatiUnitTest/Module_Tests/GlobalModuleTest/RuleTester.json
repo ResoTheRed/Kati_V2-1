@@ -183,52 +183,82 @@
       }
     },
     "friend": {
-      "friend test 1": {
+      "friend test 1": { //keep1
         "req": [],
         "lead to": []
       },
-      "friend test 2": {
-        "req": [],
+      "friend test 2": { //keep 2
+        "req": [ "social.attribute.npc.friend.250" ],
         "lead to": []
       },
       "friend test 3": {
-        "req": [],
+        "req": [ "social.attribute.npc.friend.550" ],
         "lead to": []
       },
-      "friend test 4": {
-        "req": [],
+      "friend test 4": { //keep 3
+        "req": [ "social.attribute.player.friend.500" ],
         "lead to": []
       },
       "friend test 5": {
-        "req": [],
+        "req": [ "social.attribute.Vernon.friend.500" ],
         "lead to": []
       },
-      "friend test 6": {
-        "req": [],
+      "friend test 6": { //keep 4
+        "req": [ "ppp" ],
         "lead to": []
       },
-      "friend test 7": {
-        "req": [],
+      "friend test 7": { //keep 5
+        "req": [ "social.relationship.npc.trust.250" ],
         "lead to": []
       },
       "friend test 8": {
-        "req": [],
+        "req": [ "social.relationship.npc.dog" ],
         "lead to": []
       },
-      "friend test 9": {
-        "req": [],
+      "friend test 9": { //keep 6
+        "req": [ "social.directed.npc.curious about" ],
         "lead to": []
       },
-      "friend test 10": {
-        "req": [],
+      "friend test 10": { //keep 7
+        "req": [ "social.relationship.npc.not.dog" ],
         "lead to": []
       },
       "friend test 11": {
-        "req": [],
+        "req": [ "social.relationship.player.not.trust" ],
         "lead to": []
       },
-      "friend test 12": {
-        "req": [],
+      "friend test 12": { //keep 8
+        "req": [ "social.relationship.player.trust" ],
+        "lead to": []
+      },
+      "friend test 13": { //keep 9
+        "req": [ "social.relationship.Vernon.trust" ],
+        "lead to": []
+      },
+      "friend test 14": {
+        "req": [ "social.relationship.Michael.trust" ],
+        "lead to": []
+      },
+      "friend test 15": { //keep 10
+        "req": [ "social.directed.player.not.in love with" ],
+        "lead to": []
+      },
+      "friend test 16": {
+        "req": [ "social" ],
+        "lead to": []
+      },
+      "friend test 17": {
+        "req": [ "social.rely" ],
+        "lead to": []
+      },
+      "friend test 18": {//keep 11
+        "req": [
+          "social.attribute.Mary.not.hate.300",
+          "social.relationship.Mary.trust",
+          "social.directed.Mary.worried about",
+          "social.attribute.Mary.romance.100",
+          "social.directed.Mary.not.snubbed by"
+        ],
         "lead to": []
       }
     },
