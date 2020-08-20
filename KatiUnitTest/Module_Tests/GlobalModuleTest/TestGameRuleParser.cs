@@ -1,5 +1,6 @@
 ﻿using Kati.Data_Modules.GlobalClasses;
 using Kati.Module_Hub;
+using Kati.SourceFiles;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
 
         [TestInitialize]
         public void Start() {
-            ctrl = new Controller("C:/Users/User/Documents/NLG/KatiUnitTest/Module_Tests/GlobalModuleTest/RuleTester.json");
+            ctrl = new Controller(Constants.TestJson);
             SetGameData(ctrl.Game);
             data = ctrl.Lib.Data["sample1_statement"]["neutral"];
             game = ctrl.Parser.Game;
