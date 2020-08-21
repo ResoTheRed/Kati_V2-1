@@ -20,13 +20,14 @@ namespace Kati.GenericModule {
         private double personalFeature = 30;
         private double socialDirected = 50;
         private double socialRelationship = 25;
+        private double baseValue = 50;
 
         public DialogueWeigthRules(Controller ctrl) {
             Ctrl = ctrl;
         }
 
         public Controller Ctrl { get => ctrl; set => ctrl = value; }
-        internal Dictionary<string, Dictionary<string, List<string>>> Data { get => data; set => data = value; }
+        public Dictionary<string, Dictionary<string, List<string>>> Data { get => data; set => data = value; }
         protected double PublicEvent { get => publicEvent; set => publicEvent = value; }
         protected double PersonalTrait { get => personalTrait; set => personalTrait = value; }
         protected double PersonalStatus { get => personalStatus; set => personalStatus = value; }
@@ -55,7 +56,7 @@ namespace Kati.GenericModule {
             return weights;
         }
 
-        public void ParseIndividualDialogueRules(ref Dictionary<string, double> weights) {
+        protected void ParseIndividualDialogueRules(ref Dictionary<string, double> weights) {
             foreach (KeyValuePair<string, Dictionary<string, List<string>>> item1 in Data) {
                 double total = 0;
                 foreach (string s in Data[item1.Key]["req"]) {

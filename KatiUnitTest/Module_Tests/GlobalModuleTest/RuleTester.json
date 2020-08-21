@@ -263,51 +263,69 @@
       }
     },
     "respect": {
-      "respect test 1": {
+      "respect test 1": {//50
+        "req": [ "game.weather.humid" ],
+        "lead to": []
+      },
+      "respect test 2": {//70
+        "req": [ "game.publicEvent.art_fest" ],
+        "lead to": []
+      },
+      "respect test 3": {//90
+        "req": [ "personal.trait.adventurous" ],
+        "lead to": []
+      },
+      "respect test 4": { //70
+        "req": [ "personal.interest.likes music" ],
+        "lead to": []
+      },
+      "respect test 5": { //130
+        "req": [ "personal.status.injured" ],
+        "lead to": []
+      },
+      "respect test 6": { //80
+        "req": [ "personal.physicalFeature.is petite" ],
+        "lead to": []
+      },
+      "respect test 7": { //150
+        "req": [ "personal.scalarTrait.charm.1000" ],
+        "lead to": []
+      },
+      "respect test 8": { //100
+        "req": [ "social.attribute.player.romance.500" ],
+        "lead to": []
+      },
+      "respect test 9": { //100
+        "req": [ "social.directed.player.curious about" ],
+        "lead to": []
+      },
+      "respect test 10": { //75
+        "req": [ "social.relationship.player.involded with" ],
+        "lead to": []
+      },
+      "respect test 11": { //139
+        "req": [
+          "personal.trait.clumsy",
+          "personal.interest.likes eating",
+          "personal.scalarTrait.lucky.550",
+          "social.attribute.player.romance.890",
+          "socail.directed.player.in love with"
+        ],
+        "lead to": []
+      },
+      "respect test 12": {//50
         "req": [],
         "lead to": []
       },
-      "respect test 2": {
+      "respect test 13": {//50
         "req": [],
         "lead to": []
       },
-      "respect test 3": {
+      "respect test 14": {//50
         "req": [],
         "lead to": []
       },
-      "respect test 4": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 5": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 6": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 7": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 8": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 9": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 10": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 11": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 12": {
+      "respect test 15": {//50
         "req": [],
         "lead to": []
       }
