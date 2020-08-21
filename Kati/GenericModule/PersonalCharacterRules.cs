@@ -5,7 +5,7 @@ using System.Data;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
-namespace Kati.Data_Modules.GlobalClasses {
+namespace Kati.GenericModule {
     public class PersonalCharacterRules {
 
         public const string PERSONAL = "personal";
@@ -15,10 +15,10 @@ namespace Kati.Data_Modules.GlobalClasses {
         public const string PHYSICAL_FEATURES = "physicalFeature";
         public const string SCALAR_TRAIT = "scalarTrait";
         private Controller ctrl;
-        private CharacterData  npc;
+        private CharacterData npc;
 
         public PersonalCharacterRules(Controller ctrl) {
-            this.Ctrl = ctrl;
+            Ctrl = ctrl;
             npc = Ctrl.Npc;
         }
 
@@ -109,13 +109,13 @@ namespace Kati.Data_Modules.GlobalClasses {
             if (temp.Length < 2 || !Ctrl.Npc.InitiatorPersonalList.ContainsKey(temp[0]))
                 return true;
             try {
-                npcHas = Int32.Parse(Ctrl.Npc.InitiatorPersonalList[temp[0]]);
-                threshold = Int32.Parse(temp[1]);
+                npcHas = int.Parse(Ctrl.Npc.InitiatorPersonalList[temp[0]]);
+                threshold = int.Parse(temp[1]);
             } catch (FormatException) {
                 return true;
             }
             //return true to delete dialogue
-            return threshold>npcHas;
+            return threshold > npcHas;
         }
 
         protected bool CheckPhysicalFeatures(string[] temp) {
@@ -152,7 +152,7 @@ namespace Kati.Data_Modules.GlobalClasses {
         }
 
         protected bool CheckTrait(string[] temp) {
-            if (temp.Length<1)
+            if (temp.Length < 1)
                 return true;
             if (Ctrl.Npc.InitiatorPersonalList.ContainsKey(temp[0])) {
                 if (Ctrl.Npc.InitiatorPersonalList[temp[0]].Equals(TRAIT)) {

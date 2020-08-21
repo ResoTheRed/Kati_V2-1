@@ -1,10 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Kati.Data_Modules.GlobalClasses;
 using Kati.SourceFiles;
 using System.Collections.Generic;
+using Kati.GenericModule;
 
 namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
-    
+
     [TestClass]
     public class TestModuleLib {
 

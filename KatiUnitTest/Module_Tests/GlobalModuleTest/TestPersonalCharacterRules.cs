@@ -1,4 +1,4 @@
-﻿using Kati.Data_Modules.GlobalClasses;
+﻿using Kati.GenericModule;
 using Kati.SourceFiles;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;

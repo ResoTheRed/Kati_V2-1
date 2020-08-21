@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Kati.Data_Modules.GlobalClasses {
+namespace Kati.GenericModule {
 
     /// <summary>
     /// parser class that removes all dialogues that req game
@@ -24,7 +24,7 @@ namespace Kati.Data_Modules.GlobalClasses {
         private Dictionary<string, List<string>> keys;
 
         public GameRules(Controller ctrl) {
-            this.Ctrl = ctrl;
+            Ctrl = ctrl;
             keys = new Dictionary<string, List<string>>();
         }
 
@@ -46,11 +46,11 @@ namespace Kati.Data_Modules.GlobalClasses {
                 foreach (string req in data[item.Key]["req"]) {
                     if (RemoveElement(req)) {
                         keysToDelete.Add(item.Key);
-                    } 
+                    }
                 }
             }
             foreach (string key in keysToDelete) {
-                if(data.ContainsKey(key))
+                if (data.ContainsKey(key))
                     data.Remove(key);
             }
             return data;
@@ -107,13 +107,13 @@ namespace Kati.Data_Modules.GlobalClasses {
                 }
                 return !isNear;
             }
-            return !(Ctrl.Game.EventIsNear().Equals(temp[0]));
+            return !Ctrl.Game.EventIsNear().Equals(temp[0]);
         }
 
         protected bool CheckSeason(string[] temp) {
             if (temp[0] == null)
                 return true;
-            return !(temp[0].Equals(Ctrl.Game.Season));
+            return !temp[0].Equals(Ctrl.Game.Season);
         }
 
         protected bool CheckDayOfWeek(string[] temp) {
@@ -121,34 +121,34 @@ namespace Kati.Data_Modules.GlobalClasses {
                 return true;
             int day = 0;
             switch (temp[0]) {
-                case "mon": { day = 1; }break;
-                case "tues": { day = 2; }break;
-                case "weds": { day = 3; }break;
-                case "thurs": { day = 4; }break;
-                case "fri": { day = 5; }break;
-                case "sat": { day = 6; }break;
-                case "sun": { day = 7; }break;
+                case "mon": { day = 1; } break;
+                case "tues": { day = 2; } break;
+                case "weds": { day = 3; } break;
+                case "thurs": { day = 4; } break;
+                case "fri": { day = 5; } break;
+                case "sat": { day = 6; } break;
+                case "sun": { day = 7; } break;
             }
-            return !(day==(Ctrl.Game.DayOfWeek));
+            return !(day == Ctrl.Game.DayOfWeek);
         }
 
         protected bool CheckTimeOfDay(string[] temp) {
             if (temp[0] == null)
                 return true;
-            return !(temp[0].Equals(Ctrl.Game.TimeOfDay));
+            return !temp[0].Equals(Ctrl.Game.TimeOfDay);
         }
 
         protected bool CheckSector(string[] temp) {
             if (temp[0] == null)
                 return true;
-            return !(temp[0].Equals(Ctrl.Game.Sector.ToString()));
+            return !temp[0].Equals(Ctrl.Game.Sector.ToString());
         }
 
         protected bool CheckWeather(string[] temp) {
             //if(should I check to see if it exists in rule set)
             if (temp[0] == null)
                 return true;
-            return !(temp[0].Equals(Ctrl.Game.Weather));
+            return !temp[0].Equals(Ctrl.Game.Weather);
         }
 
 

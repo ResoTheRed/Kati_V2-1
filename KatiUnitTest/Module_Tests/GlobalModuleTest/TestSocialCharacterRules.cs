@@ -1,11 +1,11 @@
-﻿using Kati.Data_Modules.GlobalClasses;
+﻿using Kati.GenericModule;
 using Kati.Module_Hub;
 using Kati.SourceFiles;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
 namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
-    
+
     [TestClass]
     public class TestSocialCharacterRules {
         private Controller ctrl;

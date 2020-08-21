@@ -1,12 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using Kati.Data_Modules;
+using System.Collections.Generic;
 
-namespace Kati.Data_Modules.GlobalClasses {
-/// <summary>
-/// Generic Module class that each module can use as it's raw data library
-/// </summary>
+namespace Kati.GenericModule {
+    /// <summary>
+    /// Generic Module class that each module can use as it's raw data library
+    /// </summary>
 
 
-    public class ModuleLib: I_Module {
+    public class ModuleLib : I_Module {
         //holds all data formated straight from the JSON
         private Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>> data;
         //hold all of the dialogue topics. Format: {"dream" : ["dream_statement","dream_question", "dream_reponse"] }
@@ -72,6 +73,6 @@ namespace Kati.Data_Modules.GlobalClasses {
             }
             return dict;
         }
-    
+
     }
 }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Kati.Data_Modules.GlobalClasses {
+namespace Kati.GenericModule {
     /// <summary>
     /// Generic parent of all Module Controllers
     /// </summary>

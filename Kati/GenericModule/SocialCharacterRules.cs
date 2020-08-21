@@ -1,10 +1,9 @@
 ﻿using Kati.Module_Hub;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace Kati.Data_Modules.GlobalClasses {
-    
+namespace Kati.GenericModule {
+
     /// <summary>
     /// Handles requirements concerning social rules
     /// 
@@ -73,8 +72,8 @@ namespace Kati.Data_Modules.GlobalClasses {
             (key, temp) = Dequeue(temp);
             switch (key) {
                 case ATTRIBUTE: { remove = CheckAttribute(temp); } break;
-                case RELATIONSHIP: { remove = CheckStaticStat(temp,RELATIONSHIP); } break;
-                case DIRECTED_STATUS: { remove = CheckStaticStat(temp,DIRECTED_STATUS); } break;
+                case RELATIONSHIP: { remove = CheckStaticStat(temp, RELATIONSHIP); } break;
+                case DIRECTED_STATUS: { remove = CheckStaticStat(temp, DIRECTED_STATUS); } break;
                 default: { return true; }
             }
             return remove;
@@ -102,14 +101,14 @@ namespace Kati.Data_Modules.GlobalClasses {
                 return true;
             switch (key) {
                 case NPC: { return GetAnyNpcAttributes(temp); }
-                case PLAYER: { return GetScalarStat(temp,Npc.RespondersName); }
-                default: { TargetsName = key; return GetScalarStat(temp,TargetsName); }
+                case PLAYER: { return GetScalarStat(temp, Npc.RespondersName); }
+                default: { TargetsName = key; return GetScalarStat(temp, TargetsName); }
             }
         }
         //<optional not>.<stat>.<scalar value if applicable>
         protected bool GetAnyNpcAttributes(string[] temp) {
             (string key, bool inverse) = HandleNot(ref temp);
-            return RandomizeCharacterAttributes(key, ref temp,inverse);
+            return RandomizeCharacterAttributes(key, ref temp, inverse);
         }
         //run through each npc and see if the stat beats the threshold
         //select a random character from all applicants
@@ -120,9 +119,9 @@ namespace Kati.Data_Modules.GlobalClasses {
                     if (!item1.Key.Equals(Npc.RespondersName)) {
                         try {
                             if (item2.Key.Equals(key)) {
-                                if (!inverse && Int32.Parse(item2.Value) >= Int32.Parse(origin[0])) {
+                                if (!inverse && int.Parse(item2.Value) >= int.Parse(origin[0])) {
                                     temp.Add(item1.Key);
-                                } else if (inverse && Int32.Parse(item2.Value) < Int32.Parse(origin[0])) {
+                                } else if (inverse && int.Parse(item2.Value) < int.Parse(origin[0])) {
                                     temp.Add(item1.Key);
                                 }
                             }
@@ -136,11 +135,11 @@ namespace Kati.Data_Modules.GlobalClasses {
             return false;
         }
 
-        protected bool GetScalarStat(string[] temp,string name) {
+        protected bool GetScalarStat(string[] temp, string name) {
             (string key, bool inverse) = HandleNot(ref temp);
             bool removed = true;
             try {
-                removed = Int32.Parse(Npc.InitiatorSocialList[name][key]) < Int32.Parse(temp[0]);
+                removed = int.Parse(Npc.InitiatorSocialList[name][key]) < int.Parse(temp[0]);
                 if (inverse)
                     removed = !removed;
                 if (!removed)
@@ -149,27 +148,27 @@ namespace Kati.Data_Modules.GlobalClasses {
             return removed;
         }
 
-        protected bool CheckStaticStat(string[] temp,string type) {
+        protected bool CheckStaticStat(string[] temp, string type) {
             string key;
             (key, temp) = Dequeue(temp);
             if (temp.Length < 1)
                 return true;
             switch (key) {
                 case NPC: { return GetAnyNpcStaticStat(ref temp); }
-                case PLAYER: { 
-                        TargetsName = Npc.RespondersName; 
-                        return GetStaticStat(ref temp,TargetsName,type); 
+                case PLAYER: {
+                        TargetsName = Npc.RespondersName;
+                        return GetStaticStat(ref temp, TargetsName, type);
                     }
-                default: { 
+                default: {
                         TargetsName = key;
-                        return GetStaticStat(ref temp,TargetsName,type); 
+                        return GetStaticStat(ref temp, TargetsName, type);
                     }
             }
         }
 
         protected bool GetAnyNpcStaticStat(ref string[] temp) {
             (string key, bool inverse) = HandleNot(ref temp);
-            bool removed = RandomizeCharacterBoolStat(ref temp,key, inverse);
+            bool removed = RandomizeCharacterBoolStat(ref temp, key, inverse);
             return removed;
         }
 
@@ -183,7 +182,7 @@ namespace Kati.Data_Modules.GlobalClasses {
                         try {
                             if (!inverse && item2.Key.Equals(key)) {
                                 temp.Add(item1.Key);
-                            } else if (inverse && !Npc.InitiatorSocialList[item1.Key].ContainsKey(key)){
+                            } else if (inverse && !Npc.InitiatorSocialList[item1.Key].ContainsKey(key)) {
                                 temp.Add(item1.Key);
                                 //Console.WriteLine(item1.Key+" "+key+" "+ !Npc.InitiatorSocialList.ContainsKey(key));
                             }
@@ -197,7 +196,7 @@ namespace Kati.Data_Modules.GlobalClasses {
             return false;
         }
 
-        protected bool GetStaticStat(ref string[] temp, string name,string type) {
+        protected bool GetStaticStat(ref string[] temp, string name, string type) {
             (string key, bool inverse) = HandleNot(ref temp);
             bool removed = true;
             try {

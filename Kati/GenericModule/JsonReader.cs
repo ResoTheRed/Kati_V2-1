@@ -1,9 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using Kati.Data_Modules;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Kati.Data_Modules.GlobalClasses {
+namespace Kati.GenericModule {
     public class JsonReader {
 
         private static JsonReader reader;
@@ -33,7 +34,7 @@ namespace Kati.Data_Modules.GlobalClasses {
             dict = new Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>();
             foreach (KeyValuePair<string, Dictionary<string, Dictionary<string, List<string>>>> s1 in reader.data[key]) {
                 dict[s1.Key] = new Dictionary<string, Dictionary<string, List<string>>>();
-                foreach (KeyValuePair<string,Dictionary<string, List<string>>>  s2 in reader.data[key][s1.Key]) {
+                foreach (KeyValuePair<string, Dictionary<string, List<string>>> s2 in reader.data[key][s1.Key]) {
                     dict[s1.Key][s2.Key] = new Dictionary<string, List<string>>();
                     foreach (KeyValuePair<string, List<string>> s3 in reader.data[key][s1.Key][s2.Key]) {
                         dict[s1.Key][s2.Key][s3.Key] = new List<string>();
@@ -44,7 +45,7 @@ namespace Kati.Data_Modules.GlobalClasses {
                 }
             }
         }
-        
+
         public static void ShallowCopyCompleteDictionary
             (Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>> dict) {
             dict = reader.data;
@@ -53,7 +54,7 @@ namespace Kati.Data_Modules.GlobalClasses {
         public static void DeepCopyCompleteDictionary
             (Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>> dict) {
             dict = new Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>>();
-            foreach (KeyValuePair<string, Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>> s0 in reader.data) { 
+            foreach (KeyValuePair<string, Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>> s0 in reader.data) {
                 dict[s0.Key] = new Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>();
                 foreach (KeyValuePair<string, Dictionary<string, Dictionary<string, List<string>>>> s1 in reader.data[s0.Key]) {
                     dict[s0.Key][s1.Key] = new Dictionary<string, Dictionary<string, List<string>>>();
@@ -72,12 +73,12 @@ namespace Kati.Data_Modules.GlobalClasses {
 
 
         private Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>> data;
-        
+
         public Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>> Data { get => data; }
 
         private JsonReader() { }
 
-        
+
         /// <summary>
         /// converts a file into a string.  Requires path.
         /// </summary>
@@ -119,6 +120,6 @@ namespace Kati.Data_Modules.GlobalClasses {
                 JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>>>(json);
             this.data = data;
         }
-        
+
     }
 }
