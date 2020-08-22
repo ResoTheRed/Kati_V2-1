@@ -1,4 +1,5 @@
 ﻿using Kati.Module_Hub;
+using Kati.SourceFiles;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,14 +13,6 @@ namespace Kati.GenericModule {
     public class GameRules {
 
         //Default rule branches from game
-        public const string GAME = "game";
-        public const string WEATHER = "weather";
-        public const string SECTOR = "sector";
-        public const string TIME_OF_DAY = "time";
-        public const string DAY_OF_WEEK = "day";
-        public const string SEASON = "season";
-        public const string PUBLIC_EVENT = "publicEvent";
-        public const string TRIGGER_EVENT = "trigger";
         private Controller ctrl;
         private Dictionary<string, List<string>> keys;
 
@@ -43,7 +36,7 @@ namespace Kati.GenericModule {
                                 (Dictionary<string, Dictionary<string, List<string>>> data) {
             List<string> keysToDelete = new List<string>();
             foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in data) {
-                foreach (string req in data[item.Key]["req"]) {
+                foreach (string req in data[item.Key][Constants.REQ]) {
                     if (RemoveElement(req)) {
                         keysToDelete.Add(item.Key);
                     }
@@ -61,9 +54,9 @@ namespace Kati.GenericModule {
             if (req == null)
                 return true;
             string[] arr = req.Split(".");
-            if (arr.Length < 3 && arr[0].Equals(GAME)) {
+            if (arr.Length < 3 && arr[0].Equals(Constants.GAME)) {
                 return true;
-            } else if (arr.Length == 0 || !arr[0].Equals(GAME)) {
+            } else if (arr.Length == 0 || !arr[0].Equals(Constants.GAME)) {
                 return false;
             } else {
                 string[] temp = new string[arr.Length - 1];
@@ -81,13 +74,13 @@ namespace Kati.GenericModule {
                 temp[i - 1] = arr[i];
             }
             switch (key) {
-                case WEATHER: { return CheckWeather(temp); }
-                case SECTOR: { return CheckSector(temp); }
-                case TIME_OF_DAY: { return CheckTimeOfDay(temp); }
-                case DAY_OF_WEEK: { return CheckDayOfWeek(temp); }
-                case SEASON: { return CheckSeason(temp); }
-                case PUBLIC_EVENT: { return CheckPublicEvent(temp); }
-                case TRIGGER_EVENT: { return CheckTriggerEvent(temp); }
+                case Constants.WEATHER: { return CheckWeather(temp); }
+                case Constants.SECTOR: { return CheckSector(temp); }
+                case Constants.TIME_OF_DAY: { return CheckTimeOfDay(temp); }
+                case Constants.DAY_OF_WEEK: { return CheckDayOfWeek(temp); }
+                case Constants.SEASON: { return CheckSeason(temp); }
+                case Constants.PUBLIC_EVENT: { return CheckPublicEvent(temp); }
+                case Constants.TRIGGER_EVENT: { return CheckTriggerEvent(temp); }
                 default: { return true; }//if it made it here then there is a typo
             }
         }
@@ -99,7 +92,7 @@ namespace Kati.GenericModule {
         protected bool CheckPublicEvent(string[] temp) {
             if (temp[0] == null || temp == null)
                 return true;
-            if (temp[0].Equals("next")) {
+            if (temp[0].Equals(Constants.NEXT_EVENT)) {
                 bool isNear = false;
                 //return false if it needs to be saved
                 foreach (KeyValuePair<string, int> item in Ctrl.Game.EventCalendar[Ctrl.Game.Season]) {
@@ -121,13 +114,13 @@ namespace Kati.GenericModule {
                 return true;
             int day = 0;
             switch (temp[0]) {
-                case "mon": { day = 1; } break;
-                case "tues": { day = 2; } break;
-                case "weds": { day = 3; } break;
-                case "thurs": { day = 4; } break;
-                case "fri": { day = 5; } break;
-                case "sat": { day = 6; } break;
-                case "sun": { day = 7; } break;
+                case Constants.MON: { day = 1; } break;
+                case Constants.TUE: { day = 2; } break;
+                case Constants.WED: { day = 3; } break;
+                case Constants.THUR: { day = 4; } break;
+                case Constants.FRI: { day = 5; } break;
+                case Constants.SAT: { day = 6; } break;
+                case Constants.SUN: { day = 7; } break;
             }
             return !(day == Ctrl.Game.DayOfWeek);
         }

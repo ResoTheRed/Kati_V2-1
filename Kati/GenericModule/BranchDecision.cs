@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Kati.SourceFiles;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Kati.GenericModule {
     /// <summary>
@@ -8,7 +7,14 @@ namespace Kati.GenericModule {
     /// character data and inner ruling.  It is only for Statements and questions
     /// </summary>
     public class BranchDecision {
-
+        private const string ROMANCE = Constants.ROMANCE;
+        private const string DISGUST = Constants.DISGUST;
+        private const string FRIEND = Constants.FRIEND;
+        private const string HATE = Constants.HATE;
+        private const string PROFESSIONAL = Constants.PROFESSIONAL;
+        private const string RIVALRY = Constants.RIVALRY;
+        private const string AFFINITY = Constants.AFFINITY;
+        private const string RESPECT = Constants.RESPECT;
         private Controller ctrl;
         //attribute Threshold
         private int high;
@@ -46,63 +52,63 @@ namespace Kati.GenericModule {
         public Dictionary<string, double> CancelAttributeTones() {
             var tone = Ctrl.Npc.InitiatorsTone;
             Dictionary<string, double> new_tone = new Dictionary<string, double>();
-            new_tone["romance"] = RomanceRule(tone);
-            new_tone["disgust"] = DisgustRule(tone);
-            new_tone["friend"] = FriendRule(tone);
-            new_tone["hate"] = HateRule(tone);
-            new_tone["professional"] = ProfessionalRule(tone);
-            new_tone["rivalry"] = RivalryRule(tone);
-            new_tone["affinity"] = Affinity(tone);
-            new_tone["respect"] = RespectRule(tone);
+            new_tone[ROMANCE] = RomanceRule(tone);
+            new_tone[DISGUST] = DisgustRule(tone);
+            new_tone[FRIEND] = FriendRule(tone);
+            new_tone[HATE] = HateRule(tone);
+            new_tone[PROFESSIONAL] = ProfessionalRule(tone);
+            new_tone[RIVALRY] = RivalryRule(tone);
+            new_tone[AFFINITY] = Affinity(tone);
+            new_tone[RESPECT] = RespectRule(tone);
             return new_tone;
         }
 
         //romance += admiration - (disgust+(hate/2))
         protected double RomanceRule(Dictionary<string, double> tone) {
-            double romance = tone["romance"] + tone["affinity"] / 2;
-            romance -= tone["disgust"] + tone["hate"] / 2;
+            double romance = tone[ROMANCE] + tone[AFFINITY] / 2;
+            romance -= tone[DISGUST] + tone[HATE] / 2;
             return romance;
         }
 
         protected double DisgustRule(Dictionary<string, double> tone) {
-            double disgust = tone["disgust"] + tone["hate"] / 2;
-            disgust -= tone["romance"] + tone["affinity"] / 2;
+            double disgust = tone[DISGUST] + tone[HATE] / 2;
+            disgust -= tone[ROMANCE] + tone[AFFINITY] / 2;
             return disgust;
         }
 
         protected double FriendRule(Dictionary<string, double> tone) {
-            double friend = tone["friend"] + tone["respect"] / 2 + tone["affinity"] / 2;
-            friend -= tone["hate"] + tone["disgust"] / 2;
+            double friend = tone[FRIEND] + tone[RESPECT] / 2 + tone[AFFINITY] / 2;
+            friend -= tone[HATE] + tone[DISGUST] / 2;
             return friend;
         }
 
         protected double HateRule(Dictionary<string, double> tone) {
-            double hate = tone["hate"] + tone["disgust"] / 2;
-            hate -= tone["friend"] + tone["affinity"] / 2;
+            double hate = tone[HATE] + tone[DISGUST] / 2;
+            hate -= tone[FRIEND] + tone[AFFINITY] / 2;
             return hate;
         }
 
         protected double ProfessionalRule(Dictionary<string, double> tone) {
-            double prof = tone["professional"] + tone["respect"] / 2;
-            prof -= tone["rivalry"] + tone["disgust"] / 2;
+            double prof = tone[PROFESSIONAL] + tone[RESPECT] / 2;
+            prof -= tone[RIVALRY] + tone[DISGUST] / 2;
             return prof;
         }
 
         protected double RivalryRule(Dictionary<string, double> tone) {
-            double prof = tone["rivalry"] + tone["respect"] / 2;
-            prof -= tone["professional"] + tone["affinity"] / 2;
+            double prof = tone[RIVALRY] + tone[RESPECT] / 2;
+            prof -= tone[PROFESSIONAL] + tone[AFFINITY] / 2;
             return prof;
         }
 
         protected double Affinity(Dictionary<string, double> tone) {
-            double admire = tone["affinity"] + tone["romance"] / 2;
-            admire -= tone["disgust"] + tone["hate"] / 2;
+            double admire = tone[AFFINITY] + tone[ROMANCE] / 2;
+            admire -= tone[DISGUST] + tone[HATE] / 2;
             return admire;
         }
 
         protected double RespectRule(Dictionary<string, double> tone) {
-            double respect = tone["respect"] + tone["professional"] / 2;
-            respect -= tone["disgust"] + tone["hate"] / 2;
+            double respect = tone[RESPECT] + tone[PROFESSIONAL] / 2;
+            respect -= tone[DISGUST] + tone[HATE] / 2;
             return respect;
         }
 
@@ -184,14 +190,14 @@ namespace Kati.GenericModule {
             if (IsNeutral) return 0;
             double total = 0;
             ReduceAttributeValue(copy);
-            total = ProbabilityOffsetSingle(copy, "romance", total, 280);
-            total = ProbabilityOffsetSingle(copy, "hate", total, 240);
-            total = ProbabilityOffsetSingle(copy, "disgust", total, 200);
-            total = ProbabilityOffsetSingle(copy, "affinity", total, 160);
-            total = ProbabilityOffsetSingle(copy, "friend", total, 120);
-            total = ProbabilityOffsetSingle(copy, "respect", total, 80);
-            total = ProbabilityOffsetSingle(copy, "rivalry", total, 40);
-            total = ProbabilityOffsetSingle(copy, "professional", total, 0);
+            total = ProbabilityOffsetSingle(copy, ROMANCE, total, 280);
+            total = ProbabilityOffsetSingle(copy, HATE, total, 240);
+            total = ProbabilityOffsetSingle(copy, DISGUST, total, 200);
+            total = ProbabilityOffsetSingle(copy, AFFINITY, total, 160);
+            total = ProbabilityOffsetSingle(copy, FRIEND, total, 120);
+            total = ProbabilityOffsetSingle(copy, RESPECT, total, 80);
+            total = ProbabilityOffsetSingle(copy, RIVALRY, total, 40);
+            total = ProbabilityOffsetSingle(copy, PROFESSIONAL, total, 0);
             return total;
         }
 
@@ -218,35 +224,35 @@ namespace Kati.GenericModule {
         public List<string> PickAtttibutes(Dictionary<string, double> copy, double max) {
             List<string> sort = new List<string>();
             if (IsNeutral) {
-                sort.Add("neutral");
+                sort.Add(Constants.NEUTRAL);
                 return sort;
             }
             while (copy.Count > 0) {
                 double choice = Controller.dice.NextDouble() * max;
-                if (copy.ContainsKey("romance") && copy["romance"] >= choice) {
-                    sort.Add("romance");
-                    copy.Remove("romance");
-                } else if (copy.ContainsKey("hate") && copy["hate"] >= choice) {
-                    sort.Add("hate");
-                    copy.Remove("hate");
-                } else if (copy.ContainsKey("disgust") && copy["disgust"] >= choice) {
-                    sort.Add("disgust");
-                    copy.Remove("disgust");
-                } else if (copy.ContainsKey("affinity") && copy["affinity"] >= choice) {
-                    sort.Add("affinity");
-                    copy.Remove("affinity");
-                } else if (copy.ContainsKey("friend") && copy["friend"] >= choice) {
-                    sort.Add("friend");
-                    copy.Remove("friend");
-                } else if (copy.ContainsKey("respect") && copy["respect"] >= choice) {
-                    sort.Add("respect");
-                    copy.Remove("respect");
-                } else if (copy.ContainsKey("rivalry") && copy["rivalry"] >= choice) {
-                    sort.Add("rivaly");
-                    copy.Remove("rivalry");
-                } else if (copy.ContainsKey("professional") && copy["professional"] >= choice) {
-                    sort.Add("professional");
-                    copy.Remove("professional");
+                if (copy.ContainsKey(ROMANCE) && copy[ROMANCE] >= choice) {
+                    sort.Add(ROMANCE);
+                    copy.Remove(ROMANCE);
+                } else if (copy.ContainsKey(HATE) && copy[HATE] >= choice) {
+                    sort.Add(HATE);
+                    copy.Remove(HATE);
+                } else if (copy.ContainsKey(DISGUST) && copy[DISGUST] >= choice) {
+                    sort.Add(DISGUST);
+                    copy.Remove(DISGUST);
+                } else if (copy.ContainsKey(AFFINITY) && copy[AFFINITY] >= choice) {
+                    sort.Add(AFFINITY);
+                    copy.Remove(AFFINITY);
+                } else if (copy.ContainsKey(FRIEND) && copy[FRIEND] >= choice) {
+                    sort.Add(FRIEND);
+                    copy.Remove(FRIEND);
+                } else if (copy.ContainsKey(RESPECT) && copy[RESPECT] >= choice) {
+                    sort.Add(RESPECT);
+                    copy.Remove(RESPECT);
+                } else if (copy.ContainsKey(RIVALRY) && copy[RIVALRY] >= choice) {
+                    sort.Add(RIVALRY);
+                    copy.Remove(RIVALRY);
+                } else if (copy.ContainsKey(PROFESSIONAL) && copy[PROFESSIONAL] >= choice) {
+                    sort.Add(PROFESSIONAL);
+                    copy.Remove(PROFESSIONAL);
                 } else {
                     //break;//something went wrong
                 }

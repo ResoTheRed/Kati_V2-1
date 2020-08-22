@@ -1,19 +1,11 @@
 ﻿using Kati.Module_Hub;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
+using Kati.SourceFiles;
 
 namespace Kati.GenericModule {
     public class PersonalCharacterRules {
 
-        public const string PERSONAL = "personal";
-        public const string TRAIT = "trait";
-        public const string STATUS = "status";
-        public const string INTEREST = "interest";
-        public const string PHYSICAL_FEATURES = "physicalFeature";
-        public const string SCALAR_TRAIT = "scalarTrait";
         private Controller ctrl;
         private CharacterData npc;
 
@@ -29,7 +21,7 @@ namespace Kati.GenericModule {
                                 (Dictionary<string, Dictionary<string, List<string>>> data) {
             List<string> keysToDelete = new List<string>();
             foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in data) {
-                foreach (string req in data[item.Key]["req"]) {
+                foreach (string req in data[item.Key][Constants.REQ]) {
                     if (RemoveElement(req)) {
                         keysToDelete.Add(item.Key);
                     }
@@ -46,9 +38,9 @@ namespace Kati.GenericModule {
             if (req == null)
                 return true;
             string[] arr = req.Split(".");
-            if (arr.Length < 3 && arr[0].Equals(PERSONAL)) {
+            if (arr.Length < 3 && arr[0].Equals(Constants.PERSONAL)) {
                 return true;
-            } else if (arr.Length == 0 || !arr[0].Equals(PERSONAL)) {
+            } else if (arr.Length == 0 || !arr[0].Equals(Constants.PERSONAL)) {
                 return false;
             } else {
                 string[] temp = new string[arr.Length - 1];
@@ -66,7 +58,7 @@ namespace Kati.GenericModule {
             (string key, string[] temp) = dequeue(arr);
             if (temp.Length < 1)
                 return true;
-            bool inverse = temp[0].Equals("not");
+            bool inverse = temp[0].Equals(Constants.NOT);
             if (inverse) {
                 var t = dequeue(temp);
                 temp = t.Item2;
@@ -80,11 +72,11 @@ namespace Kati.GenericModule {
         private bool RulesDirectory(string key, string[] temp) {
             bool remove;
             switch (key) {
-                case TRAIT: { remove = CheckTrait(temp); } break;
-                case STATUS: { remove = CheckStatus(temp); } break;
-                case INTEREST: { remove = CheckInterest(temp); } break;
-                case PHYSICAL_FEATURES: { remove = CheckPhysicalFeatures(temp); } break;
-                case SCALAR_TRAIT: { remove = CheckScalarTrait(temp); } break;
+                case Constants.TRAIT: { remove = CheckTrait(temp); } break;
+                case Constants.STATUS: { remove = CheckStatus(temp); } break;
+                case Constants.INTEREST: { remove = CheckInterest(temp); } break;
+                case Constants.PHYSICAL_FEATURES: { remove = CheckPhysicalFeatures(temp); } break;
+                case Constants.SCALAR_TRAIT: { remove = CheckScalarTrait(temp); } break;
                 default: { return true; }
             }
             return remove;
@@ -122,7 +114,7 @@ namespace Kati.GenericModule {
             if (temp.Length < 1)
                 return true;
             if (Ctrl.Npc.InitiatorPersonalList.ContainsKey(temp[0])) {
-                if (Ctrl.Npc.InitiatorPersonalList[temp[0]].Equals(PHYSICAL_FEATURES)) {
+                if (Ctrl.Npc.InitiatorPersonalList[temp[0]].Equals(Constants.PHYSICAL_FEATURES)) {
                     return false;
                 }
             }
@@ -133,7 +125,7 @@ namespace Kati.GenericModule {
             if (temp.Length < 1)
                 return true;
             if (Ctrl.Npc.InitiatorPersonalList.ContainsKey(temp[0])) {
-                if (Ctrl.Npc.InitiatorPersonalList[temp[0]].Equals(INTEREST)) {
+                if (Ctrl.Npc.InitiatorPersonalList[temp[0]].Equals(Constants.INTEREST)) {
                     return false;
                 }
             }
@@ -144,7 +136,7 @@ namespace Kati.GenericModule {
             if (temp.Length < 1)
                 return true;
             if (Ctrl.Npc.InitiatorPersonalList.ContainsKey(temp[0])) {
-                if (Ctrl.Npc.InitiatorPersonalList[temp[0]].Equals(STATUS)) {
+                if (Ctrl.Npc.InitiatorPersonalList[temp[0]].Equals(Constants.STATUS)) {
                     return false;
                 }
             }
@@ -155,7 +147,7 @@ namespace Kati.GenericModule {
             if (temp.Length < 1)
                 return true;
             if (Ctrl.Npc.InitiatorPersonalList.ContainsKey(temp[0])) {
-                if (Ctrl.Npc.InitiatorPersonalList[temp[0]].Equals(TRAIT)) {
+                if (Ctrl.Npc.InitiatorPersonalList[temp[0]].Equals(Constants.TRAIT)) {
                     return false;
                 }
             }

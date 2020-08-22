@@ -1,6 +1,7 @@
 ﻿using Kati.Module_Hub;
 using System;
 using System.Collections.Generic;
+using Kati.SourceFiles;
 
 namespace Kati.GenericModule {
 
@@ -9,13 +10,7 @@ namespace Kati.GenericModule {
     /// 
     /// </summary>
     public class SocialCharacterRules {
-
-        public const string SOCIAL = "social";
-        public const string NPC = "npc";
-        public const string PLAYER = "player";
-        public const string ATTRIBUTE = "attribute";
-        public const string RELATIONSHIP = "relationship";
-        public const string DIRECTED_STATUS = "directed";
+        
         private Controller ctrl;
         private CharacterData npc;
         private string targetsName;
@@ -33,7 +28,7 @@ namespace Kati.GenericModule {
                                (Dictionary<string, Dictionary<string, List<string>>> data) {
             List<string> keysToDelete = new List<string>();
             foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in data) {
-                foreach (string req in data[item.Key]["req"]) {
+                foreach (string req in data[item.Key][Constants.REQ]) {
                     if (RemoveElement(req)) {
                         keysToDelete.Add(item.Key);
                     }
@@ -52,9 +47,9 @@ namespace Kati.GenericModule {
             if (req == null)
                 return true;
             string[] arr = req.Split(".");
-            if (arr.Length < 4 && arr[0].Equals(SOCIAL)) {
+            if (arr.Length < 4 && arr[0].Equals(Constants.SOCIAL)) {
                 return true;
-            } else if (arr.Length == 0 || !arr[0].Equals(SOCIAL)) {
+            } else if (arr.Length == 0 || !arr[0].Equals(Constants.SOCIAL)) {
                 return false;
             } else {
                 string[] temp = new string[arr.Length - 1];
@@ -71,9 +66,9 @@ namespace Kati.GenericModule {
             string key;
             (key, temp) = Dequeue(temp);
             switch (key) {
-                case ATTRIBUTE: { remove = CheckAttribute(temp); } break;
-                case RELATIONSHIP: { remove = CheckStaticStat(temp, RELATIONSHIP); } break;
-                case DIRECTED_STATUS: { remove = CheckStaticStat(temp, DIRECTED_STATUS); } break;
+                case Constants.ATTRIBUTE: { remove = CheckAttribute(temp); } break;
+                case Constants.RELATIONSHIP: { remove = CheckStaticStat(temp, Constants.RELATIONSHIP); } break;
+                case Constants.DIRECTED_STATUS: { remove = CheckStaticStat(temp, Constants.DIRECTED_STATUS); } break;
                 default: { return true; }
             }
             return remove;
@@ -100,8 +95,8 @@ namespace Kati.GenericModule {
             if (temp.Length < 1)
                 return true;
             switch (key) {
-                case NPC: { return GetAnyNpcAttributes(temp); }
-                case PLAYER: { return GetScalarStat(temp, Npc.RespondersName); }
+                case Constants.NPC: { return GetAnyNpcAttributes(temp); }
+                case Constants.PLAYER: { return GetScalarStat(temp, Npc.RespondersName); }
                 default: { TargetsName = key; return GetScalarStat(temp, TargetsName); }
             }
         }
@@ -154,8 +149,8 @@ namespace Kati.GenericModule {
             if (temp.Length < 1)
                 return true;
             switch (key) {
-                case NPC: { return GetAnyNpcStaticStat(ref temp); }
-                case PLAYER: {
+                case Constants.NPC: { return GetAnyNpcStaticStat(ref temp); }
+                case Constants.PLAYER: {
                         TargetsName = Npc.RespondersName;
                         return GetStaticStat(ref temp, TargetsName, type);
                     }
@@ -213,7 +208,7 @@ namespace Kati.GenericModule {
             string key;
             bool inverse = false;
             (key, temp) = Dequeue(temp);
-            if (key.Equals("not")) {
+            if (key.Equals(Constants.NOT)) {
                 inverse = true;
                 (key, temp) = Dequeue(temp);
             }

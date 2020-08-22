@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kati.SourceFiles;
+using System;
 using System.Collections.Generic;
 
 namespace Kati.GenericModule {
@@ -59,7 +60,7 @@ namespace Kati.GenericModule {
         protected void ParseIndividualDialogueRules(ref Dictionary<string, double> weights) {
             foreach (KeyValuePair<string, Dictionary<string, List<string>>> item1 in Data) {
                 double total = 0;
-                foreach (string s in Data[item1.Key]["req"]) {
+                foreach (string s in Data[item1.Key][Constants.REQ]) {
                     double value = RuleDirectoryTop(s);
                     if (value > total) {
                         total = value;
@@ -74,37 +75,37 @@ namespace Kati.GenericModule {
             if (arr.Length < 3)
                 return 0;
             switch (arr[0]) {
-                case "personal": { return RuleDirectoryPersonal(ref arr); }
-                case "social": { return RuleDirectorySocial(ref arr); }
-                case "game": { return RuleDirectoryGame(ref arr); }
+                case Constants.PERSONAL: { return RuleDirectoryPersonal(ref arr); }
+                case Constants.SOCIAL: { return RuleDirectorySocial(ref arr); }
+                case Constants.GAME: { return RuleDirectoryGame(ref arr); }
                 default: return 0;
             }
         }
 
         protected double RuleDirectoryGame(ref string[] arr) {
             switch (arr[1]) {
-                case "publicEvent": { return PublicEvent; }
-                case "trigger": { return Trigger; }
+                case Constants.PUBLIC_EVENT: { return PublicEvent; }
+                case Constants.TRIGGER_EVENT: { return Trigger; }
                 default: return 0;
             }
         }
 
         protected double RuleDirectorySocial(ref string[] arr) {
             switch (arr[1]) {
-                case "attribute": { return HandleScalar(arr); }
-                case "directed": { return SocialDirected; }
-                case "relationship": { return SocialRelationship; }
+                case Constants.ATTRIBUTE: { return HandleScalar(arr); }
+                case Constants.DIRECTED_STATUS: { return SocialDirected; }
+                case Constants.RELATIONSHIP: { return SocialRelationship; }
                 default: return 0;
             }
         }
 
         protected double RuleDirectoryPersonal(ref string[] arr) {
             switch (arr[1]) {
-                case "trait": return PersonalTrait;
-                case "interest": return personalInterest;
-                case "status": return PersonalStatus;
-                case "physicalFeature": return personalFeature;
-                case "scalarTrait": return HandleScalar(arr);
+                case Constants.TRAIT: return PersonalTrait;
+                case Constants.INTEREST: return personalInterest;
+                case Constants.STATUS: return PersonalStatus;
+                case Constants.PHYSICAL_FEATURES: return personalFeature;
+                case Constants.SCALAR_TRAIT: return HandleScalar(arr);
                 default: return 0;
             }
         }
@@ -142,7 +143,7 @@ namespace Kati.GenericModule {
                     weights[keys[i]] += weights[keys[i - 1]];
                 }
             }
-            return (weights[keys[keys.Count - 1]], keys);
+            return (weights[keys[^1]], keys);
         }
 
     }
