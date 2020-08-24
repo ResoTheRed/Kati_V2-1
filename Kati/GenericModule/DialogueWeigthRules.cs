@@ -36,7 +36,8 @@ namespace Kati.GenericModule {
         protected double SocialDirected { get => socialDirected; set => socialDirected = value; }
         protected double SocialRelationship { get => socialRelationship; set => socialRelationship = value; }
         protected double Trigger { get => trigger; set => trigger = value; }
-        public double PersonalFeature { get => personalFeature; set => personalFeature = value; }
+        protected double PersonalFeature { get => personalFeature; set => personalFeature = value; }
+        protected double BaseValue { get => baseValue; set => baseValue = value; }
 
         public Dictionary<string, Dictionary<string, List<string>>> GetDialogue
                             (Dictionary<string, Dictionary<string, List<string>>> data) {

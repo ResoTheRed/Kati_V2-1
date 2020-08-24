@@ -14,7 +14,6 @@ Split into 10 default categories: (in order of presidence)
     7. "rivalry": competitor like relationship 
     8. "professional": will probably get rid of this one 
     9. "neutral": no strong feeling but aquantinces (default option)
-    10."Stranger to": strangers
 
 Any additional branches will be defined in Derived Parser classes. 
 

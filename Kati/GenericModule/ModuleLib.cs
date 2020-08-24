@@ -1,6 +1,7 @@
 ﻿using Kati.Data_Modules;
 using System.Collections.Generic;
 
+
 namespace Kati.GenericModule {
     /// <summary>
     /// Generic Module class that each module can use as it's raw data library
@@ -40,6 +41,18 @@ namespace Kati.GenericModule {
                 Keys[key].Add(key + "_question");
                 Keys[key].Add(key + "_response");
             }
+        }
+
+        //Return topic titles from each sub topic in the module
+        public List<string> GetTopicKeys() {
+            List<string> temp = new List<string>();
+            foreach (KeyValuePair <string, Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>> item in Data) {
+                string[] t = item.Key.Split("_");
+                if (!temp.Contains(t[0])) {
+                    temp.Add(t[0]);
+                }
+            }
+            return temp;
         }
 
         public void SetConversationTypeKeys(Dictionary<string, List<string>> keys) {

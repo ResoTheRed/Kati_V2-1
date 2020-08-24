@@ -83,5 +83,14 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
             Assert.IsTrue(d1.Count == lib.Data[lib.Keys["dream"][lib.STATEMENT]].Count);
         }
 
+        [TestMethod]
+        public void TestGetTopicKeys() {
+            var list = lib.GetTopicKeys();
+            Assert.IsTrue(list.Count==3);
+            Assert.IsTrue(list.Contains("dream"));
+            Assert.IsTrue(list.Contains("trivia"));
+            Assert.IsTrue(list.Contains("wonder"));
+        }
+
     }
 }

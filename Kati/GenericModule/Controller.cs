@@ -15,21 +15,28 @@ namespace Kati.GenericModule {
         private GameData game;
         private CharacterData npc;
         private Parser parser;
+        private DeviseTopic topic;
+        private DeviseType type;
 
         public Controller(string path) {
             Lib = new ModuleLib(path);
             Game = new GameData();
             Npc = CharacterData.GetCharacterData();
             parser = new Parser(this);
+            topic = new DeviseTopic(Lib.GetTopicKeys());
+            type = new DeviseType();
         }
 
         public ModuleLib Lib { get => lib; set => lib = value; }
         public GameData Game { get => game; set => game = value; }
         public CharacterData Npc { get => npc; set => npc = value; }
         public Parser Parser { get => parser; set => parser = value; }
+        public DeviseTopic Topic { get => topic; set => topic = value; }
 
         //need to update game data
         //need to update character data
+
+
         //need to decide which topic
         //need to decide which type of topic 
 

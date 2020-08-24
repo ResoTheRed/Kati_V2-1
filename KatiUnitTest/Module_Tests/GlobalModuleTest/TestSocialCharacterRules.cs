@@ -39,20 +39,20 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
             foreach (string att in arr) {
                 temp["Vernon"][att] = "300";
             }
-            temp["Player"]["trust"] = SocialCharacterRules.RELATIONSHIP;
-            temp["Player"]["friends with"] = SocialCharacterRules.RELATIONSHIP;
-            temp["Mary"]["trust"] = SocialCharacterRules.RELATIONSHIP;
-            temp["Mary"]["loyal to"] = SocialCharacterRules.RELATIONSHIP;
-            temp["Dudley"]["trust"] = SocialCharacterRules.RELATIONSHIP;
-            temp["Dudley"]["related to"] = SocialCharacterRules.RELATIONSHIP;
-            temp["Vernon"]["trust"] = SocialCharacterRules.RELATIONSHIP;
-            temp["Vernon"]["works with"] = SocialCharacterRules.RELATIONSHIP;
+            temp["Player"]["trust"] = Constants.RELATIONSHIP;
+            temp["Player"]["friends with"] = Constants.RELATIONSHIP;
+            temp["Mary"]["trust"] = Constants.RELATIONSHIP;
+            temp["Mary"]["loyal to"] = Constants.RELATIONSHIP;
+            temp["Dudley"]["trust"] = Constants.RELATIONSHIP;
+            temp["Dudley"]["related to"] = Constants.RELATIONSHIP;
+            temp["Vernon"]["trust"] = Constants.RELATIONSHIP;
+            temp["Vernon"]["works with"] = Constants.RELATIONSHIP;
             arr = new string[]{"interested in","attracted to","curious about","in love with","betrayed by","worried about", "snubbed by" };
             int max = 3;
             int min = 0;
             foreach (string name in names) {
                 for (int i = min; i < max; ++i) {
-                    temp[name][arr[i]] = SocialCharacterRules.DIRECTED_STATUS;
+                    temp[name][arr[i]] = Constants.DIRECTED_STATUS;
                 }
                 max++;
                 min++;

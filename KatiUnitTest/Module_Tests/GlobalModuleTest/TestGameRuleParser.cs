@@ -42,35 +42,35 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
         [TestMethod]
         public void TestRuleDirector1() {
             SetGameData(ctrl.Game);
-            string[] arr = { GameRules.WEATHER, "nice_day" };
+            string[] arr = { Constants.WEATHER, "nice_day" };
             bool remove = game.RuleDirectory(arr);
             Assert.IsFalse(remove);
-            arr = new string[] { GameRules.WEATHER, "hot" };
+            arr = new string[] { Constants.WEATHER, "hot" };
             remove = game.RuleDirectory(arr);
             Assert.IsTrue(remove);
-            arr = new string[] { GameRules.WEATHER, "albatruas" };
+            arr = new string[] { Constants.WEATHER, "albatruas" };
             remove = game.RuleDirectory(arr);
             Assert.IsTrue(remove);
-            arr = new string[] { GameRules.WEATHER, "" };
+            arr = new string[] { Constants.WEATHER, "" };
             remove = game.RuleDirectory(arr);
             Assert.IsTrue(remove);
-            arr = new string[] { GameRules.WEATHER, null };
+            arr = new string[] { Constants.WEATHER, null };
             remove = game.RuleDirectory(arr);
             Assert.IsTrue(remove);
 
-            arr = new string[]{ GameRules.SECTOR, "5" };
+            arr = new string[]{ Constants.SECTOR, "5" };
             remove = game.RuleDirectory(arr);
             Assert.IsFalse(remove);
-            arr = new string[] { GameRules.SECTOR, "9" };
+            arr = new string[] { Constants.SECTOR, "9" };
             remove = game.RuleDirectory(arr);
             Assert.IsTrue(remove);
-            arr = new string[] { GameRules.SECTOR, "Hunk of Meat" };
+            arr = new string[] { Constants.SECTOR, "Hunk of Meat" };
             remove = game.RuleDirectory(arr);
             Assert.IsTrue(remove);
-            arr = new string[] { GameRules.SECTOR, "" };
+            arr = new string[] { Constants.SECTOR, "" };
             remove = game.RuleDirectory(arr);
             Assert.IsTrue(remove);
-            arr = new string[] { GameRules.SECTOR, null };
+            arr = new string[] { Constants.SECTOR, null };
             remove = game.RuleDirectory(arr);
             Assert.IsTrue(remove);
 
@@ -79,61 +79,61 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
 
         [TestMethod]
         public void TestRuleDirectory2() {
-            string[] arr = new string[] { GameRules.SEASON, "spring" };
+            string[] arr = new string[] { Constants.SEASON, "spring" };
             bool remove = game.RuleDirectory(arr);
             Assert.IsFalse(remove);
-            arr = new string[] { GameRules.SEASON, "fall" };
+            arr = new string[] { Constants.SEASON, "fall" };
             remove = game.RuleDirectory(arr);
             Assert.IsTrue(remove);
-            arr = new string[] { GameRules.SEASON, "" };
+            arr = new string[] { Constants.SEASON, "" };
             remove = game.RuleDirectory(arr);
             Assert.IsTrue(remove);
-            arr = new string[] { GameRules.SEASON, null };
+            arr = new string[] { Constants.SEASON, null };
             remove = game.RuleDirectory(arr);
             Assert.IsTrue(remove);
 
-            arr = new string[] { GameRules.DAY_OF_WEEK, "mon" };
+            arr = new string[] { Constants.DAY_OF_WEEK, "mon" };
             remove = game.RuleDirectory(arr);
             Assert.IsFalse(remove);
-            arr = new string[] { GameRules.DAY_OF_WEEK, "fri" };
+            arr = new string[] { Constants.DAY_OF_WEEK, "fri" };
             remove = game.RuleDirectory(arr);
             Assert.IsTrue(remove);
-            arr = new string[] { GameRules.DAY_OF_WEEK, "" };
+            arr = new string[] { Constants.DAY_OF_WEEK, "" };
             remove = game.RuleDirectory(arr);
             Assert.IsTrue(remove);
-            arr = new string[] { GameRules.DAY_OF_WEEK, null };
+            arr = new string[] { Constants.DAY_OF_WEEK, null };
             remove = game.RuleDirectory(arr);
             Assert.IsTrue(remove);
         }
 
         [TestMethod]
         public void TestRuleDirectory3() {
-            string[] arr = new string[] { GameRules.PUBLIC_EVENT, "next" };
+            string[] arr = new string[] { Constants.PUBLIC_EVENT, "next" };
             bool remove = game.RuleDirectory(arr);
             Assert.IsFalse(remove);
-            arr = new string[] { GameRules.PUBLIC_EVENT, "art_fest" };
+            arr = new string[] { Constants.PUBLIC_EVENT, "art_fest" };
             remove = game.RuleDirectory(arr);
             Assert.IsFalse(remove);
-            arr = new string[] { GameRules.PUBLIC_EVENT, "Alberto Brenchki" };
+            arr = new string[] { Constants.PUBLIC_EVENT, "Alberto Brenchki" };
             remove = game.RuleDirectory(arr);
             Assert.IsTrue(remove);
-            arr = new string[] { GameRules.PUBLIC_EVENT, "" };
+            arr = new string[] { Constants.PUBLIC_EVENT, "" };
             remove = game.RuleDirectory(arr);
             Assert.IsTrue(remove);
-            arr = new string[] { GameRules.PUBLIC_EVENT, null };
+            arr = new string[] { Constants.PUBLIC_EVENT, null };
             remove = game.RuleDirectory(arr);
             Assert.IsTrue(remove);
 
-            arr = new string[] { GameRules.TIME_OF_DAY, "morning" };
+            arr = new string[] { Constants.TIME_OF_DAY, "morning" };
             remove = game.RuleDirectory(arr);
             Assert.IsFalse(remove);
-            arr = new string[] { GameRules.TIME_OF_DAY, "evening" };
+            arr = new string[] { Constants.TIME_OF_DAY, "evening" };
             remove = game.RuleDirectory(arr);
             Assert.IsTrue(remove);
-            arr = new string[] { GameRules.TIME_OF_DAY, "" };
+            arr = new string[] { Constants.TIME_OF_DAY, "" };
             remove = game.RuleDirectory(arr);
             Assert.IsTrue(remove);
-            arr = new string[] { GameRules.TIME_OF_DAY, null };
+            arr = new string[] { Constants.TIME_OF_DAY, null };
             remove = game.RuleDirectory(arr);
             Assert.IsTrue(remove);
         }

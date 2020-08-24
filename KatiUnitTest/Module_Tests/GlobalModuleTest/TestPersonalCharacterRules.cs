@@ -24,24 +24,24 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
                 {  "active","adventurous","agreeable","articulate","clever","calm","cheerful","Greedy",
                 "courteous","dramatic","forgiving","generous","honest","humble","humorous","logical"};
             foreach (string s in arr) {
-                con[s] = PersonalCharacterRules.TRAIT;
+                con[s] = Constants.TRAIT;
             }
             arr = new string[] { "lonely","drunk","aroused"};
             foreach (string s in arr) {
-                con[s] = PersonalCharacterRules.STATUS;
+                con[s] = Constants.STATUS;
             }
             arr = new string[] 
             {"likes movies","likes sports","likes music","likes making music","likes art","likes making art",
              "likes dancing","likes coffee","likes socializing","likes working","likes excersie","likes gaming",
              "likes being alone","likes being quiet","likes talking","likes cooking","likes shopping" };
             foreach (string s in arr) {
-                con[s] = PersonalCharacterRules.INTEREST;
+                con[s] = Constants.INTEREST;
             }
             arr = new string[] 
             {"has a great smile","has a creepy smile","has nice eyes","has a kind face","has a stern face",
                 "has great hair","has nappy hair","has nice curves","has great skin","has bad skin","is balding"};
             foreach (string s in arr) {
-                con[s] = PersonalCharacterRules.PHYSICAL_FEATURES;
+                con[s] = Constants.PHYSICAL_FEATURES;
             }
             arr = new string[]
                 { "charm","confident","leader","popular","attractive","persuasive","creative",
