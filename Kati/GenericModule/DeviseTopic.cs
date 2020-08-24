@@ -80,10 +80,12 @@ namespace Kati.GenericModule {
             (List<string> forcedTopics, double total, List<Dictionary<string, double>> calc) {
             int i = 0;
             foreach (string s in forcedTopics) {
-                total += topicWeights[s];
-                calc.Add(new Dictionary<string, double>());
-                calc[i][s] = total;
-                i++;
+                if (TopicWeights.ContainsKey(s)) {
+                    total += TopicWeights[s];
+                    calc.Add(new Dictionary<string, double>());
+                    calc[i][s] = total;
+                    i++;
+                }
             }
             return total;
         }

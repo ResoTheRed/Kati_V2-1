@@ -48,5 +48,13 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
             Assert.IsTrue(topics.TopicWeights["sample2"] == 40);
         }
 
+        [TestMethod]
+        public void TestGetTopic() {
+            string topic = topics.GetTopic();
+            Assert.IsTrue(topic.Equals("sample1")||topic.Equals("sample2"));
+            List<string> temp = new List<string>() { "sample1", "scrimp", "scrawberries" };
+            topic = topics.GetTopic(temp);
+            Assert.IsTrue(topic.Equals("sample1"));
+        }
     }
 }
