@@ -24,7 +24,7 @@ namespace Kati.GenericModule {
             Npc = CharacterData.GetCharacterData();
             parser = new Parser(this);
             topic = new DeviseTopic(Lib.GetTopicKeys());
-            type = new DeviseType();
+            Type = new DeviseType();
         }
 
         public ModuleLib Lib { get => lib; set => lib = value; }
@@ -32,16 +32,15 @@ namespace Kati.GenericModule {
         public CharacterData Npc { get => npc; set => npc = value; }
         public Parser Parser { get => parser; set => parser = value; }
         public DeviseTopic Topic { get => topic; set => topic = value; }
+        public DeviseType Type { get => type; set => type = value; }
 
         //need to update game data
         //need to update character data
-
 
         //need to decide which topic
         //need to decide which type of topic 
 
         //a list of dialogue topics can be found in Lib.Keys
-
         //overridable method that decides which topic to talk about
 
     }

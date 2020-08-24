@@ -18,6 +18,9 @@ namespace Kati.SourceFiles{
         //Keywords
         public const string REQ = "req";
         public const string NOT = "not";
+        public const string STATEMENT = "statement";
+        public const string QUESTION = "question";
+        public const string RESPONSE = "response";
         //SocialCharacterRules
         public const string SOCIAL = "social";
         public const string NPC = "npc";
