@@ -42,7 +42,7 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
             temp["sample1"] = 25;
             temp["sample2"] = 40;
             temp["sam"] = 60;
-            topics.SetAllWeights(temp);
+            topics.SetMultiWeights(temp);
             Assert.IsTrue(topics.TopicWeights.Count == 2);
             Assert.IsTrue(topics.TopicWeights["sample1"] == 25);
             Assert.IsTrue(topics.TopicWeights["sample2"] == 40);

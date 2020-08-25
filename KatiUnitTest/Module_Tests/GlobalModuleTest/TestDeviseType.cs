@@ -32,5 +32,21 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
 
         }
 
+        [TestMethod]
+        public void TestSetWeight() {
+            type.SetWeights(100, 200);
+            Assert.IsTrue(type.CurrentStatementWeight==100);
+            Assert.IsTrue(type.CurrentQuestionWeight==200);
+            type.ResetWeights();
+            Assert.IsTrue(type.CurrentStatementWeight == 80);
+            Assert.IsTrue(type.CurrentQuestionWeight == 20);
+            type.SetWeights(null, 1000);
+            Assert.IsTrue(type.CurrentStatementWeight == 80);
+            Assert.IsTrue(type.CurrentQuestionWeight == 1000);
+            type.SetWeights(1000, null);
+            Assert.IsTrue(type.CurrentStatementWeight == 1000);
+            Assert.IsTrue(type.CurrentQuestionWeight == 1000);
+        }
+
     }
 }

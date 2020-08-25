@@ -5,9 +5,11 @@ namespace Kati.GenericModule {
     /// decides if the topic will be a statement or a question
     /// </summary>
     public class DeviseType {
-
-        private double defaultStatementWeight = 80;
-        private double defaultQuestionWeight = 20;
+        
+        private const double STATEMENT_WEIGHT = 80;
+        private const double QUESTION_WEIGHT = 20;
+        private double currentStatementWeight = STATEMENT_WEIGHT;
+        private double currentQuestionWeight = QUESTION_WEIGHT;
         private string type;
 
 
@@ -16,23 +18,32 @@ namespace Kati.GenericModule {
         }
 
         public string Type { get => type; set => type = value; }
+        public double CurrentStatementWeight { get => currentStatementWeight; set => currentStatementWeight = value; }
+        public double CurrentQuestionWeight { get => currentQuestionWeight; set => currentQuestionWeight = value; }
 
         /****************************Type based on Weighted Probability******************************/
 
-        public void SetWeights(double statement, double question) {
-            defaultStatementWeight = statement;
-            defaultQuestionWeight = question;
+        public void SetWeights(double? statement, double? question) {
+            if(statement != null)
+                CurrentStatementWeight = (double)(statement);
+            if(question != null)
+                CurrentQuestionWeight = (double)(question);
         }
 
         public string GetTopicType() {
-            double total = defaultStatementWeight + defaultQuestionWeight;
+            double total = CurrentStatementWeight + CurrentQuestionWeight;
             double choice = Controller.dice.NextDouble() * total;
-            if (choice <= defaultStatementWeight) {
+            if (choice <= CurrentStatementWeight) {
                 Type = Constants.STATEMENT;
             } else {
                 Type = Constants.QUESTION;
             }
             return Type;
+        }
+
+        public void ResetWeights() {
+            CurrentStatementWeight = STATEMENT_WEIGHT;
+            CurrentQuestionWeight = QUESTION_WEIGHT;
         }
 
         /****************************************Force Type*******************************************/

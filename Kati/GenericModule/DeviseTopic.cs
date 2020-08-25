@@ -37,7 +37,7 @@ namespace Kati.GenericModule {
             }
         }
 
-        public void SetAllWeights(Dictionary<string, double> delta) {
+        public void SetMultiWeights(Dictionary<string, double> delta) {
             foreach (KeyValuePair<string, double> item in delta) {
                 if(topicWeights.ContainsKey(item.Key))
                     topicWeights[item.Key] = delta[item.Key];
@@ -103,7 +103,10 @@ namespace Kati.GenericModule {
 
         /**************************************Forced Decision****************************************/
         public void ForcedTopic(string topic) {
-            Topic = topic;
+            if (TopicWeights.ContainsKey(topic))
+                Topic = topic;
+            else
+                Topic = GetTopic();
         }
     }
 }

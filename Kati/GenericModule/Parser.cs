@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kati.Module_Hub;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -50,8 +51,15 @@ namespace Kati.GenericModule {
             data = Personal.ParsePersonalRequirments(data);
             data = Social.ParseSocialRequirments(data);
             data = Weight.GetDialogue(data);
-            //package data
+            SetPackage(ref data);
         }
 
+        private void SetPackage(ref Dictionary<string, Dictionary<string, List<string>>> data) {
+            foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in data) {
+                Ctrl.Package.Dialogue = item.Key;
+                //TODO: Deal with leads to and finish building the package
+            }
+
+        }
     }
 }
