@@ -62,6 +62,9 @@ namespace Kati.SourceFiles{
         public const string AFFINITY = "affinity";
         public const string RESPECT = "respect";
         public const string NEUTRAL = "neutral";
+        //response values
+        public const int RESPONSE_PLUS_THRESHOLD = 500;
+        public const int RESPONSE_NEUTRAL_THRESHOLD = 100;
 
     }
 }

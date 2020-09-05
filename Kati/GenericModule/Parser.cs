@@ -45,13 +45,17 @@ namespace Kati.GenericModule {
 
         //used for statements and questions only
         public void Parse() {
-            //Data most not point to Lib data but be a copy
+            //Data must not point to Lib data but be a copy
             var data = Branch.RunDecision(Data);
             data = Game.ParseGameRequirments(data);
             data = Personal.ParsePersonalRequirments(data);
             data = Social.ParseSocialRequirments(data);
             data = Weight.GetDialogue(data);
             SetPackage(ref data);
+        }
+
+        public void Response() { 
+        
         }
 
         private void SetPackage(ref Dictionary<string, Dictionary<string, List<string>>> data) {
