@@ -31,9 +31,16 @@ namespace Kati.Module_Hub {
             package = null;
         }
 
-        //****************Game data********************//
+        //****************Dialogue data********************//
         //the purpose for the entire Module System
-        private string dialogue;
+        private string module;
+        private List<string> dialogue;
+        private List<string> req;
+        private List<string> leadTo;
+        private string topic;
+        private string type;
+        private string speaker;
+        private string responder;
 
         //**************module hub data****************//
         private ModuleStatus status;
@@ -45,17 +52,41 @@ namespace Kati.Module_Hub {
         private Dictionary<string, double> forcedTopic;
         private Dictionary<string, double> forcedType;
 
-        public DialoguePackage() {
+        //**************history data******************//
+        //holds running total of stat effects on game and character relationships
+        private double impact;
+        //attribute branchs effect format -> {attribute : scalarEffectValue}
+        private Dictionary<string,double> impactType;
+
+        private DialoguePackage() {
+            Reset();
+        }
+
+        private void Reset() {
             status = ModuleStatus.CONTINUE;
             ForcedTopic = new Dictionary<string, double>();
             ForcedType = new Dictionary<string, double>();
+            ImpactType = new Dictionary<string, double>();
+            impact = 0;
+            Req = new List<string>();
+            LeadTo = new List<string>();
+            Module = Topic = Type = Speaker = Responder = "";
         }
 
-        public string Dialogue { get => dialogue; set => dialogue = value; }
+        public List<string> Dialogue { get => dialogue; set => dialogue = value; }
         public ModuleStatus Status { get => status; set => status = value; }
         public string NextModule { get => nextModule; set => nextModule = value; }
         public Dictionary<string, double> ForcedTopic { get => forcedTopic; set => forcedTopic = value; }
         public Dictionary<string, double> ForcedType { get => forcedType; set => forcedType = value; }
+        public List<string> Req { get => req; set => req = value; }
+        public List<string> LeadTo { get => leadTo; set => leadTo = value; }
+        public string Topic { get => topic; set => topic = value; }
+        public string Type { get => type; set => type = value; }
+        public string Speaker { get => speaker; set => speaker = value; }
+        public double Impact { get => impact; set => impact = value; }
+        public Dictionary<string, double> ImpactType { get => impactType; set => impactType = value; }
+        public string Responder { get => responder; set => responder = value; }
+        public string Module { get => module; set => module = value; }
 
         public void AddForcedTopic(string topic, double weight) {
             forcedTopic[topic] = weight;

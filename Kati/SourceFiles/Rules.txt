@@ -210,7 +210,7 @@ Response topic types: relay information to the game about state updates and dire
 
     3. Question Tags: [leads to] points to specific response braches that pertain to the question.  These are 
         unique to each module and will be defined by each Derived module.  It will be a requirement on responses
-        Format::"<module_unique_tag>"-->"thoughs_on_yuletide"
+        Format::"response_tag.<module_unique_tag>"-->"response_tag.thoughs_on_yuletide"
         "questionTags":
         [
             <unique to each derived module>
@@ -242,6 +242,14 @@ Response topic types: relay information to the game about state updates and dire
             Attribute Name: <See character Rule Section for names>
         ]
 
+    ###################### Response required Rules ########################
 
+    1. Question Tags: [req] matches a question's lead to .  These are 
+        unique to each module and will be defined by each Derived module.  Prompted by Questions or Statements
+        Format::"<module_unique_tag>"-->"thoughs_on_yuletide"
+        "questionTags":
+        [
+            <unique to each derived module>
+        ]
 
 

@@ -17,6 +17,7 @@ namespace Kati.SourceFiles{
         public const string TestJson = "C:/Users/User/Documents/Kati_V2-1/KatiUnitTest/Module_Tests/GlobalModuleTest/RuleTester.json";
         //Keywords
         public const string REQ = "req";
+        public const string LEAD_TO = "lead to";
         public const string NOT = "not";
         public const string STATEMENT = "statement";
         public const string QUESTION = "question";
@@ -65,6 +66,11 @@ namespace Kati.SourceFiles{
         //response values
         public const int RESPONSE_PLUS_THRESHOLD = 500;
         public const int RESPONSE_NEUTRAL_THRESHOLD = 100;
+        public const string POSITIVE_PLUS = "positive+";
+        public const string POSITIVE = "positive";
+        public const string NEGATIVE_PLUS = "negative+";
+        public const string NEGATIVE = "negative";
+        public const string RESPONSE_TAG = "response_tag";
 
     }
 }
