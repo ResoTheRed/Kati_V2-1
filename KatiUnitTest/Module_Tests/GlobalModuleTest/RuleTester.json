@@ -936,40 +936,40 @@
   "sample1_response": {
     "positive+": {
       "positive+ test 1": {
-        "req": [],
-        "lead to": []
+        "req": ["responseTag.tag1"],
+        "lead to": ["attribute.friend.20"]
       },
       "positive+ test 2": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.20" ]
       },
       "positive+ test 3": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.20" ]
       },
       "positive+ test 4": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag2" ],
+        "lead to": [ "attribute.affinity.20" ]
       },
       "positive+ test 5": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag2" ],
+        "lead to": [ "attribute.affinity.20" ]
       },
       "positive+ test 6": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag2" ],
+        "lead to": [ "attribute.affinity.20" ]
       },
       "positive+ test 7": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag3" ],
+        "lead to": [ "attribute.respect.20" ]
       },
       "positive+ test 8": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag3" ],
+        "lead to": [ "attribute.respect.20" ]
       },
       "positive+ test 9": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag3" ],
+        "lead to": [ "attribute.friend.20" ]
       },
       "positive+ test 10": {
         "req": [],
@@ -986,40 +986,40 @@
     },
     "positive": {
       "positive test 1": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.10" ]
       },
       "positive test 2": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.10" ]
       },
       "positive test 3": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.10" ]
       },
       "positive test 4": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag2" ],
+        "lead to": [ "attribute.friend.10" ]
       },
       "positive test 5": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag2" ],
+        "lead to": [ "attribute.friend.10" ]
       },
       "positive test 6": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag2" ],
+        "lead to": [ "attribute.friend.10" ]
       },
       "positive test 7": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag3" ],
+        "lead to": [ "attribute.friend.10" ]
       },
       "positive test 8": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag3" ],
+        "lead to": [ "attribute.friend.10" ]
       },
       "positive test 9": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag3" ],
+        "lead to": [ "attribute.friend.10" ]
       },
       "positive test 10": {
         "req": [],
@@ -1036,39 +1036,39 @@
     },
     "neutral": {
       "neutral test 1": {
-        "req": [],
+        "req": [ "responseTag.tag1" ],
         "lead to": []
       },
       "neutral test 2": {
-        "req": [],
+        "req": [ "responseTag.tag1" ],
         "lead to": []
       },
       "neutral test 3": {
-        "req": [],
+        "req": [ "responseTag.tag1" ],
         "lead to": []
       },
       "neutral test 4": {
-        "req": [],
+        "req": [ "responseTag.tag2" ],
         "lead to": []
       },
       "neutral test 5": {
-        "req": [],
+        "req": [ "responseTag.tag2" ],
         "lead to": []
       },
       "neutral test 6": {
-        "req": [],
+        "req": [ "responseTag.tag2" ],
         "lead to": []
       },
       "neutral test 7": {
-        "req": [],
+        "req": [ "responseTag.tag3" ],
         "lead to": []
       },
       "neutral test 8": {
-        "req": [],
+        "req": [ "responseTag.tag3" ],
         "lead to": []
       },
       "neutral test 9": {
-        "req": [],
+        "req": [ "responseTag.tag3" ],
         "lead to": []
       },
       "neutral test 10": {
@@ -1086,40 +1086,40 @@
     },
     "negative": {
       "negative test 1": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.-10" ]
       },
       "negative test 2": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.-10" ]
       },
       "negative test 3": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.-10" ]
       },
       "negative test 4": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag2" ],
+        "lead to": [ "attribute.friend.-10" ]
       },
       "negative test 5": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag2" ],
+        "lead to": [ "attribute.friend.-10" ]
       },
       "negative test 6": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag2" ],
+        "lead to": [ "attribute.friend.-10" ]
       },
       "negative test 7": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag3" ],
+        "lead to": [ "attribute.friend.-10" ]
       },
       "negative test 8": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag3" ],
+        "lead to": [ "attribute.friend.-10" ]
       },
       "negative test 9": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag3" ],
+        "lead to": [ "attribute.friend.-10" ]
       },
       "negative test 10": {
         "req": [],
@@ -1136,40 +1136,40 @@
     },
     "negative+": {
       "negative+ test 1": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.-20" ]
       },
       "negative+ test 2": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.-20" ]
       },
       "negative+ test 3": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.-20" ]
       },
       "negative+ test 4": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag2" ],
+        "lead to": [ "attribute.friend.-20" ]
       },
       "negative+ test 5": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag2" ],
+        "lead to": [ "attribute.friend.-20" ]
       },
       "negative+ test 6": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag2" ],
+        "lead to": [ "attribute.friend.-20" ]
       },
       "negative+ test 7": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag3" ],
+        "lead to": [ "attribute.friend.-20" ]
       },
       "negative+ test 8": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag3" ],
+        "lead to": [ "attribute.friend.-20" ]
       },
       "negative+ test 9": {
-        "req": [],
-        "lead to": []
+        "req": [ "responseTag.tag3" ],
+        "lead to": [ "attribute.friend.-20" ]
       },
       "negative+ test 10": {
         "req": [],

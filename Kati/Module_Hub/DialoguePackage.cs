@@ -58,7 +58,7 @@ namespace Kati.Module_Hub {
         //attribute branchs effect format -> {attribute : scalarEffectValue}
         private Dictionary<string,double> impactType;
 
-        private DialoguePackage() {
+        public DialoguePackage() {
             Reset();
         }
 
@@ -70,6 +70,7 @@ namespace Kati.Module_Hub {
             impact = 0;
             Req = new List<string>();
             LeadTo = new List<string>();
+            Dialogue = new List<string>();
             Module = Topic = Type = Speaker = Responder = "";
         }
 
@@ -96,7 +97,5 @@ namespace Kati.Module_Hub {
             forcedType[topic] = weight;
         }
     }
-
-
-
+    
 }

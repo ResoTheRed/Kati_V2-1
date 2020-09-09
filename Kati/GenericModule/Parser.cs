@@ -60,10 +60,11 @@ namespace Kati.GenericModule {
 
         private void SetPackage(ref Dictionary<string, Dictionary<string, List<string>>> data) {
             foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in data) {
-                Ctrl.Package.Dialogue = item.Key;
+                Ctrl.Package.Dialogue.Add(item.Key);
                 //TODO: Deal with leads to and finish building the package
             }
-
         }
+
+
     }
 }

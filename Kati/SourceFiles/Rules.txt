@@ -218,7 +218,7 @@ Response topic types: relay information to the game about state updates and dire
 
     4. Response Scalar State Alteration Rules: [leads to] (npc by default) change the relationship value that an
         NPC has with the player.
-        Format::"<branch_name>.<attribute_name>.<delta>"-->"attribute.friend.+"
+        Format::"<branch_name>.<attribute_name>.<delta>"-->"attribute.friend.20" or "attribute.friend.-20"
         Format::"<branch_name>.<attribute_name>.<delta>.player"-->"attribute.friend.+.player" (targets the player)
         "scalarChange":
         [

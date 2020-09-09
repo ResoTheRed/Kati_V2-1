@@ -2,7 +2,6 @@
 using Kati.SourceFiles;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Kati.GenericModule {
 
@@ -38,12 +37,12 @@ namespace Kati.GenericModule {
             OrderedBranches = new List<string>();
             BranchValues = new Dictionary<string, double>();
             Reponses = new Dictionary<string, Dictionary<string, List<string>>>();
-            Relationsip = Constants.NEUTRAL;
+            Relationship = Constants.NEUTRAL;
             Responses = new List<Dictionary<string, Dictionary<string, List<string>>>>();
             PlusFlag = false;
         }
 
-        public string Relationsip { get => relationsip; set => relationsip = value; }
+        public string Relationship { get => relationsip; set => relationsip = value; }
         public List<string> OrderedBranches { get => orderedBranches; set => orderedBranches = value; }
         public bool PlusFlag { get => plusFlag; set => plusFlag = value; }
         public Dictionary<string, double> BranchValues { get => branchValues; set => branchValues = value; }
@@ -59,10 +58,8 @@ namespace Kati.GenericModule {
             BranchValues = branches;
             Package = package;
             List<string> sorted = new List<string>();
-            int i = 0;
             foreach (KeyValuePair<string, double> item in branches) {
-                sorted[i] = item.Key;
-                i++;
+                sorted.Add(item.Key);
             }
             //sort
             sorted = SortBranchesByAttribute(ref branches, ref sorted);
@@ -75,30 +72,34 @@ namespace Kati.GenericModule {
 
         protected void SetRelationship(string value, bool nonNeutral) {
             if (!nonNeutral) {
-                Relationsip = Constants.NEUTRAL;
+                Relationship = Constants.NEUTRAL;
             } else {
-                Relationsip = value;
+                Relationship = value;
             }
         }
 
         protected bool AttributeRelationshipIsNegative() {
-            return Relationsip.Equals(Constants.DISGUST) ||
-                   Relationsip.Equals(Constants.HATE) ||
-                   Relationsip.Equals(Constants.RIVALRY);
+            return Relationship.Equals(Constants.DISGUST) ||
+                   Relationship.Equals(Constants.HATE) ||
+                   Relationship.Equals(Constants.RIVALRY);
         }
 
         //set plus flag to signal the attribute defined response to be a plus version
         protected bool SetPlusFlag
             (ref Dictionary<string, double> branches, ref List<string> sorted) {
             bool nonNeutral = false;
+            bool plusReset = true;
             for (int k = 0; k < sorted.Count; k++) {
                 if (branches[sorted[k]] >= Constants.RESPONSE_NEUTRAL_THRESHOLD) {
                     nonNeutral = true;
                     if (branches[sorted[k]] >= Constants.RESPONSE_PLUS_THRESHOLD) {
                         plusFlag = true;
+                        plusReset = false;
                     }
                 }
             }
+            if (plusReset)
+                PlusFlag = false;
             return nonNeutral;
         }
 
@@ -143,7 +144,7 @@ namespace Kati.GenericModule {
         * if no options exist for either use neutral
         * narrow down until one positive remains
         */
-        protected Dictionary<string, Dictionary<string, List<string>>> PullPositive
+        public Dictionary<string, Dictionary<string, List<string>>> PullPositive
             (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
             var positive = data[PickPositive(ref data)];
             positive = CheckRequirements(positive);
@@ -152,7 +153,8 @@ namespace Kati.GenericModule {
         }
 
         //70% chance for pos+ if plusFlag else 70% chance for reg pos
-        protected string PickPositive
+        //@return positive+, positive, or neutral
+        public string PickPositive
             (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
             double plus = (PlusFlag && !AttributeRelationshipIsNegative()) ? 
                 responseBiasWeight : responseTotalWeight - responseBiasWeight;
@@ -166,14 +168,14 @@ namespace Kati.GenericModule {
             }
         }
         
-        protected Dictionary<string, Dictionary<string, List<string>>> PullNeutral
+        public Dictionary<string, Dictionary<string, List<string>>> PullNeutral
             (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
             var neutral = CheckRequirements(data[Constants.NEUTRAL]);
             PickNeutral(ref neutral);
             return neutral;
         }
 
-        protected void PickNeutral
+        public void PickNeutral
             (ref Dictionary<string, Dictionary<string, List<string>>> neutral) {
             //remove any choices that are = Resonxist in the responses list already
             RemoveDuplicates(ref neutral);
@@ -185,7 +187,7 @@ namespace Kati.GenericModule {
             }
         }
 
-        private void ProvideNeutralResponse
+        public void ProvideNeutralResponse
             (ref Dictionary<string, Dictionary<string, List<string>>> neutral) {
             string key= "...";
             foreach (Dictionary<string, Dictionary<string, List<string>>> resp in Responses) {
@@ -202,7 +204,7 @@ namespace Kati.GenericModule {
             neutral[key][Constants.LEAD_TO] = new List<string>();
         }
 
-        protected void RemoveDuplicates(ref Dictionary<string, Dictionary<string, List<string>>> neutral) {
+        public void RemoveDuplicates(ref Dictionary<string, Dictionary<string, List<string>>> neutral) {
             int i = 0;
             foreach (string key in Responses[i].Keys) {
                 if (neutral.ContainsKey(key)) {
@@ -211,7 +213,7 @@ namespace Kati.GenericModule {
             }
         }
 
-        protected Dictionary<string, Dictionary<string, List<string>>> PullNegative
+        public Dictionary<string, Dictionary<string, List<string>>> PullNegative
             (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
             var negative = data[PickNegative(ref data)];
             negative = CheckRequirements(negative);
@@ -219,7 +221,7 @@ namespace Kati.GenericModule {
             return negative;
         }
 
-        protected string PickNegative
+        public string PickNegative
             (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
             double plus = (PlusFlag && AttributeRelationshipIsNegative()) ?
                 responseBiasWeight : responseTotalWeight - responseBiasWeight;
@@ -233,17 +235,17 @@ namespace Kati.GenericModule {
             }
         }
 
-        protected Dictionary<string, Dictionary<string, List<string>>> PullCustom
+        public Dictionary<string, Dictionary<string, List<string>>> PullCustom
             (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
-            if (Relationsip.Equals(Constants.POSITIVE) || Relationsip.Equals(Constants.POSITIVE_PLUS))
+            if (Relationship.Equals(Constants.POSITIVE) || Relationship.Equals(Constants.POSITIVE_PLUS))
                 return PullPositive(ref data);
-            else if (Relationsip.Equals(Constants.NEGATIVE) || Relationsip.Equals(Constants.NEGATIVE_PLUS))
+            else if (Relationship.Equals(Constants.NEGATIVE) || Relationship.Equals(Constants.NEGATIVE_PLUS))
                 return PullNegative(ref data);
             else
                 return PullNeutral(ref data);
         }
 
-        protected Dictionary<string, Dictionary<string, List<string>>> CheckRequirements
+        public Dictionary<string, Dictionary<string, List<string>>> CheckRequirements
             (Dictionary<string, Dictionary<string, List<string>>> data) {
             if (package == null)
                 return data;
@@ -258,11 +260,12 @@ namespace Kati.GenericModule {
             return data;
         }
 
-        protected void RemoveElement
+        public void RemoveElement
             (ref Dictionary<string, Dictionary<string, List<string>>> data, string key, ref string[] arr) {
             bool keep = data[key][Constants.REQ].Count == 0;
             foreach (string s in data[key][Constants.REQ]) {
-                if (s.Equals(arr[1])) {
+                string[] arr2 = s.Split(".");
+                if (arr2.Length>1 && arr2[1].Equals(arr[1])) {
                     keep = true;
                     break;
                 }
@@ -270,9 +273,10 @@ namespace Kati.GenericModule {
             if (!keep) {
                 data.Remove(key);
             }
+            
         }
         //uniform distribution pick 
-        protected void PickResponseOption
+        public void PickResponseOption
             (ref Dictionary<string, Dictionary<string, List<string>>> option) {
             List<string> arr = new List<string>();
             int index = 0;
@@ -280,6 +284,7 @@ namespace Kati.GenericModule {
             foreach (string key in option.Keys) {
                 if(index != winner)
                     arr.Add(key);
+                index++;
             }
             foreach (string key in arr) {
                 option.Remove(key);   
