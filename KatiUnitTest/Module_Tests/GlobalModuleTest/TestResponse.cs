@@ -90,10 +90,9 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
             
             Assert.IsTrue(item.Count == 1);
             Assert.IsTrue(res.Relationship.Equals(Constants.ROMANCE));
-            Assert.IsTrue(res.Relationship.Equals(
-                item.ContainsKey("positive+ test 1") || item.ContainsKey("positive+ test 2") ||
+            Assert.IsTrue(item.ContainsKey("positive+ test 1") || item.ContainsKey("positive+ test 2") ||
                 item.ContainsKey("positive+ test 3") || item.ContainsKey("positive+ test 10") ||
-                item.ContainsKey("positive+ test 11") || item.ContainsKey("positive+ test 12") )||
+                item.ContainsKey("positive+ test 11") || item.ContainsKey("positive+ test 12") ||
                 item.ContainsKey("positive test 1") || item.ContainsKey("positive test 2") ||
                 item.ContainsKey("positive test 3") || item.ContainsKey("positive test 10") ||
                 item.ContainsKey("positive test 11") || item.ContainsKey("positive test 12"));
@@ -189,24 +188,151 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
         }
 
         [TestMethod]
-        public void TestRemoveElement() {
-            double[] d = new double[] { 800, 700, 600, 500, 400, 300, 200, 100 };
+        public void TestPullNeutral() {
+            double[] d = new double[] { 80, 70, 60, 50, 40, 30, 20, 10 };
             var stuff = SetTone(d);
             DialoguePackage package = new DialoguePackage();
             package.LeadTo.Add("response_tag.tag1");
-            var master = ctrl.Lib.Data["sample1_response"]["positive+"];
-
-
+            for (int i = 0; i < 50; i++) {
+                var master = ctrl.Lib.Data["sample1_response"];
+                res.OrderRelationshipBranches(ref package, stuff);
+                var item = res.PullNeutral(ref master);
+                System.Console.WriteLine(item.Count);
+                Assert.IsTrue(item.Count == 1);
+                
+                Assert.IsTrue(item.ContainsKey("neutral test 1") || item.ContainsKey("neutral test 2") ||
+                    item.ContainsKey("neutral test 3") || item.ContainsKey("neutral test 10") ||
+                    item.ContainsKey("neutral test 11") || item.ContainsKey("neutral test 12"));
+            }
         }
 
         [TestMethod]
-        public void TestD() {
-
+        public void TestPullNegative() {
+            double[] d = new double[] { 80, 70, 60, 50, 40, 400, 20, 10 };
+            var stuff = SetTone(d);
+            DialoguePackage package = new DialoguePackage();
+            package.LeadTo.Add("response_tag.tag1");
+            for (int i = 0; i < 50; i++) {
+                var master = ctrl.Lib.Data["sample1_response"];
+                res.OrderRelationshipBranches(ref package, stuff);
+                var item = res.PullNegative(ref master);
+                Assert.IsTrue(item.Count == 1);
+                Assert.IsTrue(item.ContainsKey("negative test 1") || item.ContainsKey("negative test 2") ||
+                    item.ContainsKey("negative test 3") || item.ContainsKey("negative test 10") ||
+                    item.ContainsKey("negative test 11") || item.ContainsKey("negative test 12") ||
+                    item.ContainsKey("negative+ test 1") || item.ContainsKey("negative+ test 2") ||
+                    item.ContainsKey("negative+ test 3") || item.ContainsKey("negative+ test 10") ||
+                    item.ContainsKey("negative+ test 11") || item.ContainsKey("negative+ test 12"));
+            }
         }
 
         [TestMethod]
-        public void TestE() {
+        public void TestPullCustomNeg() {
+            double[] d = new double[] { 80, 70, 60, 50, 40, 400, 20, 10 };
+            var stuff = SetTone(d);
+            DialoguePackage package = new DialoguePackage();
+            package.LeadTo.Add("response_tag.tag1");
+            for (int i = 0; i < 50; i++) {
+                var master = ctrl.Lib.Data["sample1_response"];
+                res.OrderRelationshipBranches(ref package, stuff);
+                var item = res.PullCustom(ref master);
+                Assert.IsTrue(item.Count == 1);
+                Assert.IsTrue(item.ContainsKey("negative test 1") || item.ContainsKey("negative test 2") ||
+                    item.ContainsKey("negative test 3") || item.ContainsKey("negative test 10") ||
+                    item.ContainsKey("negative test 11") || item.ContainsKey("negative test 12") ||
+                    item.ContainsKey("negative+ test 1") || item.ContainsKey("negative+ test 2") ||
+                    item.ContainsKey("negative+ test 3") || item.ContainsKey("negative+ test 10") ||
+                    item.ContainsKey("negative+ test 11") || item.ContainsKey("negative+ test 12"));
+            }
+        }
 
+        [TestMethod]
+        public void TestPullCustomPos() {
+            double[] d = new double[] { 800, 70, 60, 50, 40, 40, 20, 10 };
+            var stuff = SetTone(d);
+            DialoguePackage package = new DialoguePackage();
+            package.LeadTo.Add("response_tag.tag1");
+            for (int i = 0; i < 50; i++) {
+                var master = ctrl.Lib.Data["sample1_response"];
+                res.OrderRelationshipBranches(ref package, stuff);
+                var item = res.PullCustom(ref master);
+                Assert.IsTrue(item.Count == 1);
+                Assert.IsTrue(item.ContainsKey("positive+ test 1") || item.ContainsKey("positive+ test 2") ||
+                item.ContainsKey("positive+ test 3") || item.ContainsKey("positive+ test 10") ||
+                item.ContainsKey("positive+ test 11") || item.ContainsKey("positive+ test 12") ||
+                item.ContainsKey("positive test 1") || item.ContainsKey("positive test 2") ||
+                item.ContainsKey("positive test 3") || item.ContainsKey("positive test 10") ||
+                item.ContainsKey("positive test 11") || item.ContainsKey("positive test 12"));
+            }
+        }
+
+        [TestMethod]
+        public void TestPullCustomNeutral() {
+            double[] d = new double[] { 80, 70, 60, 50, 40, 30, 20, 10 };
+            var stuff = SetTone(d);
+            DialoguePackage package = new DialoguePackage();
+            package.LeadTo.Add("response_tag.tag1");
+            for (int i = 0; i < 50; i++) {
+                var master = ctrl.Lib.Data["sample1_response"];
+                res.OrderRelationshipBranches(ref package, stuff);
+                var item = res.PullCustom(ref master);
+                Assert.IsTrue(item.Count == 1);
+                Assert.IsTrue(item.ContainsKey("neutral test 1") || item.ContainsKey("neutral test 2") ||
+                   item.ContainsKey("neutral test 3") || item.ContainsKey("neutral test 10") ||
+                   item.ContainsKey("neutral test 11") || item.ContainsKey("neutral test 12"));
+            }
+        }
+
+        [TestMethod]
+        public void TestParseResponsesPosStats() {
+            string[] a = new string[] { "sample1" };
+            ctrl.Lib.SetConversationTypeKeys(a);
+            double[] d = new double[] { 800, 70, 60, 50, 40, 30, 20, 10 };
+            var stuff = SetTone(d);
+            DialoguePackage package = new DialoguePackage();
+            package.LeadTo.Add("response_tag.tag1");
+            for (int i = 0; i < 50; i++) {
+                var master = ctrl.Lib.DeepCopyDictionaryByTopic("sample1",ctrl.Lib.RESPONSE);
+                res.OrderRelationshipBranches(ref package, stuff);
+                res.ParseResponses(master);
+                var items = res.Responses;
+                Assert.IsTrue(items.Count == 4);
+                var item = items[0];//pull positive
+                string k1 = "";
+                foreach (string key in items[0].Keys)
+                    k1 = key;
+                string k2 = "";
+                foreach (string key in items[3].Keys)
+                    k2 = key;
+                System.Console.WriteLine("item[0]="+k1);
+                System.Console.WriteLine("item[3]="+k2);
+                Assert.IsTrue(item.ContainsKey("positive+ test 1") || item.ContainsKey("positive+ test 2") ||
+                   item.ContainsKey("positive+ test 3") || item.ContainsKey("positive+ test 10") ||
+                   item.ContainsKey("positive+ test 11") || item.ContainsKey("positive+ test 12") ||
+                   item.ContainsKey("positive test 1") || item.ContainsKey("positive test 2") ||
+                   item.ContainsKey("positive test 3") || item.ContainsKey("positive test 10") ||
+                   item.ContainsKey("positive test 11") || item.ContainsKey("positive test 12"));
+                item = items[1];
+                Assert.IsTrue(item.ContainsKey("neutral test 1") || item.ContainsKey("neutral test 2") ||
+                       item.ContainsKey("neutral test 3") || item.ContainsKey("neutral test 10") ||
+                       item.ContainsKey("neutral test 11") || item.ContainsKey("neutral test 12"));
+                item = items[2];
+                Assert.IsTrue(item.ContainsKey("negative test 1") || item.ContainsKey("negative test 2") ||
+                        item.ContainsKey("negative test 3") || item.ContainsKey("negative test 10") ||
+                        item.ContainsKey("negative test 11") || item.ContainsKey("negative test 12") ||
+                        item.ContainsKey("negative+ test 1") || item.ContainsKey("negative+ test 2") ||
+                        item.ContainsKey("negative+ test 3") || item.ContainsKey("negative+ test 10") ||
+                        item.ContainsKey("negative+ test 11") || item.ContainsKey("negative+ test 12"));
+                item = items[3];//pull positive
+                Assert.IsTrue(item.ContainsKey("positive+ test 1") || item.ContainsKey("positive+ test 2") ||
+                   item.ContainsKey("positive+ test 3") || item.ContainsKey("positive+ test 10") ||
+                   item.ContainsKey("positive+ test 11") || item.ContainsKey("positive+ test 12") ||
+                   item.ContainsKey("positive test 1") || item.ContainsKey("positive test 2") ||
+                   item.ContainsKey("positive test 3") || item.ContainsKey("positive test 10") ||
+                   item.ContainsKey("positive test 11") || item.ContainsKey("positive test 12"));
+                Assert.IsFalse(k1.Equals(k2));
+                
+            }
         }
 
     }

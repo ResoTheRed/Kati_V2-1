@@ -5,6 +5,10 @@ using System.Collections.Generic;
 
 namespace Kati.GenericModule {
 
+    /// <summary>
+    /// Provides four responses based on character stats
+    /// </summary>
+
     public class Response {
         
         //TODO:
@@ -27,8 +31,6 @@ namespace Kati.GenericModule {
 
         private DialoguePackage package;
 
-        Dictionary<string, Dictionary<string, List<string>>> reponses;
-
         protected double responseBiasWeight = 70;
         protected double responseTotalWeight = 100;
 
@@ -36,7 +38,6 @@ namespace Kati.GenericModule {
         public Response() {
             OrderedBranches = new List<string>();
             BranchValues = new Dictionary<string, double>();
-            Reponses = new Dictionary<string, Dictionary<string, List<string>>>();
             Relationship = Constants.NEUTRAL;
             Responses = new List<Dictionary<string, Dictionary<string, List<string>>>>();
             PlusFlag = false;
@@ -46,7 +47,6 @@ namespace Kati.GenericModule {
         public List<string> OrderedBranches { get => orderedBranches; set => orderedBranches = value; }
         public bool PlusFlag { get => plusFlag; set => plusFlag = value; }
         public Dictionary<string, double> BranchValues { get => branchValues; set => branchValues = value; }
-        public Dictionary<string, Dictionary<string, List<string>>> Reponses { get => reponses; set => reponses = value; }
         public DialoguePackage Package { get => package; set => package = value; }
         public List<Dictionary<string, Dictionary<string, List<string>>>> Responses { get => responses; set => responses = value; }
 
@@ -57,6 +57,7 @@ namespace Kati.GenericModule {
         public List<string> OrderRelationshipBranches(ref DialoguePackage package, Dictionary<string, double> branches) {
             BranchValues = branches;
             Package = package;
+            Responses = new List<Dictionary<string, Dictionary<string, List<string>>>>();//reset responses each time
             List<string> sorted = new List<string>();
             foreach (KeyValuePair<string, double> item in branches) {
                 sorted.Add(item.Key);
@@ -132,6 +133,8 @@ namespace Kati.GenericModule {
             //pull negative response
             Responses.Add(PullNegative(ref data));
             //pull custom response
+            Responses.Add(PullCustom(ref data));
+
         }
 
         /**
@@ -148,8 +151,11 @@ namespace Kati.GenericModule {
             (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
             var positive = data[PickPositive(ref data)];
             positive = CheckRequirements(positive);
-            PickResponseOption(ref positive);
-            return positive;
+            Dictionary<string, Dictionary<string, List<string>>> choice = 
+                new Dictionary<string, Dictionary<string, List<string>>>();
+            string temp = PickResponseOption(ref positive);
+            choice[temp] = positive[temp];
+            return choice;
         }
 
         //70% chance for pos+ if plusFlag else 70% chance for reg pos
@@ -171,13 +177,16 @@ namespace Kati.GenericModule {
         public Dictionary<string, Dictionary<string, List<string>>> PullNeutral
             (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
             var neutral = CheckRequirements(data[Constants.NEUTRAL]);
-            PickNeutral(ref neutral);
-            return neutral;
+            Dictionary<string, Dictionary<string, List<string>>> choice =
+               new Dictionary<string, Dictionary<string, List<string>>>();
+            string temp = PickResponseOption(ref neutral);
+            choice[temp] = neutral[temp];
+            return choice;
         }
 
-        public void PickNeutral
+        protected void PickNeutral
             (ref Dictionary<string, Dictionary<string, List<string>>> neutral) {
-            //remove any choices that are = Resonxist in the responses list already
+            //remove any choices that already exist in the responses list
             RemoveDuplicates(ref neutral);
             //if neutral list is larger than 0 call pick response option
             if (neutral.Count > 0) {
@@ -206,9 +215,11 @@ namespace Kati.GenericModule {
 
         public void RemoveDuplicates(ref Dictionary<string, Dictionary<string, List<string>>> neutral) {
             int i = 0;
-            foreach (string key in Responses[i].Keys) {
-                if (neutral.ContainsKey(key)) {
-                    neutral.Remove(key);
+            if (Responses.Count > 0) {
+                foreach (string key in Responses[i].Keys) {
+                    if (neutral.ContainsKey(key)) {
+                        neutral.Remove(key);
+                    }
                 }
             }
         }
@@ -217,8 +228,11 @@ namespace Kati.GenericModule {
             (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
             var negative = data[PickNegative(ref data)];
             negative = CheckRequirements(negative);
-            PickResponseOption(ref negative);
-            return negative;
+            Dictionary<string, Dictionary<string, List<string>>> choice =
+               new Dictionary<string, Dictionary<string, List<string>>>();
+            string temp = PickResponseOption(ref negative);
+            choice[temp] = negative[temp];
+            return choice;
         }
 
         public string PickNegative
@@ -235,11 +249,13 @@ namespace Kati.GenericModule {
             }
         }
 
+        //allows for dulpicate responses
         public Dictionary<string, Dictionary<string, List<string>>> PullCustom
             (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
-            if (Relationship.Equals(Constants.POSITIVE) || Relationship.Equals(Constants.POSITIVE_PLUS))
+
+            if (!Relationship.Equals(Constants.NEUTRAL) && !AttributeRelationshipIsNegative()) {
                 return PullPositive(ref data);
-            else if (Relationship.Equals(Constants.NEGATIVE) || Relationship.Equals(Constants.NEGATIVE_PLUS))
+            } else if (AttributeRelationshipIsNegative())
                 return PullNegative(ref data);
             else
                 return PullNeutral(ref data);
@@ -270,25 +286,31 @@ namespace Kati.GenericModule {
                     break;
                 }
             }
+            for (int j = 0; j < Responses.Count; j++) {
+                if (Responses[j].ContainsKey(key)) {
+                    keep = false;
+                    System.Console.WriteLine("Duplicate in responses: "+key);
+                }
+            }
             if (!keep) {
                 data.Remove(key);
             }
-            
         }
         //uniform distribution pick 
-        public void PickResponseOption
+        public string PickResponseOption
             (ref Dictionary<string, Dictionary<string, List<string>>> option) {
-            List<string> arr = new List<string>();
+            string arr = "";
             int index = 0;
             int winner = (int)(Controller.dice.NextDouble()*option.Count);
             foreach (string key in option.Keys) {
-                if(index != winner)
-                    arr.Add(key);
+                if(index == winner)
+                    arr=key;
                 index++;
             }
-            foreach (string key in arr) {
-                option.Remove(key);   
-            }
+            //foreach (string key in arr) {
+            //    option.Remove(key);   
+            //}
+            return arr;
         }
 
     }
