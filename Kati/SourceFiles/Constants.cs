@@ -22,6 +22,8 @@ namespace Kati.SourceFiles{
         public const string STATEMENT = "statement";
         public const string QUESTION = "question";
         public const string RESPONSE = "response";
+        public const string INITIATOR = "initiator";
+        public const string RESPONDER = "responder";
         //SocialCharacterRules
         public const string SOCIAL = "social";
         public const string NPC = "npc";

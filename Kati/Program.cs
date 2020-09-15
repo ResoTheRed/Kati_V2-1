@@ -1,37 +1,59 @@
 ﻿using System;
 using System.Collections.Generic;
 using Kati.GenericModule;
+using Kati.JobInterview;
+using Kati.Module_Hub;
 using Kati.SourceFiles;
 
 namespace Kati{
 
-    class Program{
+    public class Program{
 
-        static Controller ctrl;
-
-        static void Main(string[] args){
-            TestDialogueWeight();
+        static Game game = new Game();
+        public static void Main(string[] args) {
+            Console.WriteLine("Hello World");
         }
 
-        static void TestDialogueWeight() {
-            ctrl = new Controller(Constants.TestJson);
-            int[] values = new int[15];
-            List<string> keys = new List<string>();
-            for (int i = 1; i < 16; ++i) {
-                keys.Add("respect test " + i);
-            }
-            for (int j = 0; j < 10000; j++) {
-                var d = ctrl.Parser.Weight.GetDialogue(ctrl.Lib.Data["sample1_statement"]["respect"]);
-                for (int k = 0; k < keys.Count; k++) {
-                    if (d.ContainsKey(keys[k])) {
-                        values[k] += 1;
-                    }
-                }
-            }
-            for (int l = 0; l < keys.Count; l++) {
-                Console.WriteLine(keys[l]+" "+(values[l]/100.0));
-            }
+
+        
+
+    }
+
+    class Game {
+        
+        JobInterviewModule mod = new JobInterviewModule();
+        DialoguePackage package = new DialoguePackage();
+
+        public Game() {
+            StartingDialoguePackage();
         }
+
+        //figure out where what needs to happen next
+        public void ParseLeadTo() {
+            SetDefaultPackage();
+            //set next topic
+            //set next type
+            //set requirements
+        }
+
+        private void SetDefaultPackage() {
+            package.Reset();
+            package.Module = "JobInterviewModule";
+            package.Speaker = "Hiring Manager";
+            package.Responder = "Player";
+        }
+
+        private void StartingDialoguePackage() {
+            SetDefaultPackage();
+            package.Topic = "welcome";
+            package.Type = Constants.STATEMENT;
+            package.Dialogue.Add("start");
+            package.Req["start"].Add("start");
+            package.LeadTo["start"].Add("start");
+        }
+
+
+
 
     }
 }

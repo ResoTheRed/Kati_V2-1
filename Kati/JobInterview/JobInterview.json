@@ -1,7 +1,8 @@
 {
+  //welcome is completely directed and everything is neutral
+  //designed to bould Rapport with the manager 
   "welcome_statement": {
     "neutral": {
-      //statement
       "Welcome to #company_name#.": {
         "req": [ "start" ],
         "lead to": [ "welcome_statement.intro_tier1" ]
@@ -10,7 +11,7 @@
         "req": [ "start" ],
         "lead to": [ "welcome_statement.intro_tier1" ]
       },
-      "Greetinngs, and welcome to the #company_name#": {
+      "Greetings, and welcome to the #company_name#": {
         "req": [ "start" ],
         "lead to": [ "welcome_statement.intro_tier1" ]
       },
@@ -18,314 +19,355 @@
         "req": [ "start" ],
         "lead to": [ "welcome_statement.intro_tier1" ]
       },
-      //statement
       "Let me introduce myself. #new_textbox# #art.happy# I'm #manager_name#. #newline# I am the hiring manager for the Software Development Department.": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_question.intro_tier" ]
+        "req": [ "intro_tier1" ],
+        "lead to": [ "welcome_question.intro_tier2" ]
       },
       "Before we get ahead of ourselves, I am #manager_name#. #new_textbox# #art.happy# I'm the hiring manager for the Software Development Department.": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_question.intro_tier" ]
+        "req": [ "intro_tier1" ],
+        "lead to": [ "welcome_question.intro_tier2" ]
       },
       "I would like to start by introducing myself, I am #manager_name#. #new_textbox# #art.happy# I'm the hiring manager for the Software Development Department here at #company_name#.": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_question.intro_tier" ]
+        "req": [ "intro_tier1" ],
+        "lead to": [ "welcome_question.intro_tier2" ]
       },
-      "My name is #manager_name# and I'm the hiring manager for the Software Development Department here at #company_name#.": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_question.intro_tier" ]
+      "My name is #manager_name#, and I'm the hiring manager for the Software Development Department here at #company_name#.": {
+        "req": [ "intro_tier1" ],
+        "lead to": [ "welcome_question.intro_tier2" ]
       },
-      //question
-      "I've have your information here but I would rather have this meeting more personal. Is that okay with you?": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_response.intro_tier" ]
-      },
-      "How about we keep this interview a little informal. How does that sound to you?": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_response.intro_tier" ]
-      },
-      "I was thinking we keep this interview a little informal. Being so formal all of the time can be soo stuffy. What do you think?": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_response.intro_tier" ]
-      },
-      "I looked over your resume but I would like to get the information straight from the source. What do you say?": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_response.intro_tier" ]
-      },
-      //response
-      "I think that would be just perfect. That is a great idea.": { //positive+
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier_pos", "friend.25", "professional.15" ]
-      },
-      "That is an absolutely divine idea. Go ahead and ask me anything you like.": { //positive+
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier_pos", "friend.25", "professional.15" ]
-      },
-      "I like where you are going and I agree with you.": { //positive
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier_pos", "friend.15", "professional.15" ]
-      },
-      "I concur. I think it best to keep the mood light and informal": { //positive
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier_pos", "friend.10", "professional.20", "rivalry.10" ]
-      },
-      "I'm okay with it.": { //neutral
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier_pos", "friend.5", "respect.5", "disgust.5" ]
-      },
-      "Sure. That sounds good to me.": { //neutral
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier_pos", "friend.5", "respect.5", "disgust.5" ]
-      },
-      "Whatever. It doesn't matter to me.": { //negative
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier_neg", "disgust.15" ]
-      },
-      "I don't really care either way.": { //negative
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier_neg", "disgust.15", "affinity.5", "rivalry.5" ]
-      },
-      "I guess if my resume is too complicated for you, then I'll explain it.": { //negative+
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier_neg", "disgust.25", "affinity.5" ]
-      },
-      "Not interested in keeping it informal. I've have provided all you need to know in my resume.": { //negative+
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier_neg", "disgust.15", "affinity.5", "rivalry.5" ]
-      },
-      //statement
       "#art.happy# Okay, great!": {
-        "req": [ "intro_tier_pos" ],
-        "lead to": [ "welcome_statement.intro_tier" ]
+        "req": [ "intro_tier4_pos" ],
+        "lead to": [ "welcome_statement.intro_tier5" ]
       },
       "#art.happy# Awesome! That's what I wanted to hear.": {
-        "req": [ "intro_tier_pos" ],
-        "lead to": [ "welcome_statement.intro_tier" ]
+        "req": [ "intro_tier4_pos" ],
+        "lead to": [ "welcome_statement.intro_tier5" ]
       },
       "#art.happy# Wonderful, let's continue then.": {
-        "req": [ "intro_tier_pos" ],
-        "lead to": [ "welcome_statement.intro_tier" ]
+        "req": [ "intro_tier4_pos" ],
+        "lead to": [ "welcome_statement.intro_tier5" ]
       },
       "#art.happy# Perfect.": {
-        "req": [ "intro_tier_pos" ],
-        "lead to": [ "welcome_statement.intro_tier" ]
+        "req": [ "intro_tier4_pos" ],
+        "lead to": [ "welcome_statement.intro_tier5" ]
       },
       "#art.sad# Okay then. I think I'll still do it my way.": {
-        "req": [ "intro_tier_neg" ],
-        "lead to": [ "welcome_statement.intro_tier" ]
+        "req": [ "intro_tier4_neg" ],
+        "lead to": [ "welcome_statement.intro_tier5" ]
       },
       "#art.sad# That wasn't what I was expecting. #new_textbox# Anyway..": {
-        "req": [ "intro_tier_neg" ],
-        "lead to": [ "welcome_statement.intro_tier" ]
+        "req": [ "intro_tier4_neg" ],
+        "lead to": [ "welcome_statement.intro_tier5" ]
       },
       "#art.sad# Okay then..": {
-        "req": [ "intro_tier_neg" ],
-        "lead to": [ "welcome_statement.intro_tier" ]
+        "req": [ "intro_tier4_neg" ],
+        "lead to": [ "welcome_statement.intro_tier5" ]
       },
-      "#art.sad# Perfect. Well, I'm a little surprized, but nevertheless, lets continue shall we.": {
-        "req": [ "intro_tier_neg" ],
-        "lead to": [ "welcome_statement.intro_tier" ]
+      "#art.sad# Perfect. Well, I'm a little surprised, but nevertheless, let's continue, shall we.": {
+        "req": [ "intro_tier4_neg" ],
+        "lead to": [ "welcome_statement.intro_tier5" ]
       },
-      //statement
       "I will need to ask you some preliminary questinons before we get to the fun stuff": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_question.intro_tier" ]
+        "req": [ "intro_tier5" ],
+        "lead to": [ "welcome_question.intro_tier6" ]
       },
-      "There are somethings I need to ask you before we get started.": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_question.intro_tier" ]
+      "There are some things I need to ask you before we get started.": {
+        "req": [ "intro_tier5" ],
+        "lead to": [ "welcome_question.intro_tier6" ]
       },
       "I need you to answer a few questions for me": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_question.intro_tier" ]
+        "req": [ "intro_tier5" ],
+        "lead to": [ "welcome_question.intro_tier6" ]
       },
       "Please answer a few questions before we get chatting.": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_question.intro_tier" ]
+        "req": [ "intro_tier5" ],
+        "lead to": [ "welcome_question.intro_tier6" ]
       },
-      //question
-      "Can you please tell me your perferred name?": {
+      "I've got one more preliminary question for you. #new_textbox# #art_evil# You don't have to worry.  This question won't count against you.": {
+        "req": [ "intro_tier12" ],
+        "lead to": [ "welcome_question.intro_tier13" ]
+      },
+      "Thanks for all that info. I've just got one more question for you. #new_textbox# #art_evil# You don't have to worry.  This question won't count against you.": {
+        "req": [ "intro_tier12" ],
+        "lead to": [ "welcome_question.intro_tier13" ]
+      },
+      "Alright, thanks for hanging in there. I just have one quick question for you. #new_textbox# #art_evil# This question isn't part of the interview, so you don't have to worry about it.": {
+        "req": [ "intro_tier12" ],
+        "lead to": [ "welcome_question.intro_tier13" ]
+      },
+      "Good, good.  That satisfied my curiosity": {
+        "req": [ "intro_tier15" ],
+        "lead to": [ "welcome_statement.intro_tier16" ]
+      },
+      "Alright, then. That will do.": {
+        "req": [ "intro_tier15" ],
+        "lead to": [ "welcome_statement.intro_tier16" ]
+      },
+      "Great.  Thank you for that.": {
+        "req": [ "intro_tier15" ],
+        "lead to": [ "welcome_statement.intro_tier16" ]
+      },
+      "I see you are looking to be hired for the Software Development intern position.": {
+        "req": [ "intro_tier16" ],
+        "lead to": [ "welcome_question.intro_tier17" ]
+      },
+      "So, you are interested in the intern position, the software intern position.": {
+        "req": [ "intro_tier16" ],
+        "lead to": [ "welcome_question.intro_tier17" ]
+      },
+      "It says on the paperwork that you are interested in the Software Development Intern position.": {
+        "req": [ "intro_tier16" ],
+        "lead to": [ "welcome_question.intro_tier17" ]
+      },
+      "Okay, you are interested in snagging the Software Development Intern position.": {
+        "req": [ "intro_tier16" ],
+        "lead to": [ "welcome_question.intro_tier17" ]
+      },
+      "Here at #company_name#, we strive for perfection in everything we do.": {
+        "req": [ "intro_tier20" ],
+        "lead to": [ "welcome_statement.intro_tier21" ]
+      },
+      "Perfection is of the highest importance at #company_name#.": {
+        "req": [ "intro_tier20" ],
+        "lead to": [ "welcome_statement.intro_tier21" ]
+      },
+      "We accept nothing less than perfection here at #company_name#.": {
+        "req": [ "intro_tier20" ],
+        "lead to": [ "welcome_statement.intro_tier21" ]
+      },
+      "I am proud to say that here at #company_name#, we produce only the best.": {
+        "req": [ "intro_tier20" ],
+        "lead to": [ "welcome_statement.intro_tier21" ]
+      },
+      "We are innovators, professionals, and always on the cutting-edge of technology.": {
+        "req": [ "intro_tier21" ],
+        "lead to": [ "welcome_statement.intro_tier22" ]
+      },
+      "Our team of professionals is always on the cutting-edge of technology": {
+        "req": [ "intro_tier21" ],
+        "lead to": [ "welcome_statement.intro_tier22" ]
+      },
+      "We are trendsetters in the world of software and information technology.": {
+        "req": [ "intro_tier21" ],
+        "lead to": [ "welcome_statement.intro_tier22" ]
+      },
+      "We are known for customer satisfaction and always deliver our product on time. #repeat_textbox#": {
+        "req": [ "intro_tier22" ],
+        "lead to": [ "welcome_statement.intro_tier23" ]
+      },
+      "Customer satisfaction is our mission statement, and on-time delivery of our products is paramount. #repeat_textbox#": {
+        "req": [ "intro_tier22" ],
+        "lead to": [ "welcome_statement.intro_tier23" ]
+      },
+      "We believe that the customer is first, and our success is solely based on the level of satisfaction we can provide. #repeat_textbox#": {
+        "req": [ "intro_tier22" ],
+        "lead to": [ "welcome_statement.intro_tier23" ]
+      },
+      "#art_sad# With that said, our crew must be the best of the best.": {
+        "req": [ "intro_tier23" ],
+        "lead to": [ "welcome_statement.intro_tier24" ]
+      },
+      "#art_sad# That is why we only hire the best candidates for the job.": {
+        "req": [ "intro_tier23" ],
+        "lead to": [ "welcome_statement.intro_tier24" ]
+      },
+      "#art_sad# We only consider remarkable people for positions at a remarkable place like this.": {
+        "req": [ "intro_tier23" ],
+        "lead to": [ "welcome_statement.intro_tier24" ]
+      },
+      "Of course, as an intern, we wouldn't expect you to be a master in the field just yet. #repeat_textbox#": {
+        "req": [ "intro_tier24" ],
+        "lead to": [ "welcome_statement.intro_tier25" ]
+      },
+      "We aren't expecting interns to know everything straight out of school. #repeat_textbox#": {
+        "req": [ "intro_tier24" ],
+        "lead to": [ "welcome_statement.intro_tier25" ]
+      },
+      "As an intern, the expectations of your performance is not that of the same as a standard hire. #repeat_textbox#": {
+        "req": [ "intro_tier24" ],
+        "lead to": [ "welcome_statement.intro_tier25" ]
+      },
+      "We will teach you everything that you need to know on the job. #repeat_textbox#": {
+        "req": [ "intro_tier25" ],
+        "lead to": [ "welcome_statement.intro_tier26" ]
+      },
+      "We provide on the job training to all of our interns. #repeat_textbox#": {
+        "req": [ "intro_tier25" ],
+        "lead to": [ "welcome_statement.intro_tier26" ]
+      },
+      "You don't have to worry too much if there are some gaps in your experience.  It is expected": {
+        "req": [ "intro_tier26" ],
+        "lead to": [ "welcome_question.intro_tier27" ]
+      },
+      "We expect that you may not be fully qualified, and that is perfectly fine.": {
+        "req": [ "intro_tier26" ],
+        "lead to": [ "welcome_question.intro_tier27" ]
+      },
+      "#art_sad# That's a fair question, I suppose.  We have dozens of applicants every month.": {
+        "req": [ "intro_tier29" ],
+        "lead to": [ "welcome_statement.intro_tier30" ]
+      },
+      "#art_suspicious# Well, you should probably do a little research before you send out applications. What we do is a bit complicated.  Let's just say we deal with client's data and presents on the web.": {
+        "req": [ "intro_tier29_neg" ],
+        "lead to": [ "welcome_statement.intro_tier30" ]
+      },
+      "If you don't have anything else, then we will move on to job qualifications.": {
+        "req": [ "intro_tier30" ],
+        "lead to": [ "qualifications" ]
+      },
+      "Okay, let's move on then.  I would like to talk about your qualifications.": {
+        "req": [ "intro_tier30" ],
+        "lead to": [ "qualificcations" ]
+      },
+      "With all of that out of the way, let's talk about your qualifications.": {
+        "req": [ "intro_tier30" ],
+        "lead to": [ "qualifications" ]
+      },
+      "So now I would like to move on to the job qualifications.": {
         "req": [ "intro_tier" ],
-        "lead to": [ "welcome_response.intro_tier" ]
+        "lead to": [ "qualifications" ]
+      }
+    }
+  },
+  "welcome_question": {
+    "neutral": {
+      "I have your information here, but I would rather have this meeting more personal. Is that okay with you?": {
+        "req": [ "intro_tier2" ],
+        "lead to": [ "welcome_response.intro_tier3" ]
+      },
+      "How about we keep this interview a little informal. How does that sound to you?": {
+        "req": [ "intro_tier2" ],
+        "lead to": [ "welcome_response.intro_tier3" ]
+      },
+      "I was thinking we keep this interview a little informal. Being so formal all of the time can be soo stuffy. What do you think?": {
+        "req": [ "intro_tier2" ],
+        "lead to": [ "welcome_response.intro_tier3" ]
+      },
+      "I looked over your resume, but I would like to get the information straight from the source. What do you say?": {
+        "req": [ "intro_tier2" ],
+        "lead to": [ "welcome_response.intro_tier3" ]
+      },
+      "Can you please tell me your preferred name?": {
+        "req": [ "intro_tier6" ],
+        "lead to": [ "welcome_response.intro_tier7" ]
       },
       "What is your preferred name?": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_response.intro_tier" ]
+        "req": [ "intro_tier6" ],
+        "lead to": [ "welcome_response.intro_tier7" ]
       },
       "Is there a specific name that you would like to be called?": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_response.intro_tier" ]
+        "req": [ "intro_tier6" ],
+        "lead to": [ "welcome_response.intro_tier7" ]
       },
       "Please state your name. If you have an alias that you would like to be called, use that?": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_response.intro_tier" ]
+        "req": [ "intro_tier6" ],
+        "lead to": [ "welcome_response.intro_tier7" ]
       },
-      //response
-      "Please call me #player_name#.": { //positive
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_question.intro_tier", "respect.15", "friend.5" ]
-      },
-      "I prefer #player_name#. Thank you.": { //positive
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_question.intro_tier", "professional.15" ]
-      },
-      "My name is #player_name#.": { //neutral
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_question.intro_tier", "prefoessional.5" ]
-      },
-      "#player_name#": { //neutral
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_question.intro_tier" ]
-      },
-      "My friends call me #player_name# and I can tell we are going to be friends.": { //neutral
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_question.intro_tier", "freind.5", "professional.-5", "affinity.5" ]
-      },
-      "Have you read my resume? My name is #player_name#": { //negative
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_question.intro_tier", "disgust.10", "professional.-10", "respect.10" ]
-      },
-      "My name is #player_name# and don't forget it.": { //negative
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_question.intro_tier", "disgust.10" ]
-      },
-      //question
-      "Could you please describe yourself in a few adjactives.": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_response.intro_tier" ]
+      "Could you please describe yourself in a few adjectives.": {
+        "req": [ "intro_tier8" ],
+        "lead to": [ "welcome_response.intro_tier9" ]
       },
       "I would like you to describe yourself in a few words.": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_response.intro_tier" ]
+        "req": [ "intro_tier8" ],
+        "lead to": [ "welcome_response.intro_tier9" ]
       },
-      "Please describe yourself in 5 or less words.": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_response.intro_tier" ]
+      "Please describe yourself in 5 or fewer words.": {
+        "req": [ "intro_tier8" ],
+        "lead to": [ "welcome_response.intro_tier9" ]
       },
-      //response
-      "I am in control, consistant, perfect, relentless, and fearless": { //neutral
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier", "respect.-5", "professional.10", "affinity.5" ]
-      },
-      "I am patient, diligent, result-oriented, proactive, and skillful": { //neutral
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier", "respect.5", "professional.5", "friend.-5" ]
-      },
-      "I am confident, maticulous, energetic, motivated, and self-starter": { //neutral
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier", "professional.5" ]
-      },
-      "I am social, jovial, analitical, professional, and ambitous": { //neutral
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier", "friend.10" ]
-      },
-      "I am gloomy, brooding, listener, good direction follower, and a bit meloncoly": { //neutral
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier", "disgust.5", "respect.10" ]
-      },
-      "I am calculating, maticulous, exact, punctual, and deadly accurate": { //neutral
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier", "disgust.8", "professional.12", "affinity.5" ]
-      },
-      //question
       "Are you able to work over 40 hours a week if need be?": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_response.intro_tier" ]
+        "req": [ "intro_tier10" ],
+        "lead to": [ "welcome_response.intro_tier11" ]
       },
       "How do you feel about overtime?": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_response.intro_tier" ]
+        "req": [ "intro_tier10" ],
+        "lead to": [ "welcome_response.intro_tier11" ]
       },
       "If hired for the position, could you work extra hours if needed?": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_response.intro_tier" ]
+        "req": [ "intro_tier10" ],
+        "lead to": [ "welcome_response.intro_tier11" ]
       },
-      //response
-      "I would work as many hours as I can get. I love to work.": { //pos
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier", "professional.10", "respect.10", "disgust.4" ]
-      },
-      "I have no problem working upwards of 80 hours a week if I'm needed.": { //pos
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier", "professional.10", "affinity.10", "disgust.4" ]
-      },
-      "I have no problem putting in overtime when needed.": { //pos
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier", "professional.10", "friend.5" ]
-      },
-      "A good 45 to 50 hour work week suits me perfectly": { //pos
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier", "professional.10", "respect.5" ]
-      },
-      "I'm okay with some overtime.": { //neutral
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier", "friend.10", "respect.5" ]
-      },
-      "I could work overtime occasionally if needed": { //neutral
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier", "professional.5", "affinity.3", "respect.3" ]
-      },
-      "I suppose working overtime is okay as long as it isn't every week.": { //neutral
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier", "affinity.3", "respect.3", "friend.3" ]
-      },
-      "I am willing to work overtime if it is absolutely necessary.": { //neutral
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier" ]
-      },
-      "I can work overtime in emergencies.": { //negative
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier", "friend.5", "disgust.10" ]
-      },
-      "Sorry, I will not work overtime. I have many other obligations that prevent me from doing so.": { //negative
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier", "respect.5", "disgust.10" ]
-      },
-      "I was really hoping not to work more that 32 hours a week.": { //negative+
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier", "professional.-10" ]
-      },
-      //statement
-      "I've got one more preliminary question for you. #new_textbox# #art_evil# You don't have to worry.  This question wont count against you.": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_question.intro_tier" ]
-      },
-      "Thanks for all that info I've just got one more question for you. #new_textbox# #art_evil# You don't have to worry.  This question wont count against you.": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_question.intro_tier" ]
-      },
-      "Alright, thanks for hanging in there. I just have one quick question for you. #new_textbox# #art_evil# This question isn't part of the interview so you don't have to wory about it.": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_question.intro_tier" ]
-      },
-      //question
       "Why are you interested in working at #company_name#?": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_response.intro_tier" ]
+        "req": [ "intro_tier13" ],
+        "lead to": [ "welcome_response.intro_tier14" ]
       },
       "What about #company_name# interests you?": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_response.intro_tier" ]
+        "req": [ "intro_tier13" ],
+        "lead to": [ "welcome_response.intro_tier14" ]
       },
-      "Why #company_name#?  Why not apply somewhere else?": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_response.intro_tier" ]
+      "Why, #company_name#?  Why not apply somewhere else?": {
+        "req": [ "intro_tier13" ],
+        "lead to": [ "welcome_response.intro_tier14" ]
       },
       "Why did you choose to apply at #compay_name#?": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_response.intro_tier" ]
+        "req": [ "intro_tier13" ],
+        "lead to": [ "welcome_response.intro_tier14" ]
       },
-      //response
+      "Is there anything you want to add before we move on?": {
+        "req": [ "intro_tier18" ],
+        "lead to": [ "welcome_response.intro_tier19" ]
+      },
+      "Do you have anything to say before we move on?": {
+        "req": [ "intro_tier18" ],
+        "lead to": [ "welcome_response.intro_tier19" ]
+      },
+      "Do you have any further comments before we continue?": {
+        "req": [ "intro_tier18" ],
+        "lead to": [ "welcome_response.intro_tier19" ]
+      },
+      "Do you have any questions about any of this?": {
+        "req": [ "intro_tier27" ],
+        "lead to": [ "welcome_response.intro_tier28" ]
+      },
+      "Do you have anything to add or ask?": {
+        "req": [ "intro_tier27" ],
+        "lead to": [ "welcome_response.intro_tier28" ]
+      },
+      "Are you following me so far?": {
+        "req": [ "intro_tier27" ],
+        "lead to": [ "welcome_response.intro_tier28" ]
+      }
+    }
+  },
+  "welcome_response": {
+
+    "positive+": {
+      "I think that would be just perfect. That is a great idea.": { //positive+
+        "req": [ "intro_tier3" ],
+        "lead to": [ "welcome_statement.intro_tier4_pos", "friend.25", "professional.15" ]
+      },
+      "That is an absolutely divine idea. Go ahead and ask me anything you like.": { //positive+
+        "req": [ "intro_tier3" ],
+        "lead to": [ "welcome_statement.intro_tier4_pos", "friend.25", "professional.15" ]
+      },
+      "I would work as many hours as I can get. I love to work.": { //pos
+        "req": [ "intro_tier11" ],
+        "lead to": [ "welcome_statement.intro_tier12", "professional.10", "respect.10", "disgust.4" ]
+      },
+      "I have no problem working upwards of 80 hours a week if I'm needed.": { //pos
+        "req": [ "intro_tier11" ],
+        "lead to": [ "welcome_statement.intro_tier12", "professional.10", "affinity.10", "disgust.4" ]
+      },
       "#company_name# is the greater than any other place!  I wish I could move in and live here!": { //pos+
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier", "moonie.profesional.3", "moonie.friend.5", "moonie.affinity.5", "moonie.respect.-10", "moonie.disgust.25",
-                     "shoulders.professional.40","shoulders.respect.50", "shoulders.friend.40","shoulders.affinity.40","shoulders.disgust.-10"
+        "req": [ "intro_tier14" ],
+        "lead to": [
+          "welcome_statement.intro_tier15",
+          "moonie.profesional.3",
+          "moonie.friend.5",
+          "moonie.affinity.5",
+          "moonie.respect.-10",
+          "moonie.disgust.25",
+          "shoulders.professional.40",
+          "shoulders.respect.50",
+          "shoulders.friend.40",
+          "shoulders.affinity.40",
+          "shoulders.disgust.-10"
         ]
       },
       "#company_name# is the greatest company ever.  No other job compares to it.": { //pos+
-        "req": [ "intro_tier" ],
+        "req": [ "intro_tier14" ],
         "lead to": [
-          "welcome_statement.intro_tier",
+          "welcome_statement.intro_tier15",
           "moonie.profesional.5",
           "moonie.friend.9",
           "moonie.affinity.-2",
@@ -338,10 +380,45 @@
           "shoulders.disgust.-10"
         ]
       },
+      "Yes, I just want to say it is an honor to be here and I'm so happy that you are giving me this chance.": { //pos+
+        "req": [ "intro_tier19" ],
+        "lead to": [ "welcome_statement.intro_tier20", "friend.15", "affinity.10", "respect.-5" ]
+      },
+      "I would like to say thank you for seeing me today.  It means so very much to me.": { //pos+
+        "req": [ "intro_tier19" ],
+        "lead to": [ "welcome_statement.intro_tier20", "friend.15", "affinity.-5", "respect.10" ]
+      }
+
+    },
+    "positive": {
+      "I like where you are going, and I agree with you.": { //positive
+        "req": [ "intro_tier3" ],
+        "lead to": [ "welcome_statement.intro_tier4_pos", "friend.15", "professional.15" ]
+      },
+      "I concur. I think it best to keep the mood light and informal": { //positive
+        "req": [ "intro_tier3" ],
+        "lead to": [ "welcome_statement.intro_tier4_pos", "friend.10", "professional.20", "rivalry.10" ]
+      },
+      "Please call me #player_name#.": { //positive
+        "req": [ "intro_tier7" ],
+        "lead to": [ "welcome_question.intro_tier8", "respect.15", "friend.5" ]
+      },
+      "I prefer #player_name#. Thank you.": { //positive
+        "req": [ "intro_tier7" ],
+        "lead to": [ "welcome_question.intro_tier8", "professional.15" ]
+      },
+      "I have no problem putting in overtime when needed.": { //pos
+        "req": [ "intro_tier11" ],
+        "lead to": [ "welcome_statement.intro_tier12", "professional.10", "friend.5" ]
+      },
+      "A good 45 to 50 hour workweek suits me perfectly": { //pos
+        "req": [ "intro_tier11" ],
+        "lead to": [ "welcome_statement.intro_tier12", "professional.10", "respect.5" ]
+      },
       "I love #company_name# and respect and value what is accomplished here!": { //pos
-        "req": [ "intro_tier" ],
+        "req": [ "intro_tier14" ],
         "lead to": [
-          "welcome_statement.intro_tier",
+          "welcome_statement.intro_tier15",
           "moonie.profesional.20",
           "moonie.friend.10",
           "moonie.affinity.10",
@@ -355,9 +432,9 @@
         ]
       },
       "I believe in #company_name# and have dreamed of working here for years now!": { //pos
-        "req": [ "intro_tier" ],
+        "req": [ "intro_tier14" ],
         "lead to": [
-          "welcome_statement.intro_tier",
+          "welcome_statement.intro_tier15",
           "moonie.profesional.15",
           "moonie.friend.10",
           "moonie.affinity.10",
@@ -370,10 +447,85 @@
           "shoulders.disgust.-1"
         ]
       },
-      "I belive #company_name# to be a good place to work.  I have heard good things about the work culture here.": { //neutral
-        "req": [ "intro_tier" ],
+      "Thank you for giving me your time.": { //pos
+        "req": [ "intro_tier19" ],
+        "lead to": [ "welcome_statement.intro_tier20", "professional.10", "friend.5", "respect.5" ]
+      },
+      "I appreciate you selecting me for this interview.": {
+        "req": [ "intro_tier19" ],
+        "lead to": [ "welcome_statement.intro_tier20", "professional.10", "friend.5", "affinity.5" ]
+      },
+      "I don't have any questions yet,, though listening to you is making me excited.": { //pos
+        "req": [ "intro_tier28" ],
+        "lead to": [ "welcome_statement.intro_tier29", "friend.10" ]
+      }
+
+    },
+    "neutral": {
+      "I'm okay with it.": { //neutral
+        "req": [ "intro_tier3" ],
+        "lead to": [ "welcome_statement.intro_tier4_pos", "friend.5", "respect.5", "disgust.5" ]
+      },
+      "Sure. That sounds good to me.": { //neutral
+        "req": [ "intro_tier3" ],
+        "lead to": [ "welcome_statement.intro_tier4_pos", "friend.5", "respect.5", "disgust.5" ]
+      },
+      "My name is #player_name#.": { //neutral
+        "req": [ "intro_tier7" ],
+        "lead to": [ "welcome_question.intro_tier8", "prefoessional.5" ]
+      },
+      "#player_name#": { //neutral
+        "req": [ "intro_tier7" ],
+        "lead to": [ "welcome_question.intro_tier8" ]
+      },
+      "My friends call me #player_name#, and I can tell we are going to be friends.": { //neutral
+        "req": [ "intro_tier7" ],
+        "lead to": [ "welcome_question.intro_tier8", "freind.5", "professional.-5", "affinity.5" ]
+      },
+      "I am in control, consistant, perfect, relentless, and fearless": { //neutral
+        "req": [ "intro_tier9" ],
+        "lead to": [ "welcome_question.intro_tier10", "respect.-5", "professional.10", "affinity.5" ]
+      },
+      "I am patient, diligent, result-oriented, proactive, and skillful": { //neutral
+        "req": [ "intro_tier9" ],
+        "lead to": [ "welcome_question.intro_tier10", "respect.5", "professional.5", "friend.-5" ]
+      },
+      "I am confident, maticulous, energetic, motivated, and self-starter": { //neutral
+        "req": [ "intro_tier9" ],
+        "lead to": [ "welcome_question.intro_tier10", "professional.5" ]
+      },
+      "I am social, jovial, analytical, professional, and ambitious": { //neutral
+        "req": [ "intro_tier9" ],
+        "lead to": [ "welcome_question.intro_tier10", "friend.10" ]
+      },
+      "I am gloomy, brooding, listener, good direction follower, and a bit melancholy": { //neutral
+        "req": [ "intro_tier9" ],
+        "lead to": [ "welcome_question.intro_tier10", "disgust.5", "respect.10" ]
+      },
+      "I am calculating, meticulous, exact, punctual, and deadly accurate": { //neutral
+        "req": [ "intro_tier9" ],
+        "lead to": [ "welcome_question.intro_tier10", "disgust.8", "professional.12", "affinity.5" ]
+      },
+      "I'm okay with some overtime.": { //neutral
+        "req": [ "intro_tier11" ],
+        "lead to": [ "welcome_statement.intro_tier12", "friend.10", "respect.5" ]
+      },
+      "I could work overtime occasionally if needed": { //neutral
+        "req": [ "intro_tier11" ],
+        "lead to": [ "welcome_statement.intro_tier12", "professional.5", "affinity.3", "respect.3" ]
+      },
+      "I suppose working overtime is okay as long as it isn't every week.": { //neutral
+        "req": [ "intro_tier11" ],
+        "lead to": [ "welcome_statement.intro_tier12", "affinity.3", "respect.3", "friend.3" ]
+      },
+      "I am willing to work overtime if it is absolutely necessary.": { //neutral
+        "req": [ "intro_tier11" ],
+        "lead to": [ "welcome_statement.intro_tier12" ]
+      },
+      "I believe #company_name# to be a good place to work.  I have heard good things about the work culture here.": { //neutral
+        "req": [ "intro_tier14" ],
         "lead to": [
-          "welcome_statement.intro_tier",
+          "welcome_statement.intro_tier15",
           "moonie.profesional.40",
           "moonie.friend.40",
           "moonie.affinity.40",
@@ -387,9 +539,9 @@
         ]
       },
       "#company_name# is the good fit for me.  The product lines fit my interests.": { //neutral
-        "req": [ "intro_tier" ],
+        "req": [ "intro_tier14" ],
         "lead to": [
-          "welcome_statement.intro_tier",
+          "welcome_statement.intro_tier15",
           "moonie.profesional.35",
           "moonie.friend.30",
           "moonie.affinity.30",
@@ -402,10 +554,10 @@
           "shoulders.disgust.2"
         ]
       },
-      "I am looking for a place that I can establish long term career. I really believe #company_name# is that place.": { //neutral
-        "req": [ "intro_tier" ],
+      "I am looking for a place that I can establish a long term career. I really believe #company_name# is that place.": { //neutral
+        "req": [ "intro_tier14" ],
         "lead to": [
-          "welcome_statement.intro_tier",
+          "welcome_statement.intro_tier15",
           "moonie.profesional.40",
           "moonie.friend.40",
           "moonie.affinity.40",
@@ -418,26 +570,45 @@
           "shoulders.disgust.-5"
         ]
       },
-      "I'm looking for a good first job to build up my resume and #company_name# fits the bill.": { //neg
-        "req": [ "intro_tier" ],
-        "lead to": [
-          "welcome_statement.intro_tier",
-          "moonie.profesional.-5",
-          "moonie.friend.12",
-          "moonie.affinity.7",
-          "moonie.respect.-5",
-          "moonie.disgust.10",
-          "shoulders.professional.-15",
-          "shoulders.respect.10",
-          "shoulders.friend.-10",
-          "shoulders.affinity.2",
-          "shoulders.disgust.5"
-        ]
+      "I have no comments at the moment.": { //neutral
+        "req": [ "intro_tier19" ],
+        "lead to": [ "welcome_statement.intro_tier20", "professional.10" ]
+      },
+      "Nothing yet thanks.": { //neutral
+        "req": [ "intro_tier28" ],
+        "lead to": [ "welcome_statement.intro_tier29", "respect.10" ]
+      }
+
+    },
+    "negative": {
+      "Whatever. It doesn't matter to me.": { //negative
+        "req": [ "intro_tier3" ],
+        "lead to": [ "welcome_statement.intro_tier4_neg", "disgust.15" ]
+      },
+      "I don't really care either way.": { //negative
+        "req": [ "intro_tier3" ],
+        "lead to": [ "welcome_statement.intro_tier4_neg", "disgust.15", "affinity.5", "rivalry.5" ]
+      },
+      "Have you read my resume? My name is #player_name#": { //negative
+        "req": [ "intro_tier7" ],
+        "lead to": [ "welcome_question.intro_tier8", "disgust.10", "professional.-10", "respect.10" ]
+      },
+      "My name is #player_name# and don't forget it.": { //negative
+        "req": [ "intro_tier7" ],
+        "lead to": [ "welcome_question.intro_tier8", "disgust.10" ]
+      },
+      "I can work overtime in emergencies.": { //negative
+        "req": [ "intro_tier11" ],
+        "lead to": [ "welcome_statement.intro_tier12", "friend.5", "disgust.10" ]
+      },
+      "Sorry, I will not work overtime. I have many other obligations that prevent me from doing so.": { //negative
+        "req": [ "intro_tier11" ],
+        "lead to": [ "welcome_statement.intro_tier12", "respect.5", "disgust.10" ]
       },
       "I don't know.  I saw #company_name# was hiring.": { //neg
-        "req": [ "intro_tier" ],
+        "req": [ "intro_tier14" ],
         "lead to": [
-          "welcome_statement.intro_tier",
+          "welcome_statement.intro_tier15",
           "moonie.profesional.-5",
           "moonie.friend.12",
           "moonie.affinity.7",
@@ -450,10 +621,10 @@
           "shoulders.disgust.5"
         ]
       },
-      "To tell you the truth no one else is hiring.": { //neg
-        "req": [ "intro_tier" ],
+      "To tell you the truth, no one else is hiring.": { //neg
+        "req": [ "intro_tier14" ],
         "lead to": [
-          "welcome_statement.intro_tier",
+          "welcome_statement.intro_tier15",
           "moonie.profesional.-15",
           "moonie.friend.5",
           "moonie.affinity.-17",
@@ -466,10 +637,53 @@
           "shoulders.disgust.25"
         ]
       },
-      "I have no Idea.": { //neg+
-        "req": [ "intro_tier" ],
+      "I'm looking for a good first job to build up my resume, and #company_name# fits the bill.": { //neg
+        "req": [ "intro_tier14" ],
         "lead to": [
-          "welcome_statement.intro_tier",
+          "welcome_statement.intro_tier15",
+          "moonie.profesional.-5",
+          "moonie.friend.12",
+          "moonie.affinity.7",
+          "moonie.respect.-5",
+          "moonie.disgust.10",
+          "shoulders.professional.-15",
+          "shoulders.respect.10",
+          "shoulders.friend.-10",
+          "shoulders.affinity.2",
+          "shoulders.disgust.5"
+        ]
+      },
+      "Yes, I have additional content that I didn't include in my resume if you would like to see it.": { //neg
+        "req": [ "intro_tier19" ],
+        "lead to": [ "welcome_statement.intro_tier20", "professional.5", "disgust.15" ]
+      },
+      "Yes, I really like your jacket. It looks nice on you.": { //neg
+        "req": [ "intro_tier19" ],
+        "lead to": [ "welcome_statement.intro_tier20", "affinity.10", "disgust.15" ]
+      },
+      "I have a question.  How many people apply here for the intern position?": { //neg
+        "req": [ "intro_tier28" ],
+        "lead to": [ "welcome_statement.intro_tier29_neg", "professional.5" ]
+      }
+
+    },
+    "negative+": {
+      "I guess if my resume is too complicated for you, then I'll explain it.": { //negative+
+        "req": [ "intro_tier3" ],
+        "lead to": [ "welcome_statement.intro_tier4_neg", "disgust.25", "affinity.5" ]
+      },
+      "Not interested in keeping it informal. I've have provided all you need to know in my resume.": { //negative+
+        "req": [ "intro_tier3" ],
+        "lead to": [ "welcome_statement.intro_tier4_neg", "disgust.15", "affinity.5", "rivalry.5" ]
+      },
+      "I was really hoping not to work more than 32 hours a week.": { //negative+
+        "req": [ "intro_tier11" ],
+        "lead to": [ "welcome_statement.intro_tier12", "professional.-10" ]
+      },
+      "I have no Idea.": { //neg+
+        "req": [ "intro_tier14" ],
+        "lead to": [
+          "welcome_statement.intro_tier15",
           "profesional.-50",
           "friend.-25",
           "affinity.-20",
@@ -477,10 +691,10 @@
           "disgust.30"
         ]
       },
-      "I would rather not answer that question.": {//neg+
-        "req": [ "intro_tier" ],
+      "I would rather not answer that question.": { //neg+
+        "req": [ "intro_tier14" ],
         "lead to": [
-          "welcome_statement.intro_tier",
+          "welcome_statement.intro_tier15",
           "profesional.-30",
           "friend.-15",
           "affinity.-10",
@@ -488,242 +702,24 @@
           "disgust.20"
         ]
       },
-
-
-
-
-
-      "I see you are looking to be hired for the Software Development intern position.": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier" ]
+      "I must say our eyes are sparkling. They are deep and beautiful like the ocean.": { //neg+
+        "req": [ "intro_tier19" ],
+        "lead to": [ "welcome_statement.intro_tier20", "professional.-10", "disgust.15" ]
       },
-      "So, you are interested in the intern position, the software intern position.": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier" ]
+      "Small talk is a waste of time, and my time is valuable.": { //neg+
+        "req": [ "intro_tier19" ],
+        "lead to": [ "welcome_statement.intro_tier20", "professional.-10", "disgust.15" ]
       },
-      "It says on the paperwork that you are interested in the Software Development Intern position.": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier" ]
-      },
-      "Okay, you are interested in snagging the Software Development Intern position.": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier" ]
-      },
-
-
-
-
-      "Here at #company_name# we strive for perfection in everything we do.": {
-        "req": [ "intro_tier" ],
-        "lead to": []
-      },
-      "Perfection is of the highest importance at #company_name#.": {
-        "req": [ "intro_tier" ],
-        "lead to": []
-      },
-      "We accept nothing less than perfection here at #company_name#.": {
-        "req": [ "intro_tier" ],
-        "lead to": []
-      },
-      "I am proud to say that here at #company_name#, we produce only the best.": {
-        "req": [ "intro_tier" ],
-        "lead to": []
-      },
-
-
-
-      "": {
-        "req": [ "intro_tier" ],
-        "lead to": [ "welcome_statement.intro_tier" ]
+      "Everything you said is great and all, but I'm not sure exactly what you guys do here.": { //neg+
+        "req": [ "intro_tier28" ],
+        "lead to": [ "welcome_statement.intro_tier29_neg", "professional.-10", "respect.-20", "friend.-10", "affinity.-10" ]
       }
 
-    },
-    "friend": {
-      "friend test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 2": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "respect": {
-      "respect test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 2": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "disgust": {
-      "disgust test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 2": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "hate": {
-      "hate test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 2": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "rivalry": {
-      "rivalry test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 2": {
-        "req": [],
-        "lead to": []
-      }
-    }
-  },
-  "welcome_question": {
-    "neutral": {
-      " neutral teat 1": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral teat 2": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "romance": {
-      "romance test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 2": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "friend": {
-      "friend test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 2": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "respect": {
-      "respect test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 2": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "affinity": {
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "disgust": {
-      "disgust test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 2": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "hate": {
-      "hate test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 2": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "rivalry": {
-      "rivalry test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 2": {
-        "req": [],
-        "lead to": []
-      }
-    }
-  },
-  "welcome_response": {
-    "positive+": {
-      "positive+ test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "positive+ test 2": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "positive": {
-      "positive test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "positive test 2": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "neutral": {
-      "neutral test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "neutral test 2": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "negative": {
-      "negative test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "negative test 2": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "negative+": {
-      "negative+ test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "negative+ test 2": {
-        "req": [],
-        "lead to": []
-      }
     }
   },
 
+  //qualifications is mostly directed and will utilize all branch types used in the game
+  //consist of sets of directed conversations about specific qualifications
   "qualifications_statement": {
     "neutral": {
       " neutral teat 1": {
@@ -941,6 +937,7 @@
     }
   },
 
+  //aim to make this one mostly if not entirely non-directed
   "get_to_know_you_statement": {
     "neutral": {
       " neutral teat 1": {
@@ -1158,7 +1155,8 @@
     }
   },
 
-  "are_you_qualified_statement": {
+  //mostly directed
+  "expectations_statement": {
     "neutral": {
       " neutral teat 1": {
         "req": [],
@@ -1240,7 +1238,7 @@
       }
     }
   },
-  "are_you_qualified_question": {
+  "expectations_question": {
     "neutral": {
       " neutral teat 1": {
         "req": [],
@@ -1322,7 +1320,7 @@
       }
     }
   },
-  "are_you_qualified_response": {
+  "expectations_response": {
     "positive+": {
       "positive+ test 1": {
         "req": [],
@@ -1373,8 +1371,9 @@
         "lead to": []
       }
     }
-  },
+  }, 
 
+  //fully directed with multiple endings based on stats
   "got_the_job_statement": {
     "neutral": {
       " neutral teat 1": {

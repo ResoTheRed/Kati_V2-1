@@ -73,13 +73,13 @@ namespace Kati.GenericModule {
             }
         }
 
-        protected void DefineType(Dictionary<string, double> forced) {
-            if (forced.Count >= 1) {
+        public void DefineType(Dictionary<string, double> forced) {
+            if (forced != null && forced.Count >= 1) {
                 if (forced.ContainsKey(Constants.STATEMENT))
                     Type.SetWeights(forced[Constants.STATEMENT], null);
                 if (forced.ContainsKey(Constants.QUESTION))
                     Type.SetWeights(null, forced[Constants.QUESTION]);
-            } else if (forced.Count > 1) {
+            } else if (forced.Count > 1) {//******************************************Something is not right here************************************************
                 try {
                     Type.SetWeights(forced[Constants.STATEMENT], forced[Constants.QUESTION]);
                 } catch (Exception) { }

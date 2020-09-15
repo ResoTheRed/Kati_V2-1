@@ -1,6 +1,7 @@
 ﻿
 string parse keywords 
-	#new_textbox#, 
+	#new_textbox#,
+	#repeat_textbox#
 	#art.<happy, laugh, normal, angry, suspicious, sad, evil>#,  
 	#manager_name#, 
 	#newline# 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace Kati.Module_Hub {
@@ -34,11 +35,14 @@ namespace Kati.Module_Hub {
         //****************Dialogue data********************//
         //the purpose for the entire Module System
         private string module;
-        private List<string> dialogue;
-        private List<string> req;
-        private List<string> leadTo;
+        
+        private List<string> dialogue;//keys for req and leadTo
+        private List<string> response;
+        private Dictionary<string, List<string>> req;
+        private Dictionary<string, List<string>> leadTo;
         private string topic;
         private string type;
+        //character names
         private string speaker;
         private string responder;
 
@@ -62,14 +66,14 @@ namespace Kati.Module_Hub {
             Reset();
         }
 
-        private void Reset() {
+        public void Reset() {
             status = ModuleStatus.CONTINUE;
             ForcedTopic = new Dictionary<string, double>();
             ForcedType = new Dictionary<string, double>();
             ImpactType = new Dictionary<string, double>();
             impact = 0;
-            Req = new List<string>();
-            LeadTo = new List<string>();
+            Req = new Dictionary<string, List<string>>();
+            LeadTo = new Dictionary<string, List<string>>();
             Dialogue = new List<string>();
             Module = Topic = Type = Speaker = Responder = "";
         }
@@ -79,8 +83,8 @@ namespace Kati.Module_Hub {
         public string NextModule { get => nextModule; set => nextModule = value; }
         public Dictionary<string, double> ForcedTopic { get => forcedTopic; set => forcedTopic = value; }
         public Dictionary<string, double> ForcedType { get => forcedType; set => forcedType = value; }
-        public List<string> Req { get => req; set => req = value; }
-        public List<string> LeadTo { get => leadTo; set => leadTo = value; }
+        public Dictionary<string, List<string>> Req { get => req; set => req = value; }
+        public Dictionary<string, List<string>> LeadTo { get => leadTo; set => leadTo = value; }
         public string Topic { get => topic; set => topic = value; }
         public string Type { get => type; set => type = value; }
         public string Speaker { get => speaker; set => speaker = value; }
@@ -88,6 +92,7 @@ namespace Kati.Module_Hub {
         public Dictionary<string, double> ImpactType { get => impactType; set => impactType = value; }
         public string Responder { get => responder; set => responder = value; }
         public string Module { get => module; set => module = value; }
+        public List<string> Response { get => response; set => response = value; }
 
         public void AddForcedTopic(string topic, double weight) {
             forcedTopic[topic] = weight;

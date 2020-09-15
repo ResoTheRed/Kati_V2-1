@@ -23,6 +23,7 @@ namespace Kati.GenericModule {
 
         /****************************Type based on Weighted Probability******************************/
 
+        
         public void SetWeights(double? statement, double? question) {
             if(statement != null)
                 CurrentStatementWeight = (double)(statement);

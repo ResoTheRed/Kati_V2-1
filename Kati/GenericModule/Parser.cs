@@ -1,6 +1,8 @@
 ﻿using Kati.Module_Hub;
+using Kati.SourceFiles;
 using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata;
 using System.Text;
 
 namespace Kati.GenericModule {
@@ -58,11 +60,16 @@ namespace Kati.GenericModule {
         
         }
 
+        //define this method 
         private void SetPackage(ref Dictionary<string, Dictionary<string, List<string>>> data) {
+            Ctrl.Package.Module = "JobInterviewModule";
+            Ctrl.Package.Speaker = (Type.Equals(Constants.RESPONSE)) ? Constants.RESPONDER : Constants.INITIATOR;
             foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in data) {
                 Ctrl.Package.Dialogue.Add(item.Key);
-                //TODO: Deal with leads to and finish building the package
+                Ctrl.Package.Req[item.Key] = data[item.Key][Constants.REQ];
+                Ctrl.Package.LeadTo[item.Key] = data[item.Key][Constants.LEAD_TO];
             }
+
         }
 
 
