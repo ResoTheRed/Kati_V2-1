@@ -1,0 +1,16 @@
+﻿
+string parse keywords 
+	#new_textbox#, 
+	#art.<happy, laugh, normal, angry, suspicious, sad, evil>#,  
+	#manager_name#, 
+	#newline# 
+	#company_name#
+
+Company names:
+	Lou Sid Industries
+	General's Electrica
+	DCX
+
+Manager Names
+	Moonie
+	Power Shoulders

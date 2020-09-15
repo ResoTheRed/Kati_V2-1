@@ -1,104 +1,542 @@
 {
-  "sample2_statement": {
+  "welcome_statement": {
     "neutral": {
-      " neutral teat 1": {
-        "req": [],
+      //statement
+      "Welcome to #company_name#.": {
+        "req": [ "start" ],
+        "lead to": [ "welcome_statement.intro_tier1" ]
+      },
+      "Hello, I'm glad you made it in today.  Let's get started, shall we?": {
+        "req": [ "start" ],
+        "lead to": [ "welcome_statement.intro_tier1" ]
+      },
+      "Greetinngs, and welcome to the #company_name#": {
+        "req": [ "start" ],
+        "lead to": [ "welcome_statement.intro_tier1" ]
+      },
+      "Good afternoon, thank you for coming in.": {
+        "req": [ "start" ],
+        "lead to": [ "welcome_statement.intro_tier1" ]
+      },
+      //statement
+      "Let me introduce myself. #new_textbox# #art.happy# I'm #manager_name#. #newline# I am the hiring manager for the Software Development Department.": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_question.intro_tier" ]
+      },
+      "Before we get ahead of ourselves, I am #manager_name#. #new_textbox# #art.happy# I'm the hiring manager for the Software Development Department.": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_question.intro_tier" ]
+      },
+      "I would like to start by introducing myself, I am #manager_name#. #new_textbox# #art.happy# I'm the hiring manager for the Software Development Department here at #company_name#.": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_question.intro_tier" ]
+      },
+      "My name is #manager_name# and I'm the hiring manager for the Software Development Department here at #company_name#.": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_question.intro_tier" ]
+      },
+      //question
+      "I've have your information here but I would rather have this meeting more personal. Is that okay with you?": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_response.intro_tier" ]
+      },
+      "How about we keep this interview a little informal. How does that sound to you?": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_response.intro_tier" ]
+      },
+      "I was thinking we keep this interview a little informal. Being so formal all of the time can be soo stuffy. What do you think?": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_response.intro_tier" ]
+      },
+      "I looked over your resume but I would like to get the information straight from the source. What do you say?": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_response.intro_tier" ]
+      },
+      //response
+      "I think that would be just perfect. That is a great idea.": { //positive+
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier_pos", "friend.25", "professional.15" ]
+      },
+      "That is an absolutely divine idea. Go ahead and ask me anything you like.": { //positive+
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier_pos", "friend.25", "professional.15" ]
+      },
+      "I like where you are going and I agree with you.": { //positive
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier_pos", "friend.15", "professional.15" ]
+      },
+      "I concur. I think it best to keep the mood light and informal": { //positive
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier_pos", "friend.10", "professional.20", "rivalry.10" ]
+      },
+      "I'm okay with it.": { //neutral
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier_pos", "friend.5", "respect.5", "disgust.5" ]
+      },
+      "Sure. That sounds good to me.": { //neutral
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier_pos", "friend.5", "respect.5", "disgust.5" ]
+      },
+      "Whatever. It doesn't matter to me.": { //negative
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier_neg", "disgust.15" ]
+      },
+      "I don't really care either way.": { //negative
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier_neg", "disgust.15", "affinity.5", "rivalry.5" ]
+      },
+      "I guess if my resume is too complicated for you, then I'll explain it.": { //negative+
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier_neg", "disgust.25", "affinity.5" ]
+      },
+      "Not interested in keeping it informal. I've have provided all you need to know in my resume.": { //negative+
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier_neg", "disgust.15", "affinity.5", "rivalry.5" ]
+      },
+      //statement
+      "#art.happy# Okay, great!": {
+        "req": [ "intro_tier_pos" ],
+        "lead to": [ "welcome_statement.intro_tier" ]
+      },
+      "#art.happy# Awesome! That's what I wanted to hear.": {
+        "req": [ "intro_tier_pos" ],
+        "lead to": [ "welcome_statement.intro_tier" ]
+      },
+      "#art.happy# Wonderful, let's continue then.": {
+        "req": [ "intro_tier_pos" ],
+        "lead to": [ "welcome_statement.intro_tier" ]
+      },
+      "#art.happy# Perfect.": {
+        "req": [ "intro_tier_pos" ],
+        "lead to": [ "welcome_statement.intro_tier" ]
+      },
+      "#art.sad# Okay then. I think I'll still do it my way.": {
+        "req": [ "intro_tier_neg" ],
+        "lead to": [ "welcome_statement.intro_tier" ]
+      },
+      "#art.sad# That wasn't what I was expecting. #new_textbox# Anyway..": {
+        "req": [ "intro_tier_neg" ],
+        "lead to": [ "welcome_statement.intro_tier" ]
+      },
+      "#art.sad# Okay then..": {
+        "req": [ "intro_tier_neg" ],
+        "lead to": [ "welcome_statement.intro_tier" ]
+      },
+      "#art.sad# Perfect. Well, I'm a little surprized, but nevertheless, lets continue shall we.": {
+        "req": [ "intro_tier_neg" ],
+        "lead to": [ "welcome_statement.intro_tier" ]
+      },
+      //statement
+      "I will need to ask you some preliminary questinons before we get to the fun stuff": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_question.intro_tier" ]
+      },
+      "There are somethings I need to ask you before we get started.": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_question.intro_tier" ]
+      },
+      "I need you to answer a few questions for me": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_question.intro_tier" ]
+      },
+      "Please answer a few questions before we get chatting.": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_question.intro_tier" ]
+      },
+      //question
+      "Can you please tell me your perferred name?": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_response.intro_tier" ]
+      },
+      "What is your preferred name?": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_response.intro_tier" ]
+      },
+      "Is there a specific name that you would like to be called?": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_response.intro_tier" ]
+      },
+      "Please state your name. If you have an alias that you would like to be called, use that?": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_response.intro_tier" ]
+      },
+      //response
+      "Please call me #player_name#.": { //positive
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_question.intro_tier", "respect.15", "friend.5" ]
+      },
+      "I prefer #player_name#. Thank you.": { //positive
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_question.intro_tier", "professional.15" ]
+      },
+      "My name is #player_name#.": { //neutral
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_question.intro_tier", "prefoessional.5" ]
+      },
+      "#player_name#": { //neutral
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_question.intro_tier" ]
+      },
+      "My friends call me #player_name# and I can tell we are going to be friends.": { //neutral
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_question.intro_tier", "freind.5", "professional.-5", "affinity.5" ]
+      },
+      "Have you read my resume? My name is #player_name#": { //negative
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_question.intro_tier", "disgust.10", "professional.-10", "respect.10" ]
+      },
+      "My name is #player_name# and don't forget it.": { //negative
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_question.intro_tier", "disgust.10" ]
+      },
+      //question
+      "Could you please describe yourself in a few adjactives.": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_response.intro_tier" ]
+      },
+      "I would like you to describe yourself in a few words.": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_response.intro_tier" ]
+      },
+      "Please describe yourself in 5 or less words.": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_response.intro_tier" ]
+      },
+      //response
+      "I am in control, consistant, perfect, relentless, and fearless": { //neutral
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier", "respect.-5", "professional.10", "affinity.5" ]
+      },
+      "I am patient, diligent, result-oriented, proactive, and skillful": { //neutral
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier", "respect.5", "professional.5", "friend.-5" ]
+      },
+      "I am confident, maticulous, energetic, motivated, and self-starter": { //neutral
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier", "professional.5" ]
+      },
+      "I am social, jovial, analitical, professional, and ambitous": { //neutral
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier", "friend.10" ]
+      },
+      "I am gloomy, brooding, listener, good direction follower, and a bit meloncoly": { //neutral
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier", "disgust.5", "respect.10" ]
+      },
+      "I am calculating, maticulous, exact, punctual, and deadly accurate": { //neutral
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier", "disgust.8", "professional.12", "affinity.5" ]
+      },
+      //question
+      "Are you able to work over 40 hours a week if need be?": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_response.intro_tier" ]
+      },
+      "How do you feel about overtime?": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_response.intro_tier" ]
+      },
+      "If hired for the position, could you work extra hours if needed?": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_response.intro_tier" ]
+      },
+      //response
+      "I would work as many hours as I can get. I love to work.": { //pos
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier", "professional.10", "respect.10", "disgust.4" ]
+      },
+      "I have no problem working upwards of 80 hours a week if I'm needed.": { //pos
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier", "professional.10", "affinity.10", "disgust.4" ]
+      },
+      "I have no problem putting in overtime when needed.": { //pos
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier", "professional.10", "friend.5" ]
+      },
+      "A good 45 to 50 hour work week suits me perfectly": { //pos
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier", "professional.10", "respect.5" ]
+      },
+      "I'm okay with some overtime.": { //neutral
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier", "friend.10", "respect.5" ]
+      },
+      "I could work overtime occasionally if needed": { //neutral
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier", "professional.5", "affinity.3", "respect.3" ]
+      },
+      "I suppose working overtime is okay as long as it isn't every week.": { //neutral
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier", "affinity.3", "respect.3", "friend.3" ]
+      },
+      "I am willing to work overtime if it is absolutely necessary.": { //neutral
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier" ]
+      },
+      "I can work overtime in emergencies.": { //negative
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier", "friend.5", "disgust.10" ]
+      },
+      "Sorry, I will not work overtime. I have many other obligations that prevent me from doing so.": { //negative
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier", "respect.5", "disgust.10" ]
+      },
+      "I was really hoping not to work more that 32 hours a week.": { //negative+
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier", "professional.-10" ]
+      },
+      //statement
+      "I've got one more preliminary question for you. #new_textbox# #art_evil# You don't have to worry.  This question wont count against you.": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_question.intro_tier" ]
+      },
+      "Thanks for all that info I've just got one more question for you. #new_textbox# #art_evil# You don't have to worry.  This question wont count against you.": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_question.intro_tier" ]
+      },
+      "Alright, thanks for hanging in there. I just have one quick question for you. #new_textbox# #art_evil# This question isn't part of the interview so you don't have to wory about it.": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_question.intro_tier" ]
+      },
+      //question
+      "Why are you interested in working at #company_name#?": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_response.intro_tier" ]
+      },
+      "What about #company_name# interests you?": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_response.intro_tier" ]
+      },
+      "Why #company_name#?  Why not apply somewhere else?": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_response.intro_tier" ]
+      },
+      "Why did you choose to apply at #compay_name#?": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_response.intro_tier" ]
+      },
+      //response
+      "#company_name# is the greater than any other place!  I wish I could move in and live here!": { //pos+
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier", "moonie.profesional.3", "moonie.friend.5", "moonie.affinity.5", "moonie.respect.-10", "moonie.disgust.25",
+                     "shoulders.professional.40","shoulders.respect.50", "shoulders.friend.40","shoulders.affinity.40","shoulders.disgust.-10"
+        ]
+      },
+      "#company_name# is the greatest company ever.  No other job compares to it.": { //pos+
+        "req": [ "intro_tier" ],
+        "lead to": [
+          "welcome_statement.intro_tier",
+          "moonie.profesional.5",
+          "moonie.friend.9",
+          "moonie.affinity.-2",
+          "moonie.respect.-7",
+          "moonie.disgust.18",
+          "shoulders.professional.40",
+          "shoulders.respect.40",
+          "shoulders.friend.50",
+          "shoulders.affinity.40",
+          "shoulders.disgust.-10"
+        ]
+      },
+      "I love #company_name# and respect and value what is accomplished here!": { //pos
+        "req": [ "intro_tier" ],
+        "lead to": [
+          "welcome_statement.intro_tier",
+          "moonie.profesional.20",
+          "moonie.friend.10",
+          "moonie.affinity.10",
+          "moonie.respect.15",
+          "moonie.disgust.2",
+          "shoulders.professional.25",
+          "shoulders.respect.30",
+          "shoulders.friend.30",
+          "shoulders.affinity.30",
+          "shoulders.disgust.-5"
+        ]
+      },
+      "I believe in #company_name# and have dreamed of working here for years now!": { //pos
+        "req": [ "intro_tier" ],
+        "lead to": [
+          "welcome_statement.intro_tier",
+          "moonie.profesional.15",
+          "moonie.friend.10",
+          "moonie.affinity.10",
+          "moonie.respect.10",
+          "moonie.disgust.5",
+          "shoulders.professional.30",
+          "shoulders.respect.25",
+          "shoulders.friend.30",
+          "shoulders.affinity.25",
+          "shoulders.disgust.-1"
+        ]
+      },
+      "I belive #company_name# to be a good place to work.  I have heard good things about the work culture here.": { //neutral
+        "req": [ "intro_tier" ],
+        "lead to": [
+          "welcome_statement.intro_tier",
+          "moonie.profesional.40",
+          "moonie.friend.40",
+          "moonie.affinity.40",
+          "moonie.respect.45",
+          "moonie.disgust.-10",
+          "shoulders.professional.15",
+          "shoulders.respect.10",
+          "shoulders.friend.5",
+          "shoulders.affinity.5",
+          "shoulders.disgust.-5"
+        ]
+      },
+      "#company_name# is the good fit for me.  The product lines fit my interests.": { //neutral
+        "req": [ "intro_tier" ],
+        "lead to": [
+          "welcome_statement.intro_tier",
+          "moonie.profesional.35",
+          "moonie.friend.30",
+          "moonie.affinity.30",
+          "moonie.respect.25",
+          "moonie.disgust.-5",
+          "shoulders.professional.10",
+          "shoulders.respect.5",
+          "shoulders.friend.10",
+          "shoulders.affinity.2",
+          "shoulders.disgust.2"
+        ]
+      },
+      "I am looking for a place that I can establish long term career. I really believe #company_name# is that place.": { //neutral
+        "req": [ "intro_tier" ],
+        "lead to": [
+          "welcome_statement.intro_tier",
+          "moonie.profesional.40",
+          "moonie.friend.40",
+          "moonie.affinity.40",
+          "moonie.respect.45",
+          "moonie.disgust.-10",
+          "shoulders.professional.15",
+          "shoulders.respect.10",
+          "shoulders.friend.5",
+          "shoulders.affinity.5",
+          "shoulders.disgust.-5"
+        ]
+      },
+      "I'm looking for a good first job to build up my resume and #company_name# fits the bill.": { //neg
+        "req": [ "intro_tier" ],
+        "lead to": [
+          "welcome_statement.intro_tier",
+          "moonie.profesional.-5",
+          "moonie.friend.12",
+          "moonie.affinity.7",
+          "moonie.respect.-5",
+          "moonie.disgust.10",
+          "shoulders.professional.-15",
+          "shoulders.respect.10",
+          "shoulders.friend.-10",
+          "shoulders.affinity.2",
+          "shoulders.disgust.5"
+        ]
+      },
+      "I don't know.  I saw #company_name# was hiring.": { //neg
+        "req": [ "intro_tier" ],
+        "lead to": [
+          "welcome_statement.intro_tier",
+          "moonie.profesional.-5",
+          "moonie.friend.12",
+          "moonie.affinity.7",
+          "moonie.respect.-5",
+          "moonie.disgust.10",
+          "shoulders.professional.-15",
+          "shoulders.respect.10",
+          "shoulders.friend.-10",
+          "shoulders.affinity.2",
+          "shoulders.disgust.5"
+        ]
+      },
+      "To tell you the truth no one else is hiring.": { //neg
+        "req": [ "intro_tier" ],
+        "lead to": [
+          "welcome_statement.intro_tier",
+          "moonie.profesional.-15",
+          "moonie.friend.5",
+          "moonie.affinity.-17",
+          "moonie.respect.-15",
+          "moonie.disgust.15",
+          "shoulders.professional.-30",
+          "shoulders.respect.1",
+          "shoulders.friend.-1",
+          "shoulders.affinity.1",
+          "shoulders.disgust.25"
+        ]
+      },
+      "I have no Idea.": { //neg+
+        "req": [ "intro_tier" ],
+        "lead to": [
+          "welcome_statement.intro_tier",
+          "profesional.-50",
+          "friend.-25",
+          "affinity.-20",
+          "respect.-25",
+          "disgust.30"
+        ]
+      },
+      "I would rather not answer that question.": {//neg+
+        "req": [ "intro_tier" ],
+        "lead to": [
+          "welcome_statement.intro_tier",
+          "profesional.-30",
+          "friend.-15",
+          "affinity.-10",
+          "respect.-15",
+          "disgust.20"
+        ]
+      },
+
+
+
+
+
+      "I see you are looking to be hired for the Software Development intern position.": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier" ]
+      },
+      "So, you are interested in the intern position, the software intern position.": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier" ]
+      },
+      "It says on the paperwork that you are interested in the Software Development Intern position.": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier" ]
+      },
+      "Okay, you are interested in snagging the Software Development Intern position.": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier" ]
+      },
+
+
+
+
+      "Here at #company_name# we strive for perfection in everything we do.": {
+        "req": [ "intro_tier" ],
         "lead to": []
       },
-      " neutral teat 2": {
-        "req": [],
+      "Perfection is of the highest importance at #company_name#.": {
+        "req": [ "intro_tier" ],
         "lead to": []
       },
-      " neutral teat 3": {
-        "req": [],
+      "We accept nothing less than perfection here at #company_name#.": {
+        "req": [ "intro_tier" ],
         "lead to": []
       },
-      " neutral teat 4": {
-        "req": [],
+      "I am proud to say that here at #company_name#, we produce only the best.": {
+        "req": [ "intro_tier" ],
         "lead to": []
       },
-      " neutral teat 5": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral teat 6": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral teat 7": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral teat 8": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral teat 9": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral teat 10": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral teat 11": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral teat 12": {
-        "req": [],
-        "lead to": []
+
+
+
+      "": {
+        "req": [ "intro_tier" ],
+        "lead to": [ "welcome_statement.intro_tier" ]
       }
-    },
-    "romance": {
-      "romance test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 3": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 4": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 5": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 6": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 7": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 8": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 9": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 10": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 11": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 12": {
-        "req": [],
-        "lead to": []
-      }
+
     },
     "friend": {
       "friend test 1": {
@@ -106,46 +544,6 @@
         "lead to": []
       },
       "friend test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 3": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 4": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 5": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 6": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 7": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 8": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 9": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 10": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 11": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 12": {
         "req": [],
         "lead to": []
       }
@@ -158,96 +556,6 @@
       "respect test 2": {
         "req": [],
         "lead to": []
-      },
-      "respect test 3": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 4": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 5": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 6": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 7": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 8": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 9": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 10": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 11": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 12": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "affinity": {
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 4": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 5": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 6": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 7": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 8": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 9": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 10": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 11": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 12": {
-        "req": [],
-        "lead to": []
       }
     },
     "disgust": {
@@ -256,46 +564,6 @@
         "lead to": []
       },
       "disgust test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 3": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 4": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 5": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 6": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 7": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 8": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 9": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 10": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 11": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 12": {
         "req": [],
         "lead to": []
       }
@@ -308,46 +576,6 @@
       "hate test 2": {
         "req": [],
         "lead to": []
-      },
-      "hate test 3": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 4": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 5": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 6": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 7": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 8": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 9": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 10": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 11": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 12": {
-        "req": [],
-        "lead to": []
       }
     },
     "rivalry": {
@@ -358,96 +586,16 @@
       "rivalry test 2": {
         "req": [],
         "lead to": []
-      },
-      "rivalry test 3": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 4": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 5": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 6": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 7": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 8": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 9": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 10": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 11": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 12": {
-        "req": [],
-        "lead to": []
       }
     }
   },
-  "sample2_question": {
+  "welcome_question": {
     "neutral": {
       " neutral teat 1": {
         "req": [],
         "lead to": []
       },
       " neutral teat 2": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral teat 3": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral teat 4": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral teat 5": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral teat 6": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral teat 7": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral teat 8": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral teat 9": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral teat 10": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral teat 11": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral teat 12": {
         "req": [],
         "lead to": []
       }
@@ -460,46 +608,6 @@
       "romance test 2": {
         "req": [],
         "lead to": []
-      },
-      "romance test 3": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 4": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 5": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 6": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 7": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 8": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 9": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 10": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 11": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 12": {
-        "req": [],
-        "lead to": []
       }
     },
     "friend": {
@@ -508,46 +616,6 @@
         "lead to": []
       },
       "friend test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 3": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 4": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 5": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 6": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 7": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 8": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 9": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 10": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 11": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 12": {
         "req": [],
         "lead to": []
       }
@@ -560,46 +628,6 @@
       "respect test 2": {
         "req": [],
         "lead to": []
-      },
-      "respect test 3": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 4": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 5": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 6": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 7": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 8": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 9": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 10": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 11": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 12": {
-        "req": [],
-        "lead to": []
       }
     },
     "affinity": {
@@ -608,46 +636,6 @@
         "lead to": []
       },
       "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 4": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 5": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 6": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 7": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 8": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 9": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 10": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 11": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 12": {
         "req": [],
         "lead to": []
       }
@@ -660,46 +648,6 @@
       "disgust test 2": {
         "req": [],
         "lead to": []
-      },
-      "disgust test 3": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 4": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 5": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 6": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 7": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 8": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 9": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 10": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 11": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 12": {
-        "req": [],
-        "lead to": []
       }
     },
     "hate": {
@@ -708,46 +656,6 @@
         "lead to": []
       },
       "hate test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 3": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 4": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 5": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 6": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 7": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 8": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 9": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 10": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 11": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 12": {
         "req": [],
         "lead to": []
       }
@@ -760,96 +668,16 @@
       "rivalry test 2": {
         "req": [],
         "lead to": []
-      },
-      "rivalry test 3": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 4": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 5": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 6": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 7": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 8": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 9": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 10": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 11": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 12": {
-        "req": [],
-        "lead to": []
       }
     }
   },
-  "sample2_response": {
+  "welcome_response": {
     "positive+": {
       "positive+ test 1": {
         "req": [],
         "lead to": []
       },
       "positive+ test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "positive+ test 3": {
-        "req": [],
-        "lead to": []
-      },
-      "positive+ test 4": {
-        "req": [],
-        "lead to": []
-      },
-      "positive+ test 5": {
-        "req": [],
-        "lead to": []
-      },
-      "positive+ test 6": {
-        "req": [],
-        "lead to": []
-      },
-      "positive+ test 7": {
-        "req": [],
-        "lead to": []
-      },
-      "positive+ test 8": {
-        "req": [],
-        "lead to": []
-      },
-      "positive+ test 9": {
-        "req": [],
-        "lead to": []
-      },
-      "positive+ test 10": {
-        "req": [],
-        "lead to": []
-      },
-      "positive+ test 11": {
-        "req": [],
-        "lead to": []
-      },
-      "positive+ test 12": {
         "req": [],
         "lead to": []
       }
@@ -862,46 +690,6 @@
       "positive test 2": {
         "req": [],
         "lead to": []
-      },
-      "positive test 3": {
-        "req": [],
-        "lead to": []
-      },
-      "positive test 4": {
-        "req": [],
-        "lead to": []
-      },
-      "positive test 5": {
-        "req": [],
-        "lead to": []
-      },
-      "positive test 6": {
-        "req": [],
-        "lead to": []
-      },
-      "positive test 7": {
-        "req": [],
-        "lead to": []
-      },
-      "positive test 8": {
-        "req": [],
-        "lead to": []
-      },
-      "positive test 9": {
-        "req": [],
-        "lead to": []
-      },
-      "positive test 10": {
-        "req": [],
-        "lead to": []
-      },
-      "positive test 11": {
-        "req": [],
-        "lead to": []
-      },
-      "positive test 12": {
-        "req": [],
-        "lead to": []
       }
     },
     "neutral": {
@@ -910,46 +698,6 @@
         "lead to": []
       },
       "neutral test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "neutral test 3": {
-        "req": [],
-        "lead to": []
-      },
-      "neutral test 4": {
-        "req": [],
-        "lead to": []
-      },
-      "neutral test 5": {
-        "req": [],
-        "lead to": []
-      },
-      "neutral test 6": {
-        "req": [],
-        "lead to": []
-      },
-      "neutral test 7": {
-        "req": [],
-        "lead to": []
-      },
-      "neutral test 8": {
-        "req": [],
-        "lead to": []
-      },
-      "neutral test 9": {
-        "req": [],
-        "lead to": []
-      },
-      "neutral test 10": {
-        "req": [],
-        "lead to": []
-      },
-      "neutral test 11": {
-        "req": [],
-        "lead to": []
-      },
-      "neutral test 12": {
         "req": [],
         "lead to": []
       }
@@ -962,44 +710,221 @@
       "negative test 2": {
         "req": [],
         "lead to": []
-      },
-      "negative test 3": {
+      }
+    },
+    "negative+": {
+      "negative+ test 1": {
         "req": [],
         "lead to": []
       },
-      "negative test 4": {
+      "negative+ test 2": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+
+  "qualifications_statement": {
+    "neutral": {
+      " neutral teat 1": {
         "req": [],
         "lead to": []
       },
-      "negative test 5": {
+      " neutral teat 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "romance": {
+      "romance test 1": {
         "req": [],
         "lead to": []
       },
-      "negative test 6": {
+      "romance test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "friend": {
+      "friend test 1": {
         "req": [],
         "lead to": []
       },
-      "negative test 7": {
+      "friend test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "respect": {
+      "respect test 1": {
         "req": [],
         "lead to": []
       },
-      "negative test 8": {
+      "respect test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "affinity": {
+      "affinity test 1": {
         "req": [],
         "lead to": []
       },
-      "negative test 9": {
+      "affinity test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "disgust": {
+      "disgust test 1": {
         "req": [],
         "lead to": []
       },
-      "negative test 10": {
+      "disgust test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "hate test 1": {
         "req": [],
         "lead to": []
       },
-      "negative test 11": {
+      "hate test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "rivalry": {
+      "rivalry test 1": {
         "req": [],
         "lead to": []
       },
-      "negative test 12": {
+      "rivalry test 2": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+  "qualifications_question": {
+    "neutral": {
+      " neutral teat 1": {
+        "req": [],
+        "lead to": []
+      },
+      " neutral teat 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "romance": {
+      "romance test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "romance test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "friend": {
+      "friend test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "friend test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "respect": {
+      "respect test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "respect test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "affinity": {
+      "affinity test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "affinity test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "disgust": {
+      "disgust test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "disgust test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "hate test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "hate test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "rivalry": {
+      "rivalry test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "rivalry test 2": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+  "qualifications_response": {
+    "positive+": {
+      "positive+ test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "positive+ test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "positive": {
+      "positive test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "positive test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "neutral": {
+      "neutral test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "neutral test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "negative": {
+      "negative test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "negative test 2": {
         "req": [],
         "lead to": []
       }
@@ -1012,47 +937,659 @@
       "negative+ test 2": {
         "req": [],
         "lead to": []
-      },
-      "negative+ test 3": {
+      }
+    }
+  },
+
+  "get_to_know_you_statement": {
+    "neutral": {
+      " neutral teat 1": {
         "req": [],
         "lead to": []
       },
-      "negative+ test 4": {
+      " neutral teat 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "romance": {
+      "romance test 1": {
         "req": [],
         "lead to": []
       },
-      "negative+ test 5": {
+      "romance test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "friend": {
+      "friend test 1": {
         "req": [],
         "lead to": []
       },
-      "negative+ test 6": {
+      "friend test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "respect": {
+      "respect test 1": {
         "req": [],
         "lead to": []
       },
-      "negative+ test 7": {
+      "respect test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "affinity": {
+      "affinity test 1": {
         "req": [],
         "lead to": []
       },
-      "negative+ test 8": {
+      "affinity test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "disgust": {
+      "disgust test 1": {
         "req": [],
         "lead to": []
       },
-      "negative+ test 9": {
+      "disgust test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "hate test 1": {
         "req": [],
         "lead to": []
       },
-      "negative+ test 10": {
+      "hate test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "rivalry": {
+      "rivalry test 1": {
         "req": [],
         "lead to": []
       },
-      "negative+ test 11": {
+      "rivalry test 2": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+  "get_to_know_you_question": {
+    "neutral": {
+      " neutral teat 1": {
         "req": [],
         "lead to": []
       },
-      "negative+ test 12": {
+      " neutral teat 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "romance": {
+      "romance test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "romance test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "friend": {
+      "friend test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "friend test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "respect": {
+      "respect test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "respect test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "affinity": {
+      "affinity test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "affinity test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "disgust": {
+      "disgust test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "disgust test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "hate test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "hate test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "rivalry": {
+      "rivalry test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "rivalry test 2": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+  "get_to_know_you_response": {
+    "positive+": {
+      "positive+ test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "positive+ test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "positive": {
+      "positive test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "positive test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "neutral": {
+      "neutral test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "neutral test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "negative": {
+      "negative test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "negative test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "negative+": {
+      "negative+ test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "negative+ test 2": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+
+  "are_you_qualified_statement": {
+    "neutral": {
+      " neutral teat 1": {
+        "req": [],
+        "lead to": []
+      },
+      " neutral teat 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "romance": {
+      "romance test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "romance test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "friend": {
+      "friend test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "friend test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "respect": {
+      "respect test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "respect test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "affinity": {
+      "affinity test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "affinity test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "disgust": {
+      "disgust test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "disgust test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "hate test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "hate test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "rivalry": {
+      "rivalry test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "rivalry test 2": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+  "are_you_qualified_question": {
+    "neutral": {
+      " neutral teat 1": {
+        "req": [],
+        "lead to": []
+      },
+      " neutral teat 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "romance": {
+      "romance test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "romance test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "friend": {
+      "friend test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "friend test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "respect": {
+      "respect test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "respect test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "affinity": {
+      "affinity test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "affinity test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "disgust": {
+      "disgust test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "disgust test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "hate test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "hate test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "rivalry": {
+      "rivalry test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "rivalry test 2": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+  "are_you_qualified_response": {
+    "positive+": {
+      "positive+ test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "positive+ test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "positive": {
+      "positive test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "positive test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "neutral": {
+      "neutral test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "neutral test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "negative": {
+      "negative test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "negative test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "negative+": {
+      "negative+ test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "negative+ test 2": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+
+  "got_the_job_statement": {
+    "neutral": {
+      " neutral teat 1": {
+        "req": [],
+        "lead to": []
+      },
+      " neutral teat 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "romance": {
+      "romance test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "romance test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "friend": {
+      "friend test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "friend test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "respect": {
+      "respect test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "respect test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "affinity": {
+      "affinity test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "affinity test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "disgust": {
+      "disgust test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "disgust test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "hate test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "hate test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "rivalry": {
+      "rivalry test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "rivalry test 2": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+  "got_the_job_question": {
+    "neutral": {
+      " neutral teat 1": {
+        "req": [],
+        "lead to": []
+      },
+      " neutral teat 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "romance": {
+      "romance test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "romance test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "friend": {
+      "friend test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "friend test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "respect": {
+      "respect test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "respect test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "affinity": {
+      "affinity test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "affinity test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "disgust": {
+      "disgust test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "disgust test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "hate test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "hate test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "rivalry": {
+      "rivalry test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "rivalry test 2": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+  "get_the_job_response": {
+    "positive+": {
+      "positive+ test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "positive+ test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "positive": {
+      "positive test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "positive test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "neutral": {
+      "neutral test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "neutral test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "negative": {
+      "negative test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "negative test 2": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "negative+": {
+      "negative+ test 1": {
+        "req": [],
+        "lead to": []
+      },
+      "negative+ test 2": {
         "req": [],
         "lead to": []
       }
     }
   }
+
 }

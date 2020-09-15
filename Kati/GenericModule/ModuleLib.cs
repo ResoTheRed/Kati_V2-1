@@ -1,4 +1,5 @@
 ﻿using Kati.Data_Modules;
+using Kati.SourceFiles;
 using System.Collections.Generic;
 
 
@@ -57,6 +58,15 @@ namespace Kati.GenericModule {
 
         public void SetConversationTypeKeys(Dictionary<string, List<string>> keys) {
             Keys = keys;
+        }
+
+        public int GetType(string type) {
+            if (type.Equals(Constants.QUESTION)) {
+                return QUESTION;
+            }else if (type.Equals(Constants.RESPONSE)) {
+                return RESPONSE;
+            }
+            return STATEMENT;
         }
 
         //pull individual topics from data list shallow copy

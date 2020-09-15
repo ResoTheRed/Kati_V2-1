@@ -52,9 +52,10 @@ namespace Kati.GenericModule {
             DefineType(Package.ForcedType);
         }
 
+        //broken -> does not full function
         public void RunParser() {
             string key = Topic.Topic + "_" + Type.Type;
-            Parser.Setup(Topic.Topic,Type.Type,Lib.Data[key]);
+            Parser.Setup(Topic.Topic, Type.Type, Lib.DeepCopyDictionaryByTopic(Topic.Topic,Lib.GetType(Type.Type)));
             Parser.Parse();
         }
 
