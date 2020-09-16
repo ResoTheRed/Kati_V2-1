@@ -36,7 +36,7 @@ namespace Kati.Module_Hub {
         //the purpose for the entire Module System
         private string module;
         
-        private List<string> dialogue;//keys for req and leadTo
+        private string dialogue;//keys for req and leadTo
         private List<string> response;
         private Dictionary<string, List<string>> req;
         private Dictionary<string, List<string>> leadTo;
@@ -74,11 +74,11 @@ namespace Kati.Module_Hub {
             impact = 0;
             Req = new Dictionary<string, List<string>>();
             LeadTo = new Dictionary<string, List<string>>();
-            Dialogue = new List<string>();
+            Dialogue = "";
             Module = Topic = Type = Speaker = Responder = "";
         }
 
-        public List<string> Dialogue { get => dialogue; set => dialogue = value; }
+        public string Dialogue { get => dialogue; set => dialogue = value; }
         public ModuleStatus Status { get => status; set => status = value; }
         public string NextModule { get => nextModule; set => nextModule = value; }
         public Dictionary<string, double> ForcedTopic { get => forcedTopic; set => forcedTopic = value; }

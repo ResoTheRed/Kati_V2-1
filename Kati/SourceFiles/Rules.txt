@@ -194,6 +194,7 @@ Response topic types: relay information to the game about state updates and dire
         Format::"<module_name>"-->"smallTalk": directs conversation to specified module
         Format::"<module_name>.<topic>"-->"smallTalk.weather": : directs conversation to specified module and topic
         Format::"<mod_name>.<topic>.<type>"-->"smallTalk.weather.question"
+        Format::"<mod_name>.<topic>.<type>.<requirement>"-->"smallTalk.weather.question.nice_day"
         "director": 
         [
             "<module>", "<module_topics>", "statement","quetion"

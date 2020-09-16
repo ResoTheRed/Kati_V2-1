@@ -9,24 +9,26 @@ namespace Kati.JobInterview {
     public class JobInterviewModule {
         
         Controller ctrl;
-        
+
+        public Controller Ctrl { get => ctrl; set => ctrl = value; }
+
         public JobInterviewModule() {
-            ctrl = new Controller("JobInterview.json");
+            Ctrl = new Controller("JobInterview.json");
         }
         
         //run this each visit to the module: everytime dialogue is fetched
         public void RunRound(DialoguePackage package) {
-            ctrl.Package = package;
-            ctrl.Topic.Topic = package.Topic;
+            Ctrl.Package = package;
+            Ctrl.Topic.Topic = package.Topic;
             if (package.Type.Length > 0)
-                ctrl.Type.Type = package.Type;
+                Ctrl.Type.Type = package.Type;
             else
-                ctrl.DefineType(null);
-            ctrl.RunParser();
+                Ctrl.DefineType(null);
+            Ctrl.RunParser();
         }
 
         public DialoguePackage GetDialoguePackage() {
-            return ctrl.Package;
+            return Ctrl.Package;
         }
 
     }

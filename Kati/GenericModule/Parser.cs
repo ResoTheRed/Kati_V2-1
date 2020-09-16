@@ -46,7 +46,7 @@ namespace Kati.GenericModule {
         }
 
         //used for statements and questions only
-        public void Parse() {
+        virtual public void Parse() {
             //Data must not point to Lib data but be a copy
             var data = Branch.RunDecision(Data);
             data = Game.ParseGameRequirments(data);
@@ -61,11 +61,15 @@ namespace Kati.GenericModule {
         }
 
         //define this method 
-        private void SetPackage(ref Dictionary<string, Dictionary<string, List<string>>> data) {
+        protected void SetPackage(ref Dictionary<string, Dictionary<string, List<string>>> data) {
             Ctrl.Package.Module = "JobInterviewModule";
             Ctrl.Package.Speaker = (Type.Equals(Constants.RESPONSE)) ? Constants.RESPONDER : Constants.INITIATOR;
+            
             foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in data) {
-                Ctrl.Package.Dialogue.Add(item.Key);
+                if (!Type.Equals(Constants.RESPONSE))
+                    Ctrl.Package.Dialogue = item.Key;
+                else
+                    Ctrl.Package.Response.Add(item.Key);
                 Ctrl.Package.Req[item.Key] = data[item.Key][Constants.REQ];
                 Ctrl.Package.LeadTo[item.Key] = data[item.Key][Constants.LEAD_TO];
             }
