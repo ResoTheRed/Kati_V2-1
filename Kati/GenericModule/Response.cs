@@ -265,11 +265,13 @@ namespace Kati.GenericModule {
             (Dictionary<string, Dictionary<string, List<string>>> data) {
             if (package == null)
                 return data;
-            foreach (string lead in package.LeadTo) {
-                string[] arr = lead.Split(".");
-                if (arr.Length > 1 && arr[0].Equals(Constants.RESPONSE_TAG)) {
-                    foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in data) {
-                        RemoveElement(ref data, item.Key, ref arr);
+            foreach (KeyValuePair<string, List<string>> item in package.LeadTo) {
+                foreach (string lead in package.LeadTo[item.Key]) {
+                    string[] arr = lead.Split(".");
+                    if (arr.Length > 1 && arr[0].Equals(Constants.RESPONSE_TAG)) {
+                        foreach (KeyValuePair<string, Dictionary<string, List<string>>> item2 in data) {
+                            RemoveElement(ref data, item2.Key, ref arr);
+                        }
                     }
                 }
             }

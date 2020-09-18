@@ -82,7 +82,8 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
             double[] d = new double[] { 800, 700, 600, 500, 400, 300, 200, 100 };
             var stuff = SetTone(d);
             DialoguePackage package = new DialoguePackage();
-            package.LeadTo.Add("response_tag.tag1");
+            package.LeadTo["test"] = new List<string>();
+            package.LeadTo["test"].Add("response_tag.tag1");
             List<string> list = res.OrderRelationshipBranches(ref package, stuff);
             var master = ctrl.Lib.Data["sample1_response"];
             var item = res.PullPositive(ref master);
@@ -103,7 +104,8 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
             double[] d = new double[] { 800, 700, 600, 500, 400, 300, 200, 100 };
             var stuff = SetTone(d);
             DialoguePackage package = new DialoguePackage();
-            package.LeadTo.Add("response_tag.tag1");
+            package.LeadTo["test"] = new List<string>();
+            package.LeadTo["test"].Add("response_tag.tag1");
             List<string> list = res.OrderRelationshipBranches(ref package, stuff);
             var master = ctrl.Lib.Data["sample1_response"];
             for (int i = 0; i < 10; i++) {
@@ -117,7 +119,8 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
             double[] d = new double[] { 800, 700, 600, 500, 400, 300, 200, 100 };
             var stuff = SetTone(d);
             DialoguePackage package = new DialoguePackage();
-            package.LeadTo.Add("response_tag.tag1");
+            package.LeadTo["test"] = new List<string>();
+            package.LeadTo["test"].Add("response_tag.tag1");
             var master = ctrl.Lib.Data["sample1_response"]["positive+"];
             res.OrderRelationshipBranches(ref package, stuff);
             var item = res.CheckRequirements(master);
@@ -174,9 +177,9 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
             Assert.IsTrue(item.ContainsKey("negative+ test 11"));
             Assert.IsTrue(item.ContainsKey("negative+ test 12"));
 
-            package.LeadTo = new List<string> {
-                "response_tag.tag10"
-            };
+            package.LeadTo["test"] = new List<string>();
+            package.LeadTo["test"].Add("response_tag.tag10");
+            
             master = ctrl.Lib.Data["sample1_response"]["negative+"];
             res.OrderRelationshipBranches(ref package, stuff);
             item = res.CheckRequirements(master);
@@ -192,7 +195,8 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
             double[] d = new double[] { 80, 70, 60, 50, 40, 30, 20, 10 };
             var stuff = SetTone(d);
             DialoguePackage package = new DialoguePackage();
-            package.LeadTo.Add("response_tag.tag1");
+            package.LeadTo["test"] = new List<string>();
+            package.LeadTo["test"].Add("response_tag.tag1");
             for (int i = 0; i < 50; i++) {
                 var master = ctrl.Lib.Data["sample1_response"];
                 res.OrderRelationshipBranches(ref package, stuff);
@@ -211,7 +215,8 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
             double[] d = new double[] { 80, 70, 60, 50, 40, 400, 20, 10 };
             var stuff = SetTone(d);
             DialoguePackage package = new DialoguePackage();
-            package.LeadTo.Add("response_tag.tag1");
+            package.LeadTo["test"] = new List<string>();
+            package.LeadTo["test"].Add("response_tag.tag1");
             for (int i = 0; i < 50; i++) {
                 var master = ctrl.Lib.Data["sample1_response"];
                 res.OrderRelationshipBranches(ref package, stuff);
@@ -231,7 +236,8 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
             double[] d = new double[] { 80, 70, 60, 50, 40, 400, 20, 10 };
             var stuff = SetTone(d);
             DialoguePackage package = new DialoguePackage();
-            package.LeadTo.Add("response_tag.tag1");
+            package.LeadTo["test"] = new List<string>();
+            package.LeadTo["test"].Add("response_tag.tag1");
             for (int i = 0; i < 50; i++) {
                 var master = ctrl.Lib.Data["sample1_response"];
                 res.OrderRelationshipBranches(ref package, stuff);
@@ -251,7 +257,8 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
             double[] d = new double[] { 800, 70, 60, 50, 40, 40, 20, 10 };
             var stuff = SetTone(d);
             DialoguePackage package = new DialoguePackage();
-            package.LeadTo.Add("response_tag.tag1");
+            package.LeadTo["test"] = new List<string>();
+            package.LeadTo["test"].Add("response_tag.tag1");
             for (int i = 0; i < 50; i++) {
                 var master = ctrl.Lib.Data["sample1_response"];
                 res.OrderRelationshipBranches(ref package, stuff);
@@ -271,7 +278,8 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
             double[] d = new double[] { 80, 70, 60, 50, 40, 30, 20, 10 };
             var stuff = SetTone(d);
             DialoguePackage package = new DialoguePackage();
-            package.LeadTo.Add("response_tag.tag1");
+            package.LeadTo["test"] = new List<string>();
+            package.LeadTo["test"].Add("response_tag.tag1");
             for (int i = 0; i < 50; i++) {
                 var master = ctrl.Lib.Data["sample1_response"];
                 res.OrderRelationshipBranches(ref package, stuff);
@@ -290,7 +298,8 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
             double[] d = new double[] { 800, 70, 60, 50, 40, 30, 20, 10 };
             var stuff = SetTone(d);
             DialoguePackage package = new DialoguePackage();
-            package.LeadTo.Add("response_tag.tag1");
+            package.LeadTo["test"] = new List<string>();
+            package.LeadTo["test"].Add("response_tag.tag1");
             for (int i = 0; i < 50; i++) {
                 var master = ctrl.Lib.DeepCopyDictionaryByTopic("sample1",ctrl.Lib.RESPONSE);
                 res.OrderRelationshipBranches(ref package, stuff);

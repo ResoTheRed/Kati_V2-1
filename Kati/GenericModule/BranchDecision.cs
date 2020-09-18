@@ -52,14 +52,14 @@ namespace Kati.GenericModule {
         public Dictionary<string, double> CancelAttributeTones() {
             var tone = Ctrl.Npc.InitiatorsTone;
             Dictionary<string, double> new_tone = new Dictionary<string, double>();
-            new_tone[ROMANCE] = RomanceRule(tone);
-            new_tone[DISGUST] = DisgustRule(tone);
-            new_tone[FRIEND] = FriendRule(tone);
-            new_tone[HATE] = HateRule(tone);
-            new_tone[PROFESSIONAL] = ProfessionalRule(tone);
-            new_tone[RIVALRY] = RivalryRule(tone);
-            new_tone[AFFINITY] = Affinity(tone);
-            new_tone[RESPECT] = RespectRule(tone);
+            if(tone.ContainsKey(ROMANCE)) new_tone[ROMANCE] = RomanceRule(tone);
+            if (tone.ContainsKey(DISGUST)) new_tone[DISGUST] = DisgustRule(tone);
+            if (tone.ContainsKey(FRIEND)) new_tone[FRIEND] = FriendRule(tone);
+            if (tone.ContainsKey(HATE)) new_tone[HATE] = HateRule(tone);
+            if (tone.ContainsKey(PROFESSIONAL)) new_tone[PROFESSIONAL] = ProfessionalRule(tone);
+            if (tone.ContainsKey(RIVALRY)) new_tone[RIVALRY] = RivalryRule(tone);
+            if (tone.ContainsKey(AFFINITY)) new_tone[AFFINITY] = Affinity(tone);
+            if (tone.ContainsKey(ROMANCE)) new_tone[RESPECT] = RespectRule(tone);
             return new_tone;
         }
 
