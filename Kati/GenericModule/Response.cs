@@ -2,6 +2,7 @@
 using Kati.SourceFiles;
 using System;
 using System.Collections.Generic;
+using System.Windows.Markup;
 
 namespace Kati.GenericModule {
 
@@ -28,7 +29,7 @@ namespace Kati.GenericModule {
         private string relationsip;
         private bool plusFlag;
         private List<Dictionary<string, Dictionary<string, List<string>>>> responses;
-
+        private List<Dictionary<string, Dictionary<string, List<string>>>> applicableResponses;
         private DialoguePackage package;
 
         protected double responseBiasWeight = 70;
@@ -49,6 +50,7 @@ namespace Kati.GenericModule {
         public Dictionary<string, double> BranchValues { get => branchValues; set => branchValues = value; }
         public DialoguePackage Package { get => package; set => package = value; }
         public List<Dictionary<string, Dictionary<string, List<string>>>> Responses { get => responses; set => responses = value; }
+        public List<Dictionary<string, Dictionary<string, List<string>>>> ApplicableResponses { get => applicableResponses; set => applicableResponses = value; }
 
 
         /**************************** Setup for Branch Defined Response*******************************/
@@ -126,6 +128,8 @@ namespace Kati.GenericModule {
         //pull response data from Parser
         public void ParseResponses
             (Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
+            Responses = new List<Dictionary<string, Dictionary<string, List<string>>>>();
+            ApplicableResponses = CheckAllRequirements(ref data);
             //pull positive response
             Responses.Add(PullPositive(ref data));
             //pull neutral response
@@ -136,6 +140,84 @@ namespace Kati.GenericModule {
             Responses.Add(PullCustom(ref data));
 
         }
+
+        //rework::Remove data that doesn't meet the requirements first
+        public List<Dictionary<string, Dictionary<string, List<string>>>> CheckAllRequirements
+            (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
+            var temp = new Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>();
+            var applicable = "";
+            foreach (KeyValuePair<string, Dictionary<string, Dictionary<string, List<string>>>> item in data) {
+                temp[item.Key] = new Dictionary<string, Dictionary<string, List<string>>>();
+                //run for pos+, pos, neutral, neg, neg+
+                temp[item.Key] = item.Value;
+                temp[item.Key] = CheckRequirements(temp[item.Key]);
+                Console.WriteLine("\n");
+                foreach (KeyValuePair<string, Dictionary<string, List<string>>> item2 in temp[item.Key]) {
+                    Console.WriteLine(item.Key + "::" + item2.Key);
+                }
+                Console.WriteLine("\n");
+            }
+            //deep copy to applicable
+            data = temp;
+            return DeepCopyApplicableDialogue(temp);
+        }
+
+        private List<Dictionary<string, Dictionary<string, List<string>>>> DeepCopyApplicableDialogue
+            (Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> temp) {
+            var applicable = new List<Dictionary<string, Dictionary<string, List<string>>>>();
+            int counter = 0;
+            foreach (KeyValuePair<string, Dictionary<string, Dictionary<string, List<string>>>> item in temp) {
+                foreach (KeyValuePair<string, Dictionary<string, List<string>>> item2 in temp[item.Key]) {
+                    applicable.Add(new Dictionary<string, Dictionary<string, List<string>>>());
+                    applicable[counter][item2.Key] = new Dictionary<string, List<string>>();
+                    foreach (KeyValuePair<string, List<string>> item3 in temp[item.Key][item2.Key]) {
+                        applicable[counter][item2.Key][item3.Key] = new List<string>();
+                        foreach (string s in temp[item.Key][item2.Key][item3.Key]) {
+                            applicable[counter][item2.Key][item3.Key].Add(s);
+                        }
+                    }
+                }
+                counter++;
+            }
+            return applicable;
+        }
+
+        //pulls a dialogue bit chosen from a group of applicable dialogues
+        public Dictionary<string, Dictionary<string, List<string>>> AttemptToFindNonRepeatingAvailableResponse() {
+            int[] indices = GenerateRandomIndices();
+            string key = "";
+            for (int i = 0; i < indices.Length; i++) {
+                foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in ApplicableResponses[indices[i]]) {
+                    key = item.Key;//there should only ever be one dialogue bit at a time here.
+                }
+                bool keep = true;
+                for (int j = 0; j < Responses.Count; j++) {
+                    if (Responses[j].ContainsKey(key)) {
+                        keep = false;
+                    }
+                }
+                if (keep) {
+                    return ApplicableResponses[indices[i]];
+                }
+            }
+            return ApplicableResponses[indices[0]];
+        }
+
+        protected int[] GenerateRandomIndices() {
+            int size = ApplicableResponses.Count;
+            List<int> values = new List<int>();
+            while (values.Count < size) {
+                int num = (int)(Controller.dice.NextDouble() * size);
+                if (!values.Contains(num)) {
+                    values.Add(num);
+                }
+            }
+            return values.ToArray();
+        }
+
+        
+
+
 
         /**
         * check to see if positive+ exists
@@ -149,12 +231,24 @@ namespace Kati.GenericModule {
         */
         public Dictionary<string, Dictionary<string, List<string>>> PullPositive
             (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
-            var positive = data[PickPositive(ref data)];
-            positive = CheckRequirements(positive);
+            string value = PickPositive(ref data);
+            var positive = data[value];
+            if (positive.Count == 0 && value.Equals(Constants.NEGATIVE_PLUS)) {
+                positive = data[Constants.NEGATIVE];
+            } else if (positive.Count == 0 && value.Equals(Constants.NEGATIVE)) {
+                positive = data[Constants.NEGATIVE_PLUS];
+            } else {
+                positive = data[Constants.NEUTRAL];
+            }
+            //positive = CheckRequirements(positive);
             Dictionary<string, Dictionary<string, List<string>>> choice = 
                 new Dictionary<string, Dictionary<string, List<string>>>();
             string temp = PickResponseOption(ref positive);
-            choice[temp] = positive[temp];
+            try {
+                choice[temp] = positive[temp];
+            } catch (Exception) {
+                return AttemptToFindNonRepeatingAvailableResponse();
+            }
             return choice;
         }
 
@@ -165,9 +259,9 @@ namespace Kati.GenericModule {
             double plus = (PlusFlag && !AttributeRelationshipIsNegative()) ? 
                 responseBiasWeight : responseTotalWeight - responseBiasWeight;
             double choice = Controller.dice.NextDouble() * responseTotalWeight + 1;
-            if (plus >= choice && data.ContainsKey(Constants.POSITIVE_PLUS)) {
+            if (plus >= choice && data.ContainsKey(Constants.POSITIVE_PLUS)&&data[Constants.POSITIVE_PLUS].Count>0) {
                 return Constants.POSITIVE_PLUS;
-            } else if (data.ContainsKey(Constants.POSITIVE)) {
+            } else if (data.ContainsKey(Constants.POSITIVE) && data[Constants.POSITIVE].Count > 0) {
                 return Constants.POSITIVE;
             } else {
                 return Constants.NEUTRAL;
@@ -180,7 +274,11 @@ namespace Kati.GenericModule {
             Dictionary<string, Dictionary<string, List<string>>> choice =
                new Dictionary<string, Dictionary<string, List<string>>>();
             string temp = PickResponseOption(ref neutral);
-            choice[temp] = neutral[temp];
+            try {
+                choice[temp] = neutral[temp];
+            } catch (Exception) {
+                return AttemptToFindNonRepeatingAvailableResponse();
+            }
             return choice;
         }
 
@@ -226,12 +324,25 @@ namespace Kati.GenericModule {
 
         public Dictionary<string, Dictionary<string, List<string>>> PullNegative
             (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
-            var negative = data[PickNegative(ref data)];
+            string value = PickNegative(ref data);
+            var negative = data[value];
+            if (negative.Count == 0 && value.Equals(Constants.NEGATIVE_PLUS)) {
+                negative = data[Constants.NEGATIVE];
+            } else if (negative.Count == 0 && value.Equals(Constants.NEGATIVE)) {
+                negative = data[Constants.NEGATIVE_PLUS];
+            } else {
+                negative = data[Constants.NEUTRAL];
+            } 
+            Console.WriteLine(negative.Count+" ");
             negative = CheckRequirements(negative);
             Dictionary<string, Dictionary<string, List<string>>> choice =
                new Dictionary<string, Dictionary<string, List<string>>>();
             string temp = PickResponseOption(ref negative);
-            choice[temp] = negative[temp];
+            try {
+                choice[temp] = negative[temp];
+            } catch (Exception) {
+                return AttemptToFindNonRepeatingAvailableResponse();
+            }
             return choice;
         }
 
@@ -240,9 +351,9 @@ namespace Kati.GenericModule {
             double plus = (PlusFlag && AttributeRelationshipIsNegative()) ?
                 responseBiasWeight : responseTotalWeight - responseBiasWeight;
             double choice = Controller.dice.NextDouble() * responseTotalWeight + 1;
-            if (plus >= choice && data.ContainsKey(Constants.NEGATIVE_PLUS)) {
+            if (plus >= choice && data.ContainsKey(Constants.NEGATIVE_PLUS) && data[Constants.NEGATIVE_PLUS].Count > 0) {
                 return Constants.NEGATIVE_PLUS;
-            } else if (data.ContainsKey(Constants.NEGATIVE)) {
+            } else if (data.ContainsKey(Constants.NEGATIVE) && data[Constants.NEGATIVE_PLUS].Count > 0) {
                 return Constants.NEGATIVE;
             } else {
                 return Constants.NEUTRAL;
@@ -261,7 +372,7 @@ namespace Kati.GenericModule {
                 return PullNeutral(ref data);
         }
 
-        public Dictionary<string, Dictionary<string, List<string>>> CheckRequirements
+        virtual public Dictionary<string, Dictionary<string, List<string>>> CheckRequirements
             (Dictionary<string, Dictionary<string, List<string>>> data) {
             if (package == null)
                 return data;

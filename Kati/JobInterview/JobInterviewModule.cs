@@ -17,6 +17,8 @@ namespace Kati.JobInterview {
             Ctrl = new Controller("C:/Users/User/Documents/Kati_V2-1/Kati/JobInterview/JobInterview.json");
             JobInterviewParser parse = new JobInterviewParser(Ctrl);
             Ctrl.Parser = parse;
+            JobInterviewResponse res = new JobInterviewResponse();
+            Ctrl.Parser.Response = res;
         }
         
         //run this each visit to the module: everytime dialogue is fetched
@@ -28,6 +30,9 @@ namespace Kati.JobInterview {
             else
                 Ctrl.DefineType(null);
             Ctrl.Parser.Setup(Ctrl.Topic.Topic, Ctrl.Type.Type, Ctrl.Lib.DeepCopyDictionaryByTopic(Ctrl.Topic.Topic, Ctrl.Lib.GetType(Ctrl.Type.Type)));
+            Program.PackageDiagnostics(Ctrl.Package);//Console.WriteLine(Ctrl.Topic.Topic+" "+Ctrl.Type.Type+" "+Ctrl.Parser.Data.Count);
+            Console.WriteLine("\n");
+            Program.PackageDiagnostics(package);
             Ctrl.Parser.Parse();
         }
 
@@ -67,7 +72,7 @@ namespace Kati.JobInterview {
                     if (arr.Length >= 4 && arr[0].Equals("forced")) {
                         //Console.WriteLine(item2 + "==" + arr[3]);
                         if (item2.Equals(arr[3])) { //check if
-                            Console.WriteLine("req: " + item2 + " lead to " + Ctrl.Package.LeadTo[Ctrl.Package.Dialogue][0] + " dialogue " + item.Key);
+                            //Console.WriteLine("req: " + item2 + " lead to " + Ctrl.Package.LeadTo[Ctrl.Package.Dialogue][0] + " dialogue " + item.Key);
                             keep = true;
                         } else {
                             keep = false;
@@ -81,5 +86,27 @@ namespace Kati.JobInterview {
             return temp;
         }
         
+    }
+
+    class JobInterviewResponse : Response {
+
+        override
+        public Dictionary<string, Dictionary<string, List<string>>> CheckRequirements
+            (Dictionary<string, Dictionary<string, List<string>>> data) {
+            if (Package == null)
+                return data;
+            foreach (KeyValuePair<string, List<string>> item in Package.Req) {
+                foreach (string req in Package.Req[item.Key]) {
+                    string[] arr = req.Split(".");
+                    if (arr.Length > 1 && arr[0].Equals(Constants.RESPONSE_TAG)) {
+                        foreach (KeyValuePair<string, Dictionary<string, List<string>>> item2 in data) {
+                            RemoveElement(ref data, item2.Key, ref arr);
+                        }
+                    }
+                }
+            }
+            return data;
+        }
+
     }
 }

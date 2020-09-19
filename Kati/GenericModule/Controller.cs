@@ -82,7 +82,7 @@ namespace Kati.GenericModule {
                     Type.SetWeights(forced[Constants.STATEMENT], null);
                 if (forced.ContainsKey(Constants.QUESTION))
                     Type.SetWeights(null, forced[Constants.QUESTION]);
-            } else if (forced.Count > 1) {//******************************************Something is not right here************************************************
+            } else{ //if (forced.Count > 1) {//******************************************Something is not right here************************************************
                 try {
                     Type.SetWeights(forced[Constants.STATEMENT], forced[Constants.QUESTION]);
                 } catch (Exception) { }

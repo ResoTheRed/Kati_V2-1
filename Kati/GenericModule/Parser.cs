@@ -18,6 +18,7 @@ namespace Kati.GenericModule {
         private PersonalCharacterRules personal;
         private SocialCharacterRules social;
         private DialogueWeigthRules weight;
+        private Response response;
 
         public string Topic { get => topic; set => topic = value; }
         public string Type { get => type; set => type = value; }
@@ -28,6 +29,7 @@ namespace Kati.GenericModule {
         public PersonalCharacterRules Personal { get => personal; set => personal = value; }
         public SocialCharacterRules Social { get => social; set => social = value; }
         public DialogueWeigthRules Weight { get => weight; set => weight = value; }
+        public Response Response { get => response; set => response = value; }
 
         public Parser(Controller ctrl) {
             Ctrl = ctrl;
@@ -36,6 +38,7 @@ namespace Kati.GenericModule {
             Personal = new PersonalCharacterRules(Ctrl);
             Social = new SocialCharacterRules(Ctrl);
             Weight = new DialogueWeigthRules(Ctrl);
+            Response = new Response();
         }
 
         public void Setup(string topic, string type,
@@ -56,7 +59,7 @@ namespace Kati.GenericModule {
             SetPackage(ref data);
         }
 
-        public void Response() { 
+        public void RunResponse() { 
         
         }
 

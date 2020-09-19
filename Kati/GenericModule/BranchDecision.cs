@@ -254,7 +254,7 @@ namespace Kati.GenericModule {
                     sort.Add(PROFESSIONAL);
                     copy.Remove(PROFESSIONAL);
                 } else {
-                    //break;//something went wrong
+                    sort.Add(Constants.NEUTRAL);
                 }
             }
             return sort;
