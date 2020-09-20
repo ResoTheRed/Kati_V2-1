@@ -2,6 +2,7 @@
 using Kati.SourceFiles;
 using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Windows.Markup;
 
 namespace Kati.GenericModule {
@@ -149,6 +150,131 @@ namespace Kati.GenericModule {
 
         }
 
+
+        /**
+        * check to see if positive+ exists
+        * check to see if positive exists
+        * decide which to use with added weight if positive+ flag is true
+        * if AttributeIsNegative then heavy weight on just positive
+        * check each option for requirements for winning type
+        * if no option exists then switch to the losing type
+        * if no options exist for either use neutral
+        * narrow down until one positive remains
+        */
+        //############################################# Positive Methods ####################################################
+        
+        //pulls the positive single response if one exists or returns null if non exist
+        public Dictionary<string, Dictionary<string, List<string>>> PullPositive
+            (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
+            string branchValue = PickPositive(ref data);
+            branchValue = HandleEmptyBranchString(branchValue);
+            return PickResponse(branchValue);
+        }
+
+        //70% chance for pos+ if plusFlag else 70% chance for reg pos
+        //@return "positive+", "positive", "neutral." or an empty string if no branch is available
+        public string PickPositive
+            (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> applicable) {
+            double plus = (PlusFlag && !AttributeRelationshipIsNegative()) ?
+                responseBiasWeight : responseTotalWeight - responseBiasWeight;
+            double choice = Controller.dice.NextDouble() * responseTotalWeight + 1;
+            bool pos = applicable.ContainsKey(Constants.POSITIVE);
+            bool posPlus = applicable.ContainsKey(Constants.POSITIVE_PLUS);
+            return PositiveSelection(plus, choice, pos, posPlus);
+        }
+        //boolean checks for PickPositive method
+        private string PositiveSelection(double plus, double choice, bool pos, bool posPlus) {
+            if (!posPlus && pos) {
+                return Constants.POSITIVE;
+            } else if (posPlus && !pos) {
+                return Constants.POSITIVE_PLUS;
+            } else if (posPlus && pos) {
+                if (plus >= choice) {
+                    return Constants.POSITIVE_PLUS;
+                } else {
+                    return Constants.POSITIVE;
+                }
+            }else if (applicableResponses.ContainsKey(Constants.NEUTRAL)) {
+                return Constants.NEUTRAL;
+            }
+            return "";
+        }
+
+        //############################################# Neutral Methods ####################################################
+
+        //pulls the neutral single response if one exists or returns null if none exist
+        public Dictionary<string, Dictionary<string, List<string>>> PullNeutral
+            (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
+            string branchValue = PickNeutral(data[Constants.NEUTRAL]);
+            branchValue = HandleEmptyBranchString(branchValue);
+            return PickResponse(branchValue);
+        }
+        //returns "neutral" or empty string if neutral doesn't exist
+        protected string PickNeutral
+            (Dictionary<string, Dictionary<string, List<string>>> neutral) {
+            if (applicableResponses.ContainsKey(Constants.NEUTRAL)) {
+                return Constants.NEUTRAL;
+            }
+            return "";
+        }
+
+        //############################################# Negative Methods ####################################################
+        //pulls the negative single response if one exists or returns null if non exist
+        public Dictionary<string, Dictionary<string, List<string>>> PullNegative
+            (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
+            string branchValue = PickNegative(ref data);
+            branchValue = HandleEmptyBranchString(branchValue);
+            return PickResponse(branchValue);
+        }
+
+
+        //70% chance for neg+ if plusFlag else 70% chance for reg neg
+        //@return negative+, negative, neutral, or empty string if no applicable branches are found
+        public string PickNegative
+            (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> applicable) {
+            double plus = (PlusFlag && AttributeRelationshipIsNegative()) ?
+                responseBiasWeight : responseTotalWeight - responseBiasWeight;
+            double choice = Controller.dice.NextDouble() * responseTotalWeight + 1;
+            bool pos = applicable.ContainsKey(Constants.NEGATIVE);
+            bool posPlus = applicable.ContainsKey(Constants.NEGATIVE_PLUS);
+            return NegativeSelection(plus, choice, pos, posPlus);
+        }
+        //boolean checks for PickNegative
+        private string NegativeSelection(double plus, double choice, bool pos, bool posPlus) {
+            if (!posPlus && pos) {
+                return Constants.NEGATIVE;
+            } else if (posPlus && !pos) {
+                return Constants.NEGATIVE_PLUS;
+            } else if (posPlus && pos) {
+                if (plus >= choice) {
+                    return Constants.NEGATIVE_PLUS;
+                } else {
+                    return Constants.NEGATIVE;
+                }
+            } else if (applicableResponses.ContainsKey(Constants.NEUTRAL)) {
+                return Constants.NEUTRAL;
+            }
+            return "";
+        }
+
+        //############################################# Custom Methods ####################################################
+
+        //
+        public Dictionary<string, Dictionary<string, List<string>>> PullCustom
+            (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
+            string branchValue = "";
+            if (!Relationship.Equals(Constants.NEUTRAL) && !AttributeRelationshipIsNegative()) {
+                branchValue = FindUniqueCustomResponse(Constants.POSITIVE, Constants.POSITIVE_PLUS);
+                return  (branchValue.Length==0) ?  null : PickResponse(branchValue);
+            } else if (AttributeRelationshipIsNegative()) {
+                branchValue = FindUniqueCustomResponse(Constants.NEGATIVE, Constants.NEGATIVE_PLUS);
+                return (branchValue.Length == 0) ? null : PickResponse(branchValue);
+            } else
+                return PullNeutral(ref data);
+        }
+
+        //############################################# Helper Methods ####################################################
+
         //creates a data strucute that holds all d
         public Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> CheckAllRequirements
             (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
@@ -158,14 +284,14 @@ namespace Kati.GenericModule {
                 //run for pos+, pos, neutral, neg, neg+
                 temp[item.Key] = item.Value;
                 temp[item.Key] = CheckRequirements(temp[item.Key]);
-                Console.WriteLine("\n");
+                //Console.WriteLine("Check All Requirements\n");
                 foreach (KeyValuePair<string, Dictionary<string, List<string>>> item2 in temp[item.Key]) {
-                    Console.WriteLine(item.Key + "::" + item2.Key);
+                    //Console.WriteLine(item.Key + "::" + item2.Key);
                 }
-                Console.WriteLine("\n");
+                //Console.WriteLine("\n");
             }
             //deep copy to applicable
-            data = temp;
+            //data = temp;
             return DeepCopyApplicableDialogue(temp);
         }
 
@@ -188,9 +314,25 @@ namespace Kati.GenericModule {
         }
 
         //pulls a dialogue bit chosen from a group of applicable dialogues
-        //looks for any unique dialogue in all branch types
-        public string AttemptToFindNonRepeatingAvailableResponse() {
+        //looks for any unique dialogue in a specific branch, the branch ordering is randomized
+        //returns unique dialogue bit or an empty string
+        public string AttemptToFindNonRepeatingSpecificAvailableResponse(string branch) {
+            string key = "";
+            var app = new List<Dictionary<string, Dictionary<string, List<string>>>>();
+            foreach (KeyValuePair<string, Dictionary<string, List<string>>> item2 in ApplicableResponses[branch]) {
+                //load each possible response in a list
+                app.Add(new Dictionary<string, Dictionary<string, List<string>>>() {
+                    [item2.Key] = ApplicableResponses[branch][item2.Key]
+                });
+            }
+            return AttemptContinued(ref key, app);
+        }
 
+
+        //pulls a dialogue bit chosen from a group of applicable dialogues
+        //looks for any unique dialogue in all branch types, the branch order is randomized
+        //returns unique dialogue bit or an empty string
+        public string AttemptToFindNonRepeatingAvailableResponse() {
             string key = "";
             var app = new List<Dictionary<string, Dictionary<string, List<string>>>>();
             foreach (KeyValuePair<string, Dictionary<string, Dictionary<string, List<string>>>> item in ApplicableResponses) {
@@ -203,8 +345,10 @@ namespace Kati.GenericModule {
             }
             return AttemptContinued(ref key, app);
         }
+        //check for a dialogue string that is not in the responses a returns it.
+        //if no string exists then an empty string is returned
         private string AttemptContinued(ref string key, List<Dictionary<string, Dictionary<string, List<string>>>> app) {
-            int[] indices = GenerateRandomIndices(app);
+            int[] indices = GenerateRandomIndices(app.Count);
             for (int i = 0; i < indices.Length; i++) {
                 foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in app[indices[i]]) {
                     key = item.Key;
@@ -219,13 +363,10 @@ namespace Kati.GenericModule {
                     return key;
                 }
             }
-            return key;
+            return "";
         }
 
-        //Need to completely rework this888888888888888888888888888888888888888888888888888888
-
-        protected int[] GenerateRandomIndices(List<Dictionary<string, Dictionary<string, List<string>>>> data) {
-            int size = data.Count;
+        protected int[] GenerateRandomIndices(int size) {
             List<int> values = new List<int>();
             while (values.Count < size) {
                 int num = (int)(Controller.dice.NextDouble() * size);
@@ -236,152 +377,13 @@ namespace Kati.GenericModule {
             return values.ToArray();
         }
 
-
-
-
-
-        /**
-        * check to see if positive+ exists
-        * check to see if positive exists
-        * decide which to use with added weight if positive+ flag is true
-        * if AttributeIsNegative then heavy weight on just positive
-        * check each option for requirements for winning type
-        * if no option exists then switch to the losing type
-        * if no options exist for either use neutral
-        * narrow down until one positive remains
-        */
-        //############################################# Positive Methods ####################################################
-        
-        public Dictionary<string, Dictionary<string, List<string>>> PullPositive
-            (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
-            string branchValue = PickPositive(ref data);
-
-            if (branchValue.Equals("")) {//no available Pos+, Pos, or Neutral 
-                branchValue = AttemptToFindNonRepeatingAvailableResponse();//look for any dialogue item from all branch values
-                if (branchValue.Equals("")) {//there is nothing available in any category 
-                    return null;
-                }
-            }
-
-            return PickResponse(branchValue);
-        }
-
-        //70% chance for pos+ if plusFlag else 70% chance for reg pos
-        //@return positive+, positive, or neutral
-        public string PickPositive
-            (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> applicable) {
-            double plus = (PlusFlag && !AttributeRelationshipIsNegative()) ?
-                responseBiasWeight : responseTotalWeight - responseBiasWeight;
-            double choice = Controller.dice.NextDouble() * responseTotalWeight + 1;
-            bool pos = applicable.ContainsKey(Constants.POSITIVE);
-            bool posPlus = applicable.ContainsKey(Constants.POSITIVE_PLUS);
-            return PositiveSelection(plus, choice, pos, posPlus);
-        }
-        private string PositiveSelection(double plus, double choice, bool pos, bool posPlus) {
-            if (!posPlus && pos) {
-                return Constants.POSITIVE;
-            } else if (posPlus && !pos) {
-                return Constants.POSITIVE_PLUS;
-            } else if (posPlus && pos) {
-                if (plus >= choice) {
-                    return Constants.POSITIVE_PLUS;
-                } else {
-                    return Constants.POSITIVE;
-                }
-            }else if (applicableResponses.ContainsKey(Constants.NEUTRAL)) {
-                return Constants.NEUTRAL;
-            }
-            return "";
-        }
-
-        //############################################# Neutral Methods ####################################################
-
-        public Dictionary<string, Dictionary<string, List<string>>> PullNeutral
-            (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
-            string branchValue = PickNeutral(data[Constants.NEUTRAL]);
-
-            if (branchValue.Equals("")) {//no available Pos+, Pos, or Neutral 
-                branchValue = AttemptToFindNonRepeatingAvailableResponse();//look for any dialogue item from all branch values
-                if (branchValue.Equals("")) {//there is nothing available in any category 
-                    return null;
-                }
-            }
-            return PickResponse(branchValue);
-        }
-
-        protected string PickNeutral
-            (Dictionary<string, Dictionary<string, List<string>>> neutral) {
-            if (applicableResponses.ContainsKey(Constants.NEUTRAL)) {
-                return Constants.NEUTRAL;
-            }
-            return "";
-        }
-
-        //############################################# Negative Methods ####################################################
-        public Dictionary<string, Dictionary<string, List<string>>> PullNegative
-            (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
-            string branchValue = PickNegative(ref data);
-
-            if (branchValue.Equals("")) {//no available Pos+, Pos, or Neutral 
-                branchValue = AttemptToFindNonRepeatingAvailableResponse();//look for any dialogue item from all branch values
-                if (branchValue.Equals("")) {//there is nothing available in any category 
-                    return null;
-                }
-            }
-            return PickResponse(branchValue);
-        }
-
-        //70% chance for pos+ if plusFlag else 70% chance for reg pos
-        //@return positive+, positive, or neutral
-        public string PickNegative
-            (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> applicable) {
-            double plus = (PlusFlag && AttributeRelationshipIsNegative()) ?
-                responseBiasWeight : responseTotalWeight - responseBiasWeight;
-            double choice = Controller.dice.NextDouble() * responseTotalWeight + 1;
-            bool pos = applicable.ContainsKey(Constants.NEGATIVE);
-            bool posPlus = applicable.ContainsKey(Constants.NEGATIVE_PLUS);
-            return NegativeSelection(plus, choice, pos, posPlus);
-        }
-        private string NegativeSelection(double plus, double choice, bool pos, bool posPlus) {
-            if (!posPlus && pos) {
-                return Constants.NEGATIVE;
-            } else if (posPlus && !pos) {
-                return Constants.NEGATIVE_PLUS;
-            } else if (posPlus && pos) {
-                if (plus >= choice) {
-                    return Constants.NEGATIVE_PLUS;
-                } else {
-                    return Constants.NEGATIVE;
-                }
-            } else if (applicableResponses.ContainsKey(Constants.NEUTRAL)) {
-                return Constants.NEUTRAL;
-            }
-            return "";
-        }
-
-        //############################################# Custom Methods ####################################################
-
-        //allows for dulpicate responses
-        public Dictionary<string, Dictionary<string, List<string>>> PullCustom
-            (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
-
-            if (!Relationship.Equals(Constants.NEUTRAL) && !AttributeRelationshipIsNegative()) {
-                return PullPositive(ref data);
-            } else if (AttributeRelationshipIsNegative())
-                return PullNegative(ref data);
-            else
-                return PullNeutral(ref data);
-        }
-
-        //############################################# Helper Methods ####################################################
-
         virtual public Dictionary<string, Dictionary<string, List<string>>> CheckRequirements
             (Dictionary<string, Dictionary<string, List<string>>> data) {
-            if (package == null)
+            if (Package == null)
                 return data;
-            foreach (KeyValuePair<string, List<string>> item in package.LeadTo) {
-                foreach (string lead in package.LeadTo[item.Key]) {
-                    string[] arr = lead.Split(".");
+            foreach (KeyValuePair<string, List<string>> item in Package.Req) {
+                foreach (string req in Package.Req[item.Key]) {
+                    string[] arr = req.Split(".");
                     if (arr.Length > 1 && arr[0].Equals(Constants.RESPONSE_TAG)) {
                         foreach (KeyValuePair<string, Dictionary<string, List<string>>> item2 in data) {
                             RemoveElement(ref data, item2.Key, ref arr);
@@ -391,7 +393,7 @@ namespace Kati.GenericModule {
             }
             return data;
         }
-        public void RemoveElement
+        protected void RemoveElement
             (ref Dictionary<string, Dictionary<string, List<string>>> data, string key, ref string[] arr) {
             bool keep = data[key][Constants.REQ].Count == 0;
             foreach (string s in data[key][Constants.REQ]) {
@@ -412,7 +414,29 @@ namespace Kati.GenericModule {
             }
         }
 
-        private Dictionary<string, Dictionary<string, List<string>>> PickResponse(string branchValue) {
+        //handles the case for an empty branch string.
+        //@return: branchValue (pos+,pos,neut,neg,neg+) or null if non exist
+        public string HandleEmptyBranchString(string branchValue) {
+            if (branchValue.Equals("")) {//no available Pos+, Pos, or Neutral 
+                var dialogue = AttemptToFindNonRepeatingAvailableResponse();//look for any dialogue item from all branch values
+                if (dialogue.Equals("")) {//there is nothing available in any category 
+                    return "";
+                }else if (ApplicableResponses[Constants.POSITIVE].ContainsKey(dialogue)) {
+                    return Constants.POSITIVE;
+                } else if (ApplicableResponses[Constants.POSITIVE_PLUS].ContainsKey(dialogue)) {
+                    return Constants.POSITIVE_PLUS;
+                } else if (ApplicableResponses[Constants.NEUTRAL].ContainsKey(dialogue)) {
+                    return Constants.NEUTRAL;
+                } else if (ApplicableResponses[Constants.NEGATIVE].ContainsKey(dialogue)) {
+                    return Constants.NEGATIVE;
+                } else if (ApplicableResponses[Constants.NEGATIVE_PLUS].ContainsKey(dialogue)) {
+                    return Constants.NEGATIVE_PLUS;
+                }
+            }
+            return branchValue;
+        }
+
+        public Dictionary<string, Dictionary<string, List<string>>> PickResponse(string branchValue) {
             var temp = ApplicableResponses[branchValue];
             string responseKey = PickResponseOption(ref temp);
             var temp2 = new Dictionary<string, Dictionary<string, List<string>>> {
@@ -422,13 +446,14 @@ namespace Kati.GenericModule {
         }
 
         //uniform distribution pick 
-        public string PickResponseOption
+        private string PickResponseOption
             (ref Dictionary<string, Dictionary<string, List<string>>> option) {
             string arr = "";
             int index = 0;
             int winner = (int)(Controller.dice.NextDouble() * option.Count);
             return FindUniqueResponse(option, ref arr, ref index, winner);
         }
+
         private string FindUniqueResponse
             (Dictionary<string, Dictionary<string, List<string>>> option, ref string arr, ref int index, int winner) {
             List<string> possible = new List<string>();
@@ -451,139 +476,18 @@ namespace Kati.GenericModule {
             return arr;
         }
 
-        //############################################# Old Methods ####################################################
-        /*
-        public Dictionary<string, Dictionary<string, List<string>>> PullPositive
-            (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
-            string value = PickPositive(ref data);
-            var positive = data[value];
-            if (positive.Count == 0 && value.Equals(Constants.NEGATIVE_PLUS)) {
-                positive = data[Constants.NEGATIVE];
-            } else if (positive.Count == 0 && value.Equals(Constants.NEGATIVE)) {
-                positive = data[Constants.NEGATIVE_PLUS];
-            } else {
-                positive = data[Constants.NEUTRAL];
-            }
-            //positive = CheckRequirements(positive);
-            Dictionary<string, Dictionary<string, List<string>>> choice = 
-                new Dictionary<string, Dictionary<string, List<string>>>();
-            string temp = PickResponseOption(ref positive);
-            try {
-                choice[temp] = positive[temp];
-            } catch (Exception) {
-                return AttemptToFindNonRepeatingAvailableResponse();
-            }
-            return choice;
-        }
-        
-         public string PickPositive
-            (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
-            double plus = (PlusFlag && !AttributeRelationshipIsNegative()) ? 
-                responseBiasWeight : responseTotalWeight - responseBiasWeight;
-            double choice = Controller.dice.NextDouble() * responseTotalWeight + 1;
-            if (plus >= choice && data.ContainsKey(Constants.POSITIVE_PLUS)&&data[Constants.POSITIVE_PLUS].Count>0) {
-                return Constants.POSITIVE_PLUS;
-            } else if (data.ContainsKey(Constants.POSITIVE) && data[Constants.POSITIVE].Count > 0) {
-                return Constants.POSITIVE;
-            } else {
-                return Constants.NEUTRAL;
-            }
-        } 
-         */
-
-        /*
-        public Dictionary<string, Dictionary<string, List<string>>> PullNegative
-            (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
-            string value = PickNegative(ref data);
-            var negative = data[value];
-            if (negative.Count == 0 && value.Equals(Constants.NEGATIVE_PLUS)) {
-                negative = data[Constants.NEGATIVE];
-            } else if (negative.Count == 0 && value.Equals(Constants.NEGATIVE)) {
-                negative = data[Constants.NEGATIVE_PLUS];
-            } else {
-                negative = data[Constants.NEUTRAL];
-            } 
-            Console.WriteLine(negative.Count+" ");
-            negative = CheckRequirements(negative);
-            Dictionary<string, Dictionary<string, List<string>>> choice =
-               new Dictionary<string, Dictionary<string, List<string>>>();
-            string temp = PickResponseOption(ref negative);
-            try {
-                choice[temp] = negative[temp];
-            } catch (Exception) {
-                return AttemptToFindNonRepeatingAvailableResponse();
-            }
-            return choice;
+        //checks for unique dialogue strings in a directed manner
+        public string FindUniqueCustomResponse(string val1, string val2) {
+            string branchValue = "";
+            branchValue = AttemptToFindNonRepeatingSpecificAvailableResponse(val1);
+            if (branchValue.Length == 0)
+                branchValue = AttemptToFindNonRepeatingSpecificAvailableResponse(val2);
+            if (branchValue.Length == 0)
+                branchValue = AttemptToFindNonRepeatingSpecificAvailableResponse(Constants.NEUTRAL);
+            if (branchValue.Length == 0)
+                branchValue = AttemptToFindNonRepeatingAvailableResponse();
+            return branchValue;
         }
 
-        public string PickNegative
-            (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
-            double plus = (PlusFlag && AttributeRelationshipIsNegative()) ?
-                responseBiasWeight : responseTotalWeight - responseBiasWeight;
-            double choice = Controller.dice.NextDouble() * responseTotalWeight + 1;
-            if (plus >= choice && data.ContainsKey(Constants.NEGATIVE_PLUS) && data[Constants.NEGATIVE_PLUS].Count > 0) {
-                return Constants.NEGATIVE_PLUS;
-            } else if (data.ContainsKey(Constants.NEGATIVE) && data[Constants.NEGATIVE_PLUS].Count > 0) {
-                return Constants.NEGATIVE;
-            } else {
-                return Constants.NEUTRAL;
-            }
-        }
-
-        public Dictionary<string, Dictionary<string, List<string>>> PullNeutral
-            (ref Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
-            
-            var neutral = CheckRequirements(data[Constants.NEUTRAL]);
-            Dictionary<string, Dictionary<string, List<string>>> choice =
-               new Dictionary<string, Dictionary<string, List<string>>>();
-            string temp = PickResponseOption(ref neutral);
-            try {
-                choice[temp] = neutral[temp];
-            } catch (Exception) {
-                //return AttemptToFindNonRepeatingAvailableResponse();
-            }
-            return choice;
-        }
-
-        protected void PickNeutral
-            (ref Dictionary<string, Dictionary<string, List<string>>> neutral) {
-            //remove any choices that already exist in the responses list
-            RemoveDuplicates(ref neutral);
-            //if neutral list is larger than 0 call pick response option
-            if (neutral.Count > 0) {
-                PickResponseOption(ref neutral);
-            } else { //else provide a value a premade value
-                ProvideNeutralResponse(ref neutral);
-            }
-        }
-
-        public void ProvideNeutralResponse
-            (ref Dictionary<string, Dictionary<string, List<string>>> neutral) {
-            string key= "...";
-            foreach (Dictionary<string, Dictionary<string, List<string>>> resp in Responses) {
-                if (!resp.ContainsKey("I don't know.")) {
-                    key="I don't know.";
-                } else if (!resp.ContainsKey("Okay.")) {
-                    key="Okay.";
-                } else if (!resp.ContainsKey("Uhhh.. meh.")) {
-                    key="Uhhh.. meh.";
-                } 
-            }
-            neutral[key] = new Dictionary<string, List<string>>();
-            neutral[key][Constants.REQ] = new List<string>();
-            neutral[key][Constants.LEAD_TO] = new List<string>();
-        }
-
-        public void RemoveDuplicates(ref Dictionary<string, Dictionary<string, List<string>>> neutral) {
-            int i = 0;
-            if (Responses.Count > 0) {
-                foreach (string key in Responses[i].Keys) {
-                    if (neutral.ContainsKey(key)) {
-                        neutral.Remove(key);
-                    }
-                }
-            }
-        }
-        */
     }
 }
