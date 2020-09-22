@@ -109,19 +109,35 @@
       },
       "I see you are looking to be hired for the Software Development intern position.": {
         "req": [ "intro_tier16" ],
-        "lead to": [ "forced.welcome.question.intro_tier17" ]
+        "lead to": [ "forced.welcome.statement.intro_tier17" ]
       },
       "So, you are interested in the intern position, the software intern position.": {
         "req": [ "intro_tier16" ],
-        "lead to": [ "forced.welcome.question.intro_tier17" ]
+        "lead to": [ "forced.welcome.statement.intro_tier17" ]
       },
       "It says on the paperwork that you are interested in the Software Development Intern position.": {
         "req": [ "intro_tier16" ],
-        "lead to": [ "forced.welcome.question.intro_tier17" ]
+        "lead to": [ "forced.welcome.statement.intro_tier17" ]
       },
       "Okay, you are interested in snagging the Software Development Intern position.": {
         "req": [ "intro_tier16" ],
-        "lead to": [ "forced.welcome.question.intro_tier17" ]
+        "lead to": [ "forced.welcome.statement.intro_tier17" ]
+      },
+      "It's a great start to a career here, but I must warn you it is no walk in the park.": {
+        "req": [ "intro_tier17" ],
+        "lead to": [ "forced.welcome.question.intro_tier18" ]
+      },
+      "It's a fun, but very difficult position. It's not to different from every position here.": {
+        "req": [ "intro_tier17" ],
+        "lead to": [ "forced.welcome.question.intro_tier18" ]
+      },
+      "I won't lie to you.  The position will be difficult despite it being an internship.": {
+        "req": [ "intro_tier17" ],
+        "lead to": [ "forced.welcome.question.intro_tier18" ]
+      },
+      "Most interns don't make the first month but Im sure you're tought than the standard college fodder.": {
+        "req": [ "intro_tier17" ],
+        "lead to": [ "forced.welcome.question.intro_tier18" ]
       },
       "Here at #company_name#, we strive for perfection in everything we do.": {
         "req": [ "intro_tier20" ],

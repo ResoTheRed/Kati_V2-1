@@ -178,8 +178,8 @@ namespace Kati.GenericModule {
             double plus = (PlusFlag && !AttributeRelationshipIsNegative()) ?
                 responseBiasWeight : responseTotalWeight - responseBiasWeight;
             double choice = Controller.dice.NextDouble() * responseTotalWeight + 1;
-            bool pos = applicable.ContainsKey(Constants.POSITIVE);
-            bool posPlus = applicable.ContainsKey(Constants.POSITIVE_PLUS);
+            bool pos = applicable.ContainsKey(Constants.POSITIVE) && applicable[Constants.POSITIVE].Count>0;
+            bool posPlus = applicable.ContainsKey(Constants.POSITIVE_PLUS) && applicable[Constants.POSITIVE_PLUS].Count > 0;
             return PositiveSelection(plus, choice, pos, posPlus);
         }
         //boolean checks for PickPositive method
@@ -235,8 +235,8 @@ namespace Kati.GenericModule {
             double plus = (PlusFlag && AttributeRelationshipIsNegative()) ?
                 responseBiasWeight : responseTotalWeight - responseBiasWeight;
             double choice = Controller.dice.NextDouble() * responseTotalWeight + 1;
-            bool pos = applicable.ContainsKey(Constants.NEGATIVE);
-            bool posPlus = applicable.ContainsKey(Constants.NEGATIVE_PLUS);
+            bool pos = applicable.ContainsKey(Constants.NEGATIVE) && applicable[Constants.NEGATIVE].Count > 0;
+            bool posPlus = applicable.ContainsKey(Constants.NEGATIVE_PLUS) && applicable[Constants.NEGATIVE_PLUS].Count > 0;
             return NegativeSelection(plus, choice, pos, posPlus);
         }
         //boolean checks for PickNegative
@@ -419,32 +419,42 @@ namespace Kati.GenericModule {
         public string HandleEmptyBranchString(string branchValue) {
             if (branchValue.Equals("")) {//no available Pos+, Pos, or Neutral 
                 var dialogue = AttemptToFindNonRepeatingAvailableResponse();//look for any dialogue item from all branch values
-                if (dialogue.Equals("")) {//there is nothing available in any category 
-                    return "";
-                }else if (ApplicableResponses[Constants.POSITIVE].ContainsKey(dialogue)) {
-                    return Constants.POSITIVE;
-                } else if (ApplicableResponses[Constants.POSITIVE_PLUS].ContainsKey(dialogue)) {
-                    return Constants.POSITIVE_PLUS;
-                } else if (ApplicableResponses[Constants.NEUTRAL].ContainsKey(dialogue)) {
-                    return Constants.NEUTRAL;
-                } else if (ApplicableResponses[Constants.NEGATIVE].ContainsKey(dialogue)) {
-                    return Constants.NEGATIVE;
-                } else if (ApplicableResponses[Constants.NEGATIVE_PLUS].ContainsKey(dialogue)) {
-                    return Constants.NEGATIVE_PLUS;
-                }
+                branchValue = DialogueToBranchConversion(dialogue);
             }
             return branchValue;
         }
 
-        public Dictionary<string, Dictionary<string, List<string>>> PickResponse(string branchValue) {
-            var temp = ApplicableResponses[branchValue];
-            string responseKey = PickResponseOption(ref temp);
-            var temp2 = new Dictionary<string, Dictionary<string, List<string>>> {
-                [responseKey] = ApplicableResponses[branchValue][responseKey]
-            };
-            return temp2;
+        private string DialogueToBranchConversion(string dialogue) {
+            if (dialogue.Equals("")) {//there is nothing available in any category 
+                return "";
+            } else if (ApplicableResponses[Constants.POSITIVE].ContainsKey(dialogue)) {
+                return Constants.POSITIVE;
+            } else if (ApplicableResponses[Constants.POSITIVE_PLUS].ContainsKey(dialogue)) {
+                return Constants.POSITIVE_PLUS;
+            } else if (ApplicableResponses[Constants.NEUTRAL].ContainsKey(dialogue)) {
+                return Constants.NEUTRAL;
+            } else if (ApplicableResponses[Constants.NEGATIVE].ContainsKey(dialogue)) {
+                return Constants.NEGATIVE;
+            } else if (ApplicableResponses[Constants.NEGATIVE_PLUS].ContainsKey(dialogue)) {
+                return Constants.NEGATIVE_PLUS;
+            }
+            return "";
         }
 
+        //######################################## Pick Response Method Chain #########################################
+
+        //job is to pick an available response that is not already located in the response list
+        public Dictionary<string, Dictionary<string, List<string>>> PickResponse(string branchValue) {
+            if (branchValue.Length == 0)
+                return null;
+            var temp = ApplicableResponses[branchValue];
+            string responseKey = PickResponseOption(ref temp);
+            if (responseKey.Length == 0)
+                return null;
+            var temp2 = new Dictionary<string, Dictionary<string, List<string>>>();
+            temp2[responseKey] = ApplicableResponses[branchValue][responseKey];
+            return temp2;
+        }
         //uniform distribution pick 
         private string PickResponseOption
             (ref Dictionary<string, Dictionary<string, List<string>>> option) {
@@ -458,15 +468,10 @@ namespace Kati.GenericModule {
             (Dictionary<string, Dictionary<string, List<string>>> option, ref string arr, ref int index, int winner) {
             List<string> possible = new List<string>();
             foreach (string key in option.Keys) {
-                if (index == winner) {
+                CheckIfKeyExistsInResponses(ref possible, key);
+                if (index == winner && possible.Contains(key)) {
                     arr = key;
                     break;
-                } else {
-                    for (int i = 0; i < Responses.Count; i++) {
-                        if (!Responses[i].ContainsKey(key)) {
-                            possible.Add(key);
-                        }
-                    }
                 }
                 index++;
             }
@@ -475,18 +480,35 @@ namespace Kati.GenericModule {
             }
             return arr;
         }
+        //loads ref list possible with any key options that don't exist in the response class
+        private void CheckIfKeyExistsInResponses(ref List<string> possible, string key) {
+            if (Responses.Count > 0) {
+                bool keep = true;
+                for (int i = 0; i < Responses.Count; i++) {
+                    if (Responses[i].ContainsKey(key)) {
+                        keep = false;
+                    }
+                }
+                if (keep) {
+                    possible.Add(key);
+                }
+            } else {
+                possible.Add(key);
+            }
+        }
 
         //checks for unique dialogue strings in a directed manner
+        //returns the branch type pos+, pos, neutral, neg, neg+
         public string FindUniqueCustomResponse(string val1, string val2) {
             string branchValue = "";
             branchValue = AttemptToFindNonRepeatingSpecificAvailableResponse(val1);
-            if (branchValue.Length == 0)
+            if (branchValue.Length == 0) 
                 branchValue = AttemptToFindNonRepeatingSpecificAvailableResponse(val2);
             if (branchValue.Length == 0)
                 branchValue = AttemptToFindNonRepeatingSpecificAvailableResponse(Constants.NEUTRAL);
             if (branchValue.Length == 0)
                 branchValue = AttemptToFindNonRepeatingAvailableResponse();
-            return branchValue;
+            return DialogueToBranchConversion(branchValue);
         }
 
     }

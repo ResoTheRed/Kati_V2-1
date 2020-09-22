@@ -2,6 +2,7 @@
 using Kati.Module_Hub;
 using Kati.SourceFiles;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.ComTypes;
 
@@ -327,7 +328,52 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
 
             var dialogue = res.AttemptToFindNonRepeatingAvailableResponse();
             Assert.IsTrue(dialogue.Length>0);
-            
+            //1
+            temp[dialogue] = Helper1A(dialogue, master);
+            res.Responses.Add(temp);
+            dialogueInResponses.Add(dialogue);
+            for (int i = 0; i < 100; i++) {
+                dialogue = res.AttemptToFindNonRepeatingAvailableResponse();
+                Assert.IsFalse(dialogueInResponses.Contains(dialogue));
+                Assert.IsTrue(dialogue.Length > 0);
+            }
+            //2
+            temp[dialogue] = Helper1A(dialogue, master);
+            res.Responses.Add(temp);
+            dialogueInResponses.Add(dialogue);
+            for (int i = 0; i < 100; i++) {
+                dialogue = res.AttemptToFindNonRepeatingAvailableResponse();
+                Assert.IsFalse(dialogueInResponses.Contains(dialogue));
+                Assert.IsTrue(dialogue.Length > 0);
+            }
+            //3
+            temp[dialogue] = Helper1A(dialogue, master);
+            res.Responses.Add(temp);
+            dialogueInResponses.Add(dialogue);
+            for (int i = 0; i < 100; i++) {
+                dialogue = res.AttemptToFindNonRepeatingAvailableResponse();
+                Assert.IsFalse(dialogueInResponses.Contains(dialogue));
+                Assert.IsTrue(dialogue.Length > 0);
+            }
+            //4
+            temp[dialogue] = Helper1A(dialogue, master);
+            res.Responses.Add(temp);
+            dialogueInResponses.Add(dialogue);
+            for (int i = 0; i < 100; i++) {
+                dialogue = res.AttemptToFindNonRepeatingAvailableResponse();
+                Assert.IsFalse(dialogueInResponses.Contains(dialogue));
+                Assert.IsTrue(dialogue.Length > 0);
+            }
+            //5
+            temp[dialogue] = Helper1A(dialogue, master);
+            res.Responses.Add(temp);
+            dialogueInResponses.Add(dialogue);
+            for (int i = 0; i < 100; i++) {
+                dialogue = res.AttemptToFindNonRepeatingAvailableResponse();
+                Assert.IsFalse(dialogueInResponses.Contains(dialogue));
+                Assert.IsTrue(dialogue.Length > 0);
+            }
+            //6
             temp[dialogue] = Helper1A(dialogue, master);
             res.Responses.Add(temp);
             dialogueInResponses.Add(dialogue);
@@ -340,53 +386,9 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
             temp[dialogue] = Helper1A(dialogue, master);
             res.Responses.Add(temp);
             dialogueInResponses.Add(dialogue);
-            for (int i = 0; i < 100; i++) {
-                dialogue = res.AttemptToFindNonRepeatingAvailableResponse();
-                Assert.IsFalse(dialogueInResponses.Contains(dialogue));
-                Assert.IsTrue(dialogue.Length > 0);
-            }
-
-            temp[dialogue] = Helper1A(dialogue, master);
-            res.Responses.Add(temp);
-            dialogueInResponses.Add(dialogue);
-            for (int i = 0; i < 100; i++) {
-                dialogue = res.AttemptToFindNonRepeatingAvailableResponse();
-                Assert.IsFalse(dialogueInResponses.Contains(dialogue));
-                Assert.IsTrue(dialogue.Length > 0);
-            }
-
-            temp[dialogue] = Helper1A(dialogue, master);
-            res.Responses.Add(temp);
-            dialogueInResponses.Add(dialogue);
-            for (int i = 0; i < 100; i++) {
-                dialogue = res.AttemptToFindNonRepeatingAvailableResponse();
-                Assert.IsFalse(dialogueInResponses.Contains(dialogue));
-                Assert.IsTrue(dialogue.Length > 0);
-            }
-
-            temp[dialogue] = Helper1A(dialogue, master);
-            res.Responses.Add(temp);
-            dialogueInResponses.Add(dialogue);
-            for (int i = 0; i < 100; i++) {
-                dialogue = res.AttemptToFindNonRepeatingAvailableResponse();
-                Assert.IsFalse(dialogueInResponses.Contains(dialogue));
-                Assert.IsTrue(dialogue.Length > 0);
-            }
-
-            temp[dialogue] = Helper1A(dialogue, master);
-            res.Responses.Add(temp);
-            dialogueInResponses.Add(dialogue);
-            for (int i = 0; i < 100; i++) {
-                dialogue = res.AttemptToFindNonRepeatingAvailableResponse();
-                Assert.IsFalse(dialogueInResponses.Contains(dialogue));
-                Assert.IsTrue(dialogue.Length > 0);
-            }
-
-            temp[dialogue] = Helper1A(dialogue, master);
-            res.Responses.Add(temp);
-            dialogueInResponses.Add(dialogue);
+            //7
+            dialogue = res.AttemptToFindNonRepeatingAvailableResponse();
             Assert.IsTrue(dialogue.Length==0);
-
 
         }
         private Dictionary<string, List<string>> Helper1A(string dialogue, Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
@@ -464,107 +466,115 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
             Assert.IsTrue(res.ApplicableResponses[Constants.POSITIVE].Count == 2);
             Assert.IsTrue(res.ApplicableResponses[Constants.NEUTRAL].Count == 3);
             Assert.IsTrue(res.ApplicableResponses[Constants.NEGATIVE].Count == 2);
-            var d = res.PickResponse();
+
+            //test that one of the two pos strings are selected when both are present
+            var q = res.PickResponse(Constants.POSITIVE);
+            System.Console.WriteLine();
+            Assert.IsTrue(q.Count==1);
+            foreach (string s in q.Keys) {
+                Assert.IsTrue(s.Equals("Please call me #player_name#.")||s.Equals("I prefer #player_name#. Thank you."));
+            }
+
+            //test that the other selection is chosen when
+            var temp = new Dictionary<string, Dictionary<string, List<string>>>();
+            temp["Please call me #player_name#."] = master[Constants.POSITIVE]["Please call me #player_name#."];
+            res.Responses.Add(temp);
+            q = res.PickResponse(Constants.POSITIVE);
+            System.Console.WriteLine();
+            Assert.IsTrue(q.Count == 1);
+            foreach (string s in q.Keys) {
+                Assert.IsTrue(s.Equals("I prefer #player_name#. Thank you."));
+            }
+            
+            //test no options
+            temp = new Dictionary<string, Dictionary<string, List<string>>>();
+            temp["I prefer #player_name#. Thank you."] = master[Constants.POSITIVE]["I prefer #player_name#. Thank you."];
+            res.Responses.Add(temp);
+            q = res.PickResponse(Constants.POSITIVE);
+            Assert.IsTrue(q==null);
+            q = res.PickResponse(Constants.POSITIVE_PLUS);
+            Assert.IsTrue(q == null);
+            q = res.PickResponse(Constants.NEGATIVE_PLUS);
+            Assert.IsTrue(q == null);
         }
 
-
-
-        /*
-
         [TestMethod]
-        public void TestPullPositive() {
+        public void TestFindUniqueCustomResponse() {
             double[] d = new double[] { 800, 700, 600, 500, 400, 300, 200, 100 };
             var stuff = SetTone(d);
             DialoguePackage package = new DialoguePackage();
-            package.LeadTo["test"] = new List<string>();
-            package.LeadTo["test"].Add("response_tag.tag1");
-            List<string> list = res.OrderRelationshipBranches(ref package, stuff);
-            var master = ctrl.Lib.Data["sample1_response"];
-            var item = res.PullPositive(ref master);
-            System.Console.WriteLine(item.Count);
+            package.Req["test"] = new List<string>();
+            package.Req["test"].Add("response_tag.intro_tier9");
+            var master = ctrl.Lib.Data["sample2_response"];
+            res.OrderRelationshipBranches(ref package, stuff);
+            res.ApplicableResponses = res.CheckAllRequirements(ref master);
+            Assert.IsTrue(res.ApplicableResponses[Constants.NEUTRAL].Count == 6);
+
+            //test with one option
+            var branch = res.FindUniqueCustomResponse(Constants.POSITIVE_PLUS, Constants.POSITIVE);
+            Assert.IsTrue(branch.Equals(Constants.NEUTRAL));
+            branch = res.FindUniqueCustomResponse(Constants.NEGATIVE_PLUS, Constants.NEGATIVE);
+            Assert.IsTrue(branch.Equals(Constants.NEUTRAL));
+
+            d = new double[] { 800, 700, 600, 500, 400, 300, 200, 100 };
+            stuff = SetTone(d);
+            package = new DialoguePackage();
+            package.Req["test"] = new List<string>();
+            package.Req["test"].Add("response_tag.intro_tier999");
+            master = ctrl.Lib.Data["sample2_response"];
+            res.OrderRelationshipBranches(ref package, stuff);
+            res.ApplicableResponses = res.CheckAllRequirements(ref master);
+
+            //test with no option
+            branch = res.FindUniqueCustomResponse(Constants.POSITIVE_PLUS, Constants.POSITIVE);
+            Assert.IsTrue(branch.Length == 0);
+        }
+
+        [TestMethod]
+        public void TestPullResponse1() {
+            double[] d = new double[] { 0, 0, 0, 0, 0, 0, 0, 0 };
+            var stuff = SetTone(d);
+            DialoguePackage package = new DialoguePackage();
+            package.Req["test"] = new List<string>();
+            package.Req["test"].Add("response_tag.intro_tier9");
             
-           
+            for (int i = 0; i < 100; i++) {
+                var master = ctrl.Lib.Data["sample2_response"];
+                res.OrderRelationshipBranches(ref package, stuff);
+                res.ApplicableResponses = res.CheckAllRequirements(ref master);
+                var app = res.ApplicableResponses;
+                List<string> dialogue = new List<string>();
+                var temp = res.PullPositive(ref app);
+                res.Responses.Add(temp);
+                foreach (string k in temp.Keys) {
+                    dialogue.Add(k);
+                }
+
+                temp = res.PullNeutral(ref app);
+                res.Responses.Add(temp);
+                foreach (string k in temp.Keys) {
+                    dialogue.Add(k);
+                }
+
+                temp = res.PullNegative(ref app);
+                res.Responses.Add(temp);
+                foreach (string k in temp.Keys) {
+                    dialogue.Add(k);
+                }
+
+                temp = res.PullCustom(ref app);
+                res.Responses.Add(temp);
+                foreach (string k in temp.Keys) {
+                    dialogue.Add(k);
+                }
+                for (int j = 0; j < dialogue.Count; j++) {
+                    for (int l = j + 1; l < dialogue.Count; l++) {
+                        Assert.IsFalse(dialogue[j].Equals(dialogue[l]));
+                    }
+                }
+            }
+
         }
 
-        [TestMethod]
-        public void TestPickPositive() {
-            double[] d = new double[] { 800, 700, 600, 500, 400, 300, 200, 100 };
-            var stuff = SetTone(d);
-            DialoguePackage package = new DialoguePackage();
-            package.LeadTo["test"] = new List<string>();
-            package.LeadTo["test"].Add("response_tag.tag1");
-            List<string> list = res.OrderRelationshipBranches(ref package, stuff);
-            var master = ctrl.Lib.Data["sample1_response"];
-           
-        }
-
-        
-
-        [TestMethod]
-        public void TestPullNeutral() {
-            double[] d = new double[] { 80, 70, 60, 50, 40, 30, 20, 10 };
-            var stuff = SetTone(d);
-            DialoguePackage package = new DialoguePackage();
-            package.LeadTo["test"] = new List<string>();
-            package.LeadTo["test"].Add("response_tag.tag1");
-            var master = ctrl.Lib.Data["sample1_response"];
-            res.OrderRelationshipBranches(ref package, stuff);
-            var item = res.PullNeutral(ref master);
-            
-        }
-
-        [TestMethod]
-        public void TestPullNegative() {
-            double[] d = new double[] { 80, 70, 60, 50, 40, 400, 20, 10 };
-            var stuff = SetTone(d);
-            DialoguePackage package = new DialoguePackage();
-            package.LeadTo["test"] = new List<string>();
-            package.LeadTo["test"].Add("response_tag.tag1");
-            var master = ctrl.Lib.Data["sample1_response"];
-            res.OrderRelationshipBranches(ref package, stuff);
-            var item = res.PullNegative(ref master);
-        }
-
-        [TestMethod]
-        public void TestPullCustomNeg() {
-            double[] d = new double[] { 80, 70, 60, 50, 40, 400, 20, 10 };
-            var stuff = SetTone(d);
-            DialoguePackage package = new DialoguePackage();
-            package.LeadTo["test"] = new List<string>();
-            package.LeadTo["test"].Add("response_tag.tag1");
-            var master = ctrl.Lib.Data["sample1_response"];
-            res.OrderRelationshipBranches(ref package, stuff);
-            var item = res.PullCustom(ref master);
-        }
-
-        [TestMethod]
-        public void TestPullCustomPos() {
-            double[] d = new double[] { 800, 70, 60, 50, 40, 40, 20, 10 };
-            var stuff = SetTone(d);
-            DialoguePackage package = new DialoguePackage();
-            package.LeadTo["test"] = new List<string>();
-            package.LeadTo["test"].Add("response_tag.tag1");
-            var master = ctrl.Lib.Data["sample1_response"];
-            res.OrderRelationshipBranches(ref package, stuff);
-            var item = res.PullCustom(ref master);
-        }
-
-        [TestMethod]
-        public void TestPullCustomNeutral() {
-            double[] d = new double[] { 80, 70, 60, 50, 40, 30, 20, 10 };
-            var stuff = SetTone(d);
-            DialoguePackage package = new DialoguePackage();
-            package.LeadTo["test"] = new List<string>();
-            package.LeadTo["test"].Add("response_tag.tag1");
-            var master = ctrl.Lib.Data["sample1_response"];
-            res.OrderRelationshipBranches(ref package, stuff);
-            var item = res.PullCustom(ref master);
-        }
-
-        [TestMethod]
-        public void TestParseResponsesPosStats() {
-            
-        }
-        */
     }
 }
