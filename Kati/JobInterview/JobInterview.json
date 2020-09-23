@@ -55,7 +55,7 @@
         "req": [ "intro_tier4_neg" ],
         "lead to": [ "forced.welcome.statement.intro_tier5" ]
       },
-      "#art.sad# That wasn't what I was expecting. #new_textbox# Anyway..": {
+      "#art.sad# That wasn't what I was expecting. #new_textbox# Anyway.": {
         "req": [ "intro_tier4_neg" ],
         "lead to": [ "forced.welcome.statement.intro_tier5" ]
       },
@@ -139,6 +139,34 @@
         "req": [ "intro_tier17" ],
         "lead to": [ "forced.welcome.question.intro_tier18" ]
       },
+      "#art_suspicious# ... Thank you for that information.": {
+        "req": [ "intro_tier20_A" ],
+        "lead to": [ "forced.welcome.statement.intro_tier20" ]
+      },
+      "#art_happy# Great to hear it!": {
+        "req": [ "intro_tier20_pos" ],
+        "lead to": [ "forced.welcome.statement.intro_tier20" ]
+      },
+      "#art_happy# I'm glad you feel that way.": {
+        "req": [ "intro_tier20_pos" ],
+        "lead to": [ "forced.welcome.statement.intro_tier20" ]
+      },
+      "Sure thing.": {
+        "req": [ "intro_tier20_B" ],
+        "lead to": [ "forced.welcome.statement.intro_tier20" ]
+      },
+      "You fit the bill so here you are.": {
+        "req": [ "intro_tier20_B" ],
+        "lead to": [ "forced.welcome.statement.intro_tier20" ]
+      },
+      "Okay.": {
+        "req": [ "intro_tier20_B" ],
+        "lead to": [ "forced.welcome.statement.intro_tier20" ]
+      },
+      "Alright, let's continue.": {
+        "req": [ "intro_tier20_C" ],
+        "lead to": [ "forced.welcome.statement.intro_tier20" ]
+      },
       "Here at #company_name#, we strive for perfection in everything we do.": {
         "req": [ "intro_tier20" ],
         "lead to": [ "forced.welcome.statement.intro_tier21" ]
@@ -219,12 +247,20 @@
         "req": [ "intro_tier26" ],
         "lead to": [ "forced.welcome.question.intro_tier27" ]
       },
-      "#art_sad# That's a fair question, I suppose.  We have dozens of applicants every month.": {
+      "#art_happy# That's a great response. I haven't heard one that good since the last person I interviewed.": {
+        "req": [ "intro_tier29_pos" ],
+        "lead to": [ "forced.welcome.statement.intro_tier30" ]
+      },
+      "Maybe you'll have more to say as the interview progresses..": {
         "req": [ "intro_tier29" ],
         "lead to": [ "forced.welcome.statement.intro_tier30" ]
       },
-      "#art_suspicious# Well, you should probably do a little research before you send out applications. What we do is a bit complicated.  Let's just say we deal with client's data and presents on the web.": {
+      "#art_sad# That's a fair question, I suppose.  We have dozens of applicants every month.": {
         "req": [ "intro_tier29_neg" ],
+        "lead to": [ "forced.welcome.statement.intro_tier30" ]
+      },
+      "#art_suspicious# Well, you should probably do a little research before you send out applications. What we do is a bit complicated.  Let's just say we deal with client's data and presents on the web.": {
+        "req": [ "intro_tier29_neg_plus" ],
         "lead to": [ "forced.welcome.statement.intro_tier30" ]
       },
       "If you don't have anything else, then we will move on to job qualifications.": {
@@ -275,7 +311,7 @@
         "req": [ "intro_tier6" ],
         "lead to": [ "forced.welcome.response.intro_tier7" ]
       },
-      "Please state your name. If you have an alias that you would like to be called, use that?": {
+      "Please state your name. If you have an alias that you would like to be called, use that.": {
         "req": [ "intro_tier6" ],
         "lead to": [ "forced.welcome.response.intro_tier7" ]
       },
@@ -398,11 +434,11 @@
       },
       "Yes, I just want to say it is an honor to be here and I'm so happy that you are giving me this chance.": { //pos+
         "req": [ "response_tag.intro_tier19" ],
-        "lead to": [ "forced.welcome.statement.intro_tier20", "friend.15", "affinity.10", "respect.-5" ]
+        "lead to": [ "forced.welcome.statement.intro_tier20_pos", "friend.15", "affinity.10", "respect.-5" ]
       },
       "I would like to say thank you for seeing me today.  It means so very much to me.": { //pos+
         "req": [ "response_tag.intro_tier19" ],
-        "lead to": [ "forced.welcome.statement.intro_tier20", "friend.15", "affinity.-5", "respect.10" ]
+        "lead to": [ "forced.welcome.statement.intro_tier20_pos", "friend.15", "affinity.-5", "respect.10" ]
       }
 
     },
@@ -465,15 +501,15 @@
       },
       "Thank you for giving me your time.": { //pos
         "req": [ "response_tag.intro_tier19" ],
-        "lead to": [ "forced.welcome.statement.intro_tier20", "professional.10", "friend.5", "respect.5" ]
+        "lead to": [ "forced.welcome.statement.intro_tier20_B", "professional.10", "friend.5", "respect.5" ]
       },
       "I appreciate you selecting me for this interview.": {
         "req": [ "response_tag.intro_tier19" ],
-        "lead to": [ "forced.welcome.statement.intro_tier20", "professional.10", "friend.5", "affinity.5" ]
+        "lead to": [ "forced.welcome.statement.intro_tier20_B", "professional.10", "friend.5", "affinity.5" ]
       },
-      "I don't have any questions yet,, though listening to you is making me excited.": { //pos
+      "I don't have any questions yet, though listening to you is making me excited.": { //pos
         "req": [ "response_tag.intro_tier28" ],
-        "lead to": [ "forced.welcome.statement.intro_tier29", "friend.10" ]
+        "lead to": [ "forced.welcome.statement.intro_tier29_pos", "friend.10" ]
       }
 
     },
@@ -588,7 +624,7 @@
       },
       "I have no comments at the moment.": { //neutral
         "req": [ "response_tag.intro_tier19" ],
-        "lead to": [ "forced.welcome.statement.intro_tier20", "professional.10" ]
+        "lead to": [ "forced.welcome.statement.intro_tier20_C", "professional.10" ]
       },
       "Nothing yet thanks.": { //neutral
         "req": [ "response_tag.intro_tier28" ],
@@ -671,11 +707,11 @@
       },
       "Yes, I have additional content that I didn't include in my resume if you would like to see it.": { //neg
         "req": [ "response_tag.intro_tier19" ],
-        "lead to": [ "forced.welcome.statement.intro_tier20", "professional.5", "disgust.15" ]
+        "lead to": [ "forced.welcome.statement.intro_tier20_A", "professional.5", "disgust.15" ]
       },
       "Yes, I really like your jacket. It looks nice on you.": { //neg
         "req": [ "response_tag.intro_tier19" ],
-        "lead to": [ "forced.welcome.statement.intro_tier20", "affinity.10", "disgust.15" ]
+        "lead to": [ "forced.welcome.statement.intro_tier20_A", "affinity.10", "disgust.15" ]
       },
       "I have a question.  How many people apply here for the intern position?": { //neg
         "req": [ "response_tag.intro_tier28" ],
@@ -724,11 +760,11 @@
       },
       "Small talk is a waste of time, and my time is valuable.": { //neg+
         "req": [ "response_tag.intro_tier19" ],
-        "lead to": [ "forced.welcome.statement.intro_tier20", "professional.-10", "disgust.15" ]
+        "lead to": [ "forced.welcome.statement.intro_tier20_A", "professional.-10", "disgust.15" ]
       },
       "Everything you said is great and all, but I'm not sure exactly what you guys do here.": { //neg+
         "req": [ "response_tag.intro_tier28" ],
-        "lead to": [ "forced.welcome.statement.intro_tier29_neg", "professional.-10", "respect.-20", "friend.-10", "affinity.-10" ]
+        "lead to": [ "forced.welcome.statement.intro_tier29_neg_plus", "professional.-10", "respect.-20", "friend.-10", "affinity.-10" ]
       }
 
     }

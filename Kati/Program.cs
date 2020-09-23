@@ -11,16 +11,24 @@ namespace Kati{
 
         static Game game = new Game();
         static DialoguePackage package = new DialoguePackage();
+        static List<string[]> history = new List<string[]>();
 
         public static void Main(string[] args) {
             Run1();
-            while (!package.Req[package.Dialogue].Equals("intro_tier30")) {
+            while (!package.Topic.Equals("qualifications")) {
                 if (!package.Type.Equals(Constants.RESPONSE)) {
                     Run2();
                 } else {
                     Run3();
                 }
-                
+            }
+            //for (int i = 0; i < history.Count; i++) {
+            //    Console.WriteLine(String.Format("{0,-10}: {0}\n", history[i][0], history[i][1]));
+            //}
+            for (int i = 0; i < game.history.Count; i++) {
+                string s, d;
+                (s, d) = game.history[i];
+                Console.WriteLine(String.Format("{0,13}: "+d+"\n", s));
             }
         }
 
@@ -38,7 +46,7 @@ namespace Kati{
             package.LeadTo["next"] = new List<string>();
             package.Req["next"].Add("start");
             package.LeadTo["next"].Add("forced.welcome.statement.start");
-            PackageDiagnostics(package);
+            //PackageDiagnostics(package);
             //set up the controller
             game.mod.Ctrl.Package = package;
             game.mod.Ctrl.Topic.Topic = package.Topic;
@@ -52,14 +60,17 @@ namespace Kati{
             Console.WriteLine();
             game.mod.Ctrl.Parser.Parse();
             PackageDiagnostics(package);
+            //game.history.Add((package.Speaker,package.Dialogue));
         }
         //statements
         public static void Run2() {
             Console.WriteLine("\nRun2\n");
-            PackageDiagnostics(package);
+            //PackageDiagnostics(package);
             Console.WriteLine();
             game.mod.Ctrl.Parser.Parse();
             PackageDiagnostics(package);
+            string[] s = new string[]{ package.Speaker, package.Dialogue };
+            history.Add(s);
             Console.WriteLine();
 
             DialoguePackage next = DeepCopyPackage();
@@ -117,7 +128,7 @@ namespace Kati{
                 package.Speaker = "player";
                 package.Responder = "Hiring Manager";
             }
-            PackageDiagnostics(package);
+            //PackageDiagnostics(package);
             //set up the controller
             game.mod.Ctrl.Package = package;
             game.mod.Ctrl.Topic.Topic = package.Topic;
@@ -136,7 +147,7 @@ namespace Kati{
             var respond = game.mod.Ctrl.Parser.Response.Responses;
             Console.WriteLine("What will you reply with?");
             //print options to screen and save in package
-            PackageDiagnostics(package);
+            //PackageDiagnostics(package);
             package.Response = new List<string>();
             for (int i = 0; i < respond.Count; i++) {
                 foreach (KeyValuePair<string, Dictionary<string, List<string>>> reply in respond[i]) {
@@ -159,6 +170,9 @@ namespace Kati{
             } else {
                 package.Dialogue = package.Response[(int)(Controller.dice.NextDouble()*package.Response.Count)];
             }
+            string[] s = new string[] { package.Speaker, package.Dialogue };
+            history.Add(s);
+            PackageDiagnostics(package);
             //use stat attributes
             for (int i=0; i<package.LeadTo[package.Dialogue].Count;i++) {
                 string[] arr = package.LeadTo[package.Dialogue][i].Split(".");
@@ -166,8 +180,9 @@ namespace Kati{
                     package.LeadTo[package.Dialogue].RemoveAt(i);
                 }
             }
-
             
+//            game.history.Add((package.Speaker,package.Dialogue));
+                      
             next = DeepCopyPackage();
             package.Reset();
             package.Module = next.Module;
@@ -191,7 +206,7 @@ namespace Kati{
             game.mod.Ctrl.Topic.Topic = package.Topic;
             game.mod.Ctrl.Type.Type = package.Type;
 
-            PackageDiagnostics(package);
+            //PackageDiagnostics(package);
 
             if (!package.Type.Equals(Constants.RESPONSE)) {
                 //setup the parser
@@ -227,7 +242,7 @@ namespace Kati{
             foreach (string item in p.LeadTo[p.Dialogue]) {
                 Console.WriteLine("lead to: "+item);
             }
-
+            game.history.Add((p.Speaker,p.Dialogue));
         }
 
     }
