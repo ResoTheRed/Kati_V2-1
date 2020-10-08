@@ -1,0 +1,91 @@
+
+
+Expectations (shorter, the tone should really come through here)
+    
+   10 Statement pos&neut:
+        neutral: Okay then.
+        friend, affin:  Good, good, that is what I expected.
+        respect: Alright! Perfect.  That is just perfect.
+        disgust: #art_suspicious# .. Okay ..
+    
+    10 Statement neg:
+        neutral: This could be an issue that we will address later.
+        respect: #art_sad# I'm a little shocked, but hopeful that we just have a misunderstanding.
+        disgust: #art_evil# Maybe? What kind of answer is that.  You might as well just say you are unethical.
+
+    10 Statement neg+:
+        neutral: #art_sad# I'm sorry to hear that. This is a serious issue that can really hurt your chances of getting in. 
+        disgust: #art_evil# Well, I'm glad you're honest. It's better you come clean now.
+
+        
+    2. duties as an employee at the company
+        -like an overly patriotic person but targeting the company (maybe cult like)
+           
+
+Got the job (they never tell you this so soon but..)
+
+    00 Statement:
+        neutral: I would like to say thank you for coming in today. Our conversation was very insightful. 
+        friend, affin:  It was a pleasure meeting with you today.  I have learned a great deal speaking with you.
+        respect: I am glad you came in today. It is always a pleasure to meet such a strong candidate.
+        disgust: So I think I've heard enough.  I have gathered a great deal on you from today's little "excursion."
+
+    01 Statement:
+        neutral: I have reviewed your qualifications, resume, and got a pretty good feel for who you are as a person.
+        
+    02 Statement:
+        neutral: I don't normally do on the spot like this, but I am ready to give you my decision. 
+        friend, respect, affin: I don't normally do this but with you the choice is clear.
+        disgust: I gave it some thought, and I have made my decision.
+
+
+    1. you got the job they love you at top salary
+    
+    03 Statement:
+        neutral: I would like to offer you the intern position at top salary.  The interview went okay, and you have solid credentials. 
+        friend, respect, affin: I would like to offer you the intern position at top salary.  You have the right mix  we are looking for here at #company_name#
+    
+    2. you got the job at a mid salary
+    
+    3. you got the job at a lowest possible salary
+
+    03 Statement:
+        neutral: I would like to offer you the intern position at the starting salary.  The interview was so-so, but I think you deserve a chance. 
+        friend, respect, affin: I would like to offer you the intern position at starting salary.  You are a little rough around the edges, but you have the right mix of qualities
+        disgust: By some miracle, you have convinced me to give you a chance at the starting salary, of course. #new_textbox# Please don't make me regret this. 
+    
+    
+    4. you didn't get the got but how about the apprentice paper stapler
+    5. you didn't get the job but they liked you
+    6. you didn't get the job comback after you get some experience
+    
+    03 Statement:
+        neutral: I'm sorry to inform you that you didn't get the job. I would like to invite you to come back when you have more experience and maturity. 
+        disgust: #art_happy#  You didn't get the job, but I'm sure you saw that coming.  If you brush up on your people skills and qualifications, I might consider you.
+
+        
+    7. you didn't get the job don't come back
+    8. get the hell out of my office before I call the police
+
+    03 Statement:
+        neutral: To be frank, this was a bad interview. I cannot offer you a job.  I don't think you are suited to work in solutions computing. 
+        disgust: This was probably the worst interview I've ever conducted.  Please get out of my office before I call security. Also, don't contact me.
+        
+    
+    04 Question:
+        neutral: What do you say? Will you except the offer?
+                
+    05 response
+        netural:   yes
+        negative+: no
+        
+    06 Statement neutral:
+        neutral: Good, welcome aboard then.  You will start on Monday.
+        friend, respect, affin: #art_happy# Excellent!  I am excited to have you as a team member! 
+        disgust: Okay.  I will be watching you closely for the first 90 days.  Don't screw it up.
+
+    07 Statement:
+        neutral: #art_sad# Well, I'm sad you feel that way.  Good day then.
+        disgust: #art_angry# What!? GET THE HELL OUT OF MY OFFICE!!
+        
+        
