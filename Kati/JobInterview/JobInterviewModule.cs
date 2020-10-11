@@ -44,7 +44,11 @@ namespace Kati.JobInterview {
 
     class JobInterviewParser : Parser {
 
-        public JobInterviewParser(Controller c) : base(c) { }
+        public JobInterviewParser(Controller c) : base(c) {
+            Branch.Low = 50;
+            Branch.Mid = 200;
+            Branch.High = 400;
+        }
 
         override
         public void Parse() {

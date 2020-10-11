@@ -386,145 +386,137 @@
     "positive+": {
       "I think that would be just perfect. That is a great idea.": { //positive+
         "req": [ "response_tag.intro_tier3" ],
-        "lead to": [ "forced.welcome.statement.intro_tier4_pos", "friend.25", "professional.15" ]
+        "lead to": [ "forced.welcome.statement.intro_tier4_pos", "friend.very_high", "professional.mid" ]
       },
       "That is an absolutely divine idea. Go ahead and ask me anything you like.": { //positive+
         "req": [ "response_tag.intro_tier3" ],
-        "lead to": [ "forced.welcome.statement.intro_tier4_pos", "friend.25", "professional.15" ]
+        "lead to": [ "forced.welcome.statement.intro_tier4_pos", "friend.very_high", "professional.mid" ]
       },
       "I would work as many hours as I can get. I love to work.": { //pos
         "req": [ "response_tag.intro_tier11" ],
-        "lead to": [ "forced.welcome.statement.intro_tier12", "professional.10", "respect.10", "disgust.4" ]
+        "lead to": [ "forced.welcome.statement.intro_tier12", "professional.low", "respect.low", "disgust.very_low" ]
       },
       "I have no problem working upwards of 80 hours a week if I'm needed.": { //pos
         "req": [ "response_tag.intro_tier11" ],
-        "lead to": [ "forced.welcome.statement.intro_tier12", "professional.10", "affinity.10", "disgust.4" ]
+        "lead to": [ "forced.welcome.statement.intro_tier12", "professional.low",  "disgust.very_low" ]
       },
       "#company_name# is the greater than any other place!  I wish I could move in and live here!": { //pos+
         "req": [ "response_tag.intro_tier14" ],
         "lead to": [
           "forced.welcome.statement.intro_tier15",
-          "moonie.profesional.3",
-          "moonie.friend.5",
-          "moonie.affinity.5",
-          "moonie.respect.-10",
-          "moonie.disgust.25",
-          "shoulders.professional.40",
-          "shoulders.respect.50",
-          "shoulders.friend.40",
-          "shoulders.affinity.40",
-          "shoulders.disgust.-10"
+          "moonie.profesional.very_low",
+          "moonie.friend.very_low",
+          "moonie.respect.low_neg",
+          "moonie.disgust.high",
+          "shoulders.professional.very_high",
+          "shoulders.respect.extreme",
+          "shoulders.friend.very_high",
+          "shoulders.disgust.low_neg"
         ]
       },
       "#company_name# is the greatest company ever.  No other job compares to it.": { //pos+
         "req": [ "response_tag.intro_tier14" ],
         "lead to": [
           "forced.welcome.statement.intro_tier15",
-          "moonie.profesional.5",
-          "moonie.friend.9",
-          "moonie.affinity.-2",
-          "moonie.respect.-7",
-          "moonie.disgust.18",
-          "shoulders.professional.40",
-          "shoulders.respect.40",
-          "shoulders.friend.50",
-          "shoulders.affinity.40",
-          "shoulders.disgust.-10"
+          "moonie.profesional.low",
+          "moonie.friend.mid",
+          "moonie.respect.low_neg",
+          "moonie.disgust.high",
+          "shoulders.professional.very_high",
+          "shoulders.respect.very_high",
+          "shoulders.friend.extreme",
+          "shoulders.disgust.low_neg"
         ]
       },
       "Yes, I just want to say it is an honor to be here and I'm so happy that you are giving me this chance.": { //pos+
         "req": [ "response_tag.intro_tier19" ],
-        "lead to": [ "forced.welcome.statement.intro_tier20_pos", "friend.15", "affinity.10", "respect.-5" ]
+        "lead to": [ "forced.welcome.statement.intro_tier20_pos", "friend.mid", "respect.very_low_neg" ]
       },
       "I would like to say thank you for seeing me today.  It means so very much to me.": { //pos+
         "req": [ "response_tag.intro_tier19" ],
-        "lead to": [ "forced.welcome.statement.intro_tier20_pos", "friend.15", "affinity.-5", "respect.10" ]
+        "lead to": [ "forced.welcome.statement.intro_tier20_pos", "friend.mid", "respect.low" ]
       }
 
     },
     "positive": {
       "I like where you are going, and I agree with you.": { //positive
         "req": [ "response_tag.intro_tier3" ],
-        "lead to": [ "forced.welcome.statement.intro_tier4_pos", "friend.15", "professional.15" ]
+        "lead to": [ "forced.welcome.statement.intro_tier4_pos", "friend.mid", "professional.mid" ]
       },
       "I concur. I think it best to keep the mood light and informal": { //positive
         "req": [ "response_tag.intro_tier3" ],
-        "lead to": [ "forced.welcome.statement.intro_tier4_pos", "friend.10", "professional.20", "rivalry.10" ]
+        "lead to": [ "forced.welcome.statement.intro_tier4_pos", "friend.low", "professional.high" ]
       },
       "Please call me #player_name#.": { //positive
         "req": [ "response_tag.intro_tier7" ],
-        "lead to": [ "forced.welcome.question.intro_tier8", "respect.15", "friend.5" ]
+        "lead to": [ "forced.welcome.question.intro_tier8", "respect.mid", "friend.very_low" ]
       },
       "I prefer #player_name#. Thank you.": { //positive
         "req": [ "response_tag.intro_tier7" ],
-        "lead to": [ "forced.welcome.question.intro_tier8", "professional.15" ]
+        "lead to": [ "forced.welcome.question.intro_tier8", "professional.mid" ]
       },
       "I have no problem putting in overtime when needed.": { //pos
         "req": [ "response_tag.intro_tier11" ],
-        "lead to": [ "forced.welcome.statement.intro_tier12", "professional.10", "friend.5" ]
+        "lead to": [ "forced.welcome.statement.intro_tier12", "professional.low", "friend.very_low" ]
       },
       "A good 45 to 50 hour workweek suits me perfectly": { //pos
         "req": [ "response_tag.intro_tier11" ],
-        "lead to": [ "forced.welcome.statement.intro_tier12", "professional.10", "respect.5" ]
+        "lead to": [ "forced.welcome.statement.intro_tier12", "professional.low", "respect.very_low" ]
       },
       "I love #company_name# and respect and value what is accomplished here!": { //pos
         "req": [ "response_tag.intro_tier14" ],
         "lead to": [
           "forced.welcome.statement.intro_tier15",
-          "moonie.profesional.20",
-          "moonie.friend.10",
-          "moonie.affinity.10",
-          "moonie.respect.15",
-          "moonie.disgust.2",
-          "shoulders.professional.25",
-          "shoulders.respect.30",
-          "shoulders.friend.30",
-          "shoulders.affinity.30",
-          "shoulders.disgust.-5"
+          "moonie.profesional.high",
+          "moonie.friend.low",
+          "moonie.respect.mid",
+          "moonie.disgust.very_low",
+          "shoulders.professional.very_high",
+          "shoulders.respect.very_high",
+          "shoulders.friend.very_high",
+          "shoulders.disgust.very_low_neg"
         ]
       },
       "I believe in #company_name# and have dreamed of working here for years now!": { //pos
         "req": [ "response_tag.intro_tier14" ],
         "lead to": [
           "forced.welcome.statement.intro_tier15",
-          "moonie.profesional.15",
-          "moonie.friend.10",
-          "moonie.affinity.10",
-          "moonie.respect.10",
-          "moonie.disgust.5",
-          "shoulders.professional.30",
-          "shoulders.respect.25",
-          "shoulders.friend.30",
-          "shoulders.affinity.25",
-          "shoulders.disgust.-1"
+          "moonie.profesional.mid",
+          "moonie.friend.low",
+          "moonie.respect.low",
+          "moonie.disgust.very_low",
+          "shoulders.professional.very_high",
+          "shoulders.respect.very_high",
+          "shoulders.friend.very_high",
+          "shoulders.disgust.very_low_neg"
         ]
       },
       "Thank you for giving me your time.": { //pos
         "req": [ "response_tag.intro_tier19" ],
-        "lead to": [ "forced.welcome.statement.intro_tier20_B", "professional.10", "friend.5", "respect.5" ]
+        "lead to": [ "forced.welcome.statement.intro_tier20_B", "professional.low", "friend.very_low", "respect.very_low" ]
       },
       "I appreciate you selecting me for this interview.": {
         "req": [ "response_tag.intro_tier19" ],
-        "lead to": [ "forced.welcome.statement.intro_tier20_B", "professional.10", "friend.5", "affinity.5" ]
+        "lead to": [ "forced.welcome.statement.intro_tier20_B", "professional.low", "friend.very_low" ]
       },
       "I don't have any questions yet, though listening to you is making me excited.": { //pos
         "req": [ "response_tag.intro_tier28" ],
-        "lead to": [ "forced.welcome.statement.intro_tier29_pos", "friend.10" ]
+        "lead to": [ "forced.welcome.statement.intro_tier29_pos", "friend.mid" ]
       }
 
     },
     "neutral": {
       "I'm okay with it.": { //neutral
         "req": [ "response_tag.intro_tier3" ],
-        "lead to": [ "forced.welcome.statement.intro_tier4_pos", "friend.5", "respect.5", "disgust.5" ]
+        "lead to": [ "forced.welcome.statement.intro_tier4_pos", "friend.very_low", "respect.very_low", "disgust.very_low" ]
       },
       "Sure. That sounds good to me.": { //neutral
         "req": [ "response_tag.intro_tier3" ],
-        "lead to": [ "forced.welcome.statement.intro_tier4_pos", "friend.5", "respect.5", "disgust.5" ]
+        "lead to": [ "forced.welcome.statement.intro_tier4_pos", "friend.very_low", "respect.very_low", "disgust.very_low" ]
       },
       "My name is #player_name#.": { //neutral
         "req": [ "response_tag.intro_tier7" ],
-        "lead to": [ "forced.welcome.question.intro_tier8", "prefoessional.5" ]
+        "lead to": [ "forced.welcome.question.intro_tier8", "prefoessional.very_low" ]
       },
       "#player_name#": { //neutral
         "req": [ "response_tag.intro_tier7" ],
@@ -532,43 +524,43 @@
       },
       "My friends call me #player_name#, and I can tell we are going to be friends.": { //neutral
         "req": [ "response_tag.intro_tier7" ],
-        "lead to": [ "forced.welcome.question.intro_tier8", "freind.5", "professional.-5", "affinity.5" ]
+        "lead to": [ "forced.welcome.question.intro_tier8", "freind.very_low", "professional.very_low_neg" ]
       },
       "I am in control, consistant, perfect, relentless, and fearless": { //neutral
         "req": [ "response_tag.intro_tier9" ],
-        "lead to": [ "forced.welcome.question.intro_tier10", "respect.-5", "professional.10", "affinity.5" ]
+        "lead to": [ "forced.welcome.question.intro_tier10", "respect.very_low_neg", "professional.low" ]
       },
       "I am patient, diligent, result-oriented, proactive, and skillful": { //neutral
         "req": [ "response_tag.intro_tier9" ],
-        "lead to": [ "forced.welcome.question.intro_tier10", "respect.5", "professional.5", "friend.-5" ]
+        "lead to": [ "forced.welcome.question.intro_tier10", "respect.very_low", "professional.very_low", "friend.very_low_neg" ]
       },
       "I am confident, maticulous, energetic, motivated, and self-starter": { //neutral
         "req": [ "response_tag.intro_tier9" ],
-        "lead to": [ "forced.welcome.question.intro_tier10", "professional.5" ]
+        "lead to": [ "forced.welcome.question.intro_tier10", "professional.very_low" ]
       },
       "I am social, jovial, analytical, professional, and ambitious": { //neutral
         "req": [ "response_tag.intro_tier9" ],
-        "lead to": [ "forced.welcome.question.intro_tier10", "friend.10" ]
+        "lead to": [ "forced.welcome.question.intro_tier10", "friend.low" ]
       },
       "I am gloomy, brooding, listener, good direction follower, and a bit melancholy": { //neutral
         "req": [ "response_tag.intro_tier9" ],
-        "lead to": [ "forced.welcome.question.intro_tier10", "disgust.5", "respect.10" ]
+        "lead to": [ "forced.welcome.question.intro_tier10", "disgust.very_low", "respect.low" ]
       },
       "I am calculating, meticulous, exact, punctual, and deadly accurate": { //neutral
         "req": [ "response_tag.intro_tier9" ],
-        "lead to": [ "forced.welcome.question.intro_tier10", "disgust.8", "professional.12", "affinity.5" ]
+        "lead to": [ "forced.welcome.question.intro_tier10", "disgust.low", "professional.low", "respect.very_low" ]
       },
       "I'm okay with some overtime.": { //neutral
         "req": [ "response_tag.intro_tier11" ],
-        "lead to": [ "forced.welcome.statement.intro_tier12", "friend.10", "respect.5" ]
+        "lead to": [ "forced.welcome.statement.intro_tier12", "friend.low", "respect.very_low" ]
       },
       "I could work overtime occasionally if needed": { //neutral
         "req": [ "response_tag.intro_tier11" ],
-        "lead to": [ "forced.welcome.statement.intro_tier12", "professional.5", "affinity.3", "respect.3" ]
+        "lead to": [ "forced.welcome.statement.intro_tier12", "professional.very_low", "respect.very_low" ]
       },
       "I suppose working overtime is okay as long as it isn't every week.": { //neutral
         "req": [ "response_tag.intro_tier11" ],
-        "lead to": [ "forced.welcome.statement.intro_tier12", "affinity.3", "respect.3", "friend.3" ]
+        "lead to": [ "forced.welcome.statement.intro_tier12", "respect.very_low", "friend.very_low" ]
       },
       "I am willing to work overtime if it is absolutely necessary.": { //neutral
         "req": [ "response_tag.intro_tier11" ],
@@ -578,193 +570,179 @@
         "req": [ "response_tag.intro_tier14" ],
         "lead to": [
           "forced.welcome.statement.intro_tier15",
-          "moonie.profesional.40",
-          "moonie.friend.40",
-          "moonie.affinity.40",
-          "moonie.respect.45",
-          "moonie.disgust.-10",
-          "shoulders.professional.15",
-          "shoulders.respect.10",
-          "shoulders.friend.5",
-          "shoulders.affinity.5",
-          "shoulders.disgust.-5"
+          "moonie.profesional.very_high",
+          "moonie.friend.very_high",
+          "moonie.respect.very_high",
+          "moonie.disgust.low_neg",
+          "shoulders.professional.mid",
+          "shoulders.respect.low",
+          "shoulders.friend.very_low",
+          "shoulders.disgust.very_low_neg"
         ]
       },
       "#company_name# is the good fit for me.  The product lines fit my interests.": { //neutral
         "req": [ "response_tag.intro_tier14" ],
         "lead to": [
           "forced.welcome.statement.intro_tier15",
-          "moonie.profesional.35",
-          "moonie.friend.30",
-          "moonie.affinity.30",
-          "moonie.respect.25",
-          "moonie.disgust.-5",
-          "shoulders.professional.10",
-          "shoulders.respect.5",
-          "shoulders.friend.10",
-          "shoulders.affinity.2",
-          "shoulders.disgust.2"
+          "moonie.profesional.very_high",
+          "moonie.friend.very_high",
+          "moonie.respect.high",
+          "moonie.disgust.very_low_neg",
+          "shoulders.professional.low",
+          "shoulders.respect.very_low",
+          "shoulders.friend.low",
+          "shoulders.disgust.very_low"
         ]
       },
       "I am looking for a place that I can establish a long term career. I really believe #company_name# is that place.": { //neutral
         "req": [ "response_tag.intro_tier14" ],
         "lead to": [
           "forced.welcome.statement.intro_tier15",
-          "moonie.profesional.40",
-          "moonie.friend.40",
-          "moonie.affinity.40",
-          "moonie.respect.45",
-          "moonie.disgust.-10",
-          "shoulders.professional.15",
-          "shoulders.respect.10",
-          "shoulders.friend.5",
-          "shoulders.affinity.5",
-          "shoulders.disgust.-5"
+          "moonie.profesional.very_high",
+          "moonie.friend.very_high",
+          "moonie.respect.extreme",
+          "moonie.disgust.low_neg",
+          "shoulders.professional.mid",
+          "shoulders.respect.low",
+          "shoulders.friend.very_low",
+          "shoulders.disgust.very_low_neg"
         ]
       },
       "I have no comments at the moment.": { //neutral
         "req": [ "response_tag.intro_tier19" ],
-        "lead to": [ "forced.welcome.statement.intro_tier20_C", "professional.10" ]
+        "lead to": [ "forced.welcome.statement.intro_tier20_C", "professional.low" ]
       },
       "Nothing yet thanks.": { //neutral
         "req": [ "response_tag.intro_tier28" ],
-        "lead to": [ "forced.welcome.statement.intro_tier29", "respect.10" ]
+        "lead to": [ "forced.welcome.statement.intro_tier29", "respect.low" ]
       }
 
     },
     "negative": {
       "Whatever. It doesn't matter to me.": { //negative
         "req": [ "response_tag.intro_tier3" ],
-        "lead to": [ "forced.welcome.statement.intro_tier4_neg", "disgust.15" ]
+        "lead to": [ "forced.welcome.statement.intro_tier4_neg", "disgust.mid" ]
       },
       "I don't really care either way.": { //negative
         "req": [ "response_tag.intro_tier3" ],
-        "lead to": [ "forced.welcome.statement.intro_tier4_neg", "disgust.15", "affinity.5", "rivalry.5" ]
+        "lead to": [ "forced.welcome.statement.intro_tier4_neg", "disgust.mid", "friend.very_low" ]
       },
       "Have you read my resume? My name is #player_name#": { //negative
         "req": [ "response_tag.intro_tier7" ],
-        "lead to": [ "forced.welcome.question.intro_tier8", "disgust.10", "professional.-10", "respect.10" ]
+        "lead to": [ "forced.welcome.question.intro_tier8", "disgust.low", "professional.low_neg", "respect.low" ]
       },
       "My name is #player_name# and don't forget it.": { //negative
         "req": [ "response_tag.intro_tier7" ],
-        "lead to": [ "forced.welcome.question.intro_tier8", "disgust.10" ]
+        "lead to": [ "forced.welcome.question.intro_tier8", "disgust.low", "respect.low_neg" ]
       },
       "I can work overtime in emergencies.": { //negative
         "req": [ "response_tag.intro_tier11" ],
-        "lead to": [ "forced.welcome.statement.intro_tier12", "friend.5", "disgust.10" ]
+        "lead to": [ "forced.welcome.statement.intro_tier12", "friend.very_low", "disgust.low", "respect.very_low_neg" ]
       },
       "Sorry, I will not work overtime. I have many other obligations that prevent me from doing so.": { //negative
         "req": [ "response_tag.intro_tier11" ],
-        "lead to": [ "forced.welcome.statement.intro_tier12", "respect.5", "disgust.10" ]
+        "lead to": [ "forced.welcome.statement.intro_tier12", "respect.very_low", "disgust.low" ]
       },
       "I don't know.  I saw #company_name# was hiring.": { //neg
         "req": [ "response_tag.intro_tier14" ],
         "lead to": [
           "forced.welcome.statement.intro_tier15",
-          "moonie.profesional.-5",
-          "moonie.friend.12",
-          "moonie.affinity.7",
-          "moonie.respect.-5",
-          "moonie.disgust.10",
-          "shoulders.professional.-15",
-          "shoulders.respect.10",
-          "shoulders.friend.-10",
-          "shoulders.affinity.2",
-          "shoulders.disgust.5"
+          "moonie.profesional.very_low_neg",
+          "moonie.friend.low",
+          "moonie.respect.low_neg",
+          "moonie.disgust.low",
+          "shoulders.professional.mid_neg",
+          "shoulders.respect.low",
+          "shoulders.friend.low_neg",
+          "shoulders.disgust.very_low"
         ]
       },
       "To tell you the truth, no one else is hiring.": { //neg
         "req": [ "response_tag.intro_tier14" ],
         "lead to": [
           "forced.welcome.statement.intro_tier15",
-          "moonie.profesional.-15",
-          "moonie.friend.5",
-          "moonie.affinity.-17",
-          "moonie.respect.-15",
-          "moonie.disgust.15",
-          "shoulders.professional.-30",
-          "shoulders.respect.1",
-          "shoulders.friend.-1",
-          "shoulders.affinity.1",
-          "shoulders.disgust.25"
+          "moonie.profesional.mid_neg",
+          "moonie.friend.very_low",
+          "moonie.respect.high_neg",
+          "moonie.disgust.mid",
+          "shoulders.professional.very_high_neg",
+          "shoulders.respect.very_low",
+          "shoulders.friend.very_low_neg",
+          "shoulders.disgust.very_high_neg"
         ]
       },
       "I'm looking for a good first job to build up my resume, and #company_name# fits the bill.": { //neg
         "req": [ "response_tag.intro_tier14" ],
         "lead to": [
           "forced.welcome.statement.intro_tier15",
-          "moonie.profesional.-5",
-          "moonie.friend.12",
-          "moonie.affinity.7",
-          "moonie.respect.-5",
-          "moonie.disgust.10",
-          "shoulders.professional.-15",
-          "shoulders.respect.10",
-          "shoulders.friend.-10",
-          "shoulders.affinity.2",
-          "shoulders.disgust.5"
+          "moonie.profesional.very_low_neg",
+          "moonie.friend.low",
+          "moonie.respect.low_neg",
+          "moonie.disgust.low",
+          "shoulders.professional.mid_neg",
+          "shoulders.respect.low",
+          "shoulders.friend.low_neg",
+          "shoulders.disgust.low"
         ]
       },
       "Yes, I have additional content that I didn't include in my resume if you would like to see it.": { //neg
         "req": [ "response_tag.intro_tier19" ],
-        "lead to": [ "forced.welcome.statement.intro_tier20_A", "professional.5", "disgust.15" ]
+        "lead to": [ "forced.welcome.statement.intro_tier20_A", "professional.very_low", "disgust.mid" ]
       },
       "Yes, I really like your jacket. It looks nice on you.": { //neg
         "req": [ "response_tag.intro_tier19" ],
-        "lead to": [ "forced.welcome.statement.intro_tier20_A", "affinity.10", "disgust.15" ]
+        "lead to": [ "forced.welcome.statement.intro_tier20_A", "friend.very_low", "disgust.mid", "respect.low_neg" ]
       },
-      "I have a question.  How many people apply here for the intern position?": { //neg
+      "I have a question. How many people apply here for the intern position?": { //neg
         "req": [ "response_tag.intro_tier28" ],
-        "lead to": [ "forced.welcome.statement.intro_tier29_neg", "professional.5" ]
+        "lead to": [ "forced.welcome.statement.intro_tier29_neg", "professional.very_low", "friend.very_low_neg", "respect.low_neg" ]
       }
 
     },
     "negative+": {
       "I guess if my resume is too complicated for you, then I'll explain it.": { //negative+
         "req": [ "response_tag.intro_tier3" ],
-        "lead to": [ "forced.welcome.statement.intro_tier4_neg", "disgust.25", "affinity.5" ]
+        "lead to": [ "forced.welcome.statement.intro_tier4_neg", "disgust.very_high", "respect.very_low" ]
       },
       "Not interested in keeping it informal. I've have provided all you need to know in my resume.": { //negative+
         "req": [ "response_tag.intro_tier3" ],
-        "lead to": [ "forced.welcome.statement.intro_tier4_neg", "disgust.15", "affinity.5", "rivalry.5" ]
+        "lead to": [ "forced.welcome.statement.intro_tier4_neg", "disgust.mid", "respect.very_low_neg" ]
       },
       "I was really hoping not to work more than 32 hours a week.": { //negative+
         "req": [ "response_tag.intro_tier11" ],
-        "lead to": [ "forced.welcome.statement.intro_tier12", "professional.-10" ]
+        "lead to": [ "forced.welcome.statement.intro_tier12", "professional.low_neg", "respect.low_neg" ]
       },
       "I have no Idea.": { //neg+
         "req": [ "response_tag.intro_tier14" ],
         "lead to": [
           "forced.welcome.statement.intro_tier15",
-          "profesional.-50",
-          "friend.-25",
-          "affinity.-20",
-          "respect.-25",
-          "disgust.30"
+          "profesional.extreme_neg",
+          "friend.very_high_neg",
+          "respect.high_neg",
+          "disgust.very_high"
         ]
       },
       "I would rather not answer that question.": { //neg+
         "req": [ "response_tag.intro_tier14" ],
         "lead to": [
           "forced.welcome.statement.intro_tier15",
-          "profesional.-30",
-          "friend.-15",
-          "affinity.-10",
-          "respect.-15",
-          "disgust.20"
+          "profesional.very_high_neg",
+          "friend.mid_neg",
+          "respect.mid_neg",
+          "disgust.high"
         ]
       },
       "I must say our eyes are sparkling. They are deep and beautiful like the ocean.": { //neg+
         "req": [ "response_tag.intro_tier19" ],
-        "lead to": [ "forced.welcome.statement.intro_tier20", "professional.-10", "disgust.15" ]
+        "lead to": [ "forced.welcome.statement.intro_tier20", "professional.low_neg", "disgust.mid" ]
       },
       "Small talk is a waste of time, and my time is valuable.": { //neg+
         "req": [ "response_tag.intro_tier19" ],
-        "lead to": [ "forced.welcome.statement.intro_tier20_A", "professional.-10", "disgust.15" ]
+        "lead to": [ "forced.welcome.statement.intro_tier20_A", "professional.low_neg", "disgust.mid" ]
       },
       "Everything you said is great and all, but I'm not sure exactly what you guys do here.": { //neg+
         "req": [ "response_tag.intro_tier28" ],
-        "lead to": [ "forced.welcome.statement.intro_tier29_neg_plus", "professional.-10", "respect.-20", "friend.-10", "affinity.-10" ]
+        "lead to": [ "forced.welcome.statement.intro_tier29_neg_plus", "professional.low_neg", "respect.high_neg", "friend.low_neg" ]
       }
 
     }
@@ -908,7 +886,7 @@
       },
       "Anyway, I think we should move on.": {
         "req": [ "pack_1d_09" ],
-        "lead to": [ ]
+        "lead to": []
       }
     },
     "friend": {
@@ -1363,124 +1341,124 @@
   "qualifications_response": {
     "positive+": {
       "I think that sounds excellent. I'm excited to learn more about the expert solutions and support that #company_name# offers our clients.": {
-        "req": [ "pack_1a_07" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_08_pos" ]
+        "req": [ "response_tag.pack_1a_07" ],
+        "lead to": [ "forced.qualifications.statement.pack_1a_08_pos", "professional.mid", "respect.mid", "disgust.very_low_neg" ]
       },
       "I think the customer must always be first, and meeting their needs is paramount.": {
-        "req": [ "pack_1b_05" ],
-        "lead to": [ "forced.qualifications.statement.pack_1b_06" ]
+        "req": [ "response_tag.pack_1b_05" ],
+        "lead to": [ "forced.qualifications.statement.pack_1b_06", "professional.high", "respect.very_low_neg", "disgust.mid_neg" ]
       },
       "The client is always the most important factor in any project, and satisfying their needs is the cornerstone to success.": {
-        "req": [ "pack_1c_05" ],
-        "lead to": [ "forced.qualifications.statement.pack_1c_06_pos" ]
+        "req": [ "response_tag.pack_1c_05" ],
+        "lead to": [ "forced.qualifications.statement.pack_1c_06_pos", "professional.high", "respect.mid", "disgust.mid_neg" ]
       },
       "That was one of the first things I did before applying here.": {
-        "req": [ "pack_1d_01" ],
-        "lead to": [ "forced.qualifications.statement.pack_1d_02_pos" ]
+        "req": [ "response_tag.pack_1d_01" ],
+        "lead to": [ "forced.qualifications.statement.pack_1d_02_pos", "professional.low", "respect.high", "disgust.low_neg" ]
       },
       "The company's vision and statement can easily extend beyond the work environment in my daily life.": {
-        "req": [ "pack_1d_06" ],
-        "lead to": [ "forced.qualifications.statement.pack_1d_07_pos" ]
+        "req": [ "response_tag.pack_1d_06" ],
+        "lead to": [ "forced.qualifications.statement.pack_1d_07_pos", "professional.low", "friend.high", "disgust.very_low_neg" ]
       }
     },
     "positive": {
       "I am in it to win it and thrive on responsibility.  The culture here is like paradise": {
-        "req": [ "pack_1a_07" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_08_pos" ]
+        "req": [ "response_tag.pack_1a_07" ],
+        "lead to": [ "forced.qualifications.statement.pack_1a_08_pos", "professional.mid", "friend.mid" ]
       },
       "I think having the right skills to meet the needs of the team is key to success.": {
-        "req": [ "pack_1b_05" ],
-        "lead to": [ "forced.qualifications.statement.pack_1b_06" ]
+        "req": [ "response_tag.pack_1b_05" ],
+        "lead to": [ "forced.qualifications.statement.pack_1b_06", "professional.low", "respect.mid", "friend.very_low_neg" ]
       },
       "The client should always come first, and my work should reflect that.": {
-        "req": [ "pack_1c_05" ],
-        "lead to": [ "forced.qualifications.statement.pack_1c_06_pos" ]
+        "req": [ "response_tag.pack_1c_05" ],
+        "lead to": [ "forced.qualifications.statement.pack_1c_06_pos", "professional.mid", "friend.mid", "disgust.low_neg" ]
       },
       "I sure did.": {
-        "req": [ "pack_1d_01" ],
-        "lead to": [ "forced.qualifications.statement.pack_1d_02_pos" ]
+        "req": [ "response_tag.pack_1d_01" ],
+        "lead to": [ "forced.qualifications.statement.pack_1d_02_pos", "professional.low", "friend.high", "disgust.low_neg" ]
       }
     },
     "neutral": {
       "This is very interesting.  I am excited to hear more.": {
-        "req": [ "pack_1a_07" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_08_pos" ]
+        "req": [ "response_tag.pack_1a_07" ],
+        "lead to": [ "forced.qualifications.statement.pack_1a_08_pos", "professional.low", "respect.very_low" ]
       },
-      "I think a chain is only as weak as it's the weakest link, and I'm prepared to prove myself.": {
-        "req": [ "pack_1b_05" ],
-        "lead to": [ "forced.qualifications.statement.pack_1b_06" ]
+      "I think a chain is only as weak as it's weakest link, and I'm prepared to prove myself.": {
+        "req": [ "response_tag.pack_1b_05" ],
+        "lead to": [ "forced.qualifications.statement.pack_1b_06", "professional.very_low", "respect.high", "disgust.very_low_neg" ]
       },
       "Without the client, there would be no work. No work means no job for anyone": {
-        "req": [ "pack_1c_05" ],
-        "lead to": [ "forced.qualifications.statement.pack_1c_06_n" ]
+        "req": [ "response_tag.pack_1c_05" ],
+        "lead to": [ "forced.qualifications.statement.pack_1c_06_n", "professional.very_low", "respect.very_low_neg", "friend.mid" ]
       },
       "I looked over it.": {
-        "req": [ "pack_1d_01" ],
-        "lead to": [ "forced.qualifications.statement.pack_1d_02_pos" ]
+        "req": [ "response_tag.pack_1d_01" ],
+        "lead to": [ "forced.qualifications.statement.pack_1d_02_pos", "professional.low", "respect.low_neg", "disgust.low_neg" ]
       },
       "It is almost poetic and is very inspiring.": {
-        "req": [ "pack_1d_06" ],
-        "lead to": [ "forced.qualifications.statement.pack_1d_07_n" ]
+        "req": [ "response_tag.pack_1d_06" ],
+        "lead to": [ "forced.qualifications.statement.pack_1d_07_n", "professional.low", "friend.low", "disgust.very_low" ]
       },
       "It is an excellent vision fitting an excellent company.": {
-        "req": [ "pack_1d_06" ],
-        "lead to": [ "forced.qualifications.statement.pack_1d_07_n" ]
+        "req": [ "response_tag.pack_1d_06" ],
+        "lead to": [ "forced.qualifications.statement.pack_1d_07_n", "professional.low", "respect.low", "disgust.very_low_neg" ]
       }
     },
     "negative": {
       "It sounds okay, I think.": {
-        "req": [ "pack_1a_07" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_08_neg" ]
+        "req": [ "response_tag.pack_1a_07" ],
+        "lead to": [ "forced.qualifications.statement.pack_1a_08_neg", "professional.very_low", "respect.low_neg" ]
       },
       "I think being able to follow the lead team member is important when learning the ropes": {
-        "req": [ "pack_1b_05" ],
-        "lead to": [ "forced.qualifications.statement.pack_1b_07" ]
+        "req": [ "response_tag.pack_1b_05" ],
+        "lead to": [ "forced.qualifications.statement.pack_1b_07", "professional.low", "friend.mid", "respect.very_low_neg", "disgust.mid_neg" ]
       },
       "Having a good report with the client is important to prove my skills": {
-        "req": [ "pack_1c_05" ],
-        "lead to": [ "forced.qualifications.statement.pack_1c_06_neg" ]
+        "req": [ "response_tag.pack_1c_05" ],
+        "lead to": [ "forced.qualifications.statement.pack_1c_06_neg", "professional.low", "respect.mid_neg" ]
       },
       "I didn't really have a lot of time to review it.": {
-        "req": [ "pack_1d_01" ],
-        "lead to": [ "forced.qualifications.statement.pack_1d_02_neg" ]
+        "req": [ "response_tag.pack_1d_01" ],
+        "lead to": [ "forced.qualifications.statement.pack_1d_02_neg", "professional.low_neg", "respect.mid_neg", "disgust.low" ]
       },
       "It sounds good.": {
-        "req": [ "pack_1d_06" ],
-        "lead to": [ "forced.qualifications.statement.pack_1d_07_n" ]
+        "req": [ "response_tag.pack_1d_06" ],
+        "lead to": [ "forced.qualifications.statement.pack_1d_07_n", "professional.very_low", "respect.mid_neg" ]
       }
     },
     "negative+": {
       "Well, I don't know how good this company is, but you should know that I'm the best!": {
-        "req": [ "pack_1a_07" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_08_neg" ]
+        "req": [ "response_tag.pack_1a_07" ],
+        "lead to": [ "forced.qualifications.statement.pack_1a_08_neg", "professional.very_low", "respect.mid_neg", "friend.low_neg" ]
       },
       "I strive to be the best but being realistic is just as important": {
-        "req": [ "pack_1b_05" ],
-        "lead to": [ "forced.qualifications.statement.pack_1b_07" ]
+        "req": [ "response_tag.pack_1b_05" ],
+        "lead to": [ "forced.qualifications.statement.pack_1b_07", "professional.mid", "respect.mid_neg", "disgust.mid" ]
       },
       "The client is always right, but what if they're not or they're unreasonable?": {
-        "req": [ "pack_1c_05" ],
-        "lead to": [ "forced.qualifications.statement.pack_1c_06_negp" ]
+        "req": [ "response_tag.pack_1c_05" ],
+        "lead to": [ "forced.qualifications.statement.pack_1c_06_negp", "professional.mid_neg", "friend.mid_neg", "disgust.mid" ]
       },
       "No, I figured this would be something we would talk about here.": {
-        "req": [ "pack_1d_01" ],
-        "lead to": [ "forced.qualifications.statement.pack_1d_02_neg" ]
+        "req": [ "response_tag.pack_1d_01" ],
+        "lead to": [ "forced.qualifications.statement.pack_1d_02_neg", "professional.low_neg", "friend.mid_neg", "disgust.mid" ]
       },
       "It's kind of borderline cult kool-aid-drinking, but good, I think.": {
-        "req": [ "pack_1d_06" ],
-        "lead to": [ "forced.qualifications.statement.pack_1d_07_neg" ]
+        "req": [ "response_tag.pack_1d_06" ],
+        "lead to": [ "forced.qualifications.statement.pack_1d_07_neg", "professional.high_neg", "respect.high_neg", "disgust.very_low" ]
       }
     }
   },
 
   //aim to make this one mostly if not entirely non-directed  //start with questions
-  "get_to_know_you_statement": {
+  "getToKnowYou_statement": {
     "neutral": {
       "We've talked a bit about the company, now I would like to open the floor to questions and comments and just talk.": {
         "req": [ "start" ],
-        "lead to": [ "forced.qualifications.statement.start_b" ]
+        "lead to": [ "forced.getToKnowYou.statement.start_b" ]
       },
-      "Let's get to know each other, I will tell you something about myself then ask you about yourself, okay": {
+      "Let's get to know each other #new_textbox# I will tell you something about myself then ask you about yourself, okay": {
         "req": [ "start_b" ],
         "lead to": []
       },
@@ -1525,11 +1503,11 @@
         "lead to": []
       },
       "Alright, that's good.": {
-        "req": [ "academics_01_pos" ],
+        "req": [ "academic_01_pos" ],
         "lead to": []
       },
       "It's strange to not like computer classes as a computer major, but whatever.": {
-        "req": [ "academics_01_neg" ],
+        "req": [ "academic_01_neg" ],
         "lead to": []
       },
       "That's good. It never hurts to have some working experience.": {
@@ -1564,11 +1542,11 @@
         "lead to": []
       },
       "Great, I'm glad to hear that you love to learn.": {
-        "req": [ "academics_01_pos" ],
+        "req": [ "academic_01_pos" ],
         "lead to": []
       },
       "Perfect.  It sounds like you are pretty amazing at it.": {
-        "req": [ "academics_01_pos" ],
+        "req": [ "academic_01_pos" ],
         "lead to": []
       },
       "Nicely!  I don't get too many good answers on that question.": {
@@ -1587,7 +1565,7 @@
     "respect": {
       "Now that we've talked about the company, I would like to get to know you as a person.": {
         "req": [ "start" ],
-        "lead to": [ "forced.qualifications.statement.start_b" ]
+        "lead to": [ "forced.getToKnowYou.statement.start_b" ]
       },
       "Very interesting, indeed. You have depth-of-character.": {
         "req": [ "hobby_02_pos" ],
@@ -1614,11 +1592,11 @@
         "lead to": []
       },
       "Excellent! I bet you were top of the class too. I can just tell these things sometimes": {
-        "req": [ "academics_01_pos" ],
+        "req": [ "academic_01_pos" ],
         "lead to": []
       },
       "Well, I guess you can't be perfect now, can you. I would think a Computer Stundent would like comptuers.": {
-        "req": [ "academics_01_neg" ],
+        "req": [ "academic_01_neg" ],
         "lead to": []
       },
       "#art_happy# Bravo! That was an excellent answer.": {
@@ -1637,7 +1615,7 @@
     "disgust": {
       "I've told you about the company, now it is your turn to talk.": {
         "req": [ "start" ],
-        "lead to": [ "forced.qualifications.statement.start_b" ]
+        "lead to": [ "forced.getToKnowYou.statement.start_b" ]
       },
       "Wow, I'm surprised that you volunteer.  I never would have guessed.": {
         "req": [ "hobby_01_pos" ],
@@ -1680,15 +1658,15 @@
         "lead to": []
       },
       "Well, that's a start.": {
-        "req": [ "academics_01_pos" ],
+        "req": [ "academic_01_pos" ],
         "lead to": []
       },
       "#art_laugh# I see that you are going to graduate soon, so you must have done something even if you barely passed any of your classes.": {
-        "req": [ "academics_01_neg" ],
+        "req": [ "academic_01_neg" ],
         "lead to": []
       },
       "Well, everyone has their strong points and their week points.": {
-        "req": [ "academics_02" ],
+        "req": [ "academic_02" ],
         "lead to": []
       },
       "#art_stern# I don't double it.": {
@@ -1709,301 +1687,301 @@
       }
     }
   },
-  "get_to_know_you_question": {
+  "getToKnowYou_question": {
     "neutral": {
       "I like to go fishing.  Do you have any hobbies?": {
-        "req": [ "start_hobby_01" ],
-        "lead to": [ "forced.qualifications.response.hobby_01" ]
+        "req": [ "hobby_01" ],
+        "lead to": [ "forced.getToKnowYou.response.hobby_01" ]
       },
       "I like to go kayaking, what is something you like to do?": {
-        "req": [ "start_hobby_02" ],
-        "lead to": [ "forced.qualifications.response.hobby_02" ]
+        "req": [ "hobby_02" ],
+        "lead to": [ "forced.getToKnowYou.response.hobby_02" ]
       },
       "I like to keep up with web technologies; tell me about some tech or science element you pursue in your free time.": {
-        "req": [ "start_interests_01" ],
-        "lead to": [ "forced.qualifications.response.interest_01" ]
+        "req": [ "interests_01" ],
+        "lead to": [ "forced.getToKnowYou.response.interests_01" ]
       },
       "I've told you about #company_name#'s mission statement and vision. What is your mission statement?": {
-        "req": [ "start_beliefs_01" ],
-        "lead to": [ "forced.qualifications.response.beliefs_01" ]
+        "req": [ "beliefs_01" ],
+        "lead to": [ "forced.getToKnowYou.response.beliefs_01" ]
       },
       "Can you tell me about your favorite class in school, and why?": {
-        "req": [ "start_academic_01" ],
-        "lead to": [ "forced.qualifications.response.academic_01" ]
+        "req": [ "academic_01" ],
+        "lead to": [ "forced.getToKnowYou.response.academic_01" ]
       },
       "I didn't care for University Prep. What was your least favorite class at University?": {
-        "req": [ "start_academic_02" ],
-        "lead to": [ "forced.qualifications.response.academic_02" ]
+        "req": [ "academic_02" ],
+        "lead to": [ "forced.getToKnowYou.response.academic_02" ]
       },
       "Could you tell me about a relevant work experience you've had.  It's okay if you don't have one.": {
-        "req": [ "start_work_01" ],
-        "lead to": [ "forced.qualifications.response.work_01" ]
+        "req": [ "work_01" ],
+        "lead to": [ "forced.getToKnowYou.response.work_01" ]
       },
       "Where do you see yourself in five years?": {
-        "req": [ "start_generic_01" ],
-        "lead to": [ "forced.qualifications.response.generic_01" ]
+        "req": [ "generic_01" ],
+        "lead to": [ "forced.getToKnowYou.response.generic_01" ]
       }
     },
     "friend": {
       "#art_happy# I like to eat at nice restaurants, tell me something that you like to do?": {
-        "req": [ "start_hobby_02" ],
-        "lead to": [ "forced.qualifications.response.hobby_02" ]
+        "req": [ "hobby_02" ],
+        "lead to": [ "forced.getToKnowYou.response.hobby_02" ]
       },
       "I would love to hear about a past work experience you've had.  Could you tell me one?": {
-        "req": [ "start_work_01" ],
-        "lead to": [ "forced.qualifications.response.work_01" ]
+        "req": [ "work_01" ],
+        "lead to": [ "forced.getToKnowYou.response.work_01" ]
       },
       "Let me ask you this, Where you see yourself in five years?": {
-        "req": [ "start_generic_01" ],
-        "lead to": [ "forced.qualifications.response.generic_01" ]
+        "req": [ "generic_01" ],
+        "lead to": [ "forced.getToKnowYou.response.generic_01" ]
       }
     },
     "respect": {
       "I like to keep up to date with the latest trends in solutions computing, what are your hobbies.": {
-        "req": [ "start_hobby_01" ],
-        "lead to": [ "forced.qualifications.response.hobby_01" ]
+        "req": [ "hobby_01" ],
+        "lead to": [ "forced.getToKnowYou.response.hobby_01" ]
       },
       "I like to read classic novels, tell me something you like to do.": {
-        "req": [ "start_hobby_02" ],
-        "lead to": [ "forced.qualifications.response.hobby_02" ]
+        "req": [ "hobby_02" ],
+        "lead to": [ "forced.getToKnowYou.response.hobby_02" ]
       },
       "I can tell you are very educated.  What technologies do you keep up with?": {
-        "req": [ "start_interests_01" ],
-        "lead to": [ "forced.qualifications.response.interest_01" ]
+        "req": [ "interests_01" ],
+        "lead to": [ "forced.getToKnowYou.response.interests_01" ]
       },
       "I would be very interested in hearing about your favorite class at University.  What was so great about it?": {
-        "req": [ "start_academic_01" ],
-        "lead to": [ "forced.qualifications.response.academic_01" ]
+        "req": [ "academic_01" ],
+        "lead to": [ "forced.getToKnowYou.response.academic_01" ]
       },
       "I bet you have some excellent work experiences. Could you tell me about one?": {
-        "req": [ "start_work_01" ],
-        "lead to": [ "forced.qualifications.response.work_01" ]
+        "req": [ "work_01" ],
+        "lead to": [ "forced.getToKnowYou.response.work_01" ]
       }
     },
     "disgust": {
       "I like to read academic papers. Tell me what your hobbies are": {
-        "req": [ "start_hobby_01" ],
-        "lead to": [ "forced.qualifications.response.hobby_01" ]
+        "req": [ "hobby_01" ],
+        "lead to": [ "forced.getToKnowYou.response.hobby_01" ]
       },
       "#art_suspicious# I like to read up on ethics in the workplace. What is something you like to do?": {
-        "req": [ "start_hobby_02" ],
-        "lead to": [ "forced.qualifications.response.hobby_02" ]
+        "req": [ "hobby_02" ],
+        "lead to": [ "forced.getToKnowYou.response.hobby_02" ]
       },
       "Quickly, tel me any technologies that you keep up with": {
-        "req": [ "start_interests_01" ],
-        "lead to": [ "forced.qualifications.response.interest_01" ]
+        "req": [ "interests_01" ],
+        "lead to": [ "forced.getToKnowYou.response.interest_01" ]
       },
       "I've told you about #company_name#'s mission statement and vision. What is your mission statement?": {
-        "req": [ "start_beliefs_01" ],
-        "lead to": [ "forced.qualifications.response.beliefs_01" ]
+        "req": [ "beliefs_01" ],
+        "lead to": [ "forced.getToKnowYou.response.beliefs_01" ]
       },
       "#art_stern# Tell me your favorite class at University and be sure to explain me why.": {
-        "req": [ "start_academics_01" ],
-        "lead to": [ "forced.qualifications.response_academics_01" ]
+        "req": [ "academic_01" ],
+        "lead to": [ "forced.getToKnowYou.response.academic_01" ]
       },
       "#art_suspicious# Do you have relevant work experience? Please tell it to me now.": {
-        "req": [ "start_work_01" ],
-        "lead to": [ "forced.qualifications.response.work_01" ]
+        "req": [ "work_01" ],
+        "lead to": [ "forced.getToKnowYou.response.work_01" ]
       },
       "#art_sad# Where do you see yourself in five years? Or do you even have a plan at all?": {
-        "req": [ "start_generic_01" ],
-        "lead to": [ "forced.qualifications.response.generic_01" ]
+        "req": [ "generic_01" ],
+        "lead to": [ "forced.getToKnowYou.response.generic_01" ]
       }
     }
   },
-  "get_to_know_you_response": {
+  "getToKnowYou_response": {
     "positive+": {
       "I like to volunteer at a local soup kitchen, and I also love watching golf.": {
-        "req": [ "hobby_01" ],
-        "lead to": [ "forced.qualifications.statement.hobby_01_pos" ]
+        "req": [ "response_tag.hobby_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.hobby_01_pos", "professional.very_low", "friend.very_high", "disgust.high_neg" ]
       },
       "I like to research on topics that are relevant in my life. Things like solutions computing and customer service.": {
-        "req": [ "hobby_02" ],
-        "lead to": [ "forced.qualifications.statement.hobby_02_pos" ]
+        "req": [ "response_tag.hobby_02" ],
+        "lead to": [ "forced.getToKnowYou.statement.hobby_02_pos", "professional.high", "respect.low", "friend.low_neg" ]
       },
       "I love tinkering with solutions computing.  It is very fullfilling to me.": {
-        "req": [ "interests_01" ],
-        "lead to": [ "forced.qualifications.statement.interests_01_pos" ]
+        "req": [ "response_tag.interests_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.interests_01_pos", "professional.mid", "respect.mid", "friend.low_neg" ]
       },
       "Unified as a team, we can deliver any solution with enthusiasm for client negotiations.": {
-        "req": [ "beliefs_01" ],
-        "lead to": [ "forced.qualifications.statement.beliefs_01_pos" ]
+        "req": [ "response_tag.beliefs_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.beliefs_01_pos", "professional.mid", "respect.mid", "friend.high" ]
       },
       "I loved solutions analytics because we had to solve a lot of problems using solutions computing.": {
-        "req": [ "academics_01" ],
-        "lead to": [ "forced.qualifications.statement.academics_01_pos" ]
+        "req": [ "response_tag.academic_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.academic_01_pos", "professional.high", "respect.low", "friend.low", "disgust.very_low" ]
       },
       "I didn't care for Advanced Theoretical Calculus.  It was just too easy for me.": {
-        "req": [ "academics_02" ],
-        "lead to": [ "forced.qualifications.statement.academics_02" ]
+        "req": [ "response_tag.academic_02" ],
+        "lead to": [ "forced.getToKnowYou.statement.academic_02", "professional.high", "respect.high", "disgust.mid", "freind.mid_neg" ]
       },
       "I worked as a Quality Coordinator for Biggwiggs International. I ensure customer satisfaction with products delivered on-time.": {
-        "req": [ "work_01" ],
-        "lead to": [ "forced.qualifications.statement.work_01" ]
+        "req": [ "response_tag.work_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.work_01" ]
       },
-      "In five years, I'd like to be seen as someone with a deep knowledge of solutions computing and arecord of expert customer satisfaction.": {
-        "req": [ "generic_01" ],
-        "lead to": [ "forced.qualifications.statement.generic_01_pos" ]
+      "In five years, I'd like to be seen as someone with a deep knowledge of solutions computing and a perfect record of expert customer satisfaction.": {
+        "req": [ "response_tag.generic_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.generic_01_pos", "professional.high", "respect.mid", "friend.mid", "disgust.very_high_neg" ]
       }
     },
     "positive": {
       "I enjoy learning new technologies and programming languages on my free time.": {
-        "req": [ "hobby_01" ],
-        "lead to": [ "forced.qualifications.statement.hobby_01_n" ]
+        "req": [ "response_tag.hobby_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.hobby_01_n", "professional.high", "respect.low" ]
       },
       "I like to stay informed with the market and follow global trends in the software industry.": {
-        "req": [ "hobby_02" ],
-        "lead to": [ "forced.qualifications.statement.hobby_02_pos" ]
+        "req": [ "response_tag.hobby_02" ],
+        "lead to": [ "forced.getToKnowYou.statement.hobby_02_pos", "professional.mid", "respect.low", "friend.mid" ]
       },
       "I enjoy reading periodicals on scientific computing and modeling data visually.": {
-        "req": [ "interests_01" ],
-        "lead to": [ "forced.qualifications.statement.interests_01_n" ]
+        "req": [ "response_tag.interests_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.interests_01_n", "professional.low", "respect.low", "friend.low" ]
       },
       "I believe in bettering others and working hard to accomplish any goal regardless of the difficulty.": {
-        "req": [ "beliefs_01" ],
-        "lead to": [ "forced.qualifications.statement.beliefs_01_pos" ]
+        "req": [ "response_tag.beliefs_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.beliefs_01_pos", "professional.low", "respect.low", "friend.high" ]
       },
       "I loved the Advance Computer Learning courses because it required advanced mathematics and the understanding of dense, difficult algorithms.": {
-        "req": [ "academics_01" ],
-        "lead to": [ "forced.qualifications.statement.academics_01_pos" ]
+        "req": [ "response_tag.academic_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.academic_01_pos" ]
       },
       "I love flexy software design because I had to work in a team to complete a project or 'solution' for a client.": {
-        "req": [ "academics_01" ],
-        "lead to": [ "forced.qualifications.statement.academics_01_pos" ]
+        "req": [ "response_tag.academic_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.academic_01_pos", "professional.high", "respect.mid" ]
       },
       "I though the poetry class was off-topic.  I don't like things that are off-topic.": {
-        "req": [ "academics_02" ],
-        "lead to": [ "forced.qualifications.statement.academics_02" ]
+        "req": [ "response_tag.academic_02" ],
+        "lead to": [ "forced.getToKnowYou.statement.academic_02", "professional.low", "respect.low", "friend.very_high" ]
       },
       "I was the team leader at Wallabee Warehouse.  I was responsible for leading the warehouse team.": {
-        "req": [ "work_01" ],
-        "lead to": [ "forced.qualifications.statement.work_01" ]
+        "req": [ "response_tag.work_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.work_01", "professional.very_low_neg", "friend.low" ]
       },
       "I want to have five years of real-world experience dealing with products delivered to clients using cutting edge tech.": {
-        "req": [ "generic_01" ],
-        "lead to": [ "forced.qualifications.statement.generic_01_pos" ]
+        "req": [ "response_tag.generic_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.generic_01_pos", "professional.mid", "respect.mid", "friend.mid" ]
       }
     },
     "neutral": {
       "I like to play sports and stay active.": {
-        "req": [ "hobby_01" ],
-        "lead to": [ "forced.qualifications.statement.hobby_01_n" ]
+        "req": [ "response_tag.hobby_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.hobby_01_n", "professional.very_low_neg", "friend.mid", "disgust.low_neg" ]
       },
       "I like to play music. I'm in a jazz group.": {
-        "req": [ "hobby_01" ],
-        "lead to": [ "forced.qualifications.statement.hobby_01_n" ]
+        "req": [ "response_tag.hobby_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.hobby_01_n", "professional.very_low", "respect.low", "disgust.low_neg" ]
       },
       "I like to write fiction literature.  I'm currently working on a sci-fi novel.": {
-        "req": [ "hobby_02" ],
-        "lead to": [ "forced.qualifications.statement.hobby_02_pos" ]
+        "req": [ "response_tag.hobby_02" ],
+        "lead to": [ "forced.getToKnowYou.statement.hobby_02_pos", "friend.mid", "disgust.low_neg" ]
       },
       "I enjoy coding games, though I'm not a huge fan of playing games.  The fun is making them.": {
-        "req": [ "interests_01" ],
-        "lead to": [ "forced.qualifications.statement.interests_01_n" ]
+        "req": [ "response_tag.interests_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.interests_01_n", "professional.very_low", "respect.low_neg", "friend.low" ]
       },
       "I enjoy hacking and seeing if I can break applications": {
-        "req": [ "interests_01" ],
-        "lead to": [ "forced.qualifications.statement.interests_01_n" ]
+        "req": [ "response_tag.interests_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.interests_01_n", "professional.mid", "respect.low_neg", "friend.low_neg" ]
       },
       "I believe in the saying you reap what you sow. If I try my best and work with intergirty, then I cannot fail": {
-        "req": [ "beliefs_01" ],
-        "lead to": [ "forced.qualifications.statement.beliefs_01_pos" ]
+        "req": [ "response_tag.beliefs_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.beliefs_01_pos", "professional.mid", "respect.low_neg", "disgust.very_low" ]
       },
       "I loved Fake Intelligence class because I got to design algorithms that I was interested in.": {
-        "req": [ "academics_01" ],
-        "lead to": [ "forced.qualifications.statement.academics_01_pos" ]
+        "req": [ "response_tag.academic_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.academic_01_pos", "professional.mid", "respect.low_neg", "friend.low" ]
       },
       "I hated history classes. They were kind of dry for my tastes.": {
-        "req": [ "academics_02" ],
-        "lead to": [ "forced.qualifications.statement.academics_02" ]
+        "req": [ "response_tag.academic_02" ],
+        "lead to": [ "forced.getToKnowYou.statement.academic_02", "respect.very_low_neg", "friend.mid", "disgust.very_low" ]
       },
       "I was a sales director for Scamco Knives. I worked directly with customers to ensure they got what they wanted.": {
-        "req": [ "work_01" ],
-        "lead to": [ "forced.qualifications.statement.work_01" ]
+        "req": [ "response_tag.work_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.work_01", "professional.low_neg", "friend.low" ]
       },
       "I don't know what the future will hold, but employment at #company_name# can only be a positive experience.": {
-        "req": [ "generic_01" ],
-        "lead to": [ "forced.qualifications.statement.generic_01_n" ]
+        "req": [ "response_tag.generic_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.generic_01_n" ]
       },
       "The future is foggy, and I can't know what will be, but I know that I will never give up, and I'll never stop learning.": {
-        "req": [ "generic_01" ],
-        "lead to": [ "forced.qualifications.statement.generic_01_n" ]
+        "req": [ "response_tag.generic_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.generic_01_n", "professional.low", "respect.low", "friend.high" ]
       }
     },
     "negative": {
       "I like to party on the weekends.": {
-        "req": [ "hobby_01" ],
-        "lead to": [ "forced.qualifications.statement.hobby_01_neg" ]
+        "req": [ "response_tag.hobby_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.hobby_01_neg", "professional.low_neg", "respect.low_neg", "friend.low", "disgust.very_low" ]
       },
       "I don't have a hobby. I guess I'm kind of boring.": {
-        "req": [ "hobby_01" ],
-        "lead to": [ "forced.qualifications.statement.hobby_01_neg" ]
+        "req": [ "response_tag.hobby_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.hobby_01_neg", "professional.low_neg" ]
       },
       "I like to relax at the beach and get away from the world and technology.": {
-        "req": [ "hobby_02" ],
-        "lead to": [ "forced.qualifications.statement.hobby_02_pos" ]
+        "req": [ "response_tag.hobby_02" ],
+        "lead to": [ "forced.getToKnowYou.statement.hobby_02_pos", "respect.low_neg", "friend.very_low" ]
       },
       "I don't really do any computer science related thing outside of classes.": {
-        "req": [ "interests_01" ],
-        "lead to": [ "forced.qualifications.statement.interests_01_neg" ]
+        "req": [ "response_tag.interests_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.interests_01_neg", "professional.mid_neg", "respect.high_neg" ]
       },
       "I'm a hardcore gamer.  I play every chance I get": {
-        "req": [ "interests_01" ],
-        "lead to": [ "forced.qualifications.statement.interests_01_neg" ]
+        "req": [ "response_tag.interests_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.interests_01_neg", "professional.very_low", "respect.high_neg", "friend.low" ]
       },
       "I believe in the power of words and dressing the part is half of getting the part.": {
-        "req": [ "beliefs_01" ],
-        "lead to": [ "forced.qualifications.statement.beliefs_01_neg" ]
+        "req": [ "response_tag.beliefs_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.beliefs_01_neg", "professional.very_low", "respect.very_low", "disgust.low" ]
       },
-      "I loved Game deployment because I got to express myself the medium of Computer Science.": {
-        "req": [ "academics_01" ],
-        "lead to": [ "forced.qualifications.statement.academics_01_pos" ]
+      "I loved Game deployment because I got to express myself with the medium of Computer Science.": {
+        "req": [ "response_tag.academic_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.academic_01_pos", "respect.low_neg", "friend.mid" ]
       },
       "I didn't like algorithmic analysis.  It was too difficult.": {
-        "req": [ "academics_02" ],
-        "lead to": [ "forced.qualifications.statement.academics_02" ]
+        "req": [ "response_tag.academic_02" ],
+        "lead to": [ "forced.getToKnowYou.statement.academic_02", "professional.mid_neg", "respect.high_neg", "friend.low" ]
       },
       "I worked as a library assistant. I organized the books.  It was a peaceful job.": {
-        "req": [ "work_01" ],
-        "lead to": [ "forced.qualifications.statement.work_01" ]
+        "req": [ "response_tag.work_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.work_01", "professional.mid_neg", "friend.low" ]
       },
       "Your boss. Just joking.  I haven't really given it a lot of thought.  I know I want to work in the CS field.": {
-        "req": [ "generic_01" ],
-        "lead to": [ "forced.qualifications.statement.generic_01_n" ]
+        "req": [ "response_tag.generic_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.generic_01_n", "professional.mid_neg", "respect.mid_neg", "friend.low", "disgust.mid" ]
       }
     },
     "negative+": {
       "My hobby is sleeping and watching tv. You can't beat doing nothing.": {
-        "req": [ "hobby_01" ],
-        "lead to": [ "forced.qualifications.statement.hobby_01_neg" ]
+        "req": [ "response_tag.hobby_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.hobby_01_neg", "professional.low_neg", "respect.mid_neg", "disgust.low" ]
       },
       "I don't know what I like to do.": {
-        "req": [ "hobby_02" ],
-        "lead to": [ "forced.qualifications.statement.hobby_02_neg" ]
+        "req": [ "response_tag.hobby_02" ],
+        "lead to": [ "forced.getToKnowYou.statement.hobby_02_neg", "professional.mid_neg", "respect.low_neg", "disgust.low" ]
       },
       "I like to spend my time on social media sites.": {
-        "req": [ "interests_01" ],
-        "lead to": [ "forced.qualifications.statement.interests_01_neg" ]
+        "req": [ "response_tag.interests_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.interests_01_neg", "professional.mid_neg", "respect.low", "friend.mid" ]
       },
       "You know, I don't really have a mission statement.": {
-        "req": [ "beliefs_01" ],
-        "lead to": [ "forced.qualifications.statement.beliefs_01_neg" ]
+        "req": [ "response_tag.beliefs_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.beliefs_01_neg", "professional.mid_neg" ]
       },
       "I didn't really love any of them, but I guess my favorite was structured data because the algorithms are time tested.": {
-        "req": [ "academics_01" ],
-        "lead to": [ "forced.qualifications.statement.academics_01_pos" ]
+        "req": [ "response_tag.academic_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.academic_01_pos", "professional.low", "respect.high_neg", "disgust.mid" ]
       },
-      "I didn't really like any of my classes to honest. Computer science courses are hard.": {
-        "req": [ "academics_02" ],
-        "lead to": [ "forced.qualifications.statement.academics_02" ]
+      "I didn't really like any of my classes to be honest. Computer science courses are hard.": {
+        "req": [ "response_tag.academic_02" ],
+        "lead to": [ "forced.getToKnowYou.statement.academic_02", "professional.high_neg", "respect.high_neg", "friend.mid_neg", "disgust.high" ]
       },
       "I don't have any work experience.": {
-        "req": [ "work_01" ],
-        "lead to": [ "forced.qualifications.statement.work_01_neg" ]
+        "req": [ "response_tag.work_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.work_01_neg", "professional.high_neg", "respect.low_neg", "friend.low" ]
       },
       "I was thinking of getting my Ph.D. while working here, of course, and teaching at the University.": {
-        "req": [ "generic_01" ],
-        "lead to": [ "forced.qualifications.statement.generic_01_neg" ]
+        "req": [ "response_tag.generic_01" ],
+        "lead to": [ "forced.getToKnowYou.statement.generic_01_neg", "professional.very_high_neg", "respect.low_neg", "friend.low", "disgust.mid" ]
       }
     }
   },
@@ -2013,23 +1991,23 @@
     "neutral": {
       "If you are considered for the position, you will need to always be at work on time, ready, focused, and energized for the day.": {
         "req": [ "start" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_01" ]
+        "lead to": [ "forced.expectations.statement.pack_1a_01" ]
       },
       "We expect that employees come to work on time and are entusiastic about the tasks ahead of them.": {
         "req": [ "pack_1a_01" ],
-        "lead to": [ "forced.qualifications.question.pack_1a_02" ]
+        "lead to": [ "forced.expectations.question.pack_1a_02" ]
       },
       "Good.": {
         "req": [ "pack_1a_04_pos" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_05" ]
+        "lead to": [ "forced.expectations.statement.pack_1a_05" ]
       },
       "#art_evil# I know things come up, I'm talking about when you are well.": {
         "req": [ "pack_1a_04_neg" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_05" ]
+        "lead to": [ "forced.expectations.statement.pack_1a_05" ]
       },
       "#Besides being on time and a dedicated worker, you will need to pass a work ethics test.": {
         "req": [ "pack_1a_05" ],
-        "lead to": [ "forced.qualifications.question.pack_1a_06" ]
+        "lead to": [ "forced.expectations.question.pack_1a_06" ]
       },
       "Great. That is what I wanted to here.": {
         "req": [ "pack_1a_08_pos" ],
@@ -2041,7 +2019,7 @@
       },
       "Yes, ethics are your moral principles, especially those conserning the workplace.": {
         "req": [ "pack_1a_08_negp" ],
-        "lead to": [ "forced.qualifications.question.pack_1a_09" ]
+        "lead to": [ "forced.expectations.question.pack_1a_09" ]
       },
       "Okay then.": {
         "req": [ "pack_1a_10_pos" ],
@@ -2059,31 +2037,31 @@
     "friend": {
       "I've enjoyed our meeting so far, and I want to continue it. Let me fill you in on what will be expected of you at #company_name#.": {
         "req": [ "start" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_01" ]
+        "lead to": [ "forced.expectations.statement.pack_1a_01" ]
       },
       "You seem to be a very capable individual.  I think we should go over what #company_name# expects from their employees.": {
         "req": [ "start" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_01" ]
+        "lead to": [ "forced.expectations.statement.pack_1a_01" ]
       },
       "We expect that employees come to work on time and are entusiastic about the tasks ahead of them.": {
         "req": [ "pack_1a_01" ],
-        "lead to": [ "forced.qualifications.question.pack_1a_02" ]
+        "lead to": [ "forced.expectations.question.pack_1a_02" ]
       },
       "Perfect. I'm glad to hear it.": {
         "req": [ "pack_1a_04_pos" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_05" ]
+        "lead to": [ "forced.expectations.statement.pack_1a_05" ]
       },
       "There are always unknowns in the future, and everyone gets sick from time to time #new_textbox# I'm sure you'll do well.": {
         "req": [ "pack_1a_04_neg" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_05" ]
+        "lead to": [ "forced.expectations.statement.pack_1a_05" ]
       },
       "You will also need to complete a work ethics test.": {
         "req": [ "pack_1a_05" ],
-        "lead to": [ "forced.qualifications.question.pack_1a_06" ]
+        "lead to": [ "forced.expectations.question.pack_1a_06" ]
       },
       "#art_laugh# What you don't know what... Hehehe, you're a real kidder. Bwahaha #new_textbox# #art_laugh# Haha Your ethics are your moral, haha, principles, hehe you know that. Gwahahaha...": {
         "req": [ "pack_1a_08_negp" ],
-        "lead to": [ "forced.qualifications.question.pack_1a_09" ]
+        "lead to": [ "forced.expectations.question.pack_1a_09" ]
       },
       "Good, good, that is what I expected.": {
         "req": [ "pack_1a_10_pos" ],
@@ -2093,23 +2071,23 @@
     "respect": {
       "I must say you have a lot of promise. I let me explain what will be expected of you at #company_name#.": {
         "req": [ "start" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_01" ]
+        "lead to": [ "forced.expectations.statement.pack_1a_01" ]
       },
       "We hold punctuality in high esteem here and work ethic even higher.  You will need to be on time produce masterfully.": {
         "req": [ "pack_1a_01" ],
-        "lead to": [ "forced.qualifications.question.pack_1a_02" ]
+        "lead to": [ "forced.expectations.question.pack_1a_02" ]
       },
       "Wonderful, as expected.": {
         "req": [ "pack_1a_04_pos" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_05" ]
+        "lead to": [ "forced.expectations.statement.pack_1a_05" ]
       },
       "There are always unknowns in the future, and everyone gets sick from time to time #new_textbox# I'm sure you'll do well.": {
         "req": [ "pack_1a_04_neg" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_05" ]
+        "lead to": [ "forced.expectations.statement.pack_1a_05" ]
       },
       "Before we can hire you, you will need to complete a work ethics test.": {
         "req": [ "pack_1a_05" ],
-        "lead to": [ "forced.qualifications.question.pack_1a_06" ]
+        "lead to": [ "forced.expectations.question.pack_1a_06" ]
       },
       "Perfect.  Equally talented and ethical.  You are quite a catch.": {
         "req": [ "pack_1a_08_pos" ],
@@ -2127,23 +2105,23 @@
     "disgust": {
       "I don't think It will matter, but I guess I'll tell you what #company_name# expects from its employees.": {
         "req": [ "start" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_01" ]
+        "lead to": [ "forced.expectations.statement.pack_1a_01" ]
       },
       "If by some miracle, you get the position, you must be at work 15 minutes before time and ready to work with an abundance of zeal.": {
         "req": [ "pack_1a_01" ],
-        "lead to": [ "forced.qualifications.question.pack_1a_02" ]
+        "lead to": [ "forced.expectations.question.pack_1a_02" ]
       },
       "We'll see.  If you're lucky, that is.": {
         "req": [ "pack_1a_04_pos" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_05" ]
+        "lead to": [ "forced.expectations.statement.pack_1a_05" ]
       },
       "I bet you can't go a week without calling in. #new_textbox# I don't think I'll find that out either.": {
         "req": [ "pack_1a_04_neg" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_05" ]
+        "lead to": [ "forced.expectations.statement.pack_1a_05" ]
       },
       "Before we can hire you, you must score exceptionally on the work ethics exam..": {
         "req": [ "pack_1a_05" ],
-        "lead to": [ "forced.qualifications.question.pack_1a_06" ]
+        "lead to": [ "forced.expectations.question.pack_1a_06" ]
       },
       "I guess you do have some redeeming qualities, after all.": {
         "req": [ "pack_1a_08_pos" ],
@@ -2155,7 +2133,7 @@
       },
       "#art_suspicious# I hope you are joking here. #new_textbox# #art_sad# ethics are your moral principles, especially those concerning the workplace.": {
         "req": [ "pack_1a_08_negp" ],
-        "lead to": [ "forced.qualifications.question.pack_1a_09" ]
+        "lead to": [ "forced.expectations.question.pack_1a_09" ]
       },
       "#art_suspicious# .. Okay ..": {
         "req": [ "pack_1a_10_pos" ],
@@ -2175,137 +2153,137 @@
     "neutral": {
       "Is this something that you can do?": {
         "req": [ "pack_1a_02" ],
-        "lead to": [ "forced.qualifications.response.pack_1a_03" ]
+        "lead to": [ "forced.expectations.response.pack_1a_03" ]
       },
       "Do you feel confident in your work ethics?": {
         "req": [ "pack_1a_06" ],
-        "lead to": [ "forced.qualifications.response.pack_1a_07" ]
+        "lead to": [ "forced.expectations.response.pack_1a_07" ]
       },
       "I'll ask you again. Do you feel confident in your work ethics?": {
         "req": [ "pack_1a_09" ],
-        "lead to": [ "forced.qualifications.response.pack_1a_10" ]
+        "lead to": [ "forced.expectations.response.pack_1a_10" ]
       }
     },
     "friend": {
       "#art_happy# Are you up to the challenge?": {
         "req": [ "pack_1a_02" ],
-        "lead to": [ "forced.qualifications.response.pack_1a_03" ]
+        "lead to": [ "forced.expectations.response.pack_1a_03" ]
       },
       "What do you say? Do you see yourself as an ethical person?": {
         "req": [ "pack_1a_09" ],
-        "lead to": [ "forced.qualifications.response.pack_1a_10" ]
+        "lead to": [ "forced.expectations.response.pack_1a_10" ]
       }
     },
     "respect": {
       "#art_happy# I feel I know the answer to this, but I'm obligated to ask anyway.  #new_textbox# Do you feel comfortable with these requirements?": {
         "req": [ "pack_1a_02" ],
-        "lead to": [ "forced.qualifications.response.pack_1a_03" ]
+        "lead to": [ "forced.expectations.response.pack_1a_03" ]
       },
       "#art_happy# Oh my, my sides hurt now. #new_textbox# #art_happy# So, does your ethics match your abilities?": {
         "req": [ "pack_1a_09" ],
-        "lead to": [ "forced.qualifications.response.pack_1a_10" ]
+        "lead to": [ "forced.expectations.response.pack_1a_10" ]
       },
       "Does your ethics match your abilities?": {
         "req": [ "pack_1a_06" ],
-        "lead to": [ "forced.qualifications.response.pack_1a_07" ]
+        "lead to": [ "forced.expectations.response.pack_1a_07" ]
       }
 
     },
     "disgust": {
       "#art_evil# Can you manage this? Just know that if you fall short you will be out of the door lickety-split.": {
         "req": [ "pack_1a_02" ],
-        "lead to": [ "forced.qualifications.response.pack_1a_03" ]
+        "lead to": [ "forced.expectations.response.pack_1a_03" ]
       },
       "Perhaps you can redeem yourself.  Do you feel confident in your work ethics?": {
         "req": [ "pack_1a_06" ],
-        "lead to": [ "forced.qualifications.response.pack_1a_07" ]
+        "lead to": [ "forced.expectations.response.pack_1a_07" ]
       },
       "#art_angry# Now that you know what ethics are, tell me if you consider yourself to be ethical?": {
         "req": [ "pack_1a_09" ],
-        "lead to": [ "forced.qualifications.response.pack_1a_10" ]
+        "lead to": [ "forced.expectations.response.pack_1a_10" ]
       }
     }
   },
   "expectations_response": {
     "positive+": {
       "I can and will without a doubt": {
-        "req": [ "pack_1a_03" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_04" ]
+        "req": [ "response_tag.pack_1a_03" ],
+        "lead to": [ "forced.expectations.statement.pack_1a_04", "professional.low", "disgust.low_neg" ]
       },
       "Absolutely! Honesty, integrity, honor, fairness, responsibility, and moral conscience are virtues I live by.": {
-        "req": [ "pack_1a_07" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_08_pos" ]
+        "req": [ "response_tag.pack_1a_07" ],
+        "lead to": [ "forced.expectations.statement.pack_1a_08_pos", "professional.very_high", "respect.high" ]
       },
       "Absolutely! Without a doubt in my mind!": {
-        "req": [ "pack_1a_10" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_10_pos" ]
+        "req": [ "response_tag.pack_1a_10" ],
+        "lead to": [ "forced.expectations.statement.pack_1a_10_pos", "friend.very_high" ]
       }
     },
     "positive": {
       "I will have no problems adhering to those policies.": {
-        "req": [ "pack_1a_03" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_04" ]
+        "req": [ "response_tag.pack_1a_03" ],
+        "lead to": [ "forced.expectations.statement.pack_1a_04", "professional.very_low", "respect.low_neg", "friend.low" ]
       },
       "I pride myself on my morals principal.  I feel confident in this area.": {
-        "req": [ "pack_1a_07" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_08_pos" ]
+        "req": [ "response_tag.pack_1a_07" ],
+        "lead to": [ "forced.expectations.statement.pack_1a_08_pos", "professional.low", "respect.low" ]
       },
       "I am very ethical.": {
-        "req": [ "pack_1a_10" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_10_pos" ]
+        "req": [ "response_tag.pack_1a_10" ],
+        "lead to": [ "forced.expectations.statement.pack_1a_10_pos", "professional.low", "disgust.low_neg" ]
       }
     },
     "neutral": {
       "I'll do my best to be at work on time and work with fervor.": {
-        "req": [ "pack_1a_03" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_04" ]
+        "req": [ "response_tag.pack_1a_03" ],
+        "lead to": [ "forced.expectations.statement.pack_1a_04", "friend.low" ]
       },
       "I beleve myself to be ethical, especially at the work place.": {
-        "req": [ "pack_1a_07" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_04_pos" ]
+        "req": [ "response_tag.pack_1a_07" ],
+        "lead to": [ "forced.expectations.statement.pack_1a_04_pos", "professional.very_low", "respect.low" ]
       },
       "I am an ethical person.": {
-        "req": [ "pack_1a_03" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_08_pos" ]
+        "req": [ "response_tag.pack_1a_03" ],
+        "lead to": [ "forced.expectations.statement.pack_1a_08_pos", "professional.very_low" ]
       },
       "yes": {
-        "req": [ "pack_1a_10" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_10_pos" ]
+        "req": [ "response_tag.pack_1a_10" ],
+        "lead to": [ "forced.expectations.statement.pack_1a_10_pos", "disgust.low" ]
       }
     },
     "negative": {
       "I can within reason, I do occasionally get sick.": {
-        "req": [ "pack_1a_03" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_04_neg" ]
+        "req": [ "response_tag.pack_1a_03" ],
+        "lead to": [ "forced.expectations.statement.pack_1a_04_neg", "professional.low_neg", "respect.mid_neg", "disgust.high" ]
       },
       "I am ethical usually, but there are times in extreme circumstances where ethical dilemmas arise, and one must choose a side.": {
-        "req": [ "pack_1a_07" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_04_neg" ]
+        "req": [ "response_tag.pack_1a_07" ],
+        "lead to": [ "forced.expectations.statement.pack_1a_04_neg", "professional.low_neg", "respect.mid_neg", "disgust.high" ]
       },
       "I'm a good person.  At least, I think I am.": {
-        "req": [ "pack_1a_07" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_08_neg" ]
+        "req": [ "response_tag.pack_1a_07" ],
+        "lead to": [ "forced.expectations.statement.pack_1a_08_neg", "professional.low_neg" ]
       },
       "maybe": {
-        "req": [ "pack_1a_10" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_10_neg" ]
+        "req": [ "response_tag.pack_1a_10" ],
+        "lead to": [ "forced.expectations.statement.pack_1a_10_neg", "professional.high_neg", "respect.high_neg", "disgust.mid" ]
       }
     },
     "negative+": {
       "I can't promise anything with certainty.": {
-        "req": [ "pack_1a_03" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_04_neg" ]
+        "req": [ "response_tag.pack_1a_03" ],
+        "lead to": [ "forced.expectations.statement.pack_1a_04_neg" ]
       },
       "What is ethics? It's being a good person, right?": {
-        "req": [ "pack_1a_07" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_08_negp" ]
+        "req": [ "response_tag.pack_1a_07" ],
+        "lead to": [ "forced.expectations.statement.pack_1a_08_negp" ]
       },
       "not really": {
-        "req": [ "pack_1a_10" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_10_negp" ]
+        "req": [ "response_tag.pack_1a_10" ],
+        "lead to": [ "forced.expectations.statement.pack_1a_10_negp", "professional.extreme_neg", "respect.high_neg", "disgust.high" ]
       }
     }
-  }, 
+  },
 
   //fully directed with multiple endings based on stats
   "got_the_job_statement": {
@@ -2433,25 +2411,25 @@
   },
   "get_the_job_response": {
     "positive+": {
-      
+
     },
     "positive": {
-      
+
     },
     "neutral": {
       "yes": {
-        "req": [ "pack_1a_05" ],
+        "req": [ "response_tag.pack_1a_05" ],
         "lead to": [ "forced.qualifications.statement.pack_1a_06" ]
       }
     },
     "negative": {
       "no": {
-        "req": [ "pack_1a_05" ],
+        "req": [ "response_tag.pack_1a_05" ],
         "lead to": [ "forced.qualifications.statement.pack_1a_06_neg" ]
       }
     },
     "negative+": {
-     
+
     }
   }
 
