@@ -398,7 +398,7 @@
       },
       "I have no problem working upwards of 80 hours a week if I'm needed.": { //pos
         "req": [ "response_tag.intro_tier11" ],
-        "lead to": [ "forced.welcome.statement.intro_tier12", "professional.low",  "disgust.very_low" ]
+        "lead to": [ "forced.welcome.statement.intro_tier12", "professional.low", "disgust.very_low" ]
       },
       "#company_name# is the greater than any other place!  I wish I could move in and live here!": { //pos+
         "req": [ "response_tag.intro_tier14" ],
@@ -2286,27 +2286,27 @@
   },
 
   //fully directed with multiple endings based on stats
-  "got_the_job_statement": {
+  "gotTheJob_statement": {
     "neutral": {
       "I would like to say thank you for coming in today. Our conversation was very insightful.": {
         "req": [ "start" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_01" ]
+        "lead to": [ "forced.gotTheJob.statement.pack_1a_01" ]
       },
       "I have reviewed your qualifications, resume, and got a pretty good feel for who you are as a person.": {
         "req": [ "pack_1a_01" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_02" ]
+        "lead to": [ "forced.gotTheJob.statement.pack_1a_02" ]
       },
       "I don't normally do on the spot like this, but I am ready to give you my decision.": {
         "req": [ "pack_1a_02" ],
         "lead to": [ "check_win" ]
       },
-      "I would like to offer you the intern position at top salary.  The interview went okay, and you have solid credentials.": {
+      "I would like to offer you the intern position at top salary.  Please show up Monday at 8 AM to fill out your paperwork.": {
         "req": [ "win_tier_01" ],
-        "lead to": [ "forced.qualifications.question.pack_1a_04" ]
+        "lead to": [ "end_game" ]
       },
-      "I would like to offer you the intern position at the starting salary.  The interview was so-so, but I think you deserve a chance.": {
+      "I would like to offer you the intern position at the starting salary.  I'll need you to come in Monday to complete your paperwork.": {
         "req": [ "win_tier_03" ],
-        "lead to": [ "forced.qualifications.question.pack_1a_04" ]
+        "lead to": [ "end_game" ]
       },
       "I'm sorry to inform you that you didn't get the job. I would like to invite you to come back when you have more experience and maturity.": {
         "req": [ "win_tier_06" ],
@@ -2328,19 +2328,19 @@
     "friend": {
       "It was a pleasure meeting with you today.  I have learned a great deal speaking with you.": {
         "req": [ "start" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_01" ]
+        "lead to": [ "forced.gotTheJob.statement.pack_1a_01" ]
       },
       "I don't normally do this but with you the choice is clear.": {
         "req": [ "pack_1a_02" ],
         "lead to": [ "check_win" ]
       },
-      "I would like to offer you the intern position at top salary.  You have the right mix  we are looking for here at #company_name#.": {
+      "I would like to offer you the intern position at top salary.  Just come in Monday to complete the hiring process.  Thanks!": {
         "req": [ "win_tier_01" ],
-        "lead to": [ "forced.qualifications.question.pack_1a_04" ]
+        "lead to": [ "end_game" ]
       },
-      "I would like to offer you the intern position at starting salary.  You are a little rough around the edges, but you have the right mix of qualities.": {
+      "I would like to offer you the intern position at starting salary.  You are a little rough around the edges, but you have the right mix of qualities. #new_textbox# Come in Monday at 8 AM.": {
         "req": [ "win_tier_03" ],
-        "lead to": [ "forced.qualifications.question.pack_1a_04" ]
+        "lead to": [ "end_game" ]
       },
       "#art_happy# Excellent!  I am excited to have you as a team member!": {
         "req": [ "pack_1a_06" ],
@@ -2351,19 +2351,19 @@
     "respect": {
       "It was a pleasure meeting with you today.  I have learned a great deal speaking with you.": {
         "req": [ "start" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_01" ]
+        "lead to": [ "forced.gotTheJob.statement.pack_1a_01" ]
       },
       "I am glad you came in today. It is always a pleasure to meet such a strong candidate.": {
         "req": [ "pack_1a_02" ],
         "lead to": [ "check_win" ]
       },
-      "I would like to offer you the intern position at top salary.  You have the right mix  we are looking for here at #company_name#.": {
+      "I would like to offer you the intern position at top salary.  You have the right mix  we are looking for here at #company_name#. #new_textbox# I'll need you to come it for 8 on Monday.": {
         "req": [ "win_tier_01" ],
-        "lead to": [ "forced.qualifications.question.pack_1a_04" ]
+        "lead to": [ "end_game" ]
       },
       "I would like to offer you the intern position at starting salary.  You are a little rough around the edges, but you have the right mix of qualities.": {
         "req": [ "win_tier_03" ],
-        "lead to": [ "forced.qualifications.question.pack_1a_04" ]
+        "lead to": [ "end_game" ]
       },
       "#art_happy# Excellent!  I am excited to have you as a team member!": {
         "req": [ "pack_1a_06" ],
@@ -2373,19 +2373,19 @@
     "disgust": {
       "So I think I've heard enough.  I have gathered a great deal on you from today's little 'excursion.'": {
         "req": [ "start" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_01" ]
+        "lead to": [ "forced.gotTheJob.statement.pack_1a_01" ]
       },
       "I gave it some thought, and I have made my decision.": {
         "req": [ "pack_1a_02" ],
         "lead to": [ "check_win" ]
       },
-      "By some miracle, you have convinced me to give you a chance at the starting salary, of course. #new_textbox# Please don't make me regret this.": {
+      "By some miracle, you have convinced me to give you a chance at the starting salary, of course. #new_textbox# Please don't make me regret this. Be here at 8 am sharp Monday ro don't come at all": {
         "req": [ "win_tier_03" ],
-        "lead to": [ "forced.qualifications.question.pack_1a_04" ]
+        "lead to": [ "end_game" ]
       },
       "#art_happy#  You didn't get the job, but I'm sure you saw that coming.  If you brush up on your people skills and qualifications, I might consider you.": {
         "req": [ "win_tier_06" ],
-        "lead to": []
+        "lead to": [ "end_game" ]
       },
       "This was probably the worst interview I've ever conducted.  Please get out of my office before I call security. Also, don't contact me.": {
         "req": [ "win_tier_08" ],
@@ -2401,15 +2401,33 @@
       }
     }
   },
-  "got_the_job_question": {
+  "gotTheJob_question": {
     "neutral": {
       "What do you say? Will you except the offer?.": {
         "req": [ "pack_1a_04" ],
-        "lead to": [ "forced.qualifications.response.pack_1a_05" ]
+        "lead to": [ "forced.gotTheJob.response.pack_1a_05" ]
+      }
+    },
+    "respect": {
+      "What do you say? Will you except the offer?.": {
+        "req": [ "pack_1a_04" ],
+        "lead to": [ "forced.gotTheJob.response.pack_1a_05" ]
+      }
+    },
+    "friend": {
+      "What do you say? Will you except the offer?.": {
+        "req": [ "pack_1a_04" ],
+        "lead to": [ "forced.gotTheJob.response.pack_1a_05" ]
+      }
+    },
+    "disgust": {
+      "What do you say? Will you except the offer?.": {
+        "req": [ "pack_1a_04" ],
+        "lead to": [ "forced.gotTheJob.response.pack_1a_05" ]
       }
     }
   },
-  "get_the_job_response": {
+  "gotTheJob_response": {
     "positive+": {
 
     },
@@ -2419,13 +2437,13 @@
     "neutral": {
       "yes": {
         "req": [ "response_tag.pack_1a_05" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_06" ]
+        "lead to": [ "forced.gotTheJob.statement.pack_1a_06" ]
       }
     },
     "negative": {
       "no": {
         "req": [ "response_tag.pack_1a_05" ],
-        "lead to": [ "forced.qualifications.statement.pack_1a_06_neg" ]
+        "lead to": [ "forced.gotTheJob.statement.pack_1a_06_neg" ]
       }
     },
     "negative+": {

@@ -17,13 +17,14 @@ namespace Kati{
         public const int VERY_LOW = 5;
 
         //win thresholds
-        public const int WIN_01 = 660;
-        public const int WIN_03 = 500;
-        public const int WIN_06 = 400;
-        
-        
+        public const int WIN_01 = 190;
+        public const int WIN_03 = 140;
+        public const int WIN_06 = 100;
+
+        static string outcome = "";
+
         //threshold for displaying the # in stat display
-        public const int STAR_MOD = 15;
+        public const int STAR_MOD = 10;
         static string friend_bar = "", respect_bar = "", disgust_bar = "";
 
         static Game game = new Game();
@@ -46,6 +47,7 @@ namespace Kati{
             RunQualifications();
             RunKnowYou();
             RunExpectations();
+            RunGetTheJob();
             //Test();
             PrintHistory();
         }
@@ -150,8 +152,31 @@ namespace Kati{
             }
         }
 
-        public static void RunGetTheJob() { 
-        
+        public static void RunGetTheJob() {
+            Run1("gotTheJob", Constants.STATEMENT, "start", "forced.gotTheJob.statement.start");
+            Run2();
+            string score = CheckWinThresholds();
+            string leadTo = "forced.gotTheJob.statement." + score;
+            Run1("gotTheJob", Constants.STATEMENT, score, leadTo);
+            
+            while (true) {
+                try {
+                    if (package.LeadTo[package.Dialogue][0].Equals("end_game")) {
+                        CaptureHistory();
+                        break;
+                    }
+                    if (!package.Type.Equals(Constants.RESPONSE)) {
+                        Run2();
+                    } else {
+                        Run3();
+                    }
+                } catch (Exception) {
+                    Console.WriteLine("*********exception*********");
+                    break;
+                }
+            }
+            CaptureDiagnosticElements(outcome, "");
+            Console.WriteLine("Game Over");
         }
 
         public static void PrintHistory() {
@@ -272,8 +297,12 @@ namespace Kati{
         }
 
         public static void CaptureHistory() {
-            string[] s = new string[] { package.Speaker, package.Dialogue };
-            history.Add(s);
+            if(!package.Dialogue.Equals("next"))
+                game.history.Add((package.Speaker, package.Dialogue));
+        }
+
+        public static void CaptureDiagnosticElements(string item1, string item2) {
+            game.history.Add((item1, item2));
         }
 
         //response
@@ -351,21 +380,25 @@ namespace Kati{
 
         public static void DisplayRelationshipStatus() {
             var tones = game.mod.Ctrl.Npc.InitiatorsTone;
+            string friend = "", respect = "", disgust = "";
             int max = tones["friend"] > tones["respect"] ? (int)tones["friend"] : (int)tones["respect"];
             max = max > (int)tones["disgust"] ? max : (int)tones["disgust"];
             for (int i = 0; i < max; i += STAR_MOD) {
                 if (i < tones["friend"])
-                    friend_bar += "#";
+                    friend += "#";
                 if (i < tones["respect"])
-                    respect_bar += "#";
+                    respect += "#";
                 if (i < tones["disgust"])
-                    disgust_bar += "#";
+                    disgust += "#";
             }
+            friend_bar = friend;
+            respect_bar = respect;
+            disgust_bar = disgust;
             string temp = "Friend Vibe:  " + friend_bar + "\n" + "Respect Vibe: " + respect_bar + "\n" + "Disgust Vibe: " + disgust_bar+"\n";
-            //history.Add(new string[]{temp, ""});
-            Console.WriteLine("Friend Vibe:  "+friend_bar);
-            Console.WriteLine("Respect Vibe: "+respect_bar);
-            Console.WriteLine("Disgust Vibe: "+disgust_bar);
+            CaptureDiagnosticElements(temp,"");
+            Console.WriteLine("Friend Vibe:  "+friend);
+            Console.WriteLine("Respect Vibe: "+respect);
+            Console.WriteLine("Disgust Vibe: "+disgust);
 
         }
 
@@ -380,8 +413,17 @@ namespace Kati{
                 score = "win_tier_06";
             }
             Console.WriteLine(score+" "+ game.mod.Ctrl.Npc.InitiatorsTone[Constants.PROFESSIONAL]+"/"+value);
+            string info = "Professional Level: " + game.mod.Ctrl.Npc.InitiatorsTone[Constants.PROFESSIONAL] + "\n";
+                   info += "Friend Level:      "+ game.mod.Ctrl.Npc.InitiatorsTone[Constants.FRIEND] + "\n";
+                   info += "Respect Level:     "+ game.mod.Ctrl.Npc.InitiatorsTone[Constants.RESPECT] + "\n";
+                   info += "Disgust Level:     "+ game.mod.Ctrl.Npc.InitiatorsTone[Constants.DISGUST] + "\n";
+                   info += "Win Threshold:     " + score;
+            outcome = info;
+            
             return score;
         }
+
+
 
         public static DialoguePackage DeepCopyPackage() {
             DialoguePackage next = new DialoguePackage();
@@ -407,7 +449,6 @@ namespace Kati{
             foreach (string item in p.LeadTo[p.Dialogue]) {
                 Console.WriteLine("lead to: "+item);
             }
-            game.history.Add((p.Speaker,p.Dialogue));
         }
 
     }
