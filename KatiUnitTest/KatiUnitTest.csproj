@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Module_Tests\DayDreamWonder\**" />
+    <EmbeddedResource Remove="Module_Tests\DayDreamWonder\**" />
+    <None Remove="Module_Tests\DayDreamWonder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.1.0" />
     <PackageReference Include="MSTest.TestFramework" Version="2.1.0" />
@@ -18,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Module_Tests\DayDreamWonder\" />
+    <Folder Include="ModuleHub_Tests\" />
   </ItemGroup>
 
 </Project>

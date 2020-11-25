@@ -82,7 +82,7 @@ namespace Kati.GenericModule {
         /// <summary>
         /// converts a file into a string.  Requires path.
         /// </summary>
-        /// <param name="filePaht">File to be read</param>
+        /// <param name="filePath">File to be read</param>
         /// <returns>files content as String</returns>
         private string ReadFile(string filePath) {
             using StreamReader reader = new StreamReader(filePath);
