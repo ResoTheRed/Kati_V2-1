@@ -3,7 +3,15 @@
 namespace TextGameDemo {
     public class Program {
         static void Main(string[] args) {
-            Console.WriteLine("Hello World!");
+            TestLocations();
+        }
+
+        public static void TestLocations() {
+            bool isRunning = true;
+            Game.Location.World world = new Game.Location.World();
+            while (isRunning) {
+                isRunning = world.MoveRoom();
+            }
         }
     }
 }
