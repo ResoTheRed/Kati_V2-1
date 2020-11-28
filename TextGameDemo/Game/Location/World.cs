@@ -40,6 +40,10 @@ namespace TextGameDemo.Game.Location {
             return SetRoomIfAreaChanged(area);
         }
 
+        public (string, string) GetLocation() {
+            return (CurrentArea.Name, CurrentArea.CurrentRoom.Name);
+        }
+
         private bool SetRoomIfAreaChanged(Area area) {
             if (area != CurrentArea) {
                 if (area.Name.Equals(_Forest.Name) && CurrentArea.Name.Equals(_Town.Name)) {
@@ -55,6 +59,8 @@ namespace TextGameDemo.Game.Location {
             }
             return true;
         }
+
+      
 
     }
 }

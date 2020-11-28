@@ -9,18 +9,15 @@ namespace TextGameDemo.Game.Location {
         private string description;
         private Room currentRoom;
         private Dictionary<string,Room> locationsInArea;
-        private List<Area> exitToAreas;
 
         public string Name { get => name; }
         public string Description { get => description; set => description = value; }
         public Dictionary<string, Room> LocationsInArea { get => locationsInArea; }
-        public List<Area> ExitToAreas { get => exitToAreas; }
         public Room CurrentRoom { get => currentRoom; set => currentRoom = value; }
 
         public Area(string name) {
             this.name = name;
             locationsInArea = new Dictionary<string, Room>();
-            exitToAreas = new List<Area>();
         }
 
         //adds room locations to the area
