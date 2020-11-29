@@ -1,5 +1,860 @@
 {
-  "sample01_statement": {
+  "Greeting_statement": {
+    "neutral": {
+      "Hello.": {
+        "req": [],
+        "lead to": []
+      },
+      "Good day.": {
+        "req": [ "game.time.not.isNight" ],
+        "lead to": []
+      },
+      "Good evening.": {
+        "req": [ "game.time.isNight" ],
+        "lead to": []
+      },
+      "Greetings.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "romance": {
+      "Hello gorgeous!": {
+        "req": [],
+        "lead to": []
+      },
+      "There is nothing better than to see your handsome face.": {
+        "req": [],
+        "lead to": []
+      },
+      "Well hello there sweetie.": {
+        "req": [],
+        "lead to": []
+      },
+      "Hello my love.": {
+        "req": [ "player.social.dating" ],
+        "lead to": []
+      }
+    },
+    "friend": {
+      "Hello #player_name#.": {
+        "req": [],
+        "lead to": []
+      },
+      "Hey #player_name#, nice to see you.": {
+        "req": [],
+        "lead to": []
+      },
+      "Greetings #player_name#.": {
+        "req": [],
+        "lead to": []
+      },
+      "Hello #player_name#.  I hope you are having a nice day.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "respect": {
+      "Greetings master #player_name#. I hope all is well.": {
+        "req": [],
+        "lead to": []
+      },
+      "Salutations #player_name#.  It is an honor to speak with you.": {
+        "req": [],
+        "lead to": []
+      },
+      "Good day sir. It's always a pleasure.": {
+        "req": [],
+        "lead to": []
+      },
+      "Greetings.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "affinity": {
+      "Well hello there.": {
+        "req": [],
+        "lead to": []
+      },
+      "Nice of you to stop by.": {
+        "req": [],
+        "lead to": []
+      },
+      "Hello #player_name#.  It's so very nice to see you.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "disgust": {
+      "What?": {
+        "req": [],
+        "lead to": []
+      },
+      "... #player_name# ...": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "Why are you here.": {
+        "req": [],
+        "lead to": []
+      },
+      "Uhhh... What!": {
+        "req": [],
+        "lead to": []
+      },
+      "I'm not interested.": {
+        "req": [],
+        "lead to": [ "end_conversation" ]
+      },
+      "I don't have anything for you. Go away.": {
+        "req": [],
+        "lead to": [ "end_conversation" ]
+      }
+    },
+    "rivalry": {
+      "Hello #player_name#.": {
+        "req": [],
+        "lead to": []
+      },
+      "Hey loser.": {
+        "req": [],
+        "lead to": []
+      },
+      "Look who it is.  It's a lame duck.": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+  "greeting_question": {
+    "neutral": {
+      "What can I do for you?": {
+        "req": [],
+        "lead to": []
+      },
+      "Nice day isn't it?": {
+        "req": [ "game.weather.nice_day" ],
+        "lead to": [ "response.weather.nice_day" ]
+      }
+    },
+    "romance": {
+      "How are you today?": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      }
+    },
+    "friend": {
+      "How's are things?": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      },
+      "How're you doing?": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      }
+    },
+    "respect": {
+      "How are things with you?  Good I hope.": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      }
+    },
+    "affinity": {
+      "You are looking good.  How are you?": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      }
+    },
+    "disgust": {
+      "What do you want from me?": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "Why are you bothering me?": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "rivalry": {
+      "You don't seem to be doing as good as I am.  How are you anyway?": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      }
+    }
+  },
+  "greeting_response": {
+    "positive+": {
+      "I'm doing excellent. Thank you for asking.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.5", "attribute.positive.2" ]
+      },
+      "I'm great, especially with you as my company.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.2", "attribute.romance.4", "attribute.positive.2" ]
+      },
+      "It is a wonderful day. I'm glad I can share this moment with you.": {
+        "req": [ "responseTag.nice_day" ],
+        "lead to": [ "attribute.friend.1", "attribute.romance.4", "attribute.affinity.1", "attribute.positive.2" ]
+      }
+    },
+    "positive": {
+      "I'm wonderful. You are looking to as vibrant as ever.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.1", "attribute.respect.2", "attribute.positive.2" ]
+      },
+      "I'm doing great. Thank you for asking.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.2", "attribute.positive.3" ]
+      },
+      "It's a beutiful day with good company. Who can complain?": {
+        "req": [ "responseTag.nice_day" ],
+        "lead to": [ "attribute.friend.1", "attribute.positive.4" ]
+      }
+    },
+    "neutral": {
+      "Life is good. I like to keep things positive.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.positive.2" ]
+      },
+      "I'm alright. Thanks.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.positive.1", "attribute.affinity.1", "attribute.professional.1" ]
+      },
+      "I agree, it is a lovely day.": {
+        "req": [ "responseTag.nice_weather" ],
+        "lead to": [ "attribute.friend.1", "attribute.positive.1" ]
+      }
+    },
+    "negative": {
+      "Yeah, I'm good or whatever.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.positive.-2", "attribute.professional.-2", "attribute.respect.-1", "attribute.romance.-2" ]
+      },
+      "I'm good, not that you care.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.-2", "attribute.positive.-3", "attribute.romance.-2" ]
+      },
+      "Ah who cares about the weather.": {
+        "req": [ "responseTag.nice_day" ],
+        "lead to": [ "attribute.friend.-4", "attribute.positive.-2", "attribute.affinity.-1" ]
+      }
+    },
+    "negative+": {
+      "How I'm doing is none of your business.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.-5", "attribute.positive.-3", "attribute.romance.-3", "attribute.disgust.6" ]
+      },
+      "I was doing good until you started blabbing.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.-3", "attribute.positive.-2", "attribute.romance.-1", "attribute.disgust.4", "attribute.negative.5" ]
+      },
+      "Not to be rude but I don't have time to talk about the weather.": {
+        "req": [ "responseTag.nice_day" ],
+        "lead to": [ "attribute.friend.-5", "attribute.positive.-4", "attribute.negative.5", "attribute.disgust.6" ]
+      },
+      "negative+ test 3": {
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.-20" ]
+      }
+    }
+  },
+
+  "SingleRooms_statement": {
+    "neutral": {
+      "Welcome to the village of Biggs.": {
+        "req": [ "Location.Town" ],
+        "lead to": []
+      },
+      "The village of Biggs is a small settlement on the outskirts of Gringor's forest.": {
+        "req": ["Location.Town"],
+        "lead to": [ "SingleRooms_statement.village_a1" ]
+      },
+      "Grigor the founder of this region and the first Burgermeister of the neighboring villages.": {
+        "req": [ "village_a1" ],
+        "lead to": [ "SingleRooms_statement.village_a2" ]
+      },
+      "There is a lot of histroy here... Oh, I'm rambling.  Sorry about that.": {
+        "req": [ "village_a2" ],
+        "lead to": []
+      },
+      "The village of Biggs is a quiet, quaint village.": {
+        "req": ["Location.Town"],
+        "lead to": ["SingleRooms_statement.village_b1"]
+      },
+      "We are a simple people that believe in hard work and living a meager life.": {
+        "req": ["village_b1"],
+        "lead to": ["SingleRooms_statement.village_b2"]
+      },
+      "The world is a chaotic place, but things are pretty quiet here.": {
+        "req": ["village_b1"],
+        "lead to": ["SingleRooms_statement.village_b2"]
+      },
+      "We have a general store run by Dan and Albrecht is Biggs's Black Smith.": {
+        "req": ["village_b2"],
+        "lead to": []
+      },
+      "The Town Center is always busy.  People come here to barder and socialize": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "There is always something to see and do in the Town Center.  If you have time, you should browse through some of the shops.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "I love to hangout in the Town Center.  It's where the action is.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "I like visiting the Town Center but it can give me a headache if I stay too long.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "Dan's General Store is a bit pricy, but he has the corner on the market.  I always end up here.": {
+        "req": [ "Location.Town.store" ],
+        "lead to": []
+      },
+      "You can find a lot of neat thing here.  It's easy to spend too much money.": {
+        "req": [ "Location.Town.store" ],
+        "lead to": []
+      },
+      "This is Albrecht's Black Smith Shop. He make all sorts of goods like nail, pots, hinges, hoes, and hooks.": {
+        "req": [ "Location.Town.Black_Smith" ],
+        "lead to": ["SingleRooms_statement.Smith_a1"]
+      },
+      "Every home and business in this village is held together by his craftsmanship.": {
+        "req": [ "Smith_a1"  ],
+        "lead to": []
+      },
+      "This is the residence of Lerin. She is a powerful sorceress.": {
+        "req": [ "Location.Town.Lerin"  ],
+        "lead to": []
+      },
+      "Laffite lives here. She is warrior at heart.": {
+        "req": [ "Location.Town.Laffite"  ],
+        "lead to": []
+      },
+      "The Forest can be a dangerous place.  Be carful.": {
+        "req": [ "Location.Forest"  ],
+        "lead to": []
+      },
+      "I've seen some pretty horrible monsters scuttling about.  It's best to be on your guard.": {
+        "req": [ "Location.Forest"  ],
+        "lead to": []
+      },
+      "This is a old forest that is not often disturbed.  Most townsfolk are much too afraid to venture here.": {
+        "req": [ "Location.Forest"  ],
+        "lead to": []
+      },
+      "There is something majestic about the forest. I can feel nature all around me.": {
+        "req": [ "Location.Forest"  ],
+        "lead to": []
+      }
+
+    },
+    "romance": {
+      "I'm just so gald you're here in the village of Biggs with me.": {
+        "req": [ "Location.Town" ],
+        "lead to": []
+      },
+      "You know this village wasn't always this big.": {
+        "req": [ "Location.Town" ],
+        "lead to": [ "SingleRooms_statement.village_a1" ]
+      },
+      "When I was young, it was half of the size, but people seem to keep wandering in.": {
+        "req": [ "village_a1" ],
+        "lead to": [ "SingleRooms_statement.village_a2" ]
+      },
+      "I used to worry about all of the strangers coming here, but meeting you has changed my outlook on it.": {
+        "req": [ "village_a2" ],
+        "lead to": []
+      },
+      "The village usually is a quiet and quaint.": {
+        "req": [ "Location.Town" ],
+        "lead to": [ "SingleRooms_statement.village_b1" ]
+      },
+      "It is a nice escape from the crazy world out there and now I would even say it's a paradise.": {
+        "req": [ "village_b1" ],
+        "lead to": [ "SingleRooms_statement.village_b2" ]
+      },
+      "We have everything we need here including ... each other.": {
+        "req": [ "village_b2" ],
+        "lead to": []
+      },
+      "The Town Center is always busy with people. I better not catch your eyes wandering.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "There is always something to see and do in the Town Center.  Maybe we should go on a date sometime.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "I love coming to the Town Center with you.  It's always so much fun.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "Dan's General Store is a bit pricy is the best place to shop.": {
+        "req": [ "Location.Town.store" ],
+        "lead to": []
+      },
+      "Albrecht is the owner of this Black Smith Shop. He's a real strong guy. Ohh, I don't want to get you jealous.": {
+        "req": [ "Location.Town.Black_Smith" ],
+        "lead to": []
+      },
+      "What are you doing here? This is Lerin's house. She is a powerful and annoyingly beautiful sorceress. You should leave this place.  No need to see her.": {
+        "req": [ "Location.Town.Lerin" ],
+        "lead to": []
+      },
+      "Laffite lives here. Why are you at this woman's house?": {
+        "req": [ "Location.Town.Laffite" ],
+        "lead to": []
+      },
+      "The Forest can be a dangerous place. Please be careful. I don't know what I'd do if something happened to you.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      },
+      "I need my hero to protect me in this dangerous place.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      }
+    },
+    "friend": {
+      "Welcome to the village of Biggs, I'm glad you're here.": {
+        "req": [ "Location.Town" ],
+        "lead to": []
+      },
+      "Let me tell you a little bit about this place. The village of Biggs lies right outside of Gringor's forest.": {
+        "req": [ "Location.Town" ],
+        "lead to": [ "SingleRooms_statement.village_a1" ]
+      },
+      "The forest houses all sorts of vile creatures but also provides resources for the community.": {
+        "req": [ "village_a1" ],
+        "lead to": [ "SingleRooms_statement.village_a2" ]
+      },
+      "Most people are too afraid to go in there.  If you are brave enough to go in there, I bet you can make a few bucks.": {
+        "req": [ "village_a2" ],
+        "lead to": []
+      },
+      "Biggs can be a little quiet at times even a little boring. ": {
+        "req": [ "Location.Town" ],
+        "lead to": [ "SingleRooms_statement.village_b1" ]
+      },
+      "Having good friends around always livens things up.": {
+        "req": [ "village_b1" ],
+        "lead to": [ "SingleRooms_statement.village_b2" ]
+      },
+      "Hey, Hey, Look whose made it to the Town Center.  Come enjoy and socialize.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "There is always something to see and do in the Town Center.  You check out some of the shops around here. There is always hidden treasures to be found.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "You know, I just love hanging out in the Town Center.  It makes me feel so alive.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "Have you ever shopped here at Dan's General Store? It is the cornerstone of the market place.": {
+        "req": [ "Location.Town.store" ],
+        "lead to": []
+      },
+      "Please stop me if you see me start to buy a lot of stuff.  It's almost magic how easily I spend money when I'm here.": {
+        "req": [ "Location.Town.store" ],
+        "lead to": []
+      },
+      "This is Albrecht's Black Smith Shop. The ladies tend to like him on account of his bulging muscles and flowing hair.": {
+        "req": [ "Location.Town.Black_Smith" ],
+        "lead to": [ "SingleRooms_statement.Smith_a1" ]
+      },
+      "I like him okay, he can be a bit stiff though and his craftsmanship is nice.": {
+        "req": [ "Smith_a1" ],
+        "lead to": []
+      },
+      "Hey, Be careful here. I don't want you getting in trouble out here.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      },
+      "I know you're tough but it's best to be on your guard.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      }
+    },
+    "respect": {
+      "It is an honor to have you here in the village of Biggs.": {
+        "req": [ "Location.Town" ],
+        "lead to": []
+      },
+      "The Town Center is the heart of Biggs. Please stay and enjoy yourself.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "If there is anything that you need, the Town Center is the place to look.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "I like visiting the Town Center. I hope that you are enjoying yourself as well.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "If you are looking to shop you have choosen the best. Dan's General Store is a must when shoping in Biggs.": {
+        "req": [ "Location.Town.store" ],
+        "lead to": []
+      },
+      "This is Albrecht's Black Smith Shop. He is a master at his craft.": {
+        "req": [ "Location.Town.Black_Smith" ],
+        "lead to": [ "SingleRooms_statement.Smith_a1" ]
+      },
+      "I bet the two of you would get along nicely.": {
+        "req": [ "Smith_a1" ],
+        "lead to": []
+      },
+      "This is Laffite's home. She is warrior and can be a cold at first, but is kind and considerate when you get to know her.": {
+        "req": [ "Location.Town.Laffite" ],
+        "lead to": []
+      },
+      "The Forest can be a dangerous place. Luckily we have an adventurer as skilled as you here.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      },
+      "It's best to be on our guard when traveling in Gringor's Forest.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      },
+      "This forest is home to some dasterly creatures but also life sustaining resources. It is not safe here, but I'm sure you can handle yourself.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      }
+    },
+    "affinity": {
+      "It's a pleasure to have you here in the village of Biggs with me.": {
+        "req": [ "Location.Town" ],
+        "lead to": []
+      },
+      "The Town Center of Biggs is where the action is at. I love action, hehehe.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "The Town Center can be a lot of fun. There are many things to do and facinating people like yourself to talk to.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "I like visiting people in the Town Center and just talk about nothing. Like now, isn't this fun?": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "Dan's General Store is a where I go to shoping in Biggs. You should take a look around and maybe buy someone special a gift.": {
+        "req": [ "Location.Town.store" ],
+        "lead to": []
+      },
+      "This is the Black Smith Shop. It is kind of grimy in here.": {
+        "req": [ "Location.Town.Black_Smith" ],
+        "lead to": [ "SingleRooms_statement.Smith_a1" ]
+      },
+      "But Albrecht, the owner is a nice guy.  I pop in from time-to-time.": {
+        "req": [ "Smith_a1" ],
+        "lead to": []
+      },
+      "This is Laffite's home. She can be a little bit scary.": {
+        "req": [ "Location.Town.Laffite" ],
+        "lead to": []
+      },
+      "This is Lerin the sorceress's home. I think it best if we left here and go look around the Town Center.": {
+        "req": [ "Location.Town.Lerin" ],
+        "lead to": []
+      },
+      "The Forest can be a dangerous place. You are brave to venture out here.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      },
+      "It's a good thing you are so strong because it is easy to get into trouble here.  Be careful.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      }
+    },
+    "disgust": {
+      "This is the village of Biggs. Enough said.": {
+        "req": [ "Location.Town" ],
+        "lead to": []
+      },
+      "The Town Center of Biggs is the hub. Why don't you go look around instead of bothering me.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "The Town Center can be a lot of fun, but please go have fun over there.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "I like socializing with some of the people in the Town Center. You are not one of them.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "Dan's General Store is a where I go to shoping in Biggs. Some how I doubt you have any money.": {
+        "req": [ "Location.Town.store" ],
+        "lead to": []
+      },
+      "This is Albrecht, the Black Smith, Shop. He is a master craftsman and popular with the ladies too.": {
+        "req": [ "Location.Town.Black_Smith" ],
+        "lead to": [ "SingleRooms_statement.Smith_a1" ]
+      },
+      "I bet you aren't.  You probably couldn't get a dog to follow you if you bribed it with a steak.": {
+        "req": [ "Smith_a1" ],
+        "lead to": []
+      },
+      "This is Laffite's home and she doesn't like trustpassers.": {
+        "req": [ "Location.Town.Laffite" ],
+        "lead to": []
+      },
+      "The Forest can be a dangerous place if you're dense in the head. I would say it's very dangerous for you.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      },
+      "There are a lot of dangerous monsters here. Perhaps you should go talk to one of them instead?": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "This is the village of Biggs, you should probably go back to where you came from.": {
+        "req": [ "Location.Town" ],
+        "lead to": []
+      },
+      "The Town Center of Biggs has many people to talk to, so do me a favor and talk to someone else.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "Why do I always have to run into someone like you here.  Do me a favor and get lost!": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "Would you just LEAVE ME ALONE!": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "Dan's General Store is the place to shoping but I'd rather go somewhere else then be in the same building as you.": {
+        "req": [ "Location.Town.store" ],
+        "lead to": []
+      },
+      "This is Albrecht, the Black Smith, Shop. I have a high respect for him.": {
+        "req": [ "Location.Town.Black_Smith" ],
+        "lead to": [ "SingleRooms_statement.Smith_a1" ]
+      },
+      "I'm surprised the lets vermin in like you.": {
+        "req": [ "Smith_a1" ],
+        "lead to": []
+      },
+      "The Forest can be a dangerous place. Please pick a direction and get lost.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      },
+      "Good, you're here.  Perhaps you'll get eaten or something.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      }
+    },
+    "rivalry": {
+      "This is the village of Biggs. Just know that I'm top-dog around here": {
+        "req": [ "Location.Town" ],
+        "lead to": []
+      },
+      "The Town Center of Biggs has many people to talk to, though I bet you don't have many friends.  Not as many as me, anyway.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "Hey, hey, if it isn't my favorite loser.  How's the Town Center treating you?  If it's anything like you smell, then not good.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "This Dan's General Store. It's the best place to shop in the village of Biggs, that is if you have any money. Hahaha!": {
+        "req": [ "Location.Town.store" ],
+        "lead to": []
+      },
+      "This is Albrecht, the Black Smith, Shop. He can work magic with iron.": {
+        "req": [ "Location.Town.Black_Smith" ],
+        "lead to": [ "SingleRooms_statement.Smith_a1" ]
+      },
+      "To bad he can't do anything for that face of yours.": {
+        "req": [ "Smith_a1" ],
+        "lead to": []
+      },
+      "The Forest can be a dangerous place. You better stay behind me. I'll die if you go out there alone.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      },
+      "You better go back to town and play with your toys, you're not strong enough to be here.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      }
+    }
+  },
+  "SingleRooms_question": {
+    "neutral": {
+      "How are you liking the village of Biggs so far?": {
+        "req": ["Location.Town"],
+        "lead to": ["response.like_town"]
+      },
+      "What do you think of the village?": {
+        "req": [ "Location.Town" ],
+        "lead to": [ "response.like_town" ]
+      },
+      "Everything we need is close by. This is a nice place to live don't you think?": {
+        "req": [ "Location.Town" ],
+        "lead to": [ "response.like_town" ]
+      },
+      "How do you like the Town Center.": {
+        "req": ["Location.Town.Town_Center"],
+        "lead to": ["response.like_town_center"]
+      },
+      "Isn't the Town Center the best place in Biggs?": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": [ "response.like_town_center" ]
+      },
+      "I bet you love to shop.  How do you like Dan's General Store? It's great isn't it?": {
+        "req": ["Location.Town.Dans"],
+        "lead to": ["response.like_store"]
+      },
+      "What do you think of Albrecht's Blacksmith shop?": {
+        "req": ["Location.Town.Black_Smith"],
+        "lead to": ["response.like_blacksmith"]
+      },
+      "Have you gone to the forest yet?": {
+        "req": ["Location.Town"],
+        "lead to": ["response.entered_forest"]
+      }
+    },
+    
+    "disgust": {
+      "What do you think of the town, you know what, don't answer that.": {
+        "req": [ "Location.Town" ],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "Would you go away?": {
+        "req": [],
+        "lead to": ["end_conversation"]
+      }
+    }
+  },
+  "SingleRooms_response": {
+    "positive+": {
+      "I really enjoy Biggs. The people here are really nice.": {
+        "req": [ "responseTag.like_town" ],
+        "lead to": [ "attribute.friend.3", "attribute.respect.1","attribute.positive.2", "attribute.romance.1" ]
+      },
+      "There is so much to see and do, how can I not love it?": {
+        "req": [ "responseTag.like_town_center" ],
+        "lead to": [ "attribute.friend.3", "attribute.respect.1", "attribute.positive.2", "attribute.romance.1" ]
+      },
+      "It is an excellent place to shop": {
+        "req": [ "responseTag.like_store" ],
+        "lead to": [ "attribute.friend.3", "attribute.respect.1", "attribute.positive.2", "attribute.affinity.1" ]
+      },
+      "The craftsmanship on the goods lining the shelves says more than I can say.": {
+        "req": [ "responseTag.like_blacksmith" ],
+        "lead to": [ "attribute.friend.3", "attribute.respect.1", "attribute.positive.2", "attribute.affinity.1" ]
+      },
+      "Oh yes.  It is a dangerous place that one can't be to careful entering.": {
+        "req": [ "responseTag.entered_forest" ],
+        "lead to": [ "attribute.disgust.-5", "attribute.respect.1", "attribute.positive.2", "attribute.hate.-5" ]
+      }
+    },
+    "positive": {
+      "The village of Biggs is nice and has a lovely, peaceful community.": {
+        "req": [ "responseTag.like_town" ],
+        "lead to": [ "attribute.friend.2", "attribute.respect.1", "attribute.positive.2" ]
+      },
+      "The Town Center is the perfect place to shop and converse with those you care about.": {
+        "req": [ "responseTag.like_town_center" ],
+        "lead to": [ "attribute.respect.2", "attribute.positive.2", "attribute.romance.2" ]
+      },
+      "It has everything I need.": {
+        "req": [ "responseTag.like_store" ],
+        "lead to": [ "attribute.friend.2", "attribute.respect.1", "attribute.positive.2" ]
+      },
+      "This place has very impressive works. I see why everyone likes it so much.": {
+        "req": [ "responseTag.like_blacksmith" ],
+        "lead to": [ "attribute.friend.3", "attribute.positive.2" ]
+      },
+      "I have. I've heeded the warnings I've heard and made it out safely.": {
+        "req": [ "responseTag.entered_forest" ],
+        "lead to": [ "attribute.disgust.-3", "attribute.rivalry.-3", "attribute.positive.1", "attribute.hate.-3" ]
+      }
+    },
+    "neutral": {
+      "It's a little small but is a nice village nonetheless.": {
+        "req": [ "responseTag.like_town" ],
+        "lead to": [ "attribute.respect.1", "attribute.positive.1" ]
+      },
+      "The Town Center is great but can be a bit busy.": {
+        "req": [ "responseTag.like_town_center" ],
+        "lead to": [ "attribute.respect.2" ]
+      },
+      "It's a great place for nik-naks.": {
+        "req": [ "responseTag.like_store" ],
+        "lead to": [ "attribute.positive.1" ]
+      },
+      "It's a useful shop.": {
+        "req": [ "responseTag.like_blacksmith" ],
+        "lead to": [ "attribute.positive.2" ]
+      },
+      "I have. I used my senses as an adventurer to make it through.": {
+        "req": [ "responseTag.entered_forest" ],
+        "lead to": [ "attribute.romance.2" ]
+      }
+    },
+    "negative": {
+      "The village of Biggs kind of boring.": {
+        "req": [ "responseTag.like_town" ],
+        "lead to": [ "attribute.negative.4", "attribute.positive.-2" ]
+      },
+      "The Town Center is kind of dead. The towns too small to have anything of interest there.": {
+        "req": [ "responseTag.like_town_center" ],
+        "lead to": [ "attribute.respect.-2", "attribute.positive.-3", "attribute.disgust.2","attribute.negative.2" ]
+      },
+      "Everything is sooo over priced and the vegetables are rotting.": {
+        "req": [ "responseTag.like_store" ],
+        "lead to": [ "attribute.respect.-3", "attribute.negative.4" ]
+      },
+      "There are a lot of great things here if you're into fire pokers and frying pans.": {
+        "req": [ "responseTag.like_blacksmith" ],
+        "lead to": [ "attribute.friend.-3", "attribute.negative.4" ]
+      },
+      "I have. It was easy with my expert skill.": {
+        "req": [ "responseTag.entered_forest" ],
+        "lead to": [ "attribute.disgust.3", "attribute.rivalry.3", "attribute.romance.3", "attribute.hate.3" ]
+      }
+    },
+    "negative+": {
+      "The village of Biggs is a dump.": {
+        "req": [ "responseTag.like_town" ],
+        "lead to": [ "attribute.negative.8", "attribute.positive.-4" ]
+      },
+      "There isn't anything worth seeing or anyone worth talking to in the Town Center.": {
+        "req": [ "responseTag.like_town_center" ],
+        "lead to": [ "attribute.positive.-4", "attribute.negative.8" ]
+      },
+      "That place isn't worth my time.": {
+        "req": [ "responseTag.like_store" ],
+        "lead to": [ "attribute.respect.-5", "attribute.negative.5","attribute.friend.-4" ]
+      },
+      "Albrecht isn't great, he can't even make weapons or armor. He's probably just a muscly idiot.": {
+        "req": [ "responseTag.like_blacksmith" ],
+        "lead to": [ "attribute.friend.-3", "attribute.negative.4","attribute.affinity.-4", "attribute.romance.-3" ]
+      },
+      "That place is child's play compared to my skills.  People around here are just weak!": {
+        "req": [ "responseTag.entered_forest" ],
+        "lead to": [ "attribute.disgust.5", "attribute.rivalry.5", "attribute.romance.3", "attribute.hate.5" ]
+      }
+    }
+  },
+
+
+  "HistoryLessons_statement": {
     "neutral": {
       " neutral test 0": {
         "req": [],
@@ -90,24 +945,6 @@
         "lead to": []
       }
     },
-    "professional": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
     "disgust": {
       "disgust test 0": {
         "req": [],
@@ -163,7 +1000,7 @@
       }
     }
   },
-  "sample01_question": {
+  "HistoryLessons_question": {
     "neutral": {
       " neutral test 0": {
         "req": [],
@@ -254,24 +1091,6 @@
         "lead to": []
       }
     },
-    "professional": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
     "disgust": {
       "disgust test 0": {
         "req": [],
@@ -327,7 +1146,7 @@
       }
     }
   },
-  "sample01_response": {
+  "HistoryLessons_response": {
     "positive+": {
       "positive+ test 0": {
         "req": [ "responseTag.tag1" ],
@@ -420,7 +1239,7 @@
     }
   },
 
-  "sample02_statement": {
+  "PeopleInTown_statement": {
     "neutral": {
       " neutral test 0": {
         "req": [],
@@ -584,7 +1403,7 @@
       }
     }
   },
-  "sample02_question": {
+  "PeopleInTown_question": {
     "neutral": {
       " neutral test 0": {
         "req": [],
@@ -748,7 +1567,7 @@
       }
     }
   },
-  "sample02_response": {
+  "PeopleInTown_response": {
     "positive+": {
       "positive+ test 0": {
         "req": [ "responseTag.tag1" ],
@@ -840,5 +1659,6 @@
       }
     }
   }
+
 
 }

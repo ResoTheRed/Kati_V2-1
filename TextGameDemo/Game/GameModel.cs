@@ -59,7 +59,12 @@ namespace TextGameDemo.Game {
             string options = "";
             bool continuePlaying = true;
             if (CharactersInRoom.Count > 0) {
-                options += "[T|t] talk to person(s) in room\n";
+                options += "[T|t] talk to person(s) in room\n\t";
+                foreach (Character c in CharactersInRoom) {
+                    options += c.Name+", ";
+                }
+                options = options.Remove(options.Length - 2);
+                options += "\n";
             }
             options += "[M|m] move to a new location\n";
             options += "[I|i] display Player inventory and status\n";
