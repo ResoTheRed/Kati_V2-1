@@ -1,3 +1,1880 @@
 {
+  "Greeting_statement": {
+    "neutral": {
+      "Good day.": {
+        "req": [ "game.time.not.isNight" ],
+        "lead to": []
+      },
+      "Good evening.": {
+        "req": [ "game.time.isNight" ],
+        "lead to": []
+      }
+    },
+    "romance": {
+      "Hello #player_name#.  #art_blush#": {
+        "req": [],
+        "lead to": []
+      },
+      "It is a makes me soo happy seeing you.": {
+        "req": [],
+        "lead to": []
+      },
+      "Hello my love.": {
+        "req": [ "player.social.dating" ],
+        "lead to": []
+      }
+    },
+    "friend": {
+      "Hello #player_name#.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "affinity": {
+      "Nice to see you. I'm glad you're here": {
+        "req": [],
+        "lead to": []
+      },
+      "What do I owe this pleasure.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "disgust": {
+      "I'm busy and don't have time to talk.": {
+        "req": [],
+        "lead to": []
+      },
+      "#player_name#": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "I'm not interested in speaking to you.": {
+        "req": [],
+        "lead to": []
+      },
+      "Please leave": {
+        "req": [],
+        "lead to": []
+      },
+      "I have no business with you.": {
+        "req": [],
+        "lead to": [ "end_conversation" ]
+      },
+      "I do not wish to associate with you.": {
+        "req": [],
+        "lead to": [ "end_conversation" ]
+      }
+    },
+    "rivalry": {
+      "#player_name#.": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+  "Greeting_question": {
+    "neutral": {
+      "What can I do for you?": {
+        "req": [],
+        "lead to": []
+      },
+      "Nice day isn't it?": {
+        "req": [ "game.weather.nice_day" ],
+        "lead to": [ "response.weather.nice_day" ]
+      }
+    },
+    "romance": {
+      "How are you today?": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      },
+      "Aren't you glad to see me?": {
+        "req": [],
+        "lead to": [ "response.love_me" ]
+      },
+      "Well do you notice anything?": {
+        "req": [],
+        "lead to": [ "response.love_me_looks" ]
+      },
+      "How do I look?": {
+        "req": [],
+        "lead to": [ "response.love_me_looks" ]
+      }
+    },
+    "friend": {
+      "How's are things?": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      },
+      "How're you doing?": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      },
+      "I'm trying a new hairstyle.  What do you think?": {
+        "req": [],
+        "lead to": [ "response.love_me_hair" ]
+      }
+    },
+    "affinity": {
+      "You are looking good.  How are you?": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      },
+      "affinity": {
+        "How do you like my hair?": {
+          "req": [],
+          "lead to": [ "response.love_me_hair" ]
+        }
+
+      },
+      "disgust": {
+        "What do you want from me?": {
+          "req": [],
+          "lead to": []
+        }
+      },
+      "hate": {
+        "Why are you bothering me?": {
+          "req": [],
+          "lead to": []
+        }
+      },
+      "rivalry": {
+        "You don't seem to be doing as good as I am.  How are you anyway?": {
+          "req": [],
+          "lead to": [ "response.status" ]
+        }
+      }
+    }
+  },
+  "Greeting_response": {
+    "positive+": {
+      "I'm doing excellent!": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.4", "attribute.positive.2" ]
+      },
+      "I'm great, especially with you as my company.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.2", "attribute.romance.3", "attribute.positive.3" ]
+      },
+      "It is a wonderful day. I'm glad I can share this moment with you.": {
+        "req": [ "responseTag.nice_day" ],
+        "lead to": [ "attribute.friend.1", "attribute.romance.4", "attribute.affinity.1", "attribute.positive.2" ]
+      },
+      "I can't think of anyone else I'd rather be with.": {
+        "req": [ "responseTag.love_me" ],
+        "lead to": [ "attribute.romance.6", "attribute.affinity.2", "attribute.positive.2" ]
+      },
+      "You are unspeakably beutiful. Like a fragrant flower blossoming in the midst of snow.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.romance.6", "attribute.affinity.1", "attribute.positive.3" ]
+      },
+      "Lerin, your beuty is unparallel. You blonde flowing hair, your soft glowing skin, and your deep blue eyes are a spell on there own.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.romance.7", "attribute.affinity.1", "attribute.positive.2" ]
+      },
+      "Your hair is perfectly beutifuy to me. It is wonderful.": {
+        "req": [ "responseTag.love_me_hair" ],
+        "lead to": [ "attribute.romance.6", "attribute.affinity.2", "attribute.positive.1" ]
+      }
+    },
+    "positive": {
+      "I'm wonderful. You are looking to as vibrant as ever.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.1", "attribute.affinity.2", "attribute.positive.3" ]
+      },
+      "I'm doing great. Thank you for asking.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.3", "attribute.positive.2" ]
+      },
+      "It's a beutiful day with good company. Who can complain?": {
+        "req": [ "responseTag.nice_day" ],
+        "lead to": [ "attribute.friend.1", "attribute.positive.4" ]
+      },
+      "I'm always glad to be with you.": {
+        "req": [ "responseTag.love_me" ],
+        "lead to": [ "attribute.romance.2", "attribute.affinity.2", "attribute.positive.3", "attribute.disgust.-2" ]
+      },
+      "You are very lovely in that outfit. You are almost like a living portrait.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.romance.3", "attribute.hate.-1", "attribute.disgust.-1", "attribute.positive.3" ]
+      },
+      "You are the envy of all of the women in town.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.romance.2", "attribute.affinity.1", "attribute.positive.3" ]
+      },
+      "Your hair is perfect. I won't change a thing": {
+        "req": [ "responseTag.love_me_hair" ],
+        "lead to": [ "attribute.romance.4", "attribute.disgust.-2", "attribute.hate.-2" ]
+      }
+    },
+    "neutral": {
+      "Life is good. I like to keep things positive.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.positive.2" ]
+      },
+      "I'm alright. Thanks.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.positive.1", "attribute.affinity.1" ]
+      },
+      "I agree, it is a lovely day.": {
+        "req": [ "responseTag.nice_weather" ],
+        "lead to": [ "attribute.friend.1", "attribute.positive.1" ]
+      },
+      "I sure am.": {
+        "req": [ "responseTag.love_me" ],
+        "lead to": [ "attribute.friend.1", "attribute.positive.1", "attribute.negative.-1" ]
+      },
+      "You look great. You always look great.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.negative.-1", "attribute.positive.2" ]
+      },
+      "You look real nice.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.positive.1" ]
+      },
+      "Your hair, I love it.": {
+        "req": [ "responseTag.love_me_hair" ],
+        "lead to": [ "attribute.negative.-2" ]
+      }
+    },
+    "negative": {
+      "Yeah, I'm good or whatever.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.positive.-2", "attribute.professional.-2", "attribute.respect.-1", "attribute.romance.-2" ]
+      },
+      "I'm good, not that you care.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.-2", "attribute.positive.-3", "attribute.romance.-2" ]
+      },
+      "Ah who cares about the weather.": {
+        "req": [ "responseTag.nice_day" ],
+        "lead to": [ "attribute.friend.-4", "attribute.positive.-2", "attribute.affinity.-1" ]
+      },
+      "Yeah, I've got some time. I might as well spend it with you.": {
+        "req": [ "responseTag.love_me" ],
+        "lead to": [ "attribute.friend.-2", "attribute.affinity.2", "attribute.disgust.3" ]
+      },
+      "You look hot as hell but your hair is a little flat.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.hate.2", "attribute.disgust.4", "attribute.affinity.5" ]
+      },
+      "You look alright I guess.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.friend.-2", "attribute.affinity.5", "attribute.negative.3" ]
+      },
+      "Uhhm, well it looks ... good. Yeah, it's good": {
+        "req": [ "responseTag.love_me_hair" ],
+        "lead to": [ "attribute.affinity.4", "attribute.disgust.2", "attribute.hate.2" ]
+      }
+    },
+    "negative+": {
+      "How I'm doing is none of your business.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.-5", "attribute.positive.-3", "attribute.romance.-3", "attribute.disgust.6" ]
+      },
+      "I was doing good until you started blabbing.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.-3", "attribute.positive.-2", "attribute.romance.-1", "attribute.disgust.4", "attribute.negative.5" ]
+      },
+      "Not to be rude but I don't have time to talk about the weather.": {
+        "req": [ "responseTag.nice_day" ],
+        "lead to": [ "attribute.friend.-5", "attribute.positive.-4", "attribute.negative.5", "attribute.disgust.6" ]
+      },
+      "I don't really care.": {
+        "req": [ "responseTag.love_me" ],
+        "lead to": [ "attribute.romance.-4", "attribute.affinity.4", "attribute.disgust.4", "attribute.negative.4" ]
+      },
+      "I've seen better.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.romance.-1", "attribute.hate.4", "attribute.disgust.4", "attribute.friend.-4", "attribute.affinity.4" ]
+      },
+      "You look almost as good as Lafitte.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.friend.-4", "attribute.affinity.3", "attribute.negative.8" ]
+      },
+      "Meh, it's okay I guess.": {
+        "req": [ "responseTag.love_me_hair" ],
+        "lead to": [ "attribute.friend.-7", "attribute.disgust.-4", "attribute.affinity.3" ]
+      }
+    }
+  },
+
+  "SingleRooms_statement": {
+    "neutral": {
+      "I see you are new here.  This is the village of Biggs if you didn't know that already.": {
+        "req": [ "Location.Town", "play_once" ],
+        "lead to": []
+      },
+      "The village of Biggs is a quaint village.": {
+        "req": [ "Location.Town" ],
+        "lead to": [ "SingleRooms_statement.village_b1" ]
+      },
+      "You should be able to find everything you need here.": {
+        "req": [ "village_b1" ],
+        "lead to": []
+      },
+      "The Town Center is always busy.  I don't like to stay here long.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "I can sometimes find key ingredients for potions here at Dan's General Store.  It's worth the occasional look.": {
+        "req": [ "Location.Town.store" ],
+        "lead to": []
+      },
+      "This is Albrecht's Black Smith Shop. I have special projects for him sometimes.": {
+        "req": [ "Location.Town.Black_Smith" ],
+        "lead to": [ "SingleRooms_statement.Smith_a1" ]
+      },
+      "He never disappoints.": {
+        "req": [ "Smith_a1" ],
+        "lead to": []
+      },
+      "Welcome to my abode.  My name is Lerin. I'm sort of the town sorceresss.": {
+        "req": [ "Location.Town.Lerin" ],
+        "lead to": []
+      },
+      "I'm surprized to see you here. The Gringor forest is dangerous.": {
+        "req": [ "Location.Forest", "play_once" ],
+        "lead to": [ "attribute.affinity.3" ]
+      },
+      "Be on guard. Monserous creatures live out here.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      },
+      "Wow, I'm really impressed to see you here. Not even Sir Benjamin comes out this far.  There must be something to you.": {
+        "req": [ "Location.Cave", "play_once" ],
+        "lead to": [ "attribute.affinity.8", "attribute.positive.3" ]
+      },
+      "I trust you are skilled adventurer to make it out here. Nevertheless, its prudent to use extreme caution here.": {
+        "req": [ "Location.Cave" ],
+        "lead to": []
+      },
+      "There is a magic aura here that doesn't exist in the forest.": {
+        "req": [ "Location.Cave" ],
+        "lead to": []
+      }
+
+    },
+    "romance": {
+      "#player_name#, I'm glad you're here in the village of Biggs with me.": {
+        "req": [ "Location.Town" ],
+        "lead to": [ "SingleRooms_statement.village_p1" ]
+      },
+      "I never would have guessed it you would have had such an impact on my life.": {
+        "req": [ "Location.Town", "village_p1" ],
+        "lead to": [ "SingleRooms_statement.village_p2" ]
+      },
+      "#art_blush# Now that I know you, I can never go back.": {
+        "req": [ "Location.Town", "village_p2" ],
+        "lead to": []
+      },
+      "I first came to this village to study the magical emissions in the Crystal Cave.": {
+        "req": [ "Location.Town" ],
+        "lead to": [ "SingleRooms_statement.village_a1" ]
+      },
+      "My research was not very fruitful and for a little while I regreted coming to this place.": {
+        "req": [ "village_a1" ],
+        "lead to": [ "SingleRooms_statement.village_a2" ]
+      },
+      "I knew there was a reason felt led to come here. Now I know what it is.": {
+        "req": [ "village_a2" ],
+        "lead to": []
+      },
+      "I'll be honest with you. I don't really like this place.": {
+        "req": [ "Location.Town" ],
+        "lead to": [ "SingleRooms_statement.village_b1" ]
+      },
+      "It's to small and quiet. I'm a city girl, that loves to travel and adventure.": {
+        "req": [ "village_b1" ],
+        "lead to": [ "SingleRooms_statement.village_b2" ]
+      },
+      "Maybe you can come to Vizameer or Titania with me. I wouldn't want to leave without you.": {
+        "req": [ "village_b2" ],
+        "lead to": []
+      },
+      "The Town Center is always busy, but not is a good way. Everything is always the same, with the same people always talking about the same gossip..": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "I wish there was somewhere nice that we can go. Maybe, I can cook you a nice meal sometime.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "#art_fussy# Hey, don't laugh. I can cook. #new_textbox# #art_blush# I have many talents that you don't know about yet.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "It's a constant struggle for the people here to survive. I feel like I can help them more. ": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": [ "SingleRooms_statement.toggle_a1" ]
+      },
+      "I don't care for the village, but I can't just leave. Besides you're here. That's all of the incentive I need to stay.": {
+        "req": [ "Location.Town.Town_Center", "toggle_a1" ],
+        "lead to": []
+      },
+      "Sometimes, if I'm lucky, I can find some useful items. It's not too often though.": {
+        "req": [ "Location.Town.store" ],
+        "lead to": []
+      },
+      "Albrecht is an okay blacksmith. I get him to make some odds and ends for me occasionally.": {
+        "req": [ "Location.Town.Black_Smith" ],
+        "lead to": [ "SingleRooms_statement.toggle_b1" ]
+      },
+      "I want you to know that he is in love with me.  But, I'm not in love with him. It's one sided. ": {
+        "req": [ "Location.Town.Black_Smith", "toggle_b1" ],
+        "lead to": [ "SingleRooms_statement.toggle_b2" ]
+      },
+      "#art_blush# There is someone else who won my heart.  #new_textbox# #art_blush# You.": {
+        "req": [ "Location.Town.Black_Smith", "toggle_b2" ],
+        "lead to": []
+      },
+      "You're finally here. I was missing you.": {
+        "req": [ "Location.Town.Lerin" ],
+        "lead to": []
+      },
+      "Laffite lives here. Don't do anything that you'd regret.": {
+        "req": [ "Location.Town.Laffite" ],
+        "lead to": []
+      },
+      "The Forest can be a dangerous place. Please be careful. I don't know what I'd do if something happened to you.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      },
+      "#art_blush# Oh deary me. What ever will I do. #new_textbox# #art_laugh# I need my hero to protect me in this dangerous place.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      }
+    },
+    "friend": {
+      "This village lies right outside of Gringor's forest in the region of Elvor.": {
+        "req": [ "Location.Town" ],
+        "lead to": [ "SingleRooms_statement.village_a1" ]
+      },
+      "For some reason, the wildlife in the area are being transmuted into monsterous creatures. It's especially effective on plants and insects.": {
+        "req": [ "village_a1" ],
+        "lead to": [ "SingleRooms_statement.village_a2" ]
+      },
+      "I've been studying it with very little headway. #new_textbox# Don't talk about this to the townsfolk, they are very supersticious.": {
+        "req": [ "village_a2" ],
+        "lead to": []
+      },
+      "Biggs is a little a little boring, though I enjoy talking with you. ": {
+        "req": [ "Location.Town" ],
+        "lead to": []
+      },
+      "Have you ever shopped here at Dan's General Store? It is there are some good finds here from time to time.": {
+        "req": [ "Location.Town.store" ],
+        "lead to": []
+      },
+      "This is Albrecht's Black Smith Shop. He's very good with his hands. He can make almost anything.": {
+        "req": [ "Location.Town.Black_Smith" ],
+        "lead to": []
+      },
+      "You should use caution out here.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      }
+    },
+    "affinity": {
+      "It's a pleasure to have you here in the village of Biggs with me. It's much nicer with you around.": {
+        "req": [ "Location.Town" ],
+        "lead to": []
+      },
+      "The Town Center of Biggs is where the action is at though I'd rather be on the road or in my home reaserching. Perhaps you can visit me there some day.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "I generaly don't like hanging out in the Town Center. I guess I don't like to socialize too much.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "I tend to go to Dan's General Store when I need something, but I can't always find it. If you ever need anything and it isn't here, you should come visit me.  I might be able to help you.": {
+        "req": [ "Location.Town.store" ],
+        "lead to": []
+      },
+      "#player_name#, this is Albrecht's Black Smith Shop.": {
+        "req": [ "Location.Town.Black_Smith" ],
+        "lead to": [ "SingleRooms_statement.Smith_a1" ]
+      },
+      "Albrecht is a nice guy and not too bad a smith.": {
+        "req": [ "Smith_a1" ],
+        "lead to": []
+      },
+      "This is Laffite's home. You don't need to hang around here.": {
+        "req": [ "Location.Town.Laffite" ],
+        "lead to": []
+      },
+      "Welcome. It's so nice of you to drop by.": {
+        "req": [ "Location.Town.Lerin" ],
+        "lead to": []
+      },
+      "I'm sure you are competent in youyr abilities, but please use caution out here.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      },
+      "Be careful.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      },
+      "This is a dangerous place. Be careful": {
+        "req": [ "Location.Cave" ],
+        "lead to": []
+      }
+    },
+    "disgust": {
+      "I'm busy. Please leave me alone.": {
+        "req": [ "Location.Town" ],
+        "lead to": []
+      },
+      "This is no place for a townsman.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      },
+      "You shouldn't be here.  Go back to town now!": {
+        "req": [ "Location.Cave" ],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "Go away.": {
+        "req": [ "Location.Town" ],
+        "lead to": []
+      },
+      "Would you just LEAVE ME ALONE!": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": []
+      },
+      "I don't know who you are trying to impress. You're not impressing me by being out here.  It only shows that you are an idiot.": {
+        "req": [ "Location.Forest" ],
+        "lead to": []
+      }
+    }
+  },
+  "SingleRooms_question": {
+    "neutral": {
+      "What do you think of the village?": {
+        "req": [ "Location.Town" ],
+        "lead to": [ "response.like_town" ]
+      },
+      "How do you like the Town Center.": {
+        "req": [ "Location.Town.Town_Center" ],
+        "lead to": [ "response.like_town_center" ]
+      },
+      "What do you think of Albrecht's Blacksmith shop?": {
+        "req": [ "Location.Town.Black_Smith" ],
+        "lead to": [ "response.like_blacksmith" ]
+      }
+    },
+    "disgust": {
+      "What do you think of the town, you know what, don't answer that.": {
+        "req": [ "Location.Town" ],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "Would you go away?": {
+        "req": [],
+        "lead to": [ "end_conversation" ]
+      }
+    }
+  },
+  "SingleRooms_response": {
+    "positive+": {
+      "I really enjoy Biggs. The people here are really nice, but It's a little small.": {
+        "req": [ "responseTag.like_town" ],
+        "lead to": [ "attribute.friend.2", "attribute.affinity.1", "attribute.positive.3", "attribute.romance.1" ]
+      },
+      "It's a quaint place that managee to survive on the edge of the world. It is fitting for someone like me.": {
+        "req": [ "responseTag.like_town_center" ],
+        "lead to": [ "attribute.friend.2", "attribute.negative.-1", "attribute.positive.2", "attribute.romance.2" ]
+      },
+      "He seems to be reliable and the townsfolk all love him. I would say he's good in my book.": {
+        "req": [ "responseTag.like_blacksmith" ],
+        "lead to": [ "attribute.friend.2", "attribute.disgust.-3", "attribute.positive.3", "attribute.affinity.1" ]
+      }
+    },
+    "positive": {
+      "The village of Biggs is nice and has a lovely, peaceful community.": {
+        "req": [ "responseTag.like_town" ],
+        "lead to": [ "attribute.friend.2", "attribute.negative.-1", "attribute.positive.2" ]
+      },
+      "The Town Center is better than I expected for the size of this village. I like to go when I need something": {
+        "req": [ "responseTag.like_town_center" ],
+        "lead to": [ "attribute.affinity.2", "attribute.positive.2", "attribute.romance.2" ]
+      },
+      "This place has very impressive works. I see why everyone likes it so much.": {
+        "req": [ "responseTag.like_blacksmith" ],
+        "lead to": [ "attribute.friend.3", "attribute.positive.2" ]
+      }
+    },
+    "neutral": {
+      "I love it here. It is a perfect place to live.": {
+        "req": [ "responseTag.like_town" ],
+        "lead to": [ "attribute.friend.1", "attribute.positive.1" ]
+      },
+      "The Town Center is great. I just love going there.": {
+        "req": [ "responseTag.like_town_center" ],
+        "lead to": [ "attribute.friend.2" ]
+      },
+      "It's a useful shop.": {
+        "req": [ "responseTag.like_blacksmith" ],
+        "lead to": [ "attribute.positive.3" ]
+      }
+    },
+    "negative": {
+      "The village of Biggs kind of boring.": {
+        "req": [ "responseTag.like_town" ],
+        "lead to": [ "attribute.negative.4", "attribute.positive.-2" ]
+      },
+      "The Town Center is kind of dead. The towns too small to have anything of interest there.": {
+        "req": [ "responseTag.like_town_center" ],
+        "lead to": [ "attribute.affinity.2", "attribute.disgust.1" ]
+      },
+      "There are a lot of great things here if you're into fire pokers and frying pans.": {
+        "req": [ "responseTag.like_blacksmith" ],
+        "lead to": [ "attribute.friend.-3", "attribute.negative.4" ]
+      }
+    },
+    "negative+": {
+      "The village of Biggs is a dump.": {
+        "req": [ "responseTag.like_town" ],
+        "lead to": [ "attribute.negative.4", "attribute.positive.-2" ]
+      },
+      "There isn't anything worth seeing or anyone worth talking to in the Town Center.": {
+        "req": [ "responseTag.like_town_center" ],
+        "lead to": [ "attribute.positive.-2", "attribute.negative.6" ]
+      },
+      "Albrecht isn't great, he can't even make weapons or armor. He's probably just a muscly idiot.": {
+        "req": [ "responseTag.like_blacksmith" ],
+        "lead to": [ "attribute.friend.-3", "attribute.negative.4", "attribute.affinity.-4", "attribute.romance.-3" ]
+      }
+    }
+  },
+
+  "HistoryLessons_statement": {
+    "neutral": {
+      "There is a lot of history here, that dates back to before this village was founded.": {
+        "req": [ "Location.Town" ],
+        "lead to": [ "HistoryLesson_statement.lesson_a1" ]
+      },
+      "The village of Biggs was founded by Gringor in 774ee, nearly 80 years ago.": {
+        "req": [ "lesson_a1" ],
+        "lead to": [ "HistoryLesson_statement.lesson_a2" ]
+      },
+      "There is more to this land than this village.": {
+        "req": [ "lesson_a2" ],
+        "lead to": []
+      },
+      "The main trade here in Biggs is farming and herding. Most people make there livelihood by working the ground.": {
+        "req": [ "Location.Town" ],
+        "lead to": []
+      }
+    },
+    "romance": {
+      "The locals say that spending the night in the forest and watching the sunrise through the mountains will cause two people to fall in love.": {
+        "req": [],
+        "lead to": [ "HistoryLesson_statement.lesson_romance_a1" ]
+      },
+      "It's utterly rubbish, but a little romantic. #new_textbox# #art_love# I don't need a sunrise to tell me my feelings.": {
+        "req": [ "lesson_romance_a1" ],
+        "lead to": []
+      },
+      "I often have to travel to the forest for my research. I usually work alone, but I would love if you'd come along.  Maybe we could have an adventure.": {
+        "req": [],
+        "lead to": []
+      },
+      "There has been a lot of wars and political strife in the southern nations but none bother coming this far north. If it weren't for you, I don't think I'd stay this far north either.": {
+        "req": [],
+        "lead to": []
+      },
+      "It gets cold here during winter and food can be hard to come by.": {
+        "req": [],
+        "lead to": [ "HistoryLesson_statement.lesson_c1" ]
+      },
+      "We should probably start collecting provisions for the winter. #art_blush# You are welcome to spend it with me.": {
+        "req": [ "lesson_c1" ],
+        "lead to": []
+      },
+      "The winters last right at seven months in Biggs. There are legends about ice beings that live here and cause the winters to last longer than they should. #new_textbox# It sounds foolish, but I haven't found any evidence to disprove it.": {
+        "req": [],
+        "lead to": []
+      },
+      "The commonfolk can't handle a lot of my discoveries in the area. They are very supersticious, and quite simple. #new_textbox# I don't share a lot of things with them for this reason.": {
+        "req": [],
+        "lead to": [ "HistoryLesson_statement.lesson_d1" ]
+      },
+      "I will tell you all that is in my heart because ... #new_textbox# #art_blush# well you are very special to me and I care about you a lot.": {
+        "req": [ "lesson_d1" ],
+        "lead to": [ "HistoryLesson_statement.lesson_d2" ]
+      },
+      "I only confide in those that are very close to me. #new_textbox# Please don't repeat the things I tell you to the commonfolk.  They can't handle it.": {
+        "req": [ "lesson_d2" ],
+        "lead to": []
+      },
+      "I've worked extensively with the local farmers in Biggs.  I've taught them some tricks to help there harvest.": {
+        "req": [],
+        "lead to": [ "HistoryLesson_statement.lesson_e1" ]
+      },
+      "I gave them recipes to fertilize the ground.  They think it's magic, but it isn't magic. It isn't even close.": {
+        "req": [ "lesson_e1" ],
+        "lead to": []
+      },
+      "The villagers of Biggs rely on husbantry and herding animals.  It is a key source of food and clothing and makes up the majority of the trade with the neighboring villages.": {
+        "req": [],
+        "lead to": []
+      },
+      "All of the structures in the village were made from lumber collected at Gringor's forest. #new_textbox# In the last few years there have been many lumbermen casualties.  Now one is willing to venture in for more lumber resulting in no new constructs or repairs for that matter.": {
+        "req": [],
+        "lead to": []
+      },
+      "The mountains in the Gringor forest are amazing. There are coal deposits and iron ore viens that run right along the surface.": {
+        "req": [],
+        "lead to": [ "HistoryLesson_statement.lesson_r1" ]
+      },
+      "There are crystals that form naturally all over and gemstones are plentiful and easy to find. #new_textbox# No one knows about it because of the hordes of creatures that lurk there.": {
+        "req": [ "lesson_r1" ],
+        "lead to": [ "HistoryLesson_statement.lesson_r2" ]
+      },
+      "I haven't told anyone this, except you, becuase well I lo.. I really like you. If word of this got out it would bring nothing but greed, war, and death. #new_textbox# Please keep this between us.": {
+        "req": [ "lesson_r2" ],
+        "lead to": []
+      },
+      "The crystal cave in the mountians holds a lot of wild magic. I often go there to study it.": {
+        "req": [],
+        "lead to": [ "HistoryLesson_statement.lesson_f1" ]
+      },
+      "I always deny their existance when people ask me about them. Though, I'd love for you to come with me when I go.": {
+        "req": [ "lesson_f1" ],
+        "lead to": []
+      },
+      "If you are interested in learnign a new skill, like smithing, farming, hunting, or even art, village Craftsman take on apprentences to pass on there trade.": {
+        "req": [],
+        "lead to": [ "HistoryLesson_statement.lesson_g1" ]
+      },
+      "Most will not be so willing to pass their secrets, but with your charm and charaisma it shouldn't be to hard.": {
+        "req": [ "lesson_g1" ],
+        "lead to": [ "HistoryLesson_statement.lesson_g2" ]
+      },
+      "Maybe I can even teach you about the arcane someday.": {
+        "req": [ "lesson_g2" ],
+        "lead to": []
+      },
+      "The mosnters in the forest are more often then not enormous mutated insects and plants.": {
+        "req": [],
+        "lead to": [ "HistoryLesson_statement.lesson_h1" ]
+      },
+      "I've discovered that fire and ice elements are very effective against them and often cause them to flee.": {
+        "req": [ "lesson_h1" ],
+        "lead to": [ "HistoryLesson_statement.lesson_h2" ]
+      },
+      "The effectiveness of ice is odd because the region is so cold.  #new_textbox# This might be useful for you to know.": {
+        "req": [ "lesson_h2" ],
+        "lead to": []
+      },
+      "Albrecht doesn't make armor or weapons. If you are interested in learning to smith, I have some weapon diagrams that you can have. #new_textbox# Perhaps you could start making weapons and armor yourself.": {
+        "req": [],
+        "lead to": []
+      },
+      "I have cast protective enchantments on village. They help in keeping the wildlife out. It has been pretty effective so far.": {
+        "req": [],
+        "lead to": []
+      },
+      "I have met fey, or as the commonfolk say 'faeries', in the forest.  They were sentient and didn't really want much to do with me.  It was an interesting experience nonetheless.": {
+        "req": [],
+        "lead to": []
+      },
+      "There are other creatures in the forest besides the monsters.  There is a lot of wild game, and regular, normal animals.  There coexistance is interesting.": {
+        "req": [],
+        "lead to": []
+      },
+      "Magic can be found in everything. All power comes from a source provided by the Creator. Good and bad magic stems from where the faith of the caster draws the power and the intent on its use. #new_textbox# I'm sorry.  This is getting theoretical.  I would hate to scare you away.": {
+        "req": [],
+        "lead to": []
+      },
+      "You know, I feel like I can tell you anything. #new_textbox# I really want to tell you something.": {
+        "req": [],
+        "lead to": [ "HistoryLesson_statement.romantic_a1" ]
+      },
+      "Well nevermind.": {
+        "req": [ "romantic_a1" ],
+        "lead to": []
+      },
+      "I've studied magic at the Academy if Oxenfel, and then under a mage in the Delgas wilderness.  It was a long road, and I don't regret it at all.": {
+        "req": [],
+        "lead to": []
+      },
+      "You know, I didn't know something was missing in my life until you came along. You make me soo happy.": {
+        "req": [],
+        "lead to": []
+      },
+      "Healing and destructive magics come from the same Creator and can both be used for good or evil.  It's all in intent.": {
+        "req": [],
+        "lead to": []
+      },
+      "Potions can be made using special ingredients fused with magic.  They are very difficult to make and fetch a high price.": {
+        "req": [],
+        "lead to": [ "HistoryLesson_statement.lesson_i1" ]
+      },
+      "Often, the use of a potion can mean the difference between life and death in extreme situations.": {
+        "req": [ "lesson_i1" ],
+        "lead to": []
+      },
+      "There are some very scary things that happen in near the village, that I cannot explain.": {
+        "req": [],
+        "lead to": [ "HistoryLesson_statement.lesson_t1" ]
+      },
+      "A lot of the livestock have been mutilated, stolen, and even transported miles away in an instant.": {
+        "req": [ "lesson_t1" ],
+        "lead to": [ "HistoryLesson_statement.lesson_t2" ]
+      },
+      "I heard testimony of horrible creatures climbing out of the earth, and other such things.": {
+        "req": [ "lesson_t2" ],
+        "lead to": [ "HistoryLesson_statement.lesson_t3" ]
+      },
+      "I suspect it has something to do with the excessive number of monsters in the area or the magic aura that flow through this land.": {
+        "req": [ "lesson_t3" ],
+        "lead to": [ "HistoryLesson_statement.lesson_t2" ]
+      },
+      "I've seen some of butchered livestock, and it chills me to the bone. #new_textbox# It doesn't matter how much I learn, there is always something else I can't answer.": {
+        "req": [ "lesson_t3" ],
+        "lead to": [ "HistoryLesson_statement.lesson_t2" ]
+      }
+    },
+    "friend": {
+      "Hey. Did you know that there is a magic in the forest that breeds vicious plants and monsterous insects.": {
+        "req": [],
+        "lead to": [ "HistoryLesson_statement.friend_a1" ]
+      },
+      "The commonfolk around here won't tell you that.  They don't like to talk about the specifics.": {
+        "req": [ "friend_a1" ],
+        "lead to": [ "HistoryLesson_statement.friend_a2" ]
+      },
+      "People believe that speaking evil draws evil to you and no body wants their crops to murder them.": {
+        "req": [ "friend_a2" ],
+        "lead to": [ "HistoryLesson_statement.friend_a3" ]
+      },
+      "There is some truth to that.": {
+        "req": [ "friend_a3" ],
+        "lead to": []
+      },
+      "If you plan on exploring the forest, you should bring some torches with you. #new_textbox# The monsters seem to be weak against fire.": {
+        "req": [],
+        "lead to": []
+      },
+      "Albrecht the balcksmith doesn't craft weapons or armor, but I bet if you ask him he'll teach you how to get started": {
+        "req": [ "friend_b1" ],
+        "lead to": []
+      }
+    },
+    "affinity": {
+      "I'm glad to have a strong talented man around. This village can use more people like you": {
+        "req": [],
+        "lead to": []
+      },
+      "Have you tried your hand at smithing or carpentry.  I bet you're a natural.": {
+        "req": [],
+        "lead to": []
+      },
+      "You look like you would be good with a sword. I wonder if you have any magical aptitude.": {
+        "req": [],
+        "lead to": []
+      },
+      "You know you're kind of cute when you make that face. I could look at you all day #new_textbox# #art_blush# Uhhm, I mean .. I have to go.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "disgust": {
+      "I'm very busy.  You will need to find someone else to help you.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "I have no business with you.": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+  "PeopleInTown_statement": {
+    "neutral": {
+      "If you need iron good, you should vist Albrecht the village blacksmith.": {
+        "req": [],
+        "lead to": []
+      },
+      "Dan's General Store if you are in need of an item.": {
+        "req": [],
+        "lead to": []
+      },
+      "Let me formally introduce myself. I'm Lerin the soceress.": {
+        "req": [ "play_once" ],
+        "lead to": []
+      },
+      "Have you met Sir Benjamin?  He is a noble knight of the order and he is very reliable.": {
+        "req": [],
+        "lead to": []
+      },
+      "Have you met Laffite? She is a warrior and master swordsman.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "romance": {
+      "I'm sure you met Albrecht by now.  He refuses to make weapons or armor.  Between you and me I think he has trouble with getting the proper temper needed to make solid weapons and armor.": {
+        "req": [],
+        "lead to": []
+      },
+      "I don't know if I don't know if I've told you this, but Albrecht kind of has the hots for me. #new_textbox# Don't worry it's only one sided, though he might be a little mean to you because it it.": {
+        "req": [],
+        "lead to": []
+      },
+      "Some times Dan surprises me with the items he has for sale. #new_textbox# I don't know where he gets them.  There is something strange about it.": {
+        "req": [],
+        "lead to": []
+      },
+      "#art_laugh# Hey there hot stuff.  Are you looking for me?": {
+        "req": [],
+        "lead to": []
+      },
+      "Have you met Sir Benjamin?  He is the kind and wise.  Many view him as a town elder though he is still to young to qualify. #new_textbox# He is worth befriending": {
+        "req": [],
+        "lead to": []
+      },
+      "Laffite is a master swordsman and can probably teach you a thing or two about combat, weapons making, and general survival. You might want to talk with her #new_textbox# #art_disapproving# as long as you are not getting to handsy with her.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "disgust": {
+      "There are a lot of other people here to talk to.  Please talk to them instead": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "I can't help you.": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+
+  "Close_statement": {
+    "neutral": {
+      "Good day.": {
+        "req": [ "game.time.not.isNight" ],
+        "lead to": []
+      },
+      "Good evening.": {
+        "req": [ "game.time.isNight" ],
+        "lead to": []
+      }
+    },
+    "romance": {
+      "Hello #player_name#.  #art_blush#": {
+        "req": [],
+        "lead to": []
+      },
+      "It is a makes me soo happy seeing you.": {
+        "req": [],
+        "lead to": []
+      },
+      "Hello my love.": {
+        "req": [ "player.social.dating" ],
+        "lead to": []
+      }
+    },
+    "friend": {
+      "Hello #player_name#.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "affinity": {
+      "Nice to see you. I'm glad you're here": {
+        "req": [],
+        "lead to": []
+      },
+      "What do I owe this pleasure.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "disgust": {
+      "I'm busy and don't have time to talk.": {
+        "req": [],
+        "lead to": []
+      },
+      "#player_name#": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "I'm not interested in speaking to you.": {
+        "req": [],
+        "lead to": []
+      },
+      "Please leave": {
+        "req": [],
+        "lead to": []
+      },
+      "I have no business with you.": {
+        "req": [],
+        "lead to": [ "end_conversation" ]
+      },
+      "I do not wish to associate with you.": {
+        "req": [],
+        "lead to": [ "end_conversation" ]
+      }
+    },
+    "rivalry": {
+      "#player_name#.": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+  "Close_question": {
+    "neutral": {
+      "What can I do for you?": {
+        "req": [],
+        "lead to": []
+      },
+      "Nice day isn't it?": {
+        "req": [ "game.weather.nice_day" ],
+        "lead to": [ "response.weather.nice_day" ]
+      }
+    },
+    "romance": {
+      "How are you today?": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      },
+      "Aren't you glad to see me?": {
+        "req": [],
+        "lead to": [ "response.love_me" ]
+      },
+      "Well do you notice anything?": {
+        "req": [],
+        "lead to": [ "response.love_me_looks" ]
+      },
+      "How do I look?": {
+        "req": [],
+        "lead to": [ "response.love_me_looks" ]
+      }
+    },
+    "friend": {
+      "How's are things?": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      },
+      "How're you doing?": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      },
+      "I'm trying a new hairstyle.  What do you think?": {
+        "req": [],
+        "lead to": [ "response.love_me_hair" ]
+      }
+    },
+    "affinity": {
+      "You are looking good.  How are you?": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      },
+      "affinity": {
+        "How do you like my hair?": {
+          "req": [],
+          "lead to": [ "response.love_me_hair" ]
+        }
+
+      },
+      "disgust": {
+        "What do you want from me?": {
+          "req": [],
+          "lead to": []
+        }
+      },
+      "hate": {
+        "Why are you bothering me?": {
+          "req": [],
+          "lead to": []
+        }
+      },
+      "rivalry": {
+        "You don't seem to be doing as good as I am.  How are you anyway?": {
+          "req": [],
+          "lead to": [ "response.status" ]
+        }
+      }
+    }
+  },
+  "Close_response": {
+    "positive+": {
+      "I'm doing excellent!": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.4", "attribute.positive.2" ]
+      },
+      "I'm great, especially with you as my company.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.2", "attribute.romance.3", "attribute.positive.3" ]
+      },
+      "It is a wonderful day. I'm glad I can share this moment with you.": {
+        "req": [ "responseTag.nice_day" ],
+        "lead to": [ "attribute.friend.1", "attribute.romance.4", "attribute.affinity.1", "attribute.positive.2" ]
+      },
+      "I can't think of anyone else I'd rather be with.": {
+        "req": [ "responseTag.love_me" ],
+        "lead to": [ "attribute.romance.6", "attribute.affinity.2", "attribute.positive.2" ]
+      },
+      "You are unspeakably beutiful. Like a fragrant flower blossoming in the midst of snow.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.romance.6", "attribute.affinity.1", "attribute.positive.3" ]
+      },
+      "Lerin, your beuty is unparallel. You blonde flowing hair, your soft glowing skin, and your deep blue eyes are a spell on there own.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.romance.7", "attribute.affinity.1", "attribute.positive.2" ]
+      },
+      "Your hair is perfectly beutifuy to me. It is wonderful.": {
+        "req": [ "responseTag.love_me_hair" ],
+        "lead to": [ "attribute.romance.6", "attribute.affinity.2", "attribute.positive.1" ]
+      }
+    },
+    "positive": {
+      "I'm wonderful. You are looking to as vibrant as ever.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.1", "attribute.affinity.2", "attribute.positive.3" ]
+      },
+      "I'm doing great. Thank you for asking.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.3", "attribute.positive.2" ]
+      },
+      "It's a beutiful day with good company. Who can complain?": {
+        "req": [ "responseTag.nice_day" ],
+        "lead to": [ "attribute.friend.1", "attribute.positive.4" ]
+      },
+      "I'm always glad to be with you.": {
+        "req": [ "responseTag.love_me" ],
+        "lead to": [ "attribute.romance.2", "attribute.affinity.2", "attribute.positive.3", "attribute.disgust.-2" ]
+      },
+      "You are very lovely in that outfit. You are almost like a living portrait.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.romance.3", "attribute.hate.-1", "attribute.disgust.-1", "attribute.positive.3" ]
+      },
+      "You are the envy of all of the women in town.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.romance.2", "attribute.affinity.1", "attribute.positive.3" ]
+      },
+      "Your hair is perfect. I won't change a thing": {
+        "req": [ "responseTag.love_me_hair" ],
+        "lead to": [ "attribute.romance.4", "attribute.disgust.-2", "attribute.hate.-2" ]
+      }
+    },
+    "neutral": {
+      "Life is good. I like to keep things positive.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.positive.2" ]
+      },
+      "I'm alright. Thanks.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.positive.1", "attribute.affinity.1" ]
+      },
+      "I agree, it is a lovely day.": {
+        "req": [ "responseTag.nice_weather" ],
+        "lead to": [ "attribute.friend.1", "attribute.positive.1" ]
+      },
+      "I sure am.": {
+        "req": [ "responseTag.love_me" ],
+        "lead to": [ "attribute.friend.1", "attribute.positive.1", "attribute.negative.-1" ]
+      },
+      "You look great. You always look great.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.negative.-1", "attribute.positive.2" ]
+      },
+      "You look real nice.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.positive.1" ]
+      },
+      "Your hair, I love it.": {
+        "req": [ "responseTag.love_me_hair" ],
+        "lead to": [ "attribute.negative.-2" ]
+      }
+    },
+    "negative": {
+      "Yeah, I'm good or whatever.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.positive.-2", "attribute.professional.-2", "attribute.respect.-1", "attribute.romance.-2" ]
+      },
+      "I'm good, not that you care.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.-2", "attribute.positive.-3", "attribute.romance.-2" ]
+      },
+      "Ah who cares about the weather.": {
+        "req": [ "responseTag.nice_day" ],
+        "lead to": [ "attribute.friend.-4", "attribute.positive.-2", "attribute.affinity.-1" ]
+      },
+      "Yeah, I've got some time. I might as well spend it with you.": {
+        "req": [ "responseTag.love_me" ],
+        "lead to": [ "attribute.friend.-2", "attribute.affinity.2", "attribute.disgust.3" ]
+      },
+      "You look hot as hell but your hair is a little flat.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.hate.2", "attribute.disgust.4", "attribute.affinity.5" ]
+      },
+      "You look alright I guess.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.friend.-2", "attribute.affinity.5", "attribute.negative.3" ]
+      },
+      "Uhhm, well it looks ... good. Yeah, it's good": {
+        "req": [ "responseTag.love_me_hair" ],
+        "lead to": [ "attribute.affinity.4", "attribute.disgust.2", "attribute.hate.2" ]
+      }
+    },
+    "negative+": {
+      "How I'm doing is none of your business.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.-5", "attribute.positive.-3", "attribute.romance.-3", "attribute.disgust.6" ]
+      },
+      "I was doing good until you started blabbing.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.-3", "attribute.positive.-2", "attribute.romance.-1", "attribute.disgust.4", "attribute.negative.5" ]
+      },
+      "Not to be rude but I don't have time to talk about the weather.": {
+        "req": [ "responseTag.nice_day" ],
+        "lead to": [ "attribute.friend.-5", "attribute.positive.-4", "attribute.negative.5", "attribute.disgust.6" ]
+      },
+      "I don't really care.": {
+        "req": [ "responseTag.love_me" ],
+        "lead to": [ "attribute.romance.-4", "attribute.affinity.4", "attribute.disgust.4", "attribute.negative.4" ]
+      },
+      "I've seen better.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.romance.-1", "attribute.hate.4", "attribute.disgust.4", "attribute.friend.-4", "attribute.affinity.4" ]
+      },
+      "You look almost as good as Lafitte.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.friend.-4", "attribute.affinity.3", "attribute.negative.8" ]
+      },
+      "Meh, it's okay I guess.": {
+        "req": [ "responseTag.love_me_hair" ],
+        "lead to": [ "attribute.friend.-7", "attribute.disgust.-4", "attribute.affinity.3" ]
+      }
+    }
+  },
+
+  "Quest_statement": {
+    "neutral": {
+      "Good day.": {
+        "req": [ "game.time.not.isNight" ],
+        "lead to": []
+      },
+      "Good evening.": {
+        "req": [ "game.time.isNight" ],
+        "lead to": []
+      }
+    },
+    "romance": {
+      "Hello #player_name#.  #art_blush#": {
+        "req": [],
+        "lead to": []
+      },
+      "It is a makes me soo happy seeing you.": {
+        "req": [],
+        "lead to": []
+      },
+      "Hello my love.": {
+        "req": [ "player.social.dating" ],
+        "lead to": []
+      }
+    },
+    "friend": {
+      "Hello #player_name#.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "affinity": {
+      "Nice to see you. I'm glad you're here": {
+        "req": [],
+        "lead to": []
+      },
+      "What do I owe this pleasure.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "disgust": {
+      "I'm busy and don't have time to talk.": {
+        "req": [],
+        "lead to": []
+      },
+      "#player_name#": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "I'm not interested in speaking to you.": {
+        "req": [],
+        "lead to": []
+      },
+      "Please leave": {
+        "req": [],
+        "lead to": []
+      },
+      "I have no business with you.": {
+        "req": [],
+        "lead to": [ "end_conversation" ]
+      },
+      "I do not wish to associate with you.": {
+        "req": [],
+        "lead to": [ "end_conversation" ]
+      }
+    },
+    "rivalry": {
+      "#player_name#.": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+  "Quest_question": {
+    "neutral": {
+      "What can I do for you?": {
+        "req": [],
+        "lead to": []
+      },
+      "Nice day isn't it?": {
+        "req": [ "game.weather.nice_day" ],
+        "lead to": [ "response.weather.nice_day" ]
+      }
+    },
+    "romance": {
+      "How are you today?": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      },
+      "Aren't you glad to see me?": {
+        "req": [],
+        "lead to": [ "response.love_me" ]
+      },
+      "Well do you notice anything?": {
+        "req": [],
+        "lead to": [ "response.love_me_looks" ]
+      },
+      "How do I look?": {
+        "req": [],
+        "lead to": [ "response.love_me_looks" ]
+      }
+    },
+    "friend": {
+      "How's are things?": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      },
+      "How're you doing?": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      },
+      "I'm trying a new hairstyle.  What do you think?": {
+        "req": [],
+        "lead to": [ "response.love_me_hair" ]
+      }
+    },
+    "affinity": {
+      "You are looking good.  How are you?": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      },
+      "affinity": {
+        "How do you like my hair?": {
+          "req": [],
+          "lead to": [ "response.love_me_hair" ]
+        }
+
+      },
+      "disgust": {
+        "What do you want from me?": {
+          "req": [],
+          "lead to": []
+        }
+      },
+      "hate": {
+        "Why are you bothering me?": {
+          "req": [],
+          "lead to": []
+        }
+      },
+      "rivalry": {
+        "You don't seem to be doing as good as I am.  How are you anyway?": {
+          "req": [],
+          "lead to": [ "response.status" ]
+        }
+      }
+    }
+  },
+  "Quest_response": {
+    "positive+": {
+      "I'm doing excellent!": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.4", "attribute.positive.2" ]
+      },
+      "I'm great, especially with you as my company.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.2", "attribute.romance.3", "attribute.positive.3" ]
+      },
+      "It is a wonderful day. I'm glad I can share this moment with you.": {
+        "req": [ "responseTag.nice_day" ],
+        "lead to": [ "attribute.friend.1", "attribute.romance.4", "attribute.affinity.1", "attribute.positive.2" ]
+      },
+      "I can't think of anyone else I'd rather be with.": {
+        "req": [ "responseTag.love_me" ],
+        "lead to": [ "attribute.romance.6", "attribute.affinity.2", "attribute.positive.2" ]
+      },
+      "You are unspeakably beutiful. Like a fragrant flower blossoming in the midst of snow.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.romance.6", "attribute.affinity.1", "attribute.positive.3" ]
+      },
+      "Lerin, your beuty is unparallel. You blonde flowing hair, your soft glowing skin, and your deep blue eyes are a spell on there own.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.romance.7", "attribute.affinity.1", "attribute.positive.2" ]
+      },
+      "Your hair is perfectly beutifuy to me. It is wonderful.": {
+        "req": [ "responseTag.love_me_hair" ],
+        "lead to": [ "attribute.romance.6", "attribute.affinity.2", "attribute.positive.1" ]
+      }
+    },
+    "positive": {
+      "I'm wonderful. You are looking to as vibrant as ever.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.1", "attribute.affinity.2", "attribute.positive.3" ]
+      },
+      "I'm doing great. Thank you for asking.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.3", "attribute.positive.2" ]
+      },
+      "It's a beutiful day with good company. Who can complain?": {
+        "req": [ "responseTag.nice_day" ],
+        "lead to": [ "attribute.friend.1", "attribute.positive.4" ]
+      },
+      "I'm always glad to be with you.": {
+        "req": [ "responseTag.love_me" ],
+        "lead to": [ "attribute.romance.2", "attribute.affinity.2", "attribute.positive.3", "attribute.disgust.-2" ]
+      },
+      "You are very lovely in that outfit. You are almost like a living portrait.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.romance.3", "attribute.hate.-1", "attribute.disgust.-1", "attribute.positive.3" ]
+      },
+      "You are the envy of all of the women in town.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.romance.2", "attribute.affinity.1", "attribute.positive.3" ]
+      },
+      "Your hair is perfect. I won't change a thing": {
+        "req": [ "responseTag.love_me_hair" ],
+        "lead to": [ "attribute.romance.4", "attribute.disgust.-2", "attribute.hate.-2" ]
+      }
+    },
+    "neutral": {
+      "Life is good. I like to keep things positive.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.positive.2" ]
+      },
+      "I'm alright. Thanks.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.positive.1", "attribute.affinity.1" ]
+      },
+      "I agree, it is a lovely day.": {
+        "req": [ "responseTag.nice_weather" ],
+        "lead to": [ "attribute.friend.1", "attribute.positive.1" ]
+      },
+      "I sure am.": {
+        "req": [ "responseTag.love_me" ],
+        "lead to": [ "attribute.friend.1", "attribute.positive.1", "attribute.negative.-1" ]
+      },
+      "You look great. You always look great.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.negative.-1", "attribute.positive.2" ]
+      },
+      "You look real nice.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.positive.1" ]
+      },
+      "Your hair, I love it.": {
+        "req": [ "responseTag.love_me_hair" ],
+        "lead to": [ "attribute.negative.-2" ]
+      }
+    },
+    "negative": {
+      "Yeah, I'm good or whatever.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.positive.-2", "attribute.professional.-2", "attribute.respect.-1", "attribute.romance.-2" ]
+      },
+      "I'm good, not that you care.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.-2", "attribute.positive.-3", "attribute.romance.-2" ]
+      },
+      "Ah who cares about the weather.": {
+        "req": [ "responseTag.nice_day" ],
+        "lead to": [ "attribute.friend.-4", "attribute.positive.-2", "attribute.affinity.-1" ]
+      },
+      "Yeah, I've got some time. I might as well spend it with you.": {
+        "req": [ "responseTag.love_me" ],
+        "lead to": [ "attribute.friend.-2", "attribute.affinity.2", "attribute.disgust.3" ]
+      },
+      "You look hot as hell but your hair is a little flat.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.hate.2", "attribute.disgust.4", "attribute.affinity.5" ]
+      },
+      "You look alright I guess.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.friend.-2", "attribute.affinity.5", "attribute.negative.3" ]
+      },
+      "Uhhm, well it looks ... good. Yeah, it's good": {
+        "req": [ "responseTag.love_me_hair" ],
+        "lead to": [ "attribute.affinity.4", "attribute.disgust.2", "attribute.hate.2" ]
+      }
+    },
+    "negative+": {
+      "How I'm doing is none of your business.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.-5", "attribute.positive.-3", "attribute.romance.-3", "attribute.disgust.6" ]
+      },
+      "I was doing good until you started blabbing.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.-3", "attribute.positive.-2", "attribute.romance.-1", "attribute.disgust.4", "attribute.negative.5" ]
+      },
+      "Not to be rude but I don't have time to talk about the weather.": {
+        "req": [ "responseTag.nice_day" ],
+        "lead to": [ "attribute.friend.-5", "attribute.positive.-4", "attribute.negative.5", "attribute.disgust.6" ]
+      },
+      "I don't really care.": {
+        "req": [ "responseTag.love_me" ],
+        "lead to": [ "attribute.romance.-4", "attribute.affinity.4", "attribute.disgust.4", "attribute.negative.4" ]
+      },
+      "I've seen better.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.romance.-1", "attribute.hate.4", "attribute.disgust.4", "attribute.friend.-4", "attribute.affinity.4" ]
+      },
+      "You look almost as good as Lafitte.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.friend.-4", "attribute.affinity.3", "attribute.negative.8" ]
+      },
+      "Meh, it's okay I guess.": {
+        "req": [ "responseTag.love_me_hair" ],
+        "lead to": [ "attribute.friend.-7", "attribute.disgust.-4", "attribute.affinity.3" ]
+      }
+    }
+  },
+
+  "MagicLesson_statement": {
+    "neutral": {
+      "Good day.": {
+        "req": [ "game.time.not.isNight" ],
+        "lead to": []
+      },
+      "Good evening.": {
+        "req": [ "game.time.isNight" ],
+        "lead to": []
+      }
+    },
+    "romance": {
+      "Hello #player_name#.  #art_blush#": {
+        "req": [],
+        "lead to": []
+      },
+      "It is a makes me soo happy seeing you.": {
+        "req": [],
+        "lead to": []
+      },
+      "Hello my love.": {
+        "req": [ "player.social.dating" ],
+        "lead to": []
+      }
+    },
+    "friend": {
+      "Hello #player_name#.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "affinity": {
+      "Nice to see you. I'm glad you're here": {
+        "req": [],
+        "lead to": []
+      },
+      "What do I owe this pleasure.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "disgust": {
+      "I'm busy and don't have time to talk.": {
+        "req": [],
+        "lead to": []
+      },
+      "#player_name#": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "I'm not interested in speaking to you.": {
+        "req": [],
+        "lead to": []
+      },
+      "Please leave": {
+        "req": [],
+        "lead to": []
+      },
+      "I have no business with you.": {
+        "req": [],
+        "lead to": [ "end_conversation" ]
+      },
+      "I do not wish to associate with you.": {
+        "req": [],
+        "lead to": [ "end_conversation" ]
+      }
+    },
+    "rivalry": {
+      "#player_name#.": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+  "MagicLesson_question": {
+    "neutral": {
+      "What can I do for you?": {
+        "req": [],
+        "lead to": []
+      },
+      "Nice day isn't it?": {
+        "req": [ "game.weather.nice_day" ],
+        "lead to": [ "response.weather.nice_day" ]
+      }
+    },
+    "romance": {
+      "How are you today?": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      },
+      "Aren't you glad to see me?": {
+        "req": [],
+        "lead to": [ "response.love_me" ]
+      },
+      "Well do you notice anything?": {
+        "req": [],
+        "lead to": [ "response.love_me_looks" ]
+      },
+      "How do I look?": {
+        "req": [],
+        "lead to": [ "response.love_me_looks" ]
+      }
+    },
+    "friend": {
+      "How's are things?": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      },
+      "How're you doing?": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      },
+      "I'm trying a new hairstyle.  What do you think?": {
+        "req": [],
+        "lead to": [ "response.love_me_hair" ]
+      }
+    },
+    "affinity": {
+      "You are looking good.  How are you?": {
+        "req": [],
+        "lead to": [ "response.status" ]
+      },
+      "affinity": {
+        "How do you like my hair?": {
+          "req": [],
+          "lead to": [ "response.love_me_hair" ]
+        }
+
+      },
+      "disgust": {
+        "What do you want from me?": {
+          "req": [],
+          "lead to": []
+        }
+      },
+      "hate": {
+        "Why are you bothering me?": {
+          "req": [],
+          "lead to": []
+        }
+      },
+      "rivalry": {
+        "You don't seem to be doing as good as I am.  How are you anyway?": {
+          "req": [],
+          "lead to": [ "response.status" ]
+        }
+      }
+    }
+  },
+  "MagicLesson_response": {
+    "positive+": {
+      "I'm doing excellent!": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.4", "attribute.positive.2" ]
+      },
+      "I'm great, especially with you as my company.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.2", "attribute.romance.3", "attribute.positive.3" ]
+      },
+      "It is a wonderful day. I'm glad I can share this moment with you.": {
+        "req": [ "responseTag.nice_day" ],
+        "lead to": [ "attribute.friend.1", "attribute.romance.4", "attribute.affinity.1", "attribute.positive.2" ]
+      },
+      "I can't think of anyone else I'd rather be with.": {
+        "req": [ "responseTag.love_me" ],
+        "lead to": [ "attribute.romance.6", "attribute.affinity.2", "attribute.positive.2" ]
+      },
+      "You are unspeakably beutiful. Like a fragrant flower blossoming in the midst of snow.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.romance.6", "attribute.affinity.1", "attribute.positive.3" ]
+      },
+      "Lerin, your beuty is unparallel. You blonde flowing hair, your soft glowing skin, and your deep blue eyes are a spell on there own.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.romance.7", "attribute.affinity.1", "attribute.positive.2" ]
+      },
+      "Your hair is perfectly beutifuy to me. It is wonderful.": {
+        "req": [ "responseTag.love_me_hair" ],
+        "lead to": [ "attribute.romance.6", "attribute.affinity.2", "attribute.positive.1" ]
+      }
+    },
+    "positive": {
+      "I'm wonderful. You are looking to as vibrant as ever.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.1", "attribute.affinity.2", "attribute.positive.3" ]
+      },
+      "I'm doing great. Thank you for asking.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.3", "attribute.positive.2" ]
+      },
+      "It's a beutiful day with good company. Who can complain?": {
+        "req": [ "responseTag.nice_day" ],
+        "lead to": [ "attribute.friend.1", "attribute.positive.4" ]
+      },
+      "I'm always glad to be with you.": {
+        "req": [ "responseTag.love_me" ],
+        "lead to": [ "attribute.romance.2", "attribute.affinity.2", "attribute.positive.3", "attribute.disgust.-2" ]
+      },
+      "You are very lovely in that outfit. You are almost like a living portrait.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.romance.3", "attribute.hate.-1", "attribute.disgust.-1", "attribute.positive.3" ]
+      },
+      "You are the envy of all of the women in town.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.romance.2", "attribute.affinity.1", "attribute.positive.3" ]
+      },
+      "Your hair is perfect. I won't change a thing": {
+        "req": [ "responseTag.love_me_hair" ],
+        "lead to": [ "attribute.romance.4", "attribute.disgust.-2", "attribute.hate.-2" ]
+      }
+    },
+    "neutral": {
+      "Life is good. I like to keep things positive.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.positive.2" ]
+      },
+      "I'm alright. Thanks.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.positive.1", "attribute.affinity.1" ]
+      },
+      "I agree, it is a lovely day.": {
+        "req": [ "responseTag.nice_weather" ],
+        "lead to": [ "attribute.friend.1", "attribute.positive.1" ]
+      },
+      "I sure am.": {
+        "req": [ "responseTag.love_me" ],
+        "lead to": [ "attribute.friend.1", "attribute.positive.1", "attribute.negative.-1" ]
+      },
+      "You look great. You always look great.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.negative.-1", "attribute.positive.2" ]
+      },
+      "You look real nice.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.positive.1" ]
+      },
+      "Your hair, I love it.": {
+        "req": [ "responseTag.love_me_hair" ],
+        "lead to": [ "attribute.negative.-2" ]
+      }
+    },
+    "negative": {
+      "Yeah, I'm good or whatever.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.positive.-2", "attribute.professional.-2", "attribute.respect.-1", "attribute.romance.-2" ]
+      },
+      "I'm good, not that you care.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.-2", "attribute.positive.-3", "attribute.romance.-2" ]
+      },
+      "Ah who cares about the weather.": {
+        "req": [ "responseTag.nice_day" ],
+        "lead to": [ "attribute.friend.-4", "attribute.positive.-2", "attribute.affinity.-1" ]
+      },
+      "Yeah, I've got some time. I might as well spend it with you.": {
+        "req": [ "responseTag.love_me" ],
+        "lead to": [ "attribute.friend.-2", "attribute.affinity.2", "attribute.disgust.3" ]
+      },
+      "You look hot as hell but your hair is a little flat.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.hate.2", "attribute.disgust.4", "attribute.affinity.5" ]
+      },
+      "You look alright I guess.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.friend.-2", "attribute.affinity.5", "attribute.negative.3" ]
+      },
+      "Uhhm, well it looks ... good. Yeah, it's good": {
+        "req": [ "responseTag.love_me_hair" ],
+        "lead to": [ "attribute.affinity.4", "attribute.disgust.2", "attribute.hate.2" ]
+      }
+    },
+    "negative+": {
+      "How I'm doing is none of your business.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.-5", "attribute.positive.-3", "attribute.romance.-3", "attribute.disgust.6" ]
+      },
+      "I was doing good until you started blabbing.": {
+        "req": [ "responseTag.status" ],
+        "lead to": [ "attribute.friend.-3", "attribute.positive.-2", "attribute.romance.-1", "attribute.disgust.4", "attribute.negative.5" ]
+      },
+      "Not to be rude but I don't have time to talk about the weather.": {
+        "req": [ "responseTag.nice_day" ],
+        "lead to": [ "attribute.friend.-5", "attribute.positive.-4", "attribute.negative.5", "attribute.disgust.6" ]
+      },
+      "I don't really care.": {
+        "req": [ "responseTag.love_me" ],
+        "lead to": [ "attribute.romance.-4", "attribute.affinity.4", "attribute.disgust.4", "attribute.negative.4" ]
+      },
+      "I've seen better.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.romance.-1", "attribute.hate.4", "attribute.disgust.4", "attribute.friend.-4", "attribute.affinity.4" ]
+      },
+      "You look almost as good as Lafitte.": {
+        "req": [ "responseTag.love_me_looks" ],
+        "lead to": [ "attribute.friend.-4", "attribute.affinity.3", "attribute.negative.8" ]
+      },
+      "Meh, it's okay I guess.": {
+        "req": [ "responseTag.love_me_hair" ],
+        "lead to": [ "attribute.friend.-7", "attribute.disgust.-4", "attribute.affinity.3" ]
+      }
+    }
+  }
+
 
 }

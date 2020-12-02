@@ -129,7 +129,7 @@
       }
     }
   },
-  "greeting_question": {
+  "Greeting_question": {
     "neutral": {
       "What can I do for you?": {
         "req": [],
@@ -187,7 +187,7 @@
       }
     }
   },
-  "greeting_response": {
+  "Greeting_response": {
     "positive+": {
       "I'm doing excellent. Thank you for asking.": {
         "req": [ "responseTag.status" ],
@@ -256,10 +256,6 @@
       "Not to be rude but I don't have time to talk about the weather.": {
         "req": [ "responseTag.nice_day" ],
         "lead to": [ "attribute.friend.-5", "attribute.positive.-4", "attribute.negative.5", "attribute.disgust.6" ]
-      },
-      "negative+ test 3": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-20" ]
       }
     }
   },
@@ -357,7 +353,7 @@
 
     },
     "romance": {
-      "I'm just so gald you're here in the village of Biggs with me.": {
+      "I'm just so glad you're here in the village of Biggs with me.": {
         "req": [ "Location.Town" ],
         "lead to": []
       },
@@ -547,7 +543,7 @@
         "req": [ "Location.Town.Town_Center" ],
         "lead to": []
       },
-      "Dan's General Store is a where I go to shoping in Biggs. You should take a look around and maybe buy someone special a gift.": {
+      "Dan's General Store is a where I go to shop in Biggs. You should take a look around and maybe buy someone special a gift.": {
         "req": [ "Location.Town.store" ],
         "lead to": []
       },
@@ -852,813 +848,413 @@
       }
     }
   },
-
+ 
 
   "HistoryLessons_statement": {
     "neutral": {
-      " neutral test 0": {
+      "Did you know that the village of Biggs is located in the region of Elvor.": {
+        "req": [],
+        "lead to": ["HistoryLesson_statement.lesson_a1"]
+      },
+      "We came to this land a little over three hundred years ago, from the south.": {
+        "req": ["lesson_a1"],
+        "lead to": [ "HistoryLesson_statement.lesson_a2" ]
+      },
+      "This is a hard dangerous land.  Not a lot of people can make it here.": {
+        "req": ["lesson_a2"],
+        "lead to": [ "HistoryLesson_statement.lesson_a3" ]
+      },
+      "This is probably why not many people live in this region.": {
+        "req": [ "lesson_a3" ],
+        "lead to": []
+      },
+      "The village of Biggs is primarily a farming comunity.": {
+        "req": [ ],
+        "lead to": ["HistoryLesson_statement.lesson_b1"]
+      },
+      "Lucky not many invading countries make their way up here. This is probably due to the number of monsters here.": {
+        "req": [ "lesson_b1" ],
+        "lead to": []
+      },
+      "It gets cold here during winter and food can be hard to come by.": {
+        "req": [  ],
+        "lead to": ["HistoryLesson_statement.lesson_c1"]
+      },
+      "During the spring and especially in the summer, agricultural production is super important.": {
+        "req": [ "lesson_c1" ],
+        "lead to": ["HistoryLesson_statement.lesson_c2"]
+      },
+      "I wouldn't let it sneak up on you if you want to survive.": {
+        "req": [ "lesson_c2" ],
+        "lead to": []
+      },
+      "Folks around here can be sensitive about this village. You can make enemies real quick if you badmouth this town.": {
+        "req": [ ],
+        "lead to": ["HistoryLesson_statement.lesson_d1"]
+      },
+      "Especially since you are an outsider here.": {
+        "req": [ "lesson_d1" ],
+        "lead to": []
+      },
+      "The village of Biggs grows some of the best fruits and vegetables for miles around.": {
+        "req": [ ],
+        "lead to": ["HistoryLesson_statement.lesson_e1"]
+      },
+      "It's almost like there is magic in the ground or something.": {
+        "req": [ "lesson_e1" ],
+        "lead to": []
+      },
+      "We have flocks of sheep and goats here and also raise buffalo too.  They're some good eating.": {
+        "req": [ ],
+        "lead to": []
+      },
+      "The Gringor Forest is an excellent source of lumber, but it take a brave person to ventrue in there to claim it.": {
+        "req": [ ],
+        "lead to": []
+      },
+      "Did you know that there are mountains in the Gringor forest? They are loaded with coal and iron ore.": {
+        "req": [ ],
+        "lead to": []
+      },
+      "I overheard someone talking about a cave in the mountians. I think they said something about crystals.": {
+        "req": [ ],
+        "lead to": ["HistoryLesson_statement.lesson_f1"]
+      },
+      "I would love to see it some day.": {
+        "req": ["lesson_f1"],
+        "lead to": []
+      },
+      "There is a lot of tradition here in Biggs.  Craftsman take on apprentences to pass on there trade.": {
+        "req": [],
+        "lead to": [ "HistoryLesson_statement.lesson_g1" ]
+      },
+      "We take our proffession very seriously here. It can be hard to get excepted by a mater to learn from.": {
+        "req": ["lesson_g1"],
+        "lead to": [ "HistoryLesson_statement.lesson_g2" ]
+      },
+      "Once you are excepted as an apprentence, your live will never be the same.": {
+        "req": ["lesson_g2"],
+        "lead to": []
+      },
+      "Theres an old tail about Jallus the Lumberer.": {
+        "req": [],
+        "lead to": ["HistoryLesson_statement.lesson_h1"]
+      },
+      "He was a mighty man who swung an axe like no one else. It was because of the logs he brought in that Biggs was able to make it through their first few winters.": {
+        "req": ["lesson_h1"],
+        "lead to": ["HistoryLesson_statement.lesson_h2"]
+      },
+      "Anyway, one day while chopping wood he heard a whisper in his ear saying,\"Jallus, Jallus. You chop to greedily. If you continue, I'll take you.\"": {
+        "req": ["lesson_h2"],
+        "lead to": ["HistoryLesson_statement.lesson_h3"]
+      },
+      "He stopped and looked around, impressed that someone would come this deep in those dangerous woods to play a joke on him.": {
+        "req": ["lesson_h3"],
+        "lead to": ["HistoryLesson_statement.lesson_h4"]
+      },
+      "There was no one around, so he continued his work as usual and told the town elders about the voice that evening.": {
+        "req": ["lesson_h4"],
+        "lead to": ["HistoryLesson_statement.lesson_h5"]
+      },
+      "The elders talked it over and told him to continue working, because there were still homes to be made, but to be careful.": {
+        "req": ["lesson_h5"],
+        "lead to": ["HistoryLesson_statement.lesson_h6"]
+      },
+      "The next day, he went out to work like normal and never came home.": {
+        "req": ["lesson_h6"],
+        "lead to": ["HistoryLesson_statement.lesson_h7"]
+      },
+      "There's a lesson in there somewhere.": {
+        "req": [ "lesson_h7" ],
+        "lead to": []
+      },
+      "As long as you stay in the village, you should be safe from attacks. Once you venture out, there is no garentee.": {
         "req": [],
         "lead to": []
       },
-      " neutral test 1": {
+      "I've lived here all my life. I used to want to leave when I was little, but I don't think that I could live anywhere else.": {
         "req": [],
         "lead to": []
       },
-      " neutral test 2": {
+      "There is a lot of wild game in the forest, but you have to be a good shot.": {
         "req": [],
         "lead to": []
       },
-      " neutral test 3": {
+      "Sometimes I like to just hangout in the Town Center and people watch. I know everyone, but it's fun to just pretend I'm meeting everyone for the first time.": {
+        "req": [],
+        "lead to": []
+      },
+      "You know that there are faeries in the forest.  They're prankster and often a bad omen.": {
+        "req": [],
+        "lead to": []
+      },
+      "It's not to often we get visitors here at Biggs.  It's nice to see a new face.": {
         "req": [],
         "lead to": []
       }
+
     },
     "romance": {
-      "romance test 0": {
+      "You know they say that if lovers stay out in the forest all night up and watch the sunrise through the mountains, then they will be destined for each other.": {
+        "req": [],
+        "lead to": ["HistoryLesson_statement.lesson_romance_a1"]
+      },
+      "The forest is scary but I think I could risk it with you.": {
+        "req": [ "lesson_romance_a1" ],
+        "lead to": []
+      },
+      "I can tell a lot about a person and their future by looking in their eyes. With you, I can see myself. Hehehe": {
         "req": [],
         "lead to": []
       },
-      "romance test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 3": {
+      "I didn't know something was missing in my life until you came along. I'm so glad that we've met.": {
         "req": [],
         "lead to": []
       }
     },
     "friend": {
-      "friend test 0": {
+      "Hey. Did you know that there is a magic in the forest that breeds vicious plants and monsterous insects.": {
         "req": [],
-        "lead to": []
+        "lead to": [ "HistoryLesson_statement.friend_a1" ]
       },
-      "friend test 1": {
-        "req": [],
-        "lead to": []
+      "Most people around here won't tell you that.  They will only tell you 'Monsters' are in the area.": {
+        "req": [ "friend_a1" ],
+        "lead to": [ "HistoryLesson_statement.friend_a2" ]
       },
-      "friend test 2": {
-        "req": [],
-        "lead to": []
+      "People believe that speaking evil draws evil to you and no body wants their crops to murder them.": {
+        "req": [ "friend_a2" ],
+        "lead to": [ "HistoryLesson_statement.friend_a3" ]
       },
-      "friend test 3": {
+      "I guess I believe the hype too, but friends look out for eachother. Just don't go around talking about it.": {
+        "req": [ "friend_a3" ],
+        "lead to": [ ]
+      },
+      "Occasionally, some very wierd stuff happens here, like live stock getting mutilated, locked in a shed or found stuck hundreds of feet in a tree.": {
         "req": [],
+        "lead to": ["HistoryLesson_statement.friend_b1"]
+      },
+      "People won't talk about it, but I'll tell you. Don't repeat this though.": {
+        "req": ["friend_b1"],
         "lead to": []
       }
     },
     "respect": {
-      "respect test 0": {
+      "The village of Biggs was on hard work.  The townsfolk had to come together and work day and night to establish this place.": {
         "req": [],
         "lead to": []
       },
-      "respect test 1": {
+      "It's great to have another adventurer here. Every skill is useful. Perhaps you can pick up a new trade while you are here.": {
         "req": [],
         "lead to": []
       },
-      "respect test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 3": {
+      "Sometimes the going gets tough here, especially in the winter months. You'll make a fine addition to this town.": {
         "req": [],
         "lead to": []
       }
     },
     "affinity": {
-      "affinity test 0": {
+      "Weird things happen around here sometimes.  I'm glad to have a strong man around.": {
         "req": [],
         "lead to": []
       },
-      "affinity test 1": {
+      "Have you tried your hand at smithing or carpentry.  I bet you're a natural.": {
         "req": [],
         "lead to": []
       },
-      "affinity test 2": {
+      "You look like you would be good with a sword. If I'm ever in distress, I'll expect my hero to come and save me.": {
         "req": [],
         "lead to": []
       },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "disgust": {
-      "disgust test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "hate": {
-      "hate test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "rivalry": {
-      "rivalry test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 3": {
-        "req": [],
-        "lead to": []
-      }
-    }
-  },
-  "HistoryLessons_question": {
-    "neutral": {
-      " neutral test 0": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral test 1": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral test 2": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "romance": {
-      "romance test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "friend": {
-      "friend test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "respect": {
-      "respect test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "affinity": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
+      "You know you're kind of cute when you make that face. You must be thinking about something.": {
         "req": [],
         "lead to": []
       }
     },
     "disgust": {
-      "disgust test 0": {
+      "Uhhg.  Yes?": {
         "req": [],
         "lead to": []
       },
-      "disgust test 1": {
+      "You know it's rude for strangers to but-in other peoples affairs.": {
         "req": [],
         "lead to": []
       },
-      "disgust test 2": {
+      "I really don't have anything to say to you.": {
         "req": [],
         "lead to": []
       },
-      "disgust test 3": {
+      "You seem to be everywhere.  Isn't it about time for you to leave this town.": {
         "req": [],
         "lead to": []
       }
     },
     "hate": {
-      "hate test 0": {
+      "Get out of my face!": {
         "req": [],
         "lead to": []
       },
-      "hate test 1": {
+      "Get lost.": {
         "req": [],
         "lead to": []
       },
-      "hate test 2": {
+      "You don't belong here.  You need to leave Biggs at once.": {
         "req": [],
         "lead to": []
       },
-      "hate test 3": {
+      "Has anyone ever told you, you smell like a horse?": {
         "req": [],
         "lead to": []
       }
     },
     "rivalry": {
-      "rivalry test 0": {
+      "Have you fought any monsters in the forest yet?  I bet you can't handle yourself.": {
         "req": [],
         "lead to": []
       },
-      "rivalry test 1": {
+      "If you are looking for work, I doubt anyone will waste their time hiring you.  You just aren't skilled enough to be trusted.": {
         "req": [],
         "lead to": []
       },
-      "rivalry test 2": {
+      "You look pretty helpless. You should watch me.  You might learn something": {
         "req": [],
         "lead to": []
       },
-      "rivalry test 3": {
+      "I don't think you can do anything well.  You will need all the help you can get if you plan to stay for the winter.": {
         "req": [],
         "lead to": []
-      }
-    }
-  },
-  "HistoryLessons_response": {
-    "positive+": {
-      "positive+ test 0": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.20" ]
-      },
-      "positive+ test 1": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.20" ]
-      },
-      "positive+ test 2": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.20" ]
-      },
-      "positive+ test 3": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.20" ]
-      }
-    },
-    "positive": {
-      "positive test 0": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.10" ]
-      },
-      "positive test 1": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.10" ]
-      },
-      "positive test 2": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.10" ]
-      },
-      "positive test 3": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.10" ]
-      }
-    },
-    "neutral": {
-      "neutral test 0": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": []
-      },
-      "neutral test 1": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": []
-      },
-      "neutral test 2": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": []
-      },
-      "neutral test 3": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": []
-      }
-    },
-    "negative": {
-      "negative test 0": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-10" ]
-      },
-      "negative test 1": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-10" ]
-      },
-      "negative test 2": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-10" ]
-      },
-      "negative test 3": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-10" ]
-      }
-    },
-    "negative+": {
-      "negative+ test 0": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-20" ]
-      },
-      "negative+ test 1": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-20" ]
-      },
-      "negative+ test 2": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-20" ]
-      },
-      "negative+ test 3": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-20" ]
       }
     }
   },
 
   "PeopleInTown_statement": {
     "neutral": {
-      " neutral test 0": {
+      "Have you met Albrect yet?  He's the village's blacksmith.": {
         "req": [],
         "lead to": []
       },
-      " neutral test 1": {
+      "If you've gone down to the General Store then you've probably met Dan.  He runs it.": {
         "req": [],
         "lead to": []
       },
-      " neutral test 2": {
+      "We have a resident sorceress here in Biggs.  Her name is Lerin.  She's always so busy though.  Not much time to chat.": {
         "req": [],
         "lead to": []
       },
-      " neutral test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "romance": {
-      "romance test 0": {
+      "Have you met Sir Benjamin?  He is a noble knight of the order.  You won't meet a happier, kinder soul in Biggs.": {
         "req": [],
         "lead to": []
       },
-      "romance test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "friend": {
-      "friend test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "respect": {
-      "respect test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "affinity": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "professional": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "disgust": {
-      "disgust test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "hate": {
-      "hate test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "rivalry": {
-      "rivalry test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 3": {
-        "req": [],
-        "lead to": []
-      }
-    }
-  },
-  "PeopleInTown_question": {
-    "neutral": {
-      " neutral test 0": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral test 1": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral test 2": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral test 3": {
+      "Have you met Laffite? She is a lovely looking lady but watch out.  She's one tough cookie.": {
         "req": [],
         "lead to": []
       }
     },
     "romance": {
-      "romance test 0": {
+      "Have you met Albrect yet?  He's the blacksmith here and he's so strong and so amazing! I mean not as amazing as you of course. Uhmm, well, nevermind.": {
         "req": [],
         "lead to": []
       },
-      "romance test 1": {
+      "I don't know if you've met Dan yet.  He runs the general store in the Town Center. You should take me there to go shopping sometime.": {
         "req": [],
         "lead to": []
       },
-      "romance test 2": {
+      "Have you met the sorceress yet?  Her name is Lerin, she's not important. You shouldn't talk to her.": {
         "req": [],
         "lead to": []
       },
-      "romance test 3": {
+      "Have you met Sir Benjamin?  Kind of the father of the village. Everyone looks up to him.": {
+        "req": [],
+        "lead to": []
+      },
+      "You may have seen some buff woman running around here. Her name is Laffite. You probably don't want to mess with her too much.": {
         "req": [],
         "lead to": []
       }
     },
     "friend": {
-      "friend test 0": {
+      "Have you met Biggs' blacksmith Albrect yet? He's pretty cool. You should go and met him some time.": {
         "req": [],
         "lead to": []
       },
-      "friend test 1": {
+      "Have you met Dan. You probably have. He runs the general store.": {
         "req": [],
         "lead to": []
       },
-      "friend test 2": {
+      "Have you met Lerin, Biggs' resident soceresss? There is something enchanting about her, pun intended. Hahaha...": {
         "req": [],
         "lead to": []
       },
-      "friend test 3": {
+      "Have you met Sir Benjamin?  He is a noble knight of the order.  You won't meet a happier, kinder soul in Biggs.": {
+        "req": [],
+        "lead to": []
+      },
+      "Have you met Laffite? She is a lovely looking lady but watch out.  She's one tough cookie.": {
         "req": [],
         "lead to": []
       }
     },
     "respect": {
-      "respect test 0": {
+      "Have you met Albrect yet? He's a talented smith.  If you talk to him, he'll probably teach you a thing or two about smithing, if you're interested that is.": {
         "req": [],
         "lead to": []
       },
-      "respect test 1": {
+      "Have you met Dan. He runs the general store.": {
         "req": [],
         "lead to": []
       },
-      "respect test 2": {
+      "Have you met Lerin, Biggs' resident soceresss? She is a little strange, but lovely.": {
         "req": [],
         "lead to": []
       },
-      "respect test 3": {
+      "Have you met Sir Benjamin?  He is a knight of the order.  You won't meet nobler man anywhere.": {
+        "req": [],
+        "lead to": []
+      },
+      "Laffite is one of the protectors of the village. Don't let her delicate features fool you. She is an expert swordsman.": {
         "req": [],
         "lead to": []
       }
     },
     "affinity": {
-      "affinity test 0": {
+      "If you haven't gone to the Blacksmith's shop yet, you should.  Albrecht owns it. He is quiet the man.": {
         "req": [],
         "lead to": []
       },
-      "affinity test 1": {
+      "You know Dan runs the general store.  If you haven't met him yet then you should tell him I sent you.  He might give you a discount.": {
         "req": [],
         "lead to": []
       },
-      "affinity test 2": {
+      "The mysterious prissy looking woman with the blonde hair running around to is Lerin. She's a scorceress.": {
         "req": [],
         "lead to": []
       },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "professional": {
-      "affinity test 0": {
+      "Sir Benjamin is a knight of the order.  He can often be found at the village gate, protecting the us.": {
         "req": [],
         "lead to": []
       },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
+      "Laffite is one of the best swordsman in town. She looks sweet, but she's a killer.": {
         "req": [],
         "lead to": []
       }
     },
     "disgust": {
-      "disgust test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 3": {
+      "There are a lot of other people here to talk to.  Please talk to them instead": {
         "req": [],
         "lead to": []
       }
     },
     "hate": {
-      "hate test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 3": {
+      "Leave me alone please": {
         "req": [],
         "lead to": []
       }
     },
     "rivalry": {
-      "rivalry test 0": {
+      "Why don't you go around and meet some people.  Maybe you'll learn how to talk to people.": {
         "req": [],
         "lead to": []
-      },
-      "rivalry test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 3": {
-        "req": [],
-        "lead to": []
-      }
-    }
-  },
-  "PeopleInTown_response": {
-    "positive+": {
-      "positive+ test 0": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.20" ]
-      },
-      "positive+ test 1": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.20" ]
-      },
-      "positive+ test 2": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.20" ]
-      },
-      "positive+ test 3": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.20" ]
-      }
-    },
-    "positive": {
-      "positive test 0": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.10" ]
-      },
-      "positive test 1": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.10" ]
-      },
-      "positive test 2": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.10" ]
-      },
-      "positive test 3": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.10" ]
-      }
-    },
-    "neutral": {
-      "neutral test 0": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": []
-      },
-      "neutral test 1": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": []
-      },
-      "neutral test 2": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": []
-      },
-      "neutral test 3": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": []
-      }
-    },
-    "negative": {
-      "negative test 0": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-10" ]
-      },
-      "negative test 1": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-10" ]
-      },
-      "negative test 2": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-10" ]
-      },
-      "negative test 3": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-10" ]
-      }
-    },
-    "negative+": {
-      "negative+ test 0": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-20" ]
-      },
-      "negative+ test 1": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-20" ]
-      },
-      "negative+ test 2": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-20" ]
-      },
-      "negative+ test 3": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-20" ]
       }
     }
   }
-
 
 }
