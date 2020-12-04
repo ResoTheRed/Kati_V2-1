@@ -8,7 +8,13 @@ namespace TextGameDemo {
             //TestLocations();
             //TestPlayer();
             //TestCharacterLocations();
-            TestGameModel();
+            //TestGameModel();
+            TestQuestTracker();
+        }
+
+        public static void TestQuestTracker() {
+            Game.QuestTracker.Tracker().QuestIsComplete[Game.QuestTitles.MUSHROOM] = true;
+            Console.WriteLine(Game.QuestTracker.Tracker().QuestIsComplete[Game.QuestTitles.MUSHROOM]);
         }
 
         public static void TestGameModel() {

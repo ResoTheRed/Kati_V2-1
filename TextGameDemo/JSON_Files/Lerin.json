@@ -5,6 +5,10 @@
         "req": [ "game.time.not.isNight" ],
         "lead to": []
       },
+      "Hello #player_name#. My name is Lerin.  I'm the town sorceress.": {
+        "req": [ "play_once" ],
+        "lead to": []
+      },
       "Good evening.": {
         "req": [ "game.time.isNight" ],
         "lead to": []
@@ -66,12 +70,6 @@
       "I do not wish to associate with you.": {
         "req": [],
         "lead to": [ "end_conversation" ]
-      }
-    },
-    "rivalry": {
-      "#player_name#.": {
-        "req": [],
-        "lead to": []
       }
     }
   },

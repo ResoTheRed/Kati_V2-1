@@ -14,6 +14,7 @@ namespace TextGameDemo.Game.Location {
         public const string BEN = "Benjamin's House";
         public const string PEASANT = "Dirty Peasant House";
         public const string GATE = "Town Gate";
+        public const string TOWN_HALL = "Town Hall";
 
         
 
@@ -36,6 +37,7 @@ namespace TextGameDemo.Game.Location {
             AddRoom(BEN, new Room(BEN));
             AddRoom(PEASANT, new Room(PEASANT));
             AddRoom(GATE,new Room(GATE));
+            AddRoom(TOWN_HALL, new Room(TOWN_HALL));
             CurrentRoom = LocationsInArea[TOWN_CENTER];
         }
 
@@ -49,6 +51,7 @@ namespace TextGameDemo.Game.Location {
             LocationsInArea[TOWN_CENTER].AddExit(LocationsInArea[BEN]);
             LocationsInArea[TOWN_CENTER].AddExit(LocationsInArea[PEASANT]);
             LocationsInArea[TOWN_CENTER].AddExit(LocationsInArea[GATE]);
+            LocationsInArea[TOWN_CENTER].AddExit(LocationsInArea[TOWN_HALL]);
 
             LocationsInArea[ALBRECHT].AddExit(LocationsInArea[TOWN_CENTER]);
             LocationsInArea[STORE].AddExit(LocationsInArea[TOWN_CENTER]);
@@ -58,6 +61,7 @@ namespace TextGameDemo.Game.Location {
             LocationsInArea[BEN].AddExit(LocationsInArea[TOWN_CENTER]);
             LocationsInArea[PEASANT].AddExit(LocationsInArea[TOWN_CENTER]);
             LocationsInArea[GATE].AddExit(LocationsInArea[TOWN_CENTER]);
+            LocationsInArea[TOWN_HALL].AddExit(LocationsInArea[TOWN_CENTER]);
         }
 
         override
@@ -71,6 +75,7 @@ namespace TextGameDemo.Game.Location {
             LocationsInArea[BEN].SetDescription("Looks like a guard's post, not a home");
             LocationsInArea[PEASANT].SetDescription("The humble dwelling of a farmer.");
             LocationsInArea[GATE].SetDescription("This is the main entrance into "+Name+".\nYou can enter the village or head to the forest.");
+            LocationsInArea[TOWN_HALL].SetDescription("A finely crafted log lodge that is home to the town council and elders.");
         }
 
     }

@@ -5,6 +5,50 @@
         "req": [],
         "lead to": []
       },
+      "Hello, My name is Teta. Nice to meet you.": {
+        "req": [ "Character.Teta", "play_once" ],
+        "lead to": []
+      },
+      "Greetings. I'm Dan.  I own the General Stor here in Biggs.": {
+        "req": [ "Character.Dan", "play_once" ],
+        "lead to": []
+      },
+      "Hey, I'm Romero.  I don't really have time to talk right now. #new_textbox# See you around.": {
+        "req": [ "Character.Romero", "play_once" ],
+        "lead to": []
+      },
+      "They call me Maciah. Most people won't talk to me.  #new_textbox# How about you give me some money.": {
+        "req": [ "Character.Machiah", "play_once" ],
+        "lead to": []
+      },
+      "Hello.  You must be #player_name#.  I've heard some customers talking about a new person in town.  #new_textbox# I'm Albrecht the town's blacksmith. #new_textbox# Nice to meet you.": {
+        "req": [ "Character.Albrecht", "play_once" ],
+        "lead to": []
+      },
+      "Greetings, fellow adventurer. I'm Benjamin.  #new_textbox# It is a pleasure having someone as taltented as you in town.  #new_textbox#  Don't hesitate to ask me anything.": {
+        "req": [ "Character.Benjamin", "play_once" ],
+        "lead to": []
+      },
+      "Ello. I'm Collin, I am. I offer special services to some of the fine folks here in Biggs. #new_textbox# This is a great lil place here at Biggs.  Just keep yer noise outta other peoples business and there won't be no fuss.": {
+        "req": [ "Character.Benjamin", "play_once" ],
+        "lead to": []
+      },
+      "Ahh Hello #player_name#. I heard of your arrival in town. #new_textbox# I'm glad to have and andventurer like you around.  #new_textbox# If you are ever looking for work come and see me.  There is always something that needs to be done around here.": {
+        "req": [ "Character.Sivian", "play_once" ],
+        "lead to": []
+      },
+      "Well, who do we have here. A new Man in town, and you're cute too. You must be an adventurer.  I can tell by how you carry yourself. #new_textbox# I'm Christina. I'm a farm hand by day and monster slayer by night. #new_textbox# You should come and visit me some time.": {
+        "req": [ "Character.Christina", "play_once" ],
+        "lead to": []
+      },
+      "Oh, look a stranger. I'm Quinn.  #new_textbox# I'm kind of a big deal here.": {
+        "req": [ "Character.Quinn", "play_once" ],
+        "lead to": []
+      },
+      "Hello, I'm Helena.  #new_textbox# I done like to talk to strangers but you seem nice.": {
+        "req": [ "Character.Helena", "play_once" ],
+        "lead to": []
+      },
       "Good day.": {
         "req": [ "game.time.not.isNight" ],
         "lead to": []

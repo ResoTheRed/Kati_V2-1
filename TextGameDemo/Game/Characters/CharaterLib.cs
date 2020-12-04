@@ -17,6 +17,7 @@ namespace TextGameDemo.Game.Characters {
         public const string ALBRECHT = "Albrecht";
         public const string ROMERO = "Romero";
         public const string MICIAH = "Miciah";
+        public const string SIVIAN = "Sivian";
 
         public const string LERIN = "Lerin";
         public const string LAFITTE = "Lafitte";
@@ -24,6 +25,7 @@ namespace TextGameDemo.Game.Characters {
         public const string QUINN = "Quinn";
         public const string HELENA = "Helena";
         public const string CHRISTINA = "Christina";
+        public const string CRUMPLES = "Crumples";
 
         public const string PLAYER = "player";
     }
@@ -40,6 +42,7 @@ namespace TextGameDemo.Game.Characters {
         public const string KNIGHT = "Knight";
         public const string HUNTER = "Hunter";
         public const string ROGUE = "Rogue";
+        public const string ELDER = "Elder";
 
         public const string ROMANTIC = "Romantic";
         public const string SHY = "Shy";
@@ -95,6 +98,7 @@ namespace TextGameDemo.Game.Characters {
             Lib[Cast.ALBRECHT] = new Character(Cast.ALBRECHT, true);
             Lib[Cast.MICIAH] = new Character(Cast.MICIAH, true);
             Lib[Cast.ROMERO] = new Character(Cast.ROMERO, true);
+            Lib[Cast.SIVIAN] = new Character(Cast.SIVIAN, true);
 
             Lib[Cast.LERIN] = new Character(Cast.LERIN, false);
             Lib[Cast.LAFITTE] = new Character(Cast.LAFITTE, false);
@@ -113,6 +117,7 @@ namespace TextGameDemo.Game.Characters {
             Albrecht(Cast.ALBRECHT);
             Michiah(Cast.MICIAH);
             Romero(Cast.ROMERO);
+            Sivian(Cast.SIVIAN);
             Lerin(Cast.LERIN);
             Lafitte(Cast.LAFITTE);
             Teta(Cast.TETA);
@@ -366,6 +371,26 @@ namespace TextGameDemo.Game.Characters {
             Lib[name].Locations.SetAreaRooms(Areas.CAVE, new List<string>() {
                 Location.Forest.ENTRANCE
             });
+            Lib[name].Locations.ChangeRooms();
+        } 
+        
+        private void Sivian(string name) {
+            Lib[name].PersonalAttributes = new List<string>();
+            Lib[name].PersonalAttributes.Add(Personal.ELDER);
+            Lib[name].PersonalAttributes.Add(Personal.FRIENDLY);
+
+            Lib[name].SocialAttributes = new Dictionary<string, List<string>>();
+            Lib[name].SocialAttributes[Cast.PLAYER] = new List<string>() { Social.STRANGER };
+            Lib[name].BranchAttributes = new Dictionary<string, Dictionary<string, int>>();
+            SetBranchAttributes(name, Cast.PLAYER, 0,0,0,0,0,0,0,0 );
+
+            Lib[name].Locations.SetAreaKeys(
+               new List<string>() { Areas.TOWN }
+               );
+            Lib[name].Locations.SetAreaRooms(Areas.TOWN, new List<string>() {
+                Location.Town.TOWN_HALL
+            });
+
             Lib[name].Locations.ChangeRooms();
         }
 

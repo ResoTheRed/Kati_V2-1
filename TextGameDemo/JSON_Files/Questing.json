@@ -1,20 +1,128 @@
 {
-  "sample01_statement":{
+  "Quest01_statement":{
     "neutral": {
-      " neutral test 0": {
-        "req": [],
+      "Greetings #player_name#, I'm glad you're here. I was hoping you would show up.  #new_textbox# We have an issue with spider attacks near Gringor's forest, and we need someone to, well slay them.": {
+        "req": [ "Character.Sivian", "Quest.Defeat_Spiders.IsActive.false", "Quest.Defeat_Spiders.IsComplete.false" ],
+        "lead to": [ "Quest01_question.Defeat_Spider" ]
+      },
+      "Oh, you're back. Let me know when you finish the job.": {
+        "req": [ "Character.Sivian", "Quest.Defeat_Spiders.IsActive.true", "Quest.Defeat_Spiders.IsComplete.false" ],
         "lead to": []
       },
-      " neutral test 1": {
-        "req": [],
+      "#player_name#, you're back and you've defeated the Spiders!! #new_textbox# I knew I could count on you.": {
+        "req": [ "Character.Sivian", "Quest.Defeat_Spiders.IsActive.true", "Quest.Defeat_Spiders.IsComplete.true" ],
+        "lead to": [ "Trigger.Defeat_Spiders" ]
+      },
+      "Hello #player_name#, I hope you are ready to work. #new_textbox# I've been having a strange feeling about trouble at the mountains in Gringor's forest. I would love it if you would scout out the mountainside and report back.": {
+        "req": [ "Character.Sivian", "Quest.Scout_Mountains.IsActive.false", "Quest.Scout_Mountains.IsComplete.false" ],
+        "lead to": [ "Quest01_question.Scout_Mountains" ]
+      },
+      "How's the scouting going.  I hope everything is well.": {
+        "req": [ "Character.Sivian", "Quest.Scout_Mountains.IsActive.true", "Quest.Scout_Mountains.IsComplete.false" ],
         "lead to": []
       },
-      " neutral test 2": {
-        "req": [],
+      "You're back from the scout. I trust you've taken care of any issues you may have found.": {
+        "req": [ "Character.Sivian", "Quest.Scout_Mountains.IsActive.true", "Quest.Scout_Mountains.IsComplete.true" ],
+        "lead to": [ "Trigger.Scout_Mountains" ]
+      },
+      "Hey you seem like you can get things done. Am I right? #new_textbox# Things seem to always go missing on the farm.  There is a lot of weird cursed things always a happenen. #new_textbox# This one is critical.  My hoe is gone.  I need it to farm.": {
+        "req": [ "Character.Romero", "Quest.Find_Hoe.IsActive.false", "Quest.Find_Hoe.IsComplete.false" ],
+        "lead to": [ "Quest01_question.Find_Hoe" ]
+      },
+      "Oh great. Thanks a bunch kid. ": {
+        "req": [ "Find_Hoe_a1" ],
         "lead to": []
       },
-      " neutral test 3": {
-        "req": [],
+      "I see. Just you remember that it's more than just me that relies on my crops come winter.": {
+        "req": [ "Find_Hoe_a2" ],
+        "lead to": []
+      },
+      "Ah no luck yet huh.  Well I hope it turns up soon, cause time's short and valuable.": {
+        "req": [ "Character.Romero", "Quest.Find_Hoe.IsActive.true", "Quest.Find_Hoe.IsComplete.false" ],
+        "lead to": []
+      },
+      "Oh bloody hell, ya found it! Wait till I tell the family! They'll be so happy. #New_textbox# Thank you so much #player_name#. You helped the whole town, not just me.": {
+        "req": [ "Character.Romero", "Quest.Find_Hoe.IsActive.true", "Quest.Find_Hoe.IsComplete.true" ],
+        "lead to": ["Trigger.Find Hoe"]
+      },
+      "#player_name#, you're an adventurer right? I was wondering if you could help me? #new_textbox# You see Kelly's missing,and I don't know what to do.": {
+        "req": ["Character.Teta","Quest.Find_Goat.IsActive.false","Quest.Find_Goat.IsComplete.false"],
+        "lead to": ["Quest01_question.Find_Goat"]
+      },
+      "#player_name#, thank you again for doing this for me. it really means a lot to me.": {
+        "req": ["Character.Teta","Quest.Find_Goat.IsActive.true","Quest.Find_Goat.IsComplete.false"],
+        "lead to": []
+      },
+      "#art_happy# SQEEEEEEE... YOU FOUND HER! #new_textbox# Oh, #player_name#, my hero! Thank you so much. I'll never forget this.": {
+        "req": ["Character.Teta","Quest.Find_Goat.IsActive.true","Quest.Find_Goat.IsComplete.true"],
+        "lead to": ["Trigger.Find_Goat","attribute.positive.5","response.Find_Goat_b1"]
+      },
+      "Oh Kelly is my goat. She is white with brown specs.  #new_textbox# #player_name#, thank you so much.  This really means a lot to me.": {
+        "req": ["Find_Goat_a1"],
+        "lead to": []
+      },
+      "#art_sad# Okay then, I understand. You are busy.": {
+        "req": ["Find_Goat_a2"],
+        "lead to": []
+      },
+      "#player_name# so nice of you to drop by. #new_textbox# I uhhm, have another problem and this one is a little more serious.  #new_textbox# There has been some attacks on my animals and I don't know what to do.": {
+        "req": ["Character.Teta","Quest.Find_Goat.IsComplete.true","Quest.Kill_Monster.IsActive.false","Quest.Kill_Monster.IsComplete.false"],
+        "lead to": ["Quest01_question.Kill_Monster"]
+      },
+      "You are so brave for doing this. Thank you.": {
+        "req": ["Character.Teta","Quest.Kill_Monster.IsActive.true","Quest.Kill_Monster.IsComplete.false"],
+        "lead to": ["Quest01_question.Kill_Monster"]
+      },
+      "YOU DID IT! I just knew you could. #new_textbox# You are so strong and brave.": {
+        "req": ["Character.Teta","Quest.Kill_Monster.IsActive.true","Quest.Kill_Monster.IsComplete.true"],
+        "lead to": ["Trigger.Kill_Monster","Quest01_response.Kill_Monster_b1"]
+      },
+      "I just knew I could count on you! #new_textbox# #art_happy# You are so brave!": {
+        "req": ["Kill_Monster_a1"],
+        "lead to": []
+      },
+      "#art_sad# I must say, I wasn't expecting that.  I understand though.  Thanks anyway.": {
+        "req": ["Kill_Monster_a2"],
+        "lead to": []
+      },
+      "#art_blush# #player_name#, I don't know what to say. #new_textbox# #art_blush# I need some time to process this ... #pause# to process you.  Thank you so much.  Really thank you.": {
+        "req": ["Kill_Monster_romance"],
+        "lead to": []
+      },
+      "#art_happy# I'm so glad I can count on you.  I feel a lot safer with you around.": {
+        "req": ["Kill_Monster_friend"],
+        "lead to": []
+      },
+      "Uhm, I don't think I have. Sometimes, people just go through hardships.": {
+        "req": ["Kill_Monster_negative"],
+        "lead to": []
+      },
+      "#art_concern# I see. I am very poor and I can only pay with my graditude. I can try and repay the favor with a favor if that will suffice, though I don't know how I can help you.": {
+        "req": ["Kill_Monster_negative"],
+        "lead to": []
+      },
+      "#art_happy# My hero is here. #new_textbox# I was wondering if you can come to my rescue once again. I'm being harassed by Romero.  He has been pushing me to be more than friends, if you know what I mean, and I don't know that I feel the same way about him.": {
+        "req": [ "Character.Teta", "attribute.positive.>99", "Quest.Kill_Monster.IsComplete.true", "Quest.In_Need.IsActive.false", "Quest.In_Need.IsComplete.false" ],
+        "lead to": ["Quest01_statement.In_Need_a0"]
+      },
+      "I mean it is sweet and he means well but I just can't bring myself to hurt him. #new_textbox# I was hoping you would tell him.  Gently of course!": {
+        "req": [ "In_Need_a0" ],
+        "lead to": ["Quest01_question.In_Need"]
+      },
+      "Thank you for doing this. #new_textbox# Remember, don't be harsh with him.  He means well.": {
+        "req": [ "Character.Teta", "Quest.In_Need.IsActive.true", "Quest.In_Need.IsComplete.false" ],
+        "lead to": []
+      },
+      "You did it. I'm so relieved. Thanks": {
+        "req": [ "Character.Teta", "Quest.In_Need.IsActive.true", "Quest.In_Need.IsComplete.true" ],
+        "lead to": ["Quest01_response.In_Need_b1", "Trigger.In_Need"]
+      },
+      "#player_name#, you are the best.  #new_textbox# I really mean it.": {
+        "req": [ "In_Need_a1" ],
+        "lead to": []
+      },
+      "#art_sad# Okay, well I really shouldn't have asked you to do something like this.  #new_textbox# Thanks anyway.": {
+        "req": [ "In_Need_a2" ],
         "lead to": []
       }
     },
@@ -72,292 +180,104 @@
         "lead to": []
       }
     },
-    "affinity": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "professional": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
     "disgust": {
-      "disgust test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 3": {
+      "I don't have anything for you.": {
         "req": [],
         "lead to": []
       }
     },
     "hate": {
-      "hate test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 3": {
+      "I don't want to talk.": {
         "req": [],
         "lead to": []
       }
     },
     "rivalry": {
-      "rivalry test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 3": {
+      "I might need something, but I don't think that you can help me.": {
         "req": [],
         "lead to": []
       }
     }
   },
-  "sample01_question": {
+  "Quest01_question": {
     "neutral": {
-      " neutral test 0": {
-        "req": [],
-        "lead to": []
+      "Can I count on you?": {
+        "req": [ "Defeat_Spiders" ],
+        "lead to": [ "response.Defeat_Spiders" ]
       },
-      " neutral test 1": {
-        "req": [],
-        "lead to": []
+      "Is this something you are willing to do?": {
+        "req": [ "Scout_Mountains" ],
+        "lead to": [ "response.Scout_Mountains" ]
       },
-      " neutral test 2": {
-        "req": [],
-        "lead to": []
+      "Well, what do ya say. Well you help me find it?": {
+        "req": [ "Find_Hoe" ],
+        "lead to": [ "response.Find_Hoe" ]
+      },
+      "Do you think you can help me find her?": {
+        "req": ["Find_Goat"],
+        "lead to": ["response.Find_Goat"]
+      },
+      "I was wondering if you can help me.": {
+        "req": ["Kill_Monster"],
+        "lead to": ["response.Kill_Monster"]
+      },
+      "I feel selfish for asking but could you do this for me?": {
+        "req": ["In_Need"],
+        "lead to": ["response.In_Need"]
       },
       " neutral test 3": {
         "req": [],
         "lead to": []
       }
-    },
-    "romance": {
-      "romance test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "friend": {
-      "friend test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "respect": {
-      "respect test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "affinity": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "professional": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "disgust": {
-      "disgust test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "hate": {
-      "hate test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "rivalry": {
-      "rivalry test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 3": {
-        "req": [],
-        "lead to": []
-      }
     }
   },
-  "sample01_response": {
+  "Quest01_response": {
     "positive+": {
-      "positive+ test 0": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.20" ]
+      "(Look into her eyes) Teta, your happiness is all the thanks I need. It was my pleasure.": {
+        "req": [ "responseTag.Find_Goat_b1" ],
+        "lead to": [ "attribute.romance.20", "attribute.friend.-3", "attribute.negative.-5" ]
       },
-      "positive+ test 1": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.20" ]
+      "I'm not so brave, though I'd fight hordes of monsters if it was to protect you.": {
+        "req": [ "responseTag.Kill_Monster_b1" ],
+        "lead to": [ "attribute.romance.25","attribute.friend.-5","attribute.negative.-5","Quest01_statement.Kill_Monster_romance" ]
       },
-      "positive+ test 2": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.20" ]
-      },
-      "positive+ test 3": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.20" ]
-      }
+      "I'm glad I could help, just know that Romero is not the only one who has feelings for you Teta.": {
+        "req": [ "responseTag.In_need_b1" ],
+        "lead to": [ "attribute.romance.25","attribute.friend.-5","attribute.negative.-5","Quest01_statement.Kill_Monster_romance" ]
+      } 
     },
     "positive": {
-      "positive test 0": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.10" ]
+      "Yes, I'll do it": {
+        "req": [ "responseTag.Defeat_Spiders" ],
+        "lead to": [ "attribute.positive.5", "New_Quest.Defeat Spiders" ]
       },
-      "positive test 1": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.10" ]
+      "It would be my pleasure.": {
+        "req": [ "responseTag.Scout_Mountains" ],
+        "lead to": [ "attribute.positive.10", "New_Quest.Scout Mountains" ]
       },
-      "positive test 2": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.10" ]
+      "I'll be on the lookout for it.": {
+        "req": [ "responseTag.Find_Hoe" ],
+        "lead to": [ "attribute.friend.10", "attribute.positive.5", "Quest01_statement.Find_Hoe_a1" ]
+      },
+      "Of course I'll help you find Kelly. One question, who is Kelly again?": {
+        "req": [ "responseTag.Find_Goat" ],
+        "lead to": [ "attribute.positive.10", "New_Quest.Find Goat", "Quest01_statement.Find_Goat_a1" ]
+      },
+      "(put hand on her shoulder) I'm glad I could help.  This is what friends are for.": {
+        "req": [ "responseTag.Find_Goat_b1" ],
+        "lead to": [ "attribute.romance.-3", "attribute.friend.20", "attribute.negative.-5" ]
+      },
+      "I'll do it.": {
+        "req": [ "responseTag.Kill_Monster" ],
+        "lead to": [ "attribute.positive.10", "New_Quest.Kill Monster", "Quest01_statement.Kill_Monster_a1" ]
+      },
+      "Teta, you are my dear friend. I'm always here for you when you need me.": {
+        "req": [ "responseTag.Kill_Monster_b1" ],
+        "lead to": [ "attribute.romance.-5", "attribute.friend.25", "attribute.negative.-5", "Quest01_statement.Kill_Monster_friend" ]
+      },
+      "I'll take care of it.": {
+        "req": [ "responseTag.In_need" ],
+        "lead to": [ "attribute.positive.10", "New_Quest.In_Need","Quest01_statement.In_Need_a1" ]
       },
       "positive test 3": {
         "req": [ "responseTag.tag1" ],
@@ -365,17 +285,37 @@
       }
     },
     "neutral": {
-      "neutral test 0": {
-        "req": [ "responseTag.tag1" ],
+      "Not right now. Sorry": {
+        "req": [ "responseTag.Defeat_Spiders" ],
         "lead to": []
       },
-      "neutral test 1": {
-        "req": [ "responseTag.tag1" ],
+      "Maybe later.": {
+        "req": [ "responseTag.Scout_Mountains" ],
         "lead to": []
       },
-      "neutral test 2": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": []
+      "Sorry. I can't right now": {
+        "req": [ "responseTag.Find_Hoe" ],
+        "lead to": [ "Attribute.negative.5", "Quest01_statement.Find_Hoe_a2" ]
+      },
+      "Sorry, not right now.": {
+        "req": [ "responseTag.Find_Goat" ],
+        "lead to": [ "Attribute.negative.5", "Quest01_statement.Find_Goat_a2" ]
+      },
+      "(give her a thumbs up) No problem!": {
+        "req": [ "responseTag.Find_Goat_b1" ],
+        "lead to": [ "attribute.positive.3" ]
+      },
+      "Not right now.": {
+        "req": [ "responseTag.Kill_Monster" ],
+        "lead to": [ "Attribute.negative.5", "Quest01_statement.Kill_Monster_a2" ]
+      },
+      "I'm glad I could help.": {
+        "req": [ "responseTag.Kill_Monster_b1" ],
+        "lead to": [ "attribute.positive.3" ]
+      },
+      "I would, but I have things I need to do.": {
+        "req": [ "responseTag.In_need" ],
+        "lead to": [ "attribute.positive.-10", "Quest01_statement.In_Need_a2" ]
       },
       "neutral test 3": {
         "req": [ "responseTag.tag1" ],
@@ -383,44 +323,36 @@
       }
     },
     "negative": {
-      "negative test 0": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-10" ]
+      "Sure, but you need to be more responsible with your animals.": {
+        "req": [ "responseTag.Find_Goat_b1" ],
+        "lead to": [ "attribute.positive.-5", "attribute.negative.5" ]
       },
-      "negative test 1": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-10" ]
+      "A lot of bad stuff seems to happen to you. You must have made a lot of enemies.": {
+        "req": [ "responseTag.Kill_Monster_b1" ],
+        "lead to": [ "attribute.negative.5", "Quest01_statement.Kill_Monster_negative" ]
       },
-      "negative test 2": {
+      "neutral test 3": {
         "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-10" ]
-      },
-      "negative test 3": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-10" ]
+        "lead to": []
       }
     },
     "negative+": {
-      "negative+ test 0": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-20" ]
+      "Yeah whatever. The next favor you ask for will cost you.  A lot.": {
+        "req": [ "responseTag.Find_Goat_b1" ],
+        "lead to": [ "attribute.romance.-15", "attribute.negative.10" ]
       },
-      "negative+ test 1": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-20" ]
+      "I would like payment for this job.": {
+        "req": [ "responseTag.Kill_Monster_b1" ],
+        "lead to": [ "attribute.negative.10","attribute.romance.-20","attriute.friend.-15", "Quest01_statement.Kill_Monster_negative+" ]
       },
-      "negative+ test 2": {
+      "neutral test 3": {
         "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-20" ]
-      },
-      "negative+ test 3": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-20" ]
+        "lead to": []
       }
     }
   },
 
-  "sample02_statement": {
+  "Radiant01_statement": {
     "neutral": {
       " neutral test 0": {
         "req": [],
@@ -584,7 +516,7 @@
       }
     }
   },
-  "sample02_question": {
+  "Radiant01_question": {
     "neutral": {
       " neutral test 0": {
         "req": [],
@@ -748,7 +680,7 @@
       }
     }
   },
-  "sample02_response": {
+  "Radiant01_response": {
     "positive+": {
       "positive+ test 0": {
         "req": [ "responseTag.tag1" ],
