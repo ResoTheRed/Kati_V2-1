@@ -12,12 +12,18 @@ namespace TextGameDemo.Game {
     
     public class GameModel {
 
+        public static void Run() {
+            GameModel game = new GameModel();
+            game.GameLoop();
+        }
+
         private World world;
         private Player player;
         private CharacterLib lib;
         private Timer timer;
         private List<Character> charactersInRoom;
-       
+        private GameData gameData;
+        private bool nextDay;
 
         public World World { get => world; set => world = value; }
         public Player Player { get => player; set => player = value; }
@@ -27,19 +33,28 @@ namespace TextGameDemo.Game {
 
         public GameModel() {
             World = new World();
+            gameData = new GameData();
             Player = new Player();
+            PlayersStats.Get();
             Lib = new CharacterLib(Player);
-            Timer = new Timer();
+            Timer = Timer.Get();
             GetCharactersInRoom();
+            TUI.Menus.SetupMenus(gameData,  Lib);
+            nextDay = false;
         }
 
         public void GameLoop() {
             bool isRunning = true;
+            //each iteration is a tick
             while (isRunning) {
                 isRunning = DisplayRoomOptions();
+                if (nextDay) {
+                    UpdateNextDay();
+                }
             }
         }
 
+        //sets list CharactersInRoom to all characters currently in the room
         public void GetCharactersInRoom() {
             CharactersInRoom = new List<Character>();
             foreach (KeyValuePair<string, Character> item in Lib.Lib) {
@@ -68,6 +83,7 @@ namespace TextGameDemo.Game {
             }
             options += "[M|m] move to a new location\n";
             options += "[I|i] display Player inventory and status\n";
+            options += "[W|w] to wait\n";
             options += "[Q|q] to quit game.";
             Console.WriteLine(options);
             return ExecuteRoomOptions(continuePlaying);
@@ -77,21 +93,22 @@ namespace TextGameDemo.Game {
             string choice = Console.ReadLine();
             if (choice.Equals("T") || choice.Equals("t") && CharactersInRoom.Count > 0) {
                 TalkToPeople();
-                Timer.TakeTurn();
+                nextDay = Timer.TakeTurn();
             } else if (choice.Equals("M") || choice.Equals("m")) {
                 MoveLocation();
-                Timer.TakeTurn();
+                nextDay = Timer.TakeTurn();
             } else if (choice.Equals("I") || choice.Equals("i")) {
-                Console.WriteLine(player.BranchAttributesToString());
-                //inventory list
-                //quest list
+                TUI.Menus.Get().InventoryLoop();
                 ExecuteRoomOptions(continuePlaying);
+            } else if (choice.Equals("w") || choice.Equals("W")) {
+                nextDay = Timer.TakeTurn();
             } else {
                 continuePlaying = false;
             }
             return continuePlaying;
         }
 
+        /*********************************Talking Methods********************************/
         public void TalkToPeople() {
             int index = 1;
             Console.WriteLine("Who will you talk to?");
@@ -101,12 +118,55 @@ namespace TextGameDemo.Game {
             }
             string choice = Console.ReadLine();
             index = Int32.Parse(choice) - 1;
-            CharactersInRoom[index].Talk();
+            TUI.Menus.Get().TextBox(CharactersInRoom[index].Name,CharactersInRoom[index].Talk());
+            //temp debug line
+            ChangePositive(10,CharactersInRoom[index]);
+        }
+
+        /************************Change Character's Relationship statuses*************************/
+        //likely make this it's own class
+        public void ChangePositive(int value, Character character) {
+            Random rand = new Random();
+            int index = rand.Next(3); ;
+            string[] boy = { Social.FRIEND, Social.RESPECT, Social.PROFESSIONAL};
+            string[] girl = { Social.FRIEND, Social.ROMANCE, Social.AFFINITY, Social.PROFESSIONAL };
+            if (character.IsMale) {
+                ChangeAttribute(value,boy[index],character);
+            } else {
+                index = rand.Next(4);
+                ChangeAttribute(value, girl[index], character);
+            }
+        }
+
+        //update relationship stats
+        public void ChangeNegative(int value, Character character) {
+            Random rand = new Random();
+            int index = rand.Next(3);
+            string[] at = { Social.DISGUST, Social.HATE, Social.RIVALRY};
+            ChangeAttribute(value, at[index],character);
+        }
+
+        public void ChangeAttribute(int value, string attribute, Character character) {
+            Player.BranchAttributes[character.Name][attribute] += value;
+        }
+        /*******************************************************************************************/
+
+
+        public void UpdateNextDay() {
+            Lib.ChangeLocations();
+            GetCharactersInRoom();
+            nextDay = false;
         }
 
         public void MoveLocation() {
             World.MoveRoom();
+            SetPlayersLocation(World.CurrentArea.Name,World.CurrentArea.CurrentRoom.Name);
             GetCharactersInRoom();
+        }
+
+        public void SetPlayersLocation(string area, string room) {
+            Lib.Lib[Cast.PLAYER].Locations.CurrentArea = area;
+            Lib.Lib[Cast.PLAYER].Locations.CurrentRoom = room;
         }
 
     }

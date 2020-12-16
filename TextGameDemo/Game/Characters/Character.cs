@@ -14,6 +14,7 @@ namespace TextGameDemo.Game.Characters {
         private Dictionary<string, List<string>> socialAttributes;
         private Dictionary<string, Dictionary<string, int>> branchAttributes;
         private CharacterLocations locations;
+        private List<string> moduleNames;
 
         
 
@@ -24,15 +25,17 @@ namespace TextGameDemo.Game.Characters {
         public bool IsMale { get => isMale; }
         public Dictionary<string, Dictionary<string, int>> BranchAttributes { get => branchAttributes; set => branchAttributes = value; }
         public CharacterLocations Locations { get => locations; set => locations = value; }
+        public List<string> ModuleNames { get => moduleNames; set => moduleNames = value; }
 
         public Character(string name, bool isMale) {
             Name = name;
             this.isMale = isMale;
             Locations = new CharacterLocations();
+            ModuleNames = new List<string>();
         }
 
-        public void Talk() {
-            Console.WriteLine("Hello from " + name);
+        public string Talk() {
+            return "Hello from " + name;
         }
 
 

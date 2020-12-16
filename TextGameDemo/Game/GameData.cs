@@ -5,6 +5,8 @@ using System.Text;
 namespace TextGameDemo.Game {
     public class GameData {
 
+        public const float DAY_TIME_PERCENT = 0.6f;
+
         private bool isNight;
         private string weather;
         private List<string> weatherTypes;
@@ -13,7 +15,10 @@ namespace TextGameDemo.Game {
         public GameData() {
             isNight = false;
             weatherTypes = new List<string>() { "Nice", "Nice", "Nice", "Overcast", "Overcast", "Rain" };
+            weather = ChangeTheWeather();
         }
+
+        public string Weather { get => weather;  }
 
         public string ChangeTheWeather() {
             Random rand = new Random();
@@ -22,7 +27,7 @@ namespace TextGameDemo.Game {
         }
 
         public bool CheckTimeOfDay(int time) {
-            isNight = time > 60;
+            isNight = time > (int)(Timer.MOVE_THRESHOLD * DAY_TIME_PERCENT);
             return isNight;
         }
 

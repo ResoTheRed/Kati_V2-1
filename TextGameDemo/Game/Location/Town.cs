@@ -5,6 +5,7 @@ using System.Text;
 namespace TextGameDemo.Game.Location {
     public class Town : Area{
 
+        public const string NAME = "Village of Biggs";
         public const string TOWN_CENTER = "Town Center";
         public const string ALBRECHT = "Albrecht's House";
         public const string STORE = "General Store";

@@ -4,6 +4,12 @@ using System.Text;
 
 namespace TextGameDemo.Game.Characters {
 
+    struct ModuleNames {
+        public const string AROUND_TOWN = "Around_Town";
+        public const string LERIN = "Lerin";
+        public const string QUESTING = "Questing";
+    }
+
     struct Areas {
         public const string TOWN = "Village of Biggs";
         public const string FOREST = "Gringor's Forest";
@@ -149,6 +155,9 @@ namespace TextGameDemo.Game.Characters {
                 Location.Forest.ENTRANCE, Location.Forest.PATH
             });
             Lib[name].Locations.ChangeRooms();
+
+            //Modules
+            Lib[name].ModuleNames.Add(ModuleNames.AROUND_TOWN);
         }
 
         private void Helena(string name) {
@@ -168,6 +177,8 @@ namespace TextGameDemo.Game.Characters {
             });
 
             Lib[name].Locations.ChangeRooms();
+            //Modules
+            Lib[name].ModuleNames.Add(ModuleNames.AROUND_TOWN);
         }
 
         private void Quinn(string name) {
@@ -185,6 +196,8 @@ namespace TextGameDemo.Game.Characters {
                 Location.Town.TOWN_CENTER, Location.Town.STORE, Location.Town.GATE
             });
             Lib[name].Locations.ChangeRooms();
+            //Modules
+            Lib[name].ModuleNames.Add(ModuleNames.AROUND_TOWN);
         }
 
         private void Teta(string name) {
@@ -204,6 +217,9 @@ namespace TextGameDemo.Game.Characters {
                 Location.Town.TOWN_CENTER, Location.Town.STORE, Location.Town.PEASANT
             });
             Lib[name].Locations.ChangeRooms();
+            //Modules
+            Lib[name].ModuleNames.Add(ModuleNames.AROUND_TOWN);
+            Lib[name].ModuleNames.Add(ModuleNames.QUESTING);
         }
 
         private void Lafitte(string name) {
@@ -223,6 +239,8 @@ namespace TextGameDemo.Game.Characters {
                 Location.Town.TOWN_CENTER, Location.Town.LAFITTE
             });
             Lib[name].Locations.ChangeRooms();
+            //Modules
+            Lib[name].ModuleNames.Add(ModuleNames.AROUND_TOWN);
         }
 
         private void Lerin(string name) {
@@ -247,6 +265,9 @@ namespace TextGameDemo.Game.Characters {
                 Location.Cave.LARGE_CHAMBER, Location.Cave.SMALL_CHAMBER
             });
             Lib[name].Locations.ChangeRooms();
+            //Modules
+            Lib[name].ModuleNames.Add(ModuleNames.LERIN);
+            Lib[name].ModuleNames.Add(ModuleNames.QUESTING);
         }
 
         private void Romero(string name) {
@@ -266,6 +287,8 @@ namespace TextGameDemo.Game.Characters {
                 Location.Town.TOWN_CENTER, Location.Town.GATE, Location.Town.PEASANT
             });
             Lib[name].Locations.ChangeRooms();
+            //Modules
+            Lib[name].ModuleNames.Add(ModuleNames.AROUND_TOWN);
         }
 
         private void Michiah(string name) {
@@ -285,6 +308,8 @@ namespace TextGameDemo.Game.Characters {
                 Location.Town.TOWN_CENTER, Location.Town.GATE
             });
             Lib[name].Locations.ChangeRooms();
+            //Modules
+            Lib[name].ModuleNames.Add(ModuleNames.AROUND_TOWN);
         }
 
         private void Albrecht(string name) {
@@ -304,6 +329,9 @@ namespace TextGameDemo.Game.Characters {
                 Location.Town.TOWN_CENTER, Location.Town.ALBRECHT, Location.Town.LERIN
             });
             Lib[name].Locations.ChangeRooms();
+            //Modules
+            Lib[name].ModuleNames.Add(ModuleNames.AROUND_TOWN);
+            Lib[name].ModuleNames.Add(ModuleNames.QUESTING);
         }
 
         private void Dan(string name) {
@@ -322,6 +350,9 @@ namespace TextGameDemo.Game.Characters {
                 Location.Town.TOWN_CENTER, Location.Town.GATE, Location.Town.STORE
             });
             Lib[name].Locations.ChangeRooms();
+            //Modules
+            Lib[name].ModuleNames.Add(ModuleNames.AROUND_TOWN);
+            Lib[name].ModuleNames.Add(ModuleNames.QUESTING);
         }
 
         private void Collin(string name) {
@@ -345,6 +376,8 @@ namespace TextGameDemo.Game.Characters {
                 Location.Forest.CLEARING, Location.Forest.PATH
             });
             Lib[name].Locations.ChangeRooms();
+            //Modules
+            Lib[name].ModuleNames.Add(ModuleNames.AROUND_TOWN);
         }
 
         private void Ben(string name) {
@@ -372,6 +405,8 @@ namespace TextGameDemo.Game.Characters {
                 Location.Forest.ENTRANCE
             });
             Lib[name].Locations.ChangeRooms();
+            //Modules
+            Lib[name].ModuleNames.Add(ModuleNames.AROUND_TOWN);
         } 
         
         private void Sivian(string name) {
@@ -392,6 +427,8 @@ namespace TextGameDemo.Game.Characters {
             });
 
             Lib[name].Locations.ChangeRooms();
+            //Modules
+            Lib[name].ModuleNames.Add(ModuleNames.QUESTING);
         }
 
         private void Player(string name) {
@@ -412,6 +449,9 @@ namespace TextGameDemo.Game.Characters {
             SetBranchAttributes(name, Cast.QUINN, 0, 0, 0, 0, 0, 0, 0, 0);
             SetBranchAttributes(name, Cast.TETA, 0, 0, 0, 0, 0, 0, 0, 0);
             SetBranchAttributes(name, Cast.HELENA, 0, 0, 0, 0, 0, 0, 0, 0);
+            //set players current location to the village of Biggs and Town Center
+            Lib[name].Locations.CurrentArea = Location.Town.NAME;
+            Lib[name].Locations.CurrentRoom = Location.Town.TOWN_CENTER;
 
         }
 
@@ -427,6 +467,15 @@ namespace TextGameDemo.Game.Characters {
             att[Social.HATE] = hate;
             att[Social.RIVALRY] = rival;
             Lib[me].BranchAttributes[other] = att;
+        }
+
+        //changes the locations of each character calls when day change happens
+        public void ChangeLocations() {
+            foreach (KeyValuePair<string, Character> item in Lib) {
+                item.Value.Locations.ChangeRooms();
+                (string area, string room) = item.Value.Locations.getLocation();
+                Console.WriteLine(item.Key+" "+area + " " + room);
+            }
         }
     }
 }

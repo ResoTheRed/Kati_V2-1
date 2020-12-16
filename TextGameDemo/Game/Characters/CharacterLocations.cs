@@ -11,6 +11,9 @@ namespace TextGameDemo.Game.Characters {
         string currentArea;
         string currentRoom;
 
+        public string CurrentArea { get => currentArea; set => currentArea = value; }
+        public string CurrentRoom { get => currentRoom; set => currentRoom = value; }
+
         public CharacterLocations() {
             locals = new Dictionary<string, List<string>>();
             keys = new List<string>();
@@ -30,14 +33,14 @@ namespace TextGameDemo.Game.Characters {
         public void ChangeRooms() {
             Random rand = new Random();
             if (keys.Count>=1) { 
-                currentArea = keys[rand.Next(keys.Count)];
-                currentRoom = locals[currentArea][rand.Next(locals[currentArea].Count)];
+                CurrentArea = keys[rand.Next(keys.Count)];
+                CurrentRoom = locals[CurrentArea][rand.Next(locals[CurrentArea].Count)];
             } 
         }
 
         public (string, string) getLocation() {
-            return (currentArea, currentRoom);
-            }
+            return (CurrentArea, CurrentRoom);
+        }
 
     }
 }

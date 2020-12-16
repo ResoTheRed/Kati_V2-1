@@ -7,9 +7,10 @@ namespace TextGameDemo.Game.Location {
 
         private string name;
         private string description;
+        //location that this room exists in
         private Area parentArea;
         private List<Room> exits;
-
+        //hold all character currently in the room
         private List<Character> currentCharactersInRoom;
 
         public string Name { get => name; }
