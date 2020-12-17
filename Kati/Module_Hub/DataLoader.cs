@@ -18,7 +18,7 @@ namespace Kati.Module_Hub {
         }
 
         public string Path { get => path; set => path = value; }
-
+        //might be given by the game instead of json files
         public Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> LoadJsonFile() {
             using StreamReader r = new StreamReader(Path);
             string json = r.ReadToEnd();

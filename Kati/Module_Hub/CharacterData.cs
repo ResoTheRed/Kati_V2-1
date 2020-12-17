@@ -5,7 +5,8 @@ using System.Text;
 namespace Kati.Module_Hub {
 
     /// <summary>
-    /// Contains all of the character data from the game
+    /// Contains all of the character data from the game 
+    /// Handled by the game or by the module hub?
     /// </summary>
     public class CharacterData {
         //singleton

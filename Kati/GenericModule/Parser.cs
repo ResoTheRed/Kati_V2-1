@@ -59,15 +59,8 @@ namespace Kati.GenericModule {
             SetPackage(ref data);
         }
 
-        public void RunResponse() { 
-        
-        }
-
         //define this method 
         protected void SetPackage(ref Dictionary<string, Dictionary<string, List<string>>> data) {
-            Ctrl.Package.Module = "JobInterviewModule";
-            //Ctrl.Package.Speaker = (Type.Equals(Constants.RESPONSE)) ? Constants.RESPONDER : Constants.INITIATOR;
-            
             foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in data) {
                 if (!Type.Equals(Constants.RESPONSE))
                     Ctrl.Package.Dialogue = item.Key;
