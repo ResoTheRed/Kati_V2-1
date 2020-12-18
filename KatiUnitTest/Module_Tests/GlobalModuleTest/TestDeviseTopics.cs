@@ -1,5 +1,5 @@
-﻿using Kati.GenericModule;
-using Kati.SourceFiles;
+﻿using Kati;
+using Kati.GenericModule;
 using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
-    
+
     [TestClass]
     public class TestDeviseTopics {
 

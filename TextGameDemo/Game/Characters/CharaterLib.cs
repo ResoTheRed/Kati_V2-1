@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kati;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -75,14 +76,14 @@ namespace TextGameDemo.Game.Characters {
         public const string IS_OWED = "Is Owed";
         public const string COLLEGUE = "Collegue";
 
-        public const string ROMANCE = Kati.SourceFiles.Constants.ROMANCE;
-        public const string FRIEND = Kati.SourceFiles.Constants.FRIEND;
-        public const string PROFESSIONAL = Kati.SourceFiles.Constants.PROFESSIONAL;
-        public const string AFFINITY = Kati.SourceFiles.Constants.AFFINITY;
-        public const string RESPECT = Kati.SourceFiles.Constants.RESPECT;
-        public const string DISGUST = Kati.SourceFiles.Constants.DISGUST;
-        public const string HATE = Kati.SourceFiles.Constants.HATE;
-        public const string RIVALRY = Kati.SourceFiles.Constants.RIVALRY;
+        public const string ROMANCE = Constants.ROMANCE;
+        public const string FRIEND = Constants.FRIEND;
+        public const string PROFESSIONAL = Constants.PROFESSIONAL;
+        public const string AFFINITY = Constants.AFFINITY;
+        public const string RESPECT = Constants.RESPECT;
+        public const string DISGUST = Constants.DISGUST;
+        public const string HATE = Constants.HATE;
+        public const string RIVALRY = Constants.RIVALRY;
     }
 
     public class CharacterLib {

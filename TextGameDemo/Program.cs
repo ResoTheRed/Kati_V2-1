@@ -1,13 +1,39 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using TextGameDemo.Game.Characters;
 
 namespace TextGameDemo {
     public class Program {
         static void Main(string[] args) {
-            Game.GameModel.Run();
+            //Game.GameModel.Run();
             //TestTextBox();
-            
+            //TestLinkedList();
+            TestGetCurrentDirectory();
+        }
+
+        public static void TestGetCurrentDirectory() {
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            string[] directories = path.Split("\\");
+            path = "";
+            for(int i=0;i< directories.Length-3;i++) {
+                path += directories[i] + "\\";
+            }
+            path += "Module_Hub\\History\\file.txt";
+            Console.WriteLine(path);
+        }
+        
+        public static void TestLinkedList() {
+            LinkedList<string> list = new LinkedList<string>();
+            list.AddLast("Hello");
+            list.AddLast("World");
+            string value = list.First.Value;
+            Console.WriteLine(value);
+            list.RemoveFirst();
+            value = list.First.Value;
+            Console.WriteLine(value);
+            list.RemoveFirst();
+            Console.WriteLine(list.Count);
         }
 
         public static void TestTextBox() {

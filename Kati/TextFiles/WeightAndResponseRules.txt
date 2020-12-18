@@ -1,0 +1,40 @@
+﻿Weight Rules:
+
+1. priority values label topics with rulings
+	a. Scale 0 to 100
+	b. each dialogue bit will have a base value the rule values will be added
+		i.  base value 50
+		ii. max bonus value 100
+		iii.max total value 150
+	c. strongest ruling value wins out
+		i. if dialogue has multiple rules then the highest valued rule will be added and the rest dropped
+	d. character should talk about what is most important to them
+
+2. consider personal rules   
+	a. personal.status				80 units  --> generaly is the strongest emotion present, also temporary
+	b. personal.trait				40 units  --> natural tendancy of character
+	c. personal.physicalfeatures	30 units  --> constant physical feature of character
+	d. personal.interest			20 units  --> talking point but not pressing
+	e. personal.scalarTrait			value/10  --> 0 to 100
+	f. mechanism to change weights based off of stats that an npc might have
+		i. generally reserved for overloading, though this may change
+
+3. consider social rules     
+	a. social.attribute				value/10  --> 0 to 100
+	b. social.directed				50 units  --> strong bond between characters
+	c. social.relationship			25 units  --> more mundane than dierced status but not less special
+
+4. consider game rules
+	a. game.trigger					100 units  --> will likely be manditory static dialogue
+	b. game.publicEvent				20 units   --> a kin to interests
+	c. any other rule				0 units    --> base only
+
+5. specialized weight rules
+	a. saved for overridden methods or inheritance
+
+6. Additional features needed
+	a. track target that is being mentioned or is targeted by the rule
+		i.  default player
+		ii. source to SocialCharacterRules.cs
+			1. maybe change the string in the req to from npc to their name
+				ex: "social.attribute.npc.hate.100"-->"social.attribute.Vernon.hate.100"

@@ -1,14 +1,13 @@
-﻿using Kati.SourceFiles;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Kati.GenericModule {
-    
+
     /// <summary>
     /// Class weighs all dialogue bits based on requirements and returns
     /// one of them
     /// </summary>
-    
+
     public class DialogueWeigthRules {
 
         private Controller ctrl;

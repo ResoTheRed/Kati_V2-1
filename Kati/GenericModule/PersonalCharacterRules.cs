@@ -1,7 +1,6 @@
 ﻿using Kati.Module_Hub;
 using System;
 using System.Collections.Generic;
-using Kati.SourceFiles;
 
 namespace Kati.GenericModule {
     public class PersonalCharacterRules {

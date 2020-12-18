@@ -1,0 +1,684 @@
+{
+  "dream_statement": {
+    "neutral": {
+      "I had a strange dream last night.": {
+        "req" : [],
+        "lead to" : [ "dreamDesc" ]
+      },
+      "I didn't sleep so well last night.  I kept thinking about things all night.  #new_text_box# Some times, I just can't turn my brain off.": {
+        "req": [],
+        "lead to": []
+      },
+      "... ... ... ... #new_text_box# Sorry I started day dream.  I guess I have a lot on my mind": {
+        "req": [],
+        "lead to": [ "end_conversation" ]
+      },
+      "I can't stop thinking about this dream that I had last night.": {
+        "req": [],
+        "lead to": [ "dreamDesc" ]
+      },
+      "I've been having the strangest dreams lately.  I don't know how I feel about them.": {
+        "req": [],
+        "lead to": [ "dreamDesc" ]
+      },
+      "I always have wild dreams, but I can never seem to remember them.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "romance": {
+      "I had a dream about you last night. #new_text_box# Lets just say it was a good dream, a REALLY good dream.": {
+        "req": [],
+        "lead to": []
+      },
+      "Hey, guess what. #new_text_box# I dreamed we went on a date at a fancy resturant.  We were sitting at a table for two on a balcony under the moonlight.  The soft candle light was sparking in your eyes, and we kissed.  #new_text_box# It was so romantic. We should go to a resturant sometimes. Maybe in the city.": {
+        "req": [],
+        "lead to": []
+      },
+      "Last night, I dreamed we were walking hand-in-hand on the beach.  Sometimes I wish my dreams were actually memories instead of dreams.": {
+        "req": [],
+        "lead to": []
+      },
+      "I was thinking.  Since you came into my life, my dreams have been so much sweeter.  Thank you for being you.": {
+        "req": [],
+        "lead to": []
+      },
+      "I dreamed about you last night.  I seem to dream about you a lot lately": {
+        "req": [],
+        "lead to": []
+      },
+      "I have to confess something to you. I've been dreaming about you and it's not just when I'm sleeping either.": {
+        "req": [],
+        "lead to": []
+      },
+      "I just couldn't get you out of my head last night. My dreams always seem to lead to you.": {
+        "req": [],
+        "lead to": []
+      },
+      "I dreamed about you last night. I just can't get you out of my mind.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "friend": {
+      "You'll never guess what I dreamed about yesterday.": {
+        "req": [],
+        "lead to": [ "dreamDesc" ]
+      },
+      "I had the stranges dream yesterday.": {
+        "req": [],
+        "lead to": [ "dreamDesc" ]
+      },
+      "I had a dream the other day that kind of messed me up a little bit.": {
+        "req": [],
+        "lead to": [ "dreamDesc" ]
+      },
+      "Listen to this.  I dreamed we were stuck in a car outside of one of those mega box stores. #new_text_box# I have the most boring dreams.": {
+        "req": [],
+        "lead to": []
+      },
+      "I had this dream the other day.": {
+        "req": [],
+        "lead to": [ "dreamDesc", "personal" ]
+      },
+      "I can't stop thinking about this dream that I had last night.": {
+        "req": [],
+        "lead to": [ "dreamDesc", "personal" ]
+      },
+      "I've been having the strangest dreams lately.  I don't know how I feel about them.": {
+        "req": [],
+        "lead to": [ "dreamDesc", "personal" ]
+      },
+      "Let me tell you about this dream I had the other night.": {
+        "req": [],
+        "lead to": [ "dreamDesc", "personal" ]
+      },
+      "Some times I have embarrssing dreams and I wake up in the middle of the night.": {
+        "req": [],
+        "lead to": []
+      },
+      "I've been day dreaming a lot lately.  I wonder why?": {
+        "req": [],
+        "lead to": []
+      },
+      "Some times I wonder why people dream.  I read once that it is a way for peoples minds to catelog memories, but I don't know if thats true.": {
+        "req": [],
+        "lead to": []
+      },
+      "I had a great dream last night. I dreamed that I was running a marathon.  I remember thinking how badly I wanted to stop runnung but I didn't.  I finished the run in first place! #new_text_box# I woke up so motivated.  I wish I had more dreams like that!": {
+        "req": [ "attribute.fitness" ], //revise 
+        "lead to": []
+      },
+      "Last night I dreamed I was a CEO of a major company. I didn't want to wake up this morning.": {
+        "req": [ "attribute.money" ], //revise
+        "lead to": []
+      },
+      "I can't stop thinking about this dream I had.": {
+        "req": [],
+        "lead to": [ "dreamDesc" ]
+      }
+    },
+    "respect": {
+      "Last night, I dreamed you were voted as the person of the year. There was a festival goin on and you went up to give a speech.  Then I woke up.  #new_text_box# I wouldn't be surprised it that happened someday.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "affinity": {
+      "#art_blush# I had a dream about you. It was good and we... You know ... we, nevermind.  Forget I said anything.": {
+        "req": [],
+        "lead to": []
+      },
+      "#art_blush# I may have had a dream about you the other day.  Don't worry, it wasn't anything bad.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "rivalry": {
+      "#art_happy#Last night, I dreamed we were playing a board game and I totally owned you!": {
+        "req": [],
+        "lead to": []
+      },
+      "#art_skeptical#I dreamed you beat me in a card game last night. Pshh.. like that would ever happen.": {
+        "req": [],
+        "lead to": []
+      },
+      "We should have a competition someday and see who's the better than who. I can dream up a few things to test our skills.": {
+        "req": [],
+        "lead to": [ "end_conversation" ]
+      },
+      "You might think you're better than me. But you're just dreaming.": {
+        "req": [],
+        "lead to": []
+      },
+      "I dreamed we were working in at a movie theather and you were my manager. #new_text_box#  HA! Could you imagine. You, my boss.  Only in a dream could that happen.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "disgust": {
+      "#art_mean# I had a dream about you last night.  I don't really want to talk about it.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "#art_mean# I can't escape you.  You bother me all of the time, and I even had a dream about you. I tossed and turned all night.": {
+        "req": [],
+        "lead to": []
+      },
+      "Hey, I love talking to you. NOT! #new_text_box# #art_mean# Even in a dream you'd make my skin crawl!": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "dreamDesc": {
+      "It had something to do with a cat in flip flops. I remeber #friend# was there.  #Pron2# had yellow spoons for some reason. #new_text_box# I'm sure you're not interested in that though.": {
+        "req": [ "friend" ],
+        "lead to": []
+      },
+      "I dreamed I was a wild dog chasing a man in a hotdog suit.  For some reason in the dream, this was perfectly normal.  It's funny how dreams are.": {
+        "req": [],
+        "lead to": []
+      },
+      "I dreamed I was walking down the street completely nude and #npc_romance# was there watching me and giggling. #new_text_box# I don't know how this makes me feel. #new_text_box# Please don't tell anyone about this dream.": {
+        "req": [ "friend", "personal", "npc_romance" ],
+        "lead to": []
+      },
+      "It was something to do with rubber pants and a man playing an acordian.  The rest is kind of a blur.": {
+        "req": [],
+        "lead to": []
+      },
+      "I dreamed that I woke up at #npc_enemy#'s house and I was wearing their clothes. It was so unsettling.": {
+        "req": [ "friend", "personal", "npc_enemy" ],
+        "lead to": []
+      },
+      "I dreamed I went to the market and the walls were made out of old shoes.  When I asked the clerk about it, he kicked me out of the building.": {
+        "req": [],
+        "lead to": []
+      },
+      "It was midnight but the sun was out and #npc_friend# was walking around, chewing on a piece of leather. #new_text_box# Then the ground started shaking and I woke up.": {
+        "req": [ "npc_friend" ],
+        "lead to": []
+      },
+      "It was really foggy out and a large creature was stalking me. I never saw it but I knew it was there. #new_text_#": {
+        "req": [],
+        "lead to": []
+      },
+      "I dreamed my teeth were falling out and I couldn't do anything about it.  It was the worst.": {
+        "req": [],
+        "lead to": []
+      },
+      "I dreamed I was a traveling sales person selling microwaves.  I wasn't able to sell a single one.": {
+        "req": [],
+        "lead to": []
+      },
+      "I dreamed I had a date with a talking cat. Every time it would talk, it would shed in my food. #new_text_block# I remember sneezing and my nose was running.": {
+        "req": [],
+        "lead to": []
+      },
+      "The ground was made out of jello and I was bouncing all over the place.  I got kind of motion sick to tell you the truth.": {
+        "req": [],
+        "lead to": []
+      },
+      "I was a police officer and #npc_enemy# was my partner.  Surprizingly, we were a good team, though I can't anything we did.": {
+        "req": [ "npc_enemy" ],
+        "lead to": []
+      },
+      "Oh, this dream was crazy.  Everything was so other-worldly. #new_text_box# I dreamed something about a leather hat, and there was ... A tall man with a ... microphone or recorder or ..uhhm. #new_text_box# Oh, I don't remember.": {
+        "req": [],
+        "lead to": []
+      },
+      "It was, well... uhm.. #new_text_block# #art_laugh# I guess, I can't remember. #new_text_block# Nevermind": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+  "dream_question": {
+    "neutral": {
+      "Do you ever have any weird dreams? You know, like flying in an ice cream truck filled with squirrels or swimming in a giant belly button?": {
+        "req": [ "attribute.creative" ], //revise
+        "lead to": [ "player_dreams" ]
+      },
+      "I've been having the strangest dreams lately. How about you?": {
+        "req": [],
+        "lead to": [ "player_dreams" ]
+      },
+      "I had a bad dream last night and #npc_friend# said dreams can be omens.  What do you think about dreams?": {
+        "req": [ "npc_freind" ],
+        "lead to": [ "player_dreams" ]
+      },
+      "I usually don't ask these things, but what do you think about that?": {
+        "req": [ "dream_statement" ],
+        "lead to": [ "npc_dreams" ]
+      },
+      "So.. #new_text_box# what do you think?": {
+        "req": [ "dream_statement" ],
+        "lead to": [ "npc_dream" ]
+      },
+      "I know, it's crazy #new_text_box# what do you think?": {
+        "req": ["dream_statement"],
+        "lead to": [ "npc_dream" ]
+      }
+    },
+    "friend": {
+      "I've been having crazy dreams lately. I'm not sure if it's a good thing or not. What do you think?": {
+        "req": [],
+        "lead to": [ "npc_dreams" ]
+      },
+      "What do you think about that?": {
+        "req": [ "dream_statement" ],
+        "lead to": [ "npc_dreams" ]
+      },
+      "Strange don't you think?": {
+        "req": [ "dream_statement" ],
+        "lead to": [ "npc_dreams" ]
+      },
+      "What do you say about that?": {
+        "req": [ "dream_statement" ],
+        "lead to": [ "npc_dreams" ]
+      },
+      "I've got a weird question for you. Been having any strange  dreams lately?": {
+        "req": [],
+        "lead to": [ "player_dreams" ]
+      },
+      "I haven't been sleeping to great lately.  I've been having weird dreams. How about you? Have you been sleeping peacefully, or is it just me?": {
+        "req": [],
+        "lead to": [ "player_dreams" ]
+      }
+    }
+  },
+  //npc_dreams, player_dreams
+  "dream_response": {
+    "positive+": {
+      "Dreams are important to me.": {
+        "req": [ "npc_dreams" ],
+        "lead to": [ "friend.+", "respect.+" ]
+      },
+      "Dreams are special and can reveal your inner self.": {
+        "req": [ "npc_dreams" ],
+        "lead to": [ "friend.+", "admiration.+" ]
+      },
+      "I absolutely love it when I dream.": {
+        "req": [ "npc_dreams" ],
+        "lead to": [ "friend.++" ]
+      },
+      "Sometimes when I dream, I don't want to wake up. Especially when it involves you.": {
+        "req": [ "npc_dreams" ],
+        "lead to": [ "romance.++" ]
+      },
+      "You're lucky to have all of those interesting dreams.": {
+        "req": ["npc_dreams"],
+        "lead to": ["friend.++"]
+      }
+    },
+    "positive": {
+      "I love a good dream from time to time.": {
+        "req": [ "npc_dreams" ],
+        "lead to": [ "friend.+" ]
+      },
+      "I do a lot of problem solving when I dream.": {
+        "req": [ "npc_dreams" ],
+        "lead to": [ "respect.+" ]
+      },
+      "Dreams are like odd movies. I'm just missing the popcorn.": {
+        "req": [ "npc_dreams" ],
+        "lead to": [ "friend.+" ]
+      },
+      "Good dreams are the best, but I'd rather talk to you.": {
+        "req": [ "npc_dream" ],
+        "lead to": [ "romance.+" ]
+      },
+      "Dreams are visions of the mind and are worth pondering.": {
+        "req": ["npc_dream"],
+        "lead to": ["admiration.+"]
+      }
+    },
+    "neutral": {
+      "Im indifferent I guess.": {
+        "req": [ "npc_dream" ],
+        "lead to": []
+      },
+      "I like dreaming sometimes, but sometimes they can be annoying.": {
+        "req": [ "npc_dream" ],
+        "lead to": []
+      },
+      "I haven't really thought about it before.": {
+        "req": [ "npc_dream" ],
+        "lead to": []
+      },
+      "I don't know one way or another.": {
+        "req": [ "npc_dream" ],
+        "lead to": []
+      },
+      "I never remember my dreams.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "negative": {
+      "It's a waste of time thinking about dreams.": {
+        "req": [],
+        "lead to": [ "disgust.+" ]
+      },
+      "I don't care talk about dreams.": {
+        "req": [],
+        "lead to": [ "friend.-" ]
+      },
+      "Dreams are just you elements of your day blended together.  They aren't worth remebering.": {
+        "req": [],
+        "lead to": [ "disgust.+" ]
+      },
+      "Dreams are whatever.": {
+        "req": [],
+        "lead to": [ "friend.-" ]
+      },
+      "I don't know.": {
+        "req": [],
+        "lead to": [ "disgust.+" ]
+      },
+      "I'm not interested in dreams.": {
+        "req": [],
+        "lead to": [ "admiration.-","friend.-" ]
+      },
+      "I can't talk about my dreams with you.  You'll think they're vulgar.": {
+        "req": [ "player_dreams" ],
+        "lead to": [ "respect.-" ]
+      },
+      "If you took better care of your self your dreams wouldn't be such a mess.": {
+        "req": ["npc_dreams"],
+        "lead to": ["hate.++"]
+      }
+    },
+    "negative+": {
+      "Dreams are boring, just like this conversation.": {
+        "req": [],
+        "lead to": [ "respect.-", "friend.-", "romance.-", "hate.+" ]
+      },
+      "Why are we talking about such a lame topic?": {
+        "req": [],
+        "lead to": [ "friend.-", "romance.-", "disgust.+" ]
+      },
+      "This conversation is a waste of time.": {
+        "req": [],
+        "lead to": [ "respect.-", "friend.-", "disgust.+" ]
+      },
+      "I don't care.  Really, I don't.": {
+        "req": [],
+        "lead to": [ "friend.-", "admiration.--", "hate.+" ]
+      },
+      "Nobody cares about your dreams.": {
+        "req": [ "npc_dreams" ],
+        "lead to": [ "friend.-", "romance.-", "disgust.+" ]
+      },
+      "Why would I tell you about my dreams. It's none of your business.": {
+        "req": [ "player_dreams" ],
+        "lead to": [ "friend.-", "respect.-", "romance.-" ]
+      },
+      "Who cares about dreams, they're meaningless.": {
+        "req": [],
+        "lead to": ["friend.-","hate.+"]
+      }
+    }
+  },
+
+  "trivia_statement": {
+    "neutral": {
+      "I've got a random fact for you. I heard that some lizards can run on water. #new_text_box# Nature is an odd duck.": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "romance": {
+      "Sample romance trivia statement. no reqs or lead to": {
+        "req": [],
+        "lead to": []
+      },
+      "Sample romace trivia with multi-reqs lover: #npc_lover#": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "friend": {
+      "": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "respect": {
+      "": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "affinity": {
+      "": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "disgust": {
+      "": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "rivalry": {
+      "": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+  "trivia_question": {
+    "neutral": {
+      "": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "romance": {
+      "": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "friend": {
+      "": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "respect": {
+      "": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "affinity": {
+      "": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "disgust": {
+      "": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "rivalry": {
+      "": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+  "trivia_response": {
+    "positive+": {
+      "": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "positive": {
+      "": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "neutral": {
+      "": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "negative": {
+      "": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "negative+": {
+      "": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+  //what if type stuff
+  "wonder_statement": {
+    "neutral": {
+      "I wonder what I should have for dinner.  Maybe some speghetti or maybe a nice piece of grilled fish. #new_text_box# Yeah, I think I'll have the fish.": {
+        "req": [],
+        "lead to": []
+      },
+      "I was listening to the radio and I heard a song I really like.  I wonder if #npc_friend# would like it. #new_text_box# Maybe I'll ask them.": {
+        "req": [ "npc_friend" ],
+        "lead to": []
+      },
+      "How do you think gravity works.  I mean it's invisible and it keeps everything from flying into outerspace. #new_text_box# What even is it?": {
+        "req": [],
+        "lead to": []
+      },
+      "Everytime I watch the news I feel a bit sick. It got so bad that I had to quit all-together. #new_text_box# Now, I don't know what's going on but I'l happier for it.": {
+        "req": [],
+        "lead to": []
+      },
+      "I saw, what was their name? Ah yes, #npc_neutral# earlier and #pron1# was looking very chipper. #new_text_box# They seem to be having a good day today.": {
+        "req": ["npc_neutral"],
+        "lead to": []
+      }
+    },
+    "romance": {
+      "#art_blush# What would you think about taking a midnight stroll sometime. #new_text_box# #art_blush# I think it sounds amazing.": {
+        "req": [],
+        "lead to": []
+      },
+      "You know, I toyed with the idea of moving out of this town, but now that I've met you.  I just don't think that I can go.": {
+        "req": [],
+        "lead to": []
+      },
+      "I wonder what it would be like to be filthy rich? I could just go buy what ever I want when I want. #new_text_box# That would be the life.": {
+        "req": [ "attribute.greedy" ],
+        "lead to": []
+      }
+    },
+    "friend": {
+      "I've been thinking a lot about life  lately. #new_text_block# Sometimes I wonder if I doing it right. #new_text_box# You know, this whole living in society thing. #new_text_box# Wow, how depressing do I sound right now. Let's talk about something else.": {
+        "req": [],
+        "lead to": []
+      },
+      "I walked by a pile of trash on the ground the other day and had to stop and pick it up. #new_text_box# #art_mean# People have some nerve just throwing trash all over the place. #new_text_box# HUFF.. Sorry, I'm sure you didn't come to hear me complain, though I do feel better now.": {
+        "req": [],
+        "lead to": []
+      },
+      "Oooh, I love to watch horror movies. I like to turn the lights out, make some popcorn, and see how scared I can get. #new_text_box# I never really feel scared until it's time to go to sleep. #new_text_box# #art_laugh# Please don't tell anyone that last part.": {
+        "req": [],
+        "lead to": []
+      },
+      "I was sitting at the Blonde Mouse the other day and I realized something. #new_text_box# I LOVE COFFEE. I love the aroma, the taste, and sipping on it while enjoy a good book.": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+  "wonder_question": {
+    "friend": {
+      "I saw #npc_enemy# looking very suspicious the other day.  I thought about following them, but I didn't.  #new_text_box# What do you think I should do in those types of situations?": {
+        "req": [],
+        "lead to": [ "npc_should_do" ]
+      },
+      "I always wanted to travel the world. I would love to go overseas and see all of the different cultures. #new_text_box# You can see the history built right in to the architechture of these places. #new_text_box# Maybe I'll save up and go.  What do you think I should do?": {
+        "req": [ "npc_should_do" ],
+        "lead to": []
+      }
+    }
+  },
+  "wonder_response": {
+    "positive+": {
+      "Yeah! You should go with your gut.": {
+        "req": [ "npc_should_do" ],
+        "lead to": ["friend.++"]
+      },
+      "I absolutely agree with you. You should.": {
+        "req": [ "npc_should_do" ],
+        "lead to": ["freind.++","respect.-"]
+      }
+    },
+    "positive": {
+      "Well, if it's what you believe, then go for it.": {
+        "req": [ "npc_should_do" ],
+        "lead to": ["friend.+","respect.+"]
+      },
+      "Maybe you should.  It couldn't hurt.": {
+        "req": [ "npc_should_do" ],
+        "lead to": ["friend.+"]
+      }
+    },
+    "neutral": {
+      "That's a tought one. I don't know.": {
+        "req": [ "npc_should_do" ],
+        "lead to": []
+      },
+      "There are pros and cons to it.  It's really up to you.": {
+        "req": [ "npc_should_do" ],
+        "lead to": []
+      }
+    },
+    "negative": {
+      "I don't know. Maybe you should ask someone else.": {
+        "req": [ "npc_should_do" ],
+        "lead to": [ "admiration.-" ]
+      },
+      "Whatever you want.  It doesn't matter to me.": {
+        "req": [ "npc_should_do" ],
+        "lead to": ["friend.-","respect.-"]
+      }
+    },
+    "negative+": {
+      "Don't ask me. I don't care.": {
+        "req": [ "npc_should_do" ],
+        "lead to": [ "friend.-", "admiration.-", "romance.-", "hate.+" ]
+      },
+      "Why would I care about that?": {
+        "req": [ "npc_should_do" ],
+        "lead to": ["disgust.++","romance.-"]
+      }
+    }
+  }
+
+}

@@ -1,6 +1,4 @@
-﻿using Kati.SourceFiles;
-
-namespace Kati.GenericModule {
+﻿namespace Kati.GenericModule {
     /// <summary>
     /// decides if the topic will be a statement or a question
     /// </summary>

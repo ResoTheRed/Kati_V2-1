@@ -1,5 +1,5 @@
-﻿using Kati.GenericModule;
-using Kati.SourceFiles;
+﻿using Kati;
+using Kati.GenericModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;

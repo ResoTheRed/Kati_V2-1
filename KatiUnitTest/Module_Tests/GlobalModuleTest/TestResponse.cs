@@ -1,13 +1,13 @@
-﻿using Kati.GenericModule;
+﻿using Kati;
+using Kati.GenericModule;
 using Kati.Module_Hub;
-using Kati.SourceFiles;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.ComTypes;
 
 namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
-    
+
     [TestClass]
     public class TestResponse {
 

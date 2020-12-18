@@ -42,25 +42,30 @@ namespace Kati.Module_Hub {
         private Dictionary<string, List<string>> leadTo;
         private string topic;
         private string type;
+        private string tone;
         //character names
         private string speaker;
         private string responder;
-
-        //**************module hub data****************//
-        private ModuleStatus status;
-        //points to next module directed by parser: "lead to"
-        private string nextModule;
 
         //**************controller data****************//
         //dream : 200
         private Dictionary<string, double> forcedTopic;
         private Dictionary<string, double> forcedType;
 
+        //**************module hub data****************//
+        private ModuleStatus status;
+        //points to next module directed by parser: "lead to"
+        private string nextModule;
+
         //**************history data******************//
-        //holds running total of stat effects on game and character relationships
-        private double impact;
-        //attribute branchs effect format -> {attribute : scalarEffectValue}
-        private Dictionary<string,double> impactType;
+        //True if a new conversation is started
+        private bool newConversation;
+        //current time stamp of when the conversation started
+        private int timeStamp;
+        //contains the story node used in conversation
+        private string storyNode;
+        //contains the location node used in conversation
+        private string locationNode;
 
         public DialoguePackage() {
             Reset();
@@ -70,8 +75,8 @@ namespace Kati.Module_Hub {
             status = ModuleStatus.CONTINUE;
             ForcedTopic = new Dictionary<string, double>();
             ForcedType = new Dictionary<string, double>();
-            ImpactType = new Dictionary<string, double>();
-            impact = 0;
+            NewConversation = true;
+            TimeStamp = 0;
             Req = new Dictionary<string, List<string>>();
             LeadTo = new Dictionary<string, List<string>>();
             Dialogue = "";
@@ -88,11 +93,14 @@ namespace Kati.Module_Hub {
         public string Topic { get => topic; set => topic = value; }
         public string Type { get => type; set => type = value; }
         public string Speaker { get => speaker; set => speaker = value; }
-        public double Impact { get => impact; set => impact = value; }
-        public Dictionary<string, double> ImpactType { get => impactType; set => impactType = value; }
         public string Responder { get => responder; set => responder = value; }
         public string Module { get => module; set => module = value; }
         public List<string> Response { get => response; set => response = value; }
+        public bool NewConversation { get => newConversation; set => newConversation = value; }
+        public int TimeStamp { get => timeStamp; set => timeStamp = value; }
+        public string StoryNode { get => storyNode; set => storyNode = value; }
+        public string LocationNode { get => locationNode; set => locationNode = value; }
+        public string Tone { get => tone; set => tone = value; }
 
         public void AddForcedTopic(string topic, double weight) {
             forcedTopic[topic] = weight;

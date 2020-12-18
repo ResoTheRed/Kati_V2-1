@@ -1,5 +1,4 @@
-﻿using Kati.SourceFiles;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Kati.GenericModule {
     /// <summary>

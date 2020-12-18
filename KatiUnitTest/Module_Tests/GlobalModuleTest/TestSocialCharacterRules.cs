@@ -1,6 +1,6 @@
-﻿using Kati.GenericModule;
+﻿using Kati;
+using Kati.GenericModule;
 using Kati.Module_Hub;
-using Kati.SourceFiles;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 

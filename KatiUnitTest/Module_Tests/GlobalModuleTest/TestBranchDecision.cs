@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using Kati.SourceFiles;
 using Kati.GenericModule;
+using Kati;
 
 namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
 

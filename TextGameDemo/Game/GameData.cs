@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace TextGameDemo.Game {
-    public class GameData {
+    public class GameData : Kati.Module_Hub.GameData {
 
         public const float DAY_TIME_PERCENT = 0.6f;
 
@@ -11,24 +11,25 @@ namespace TextGameDemo.Game {
         private string weather;
         private List<string> weatherTypes;
 
-        
+        public string Weather { get => weather;  }
+        public bool IsNight { get => isNight; set => isNight = value; }
+        public List<string> WeatherTypes { get => weatherTypes; set => weatherTypes = value; }
+
         public GameData() {
-            isNight = false;
-            weatherTypes = new List<string>() { "Nice", "Nice", "Nice", "Overcast", "Overcast", "Rain" };
+            IsNight = false;
+            WeatherTypes = new List<string>() { "Nice", "Nice", "Nice", "Overcast", "Overcast", "Rain" };
             weather = ChangeTheWeather();
         }
 
-        public string Weather { get => weather;  }
-
         public string ChangeTheWeather() {
             Random rand = new Random();
-            weather = weatherTypes[rand.Next(weatherTypes.Count)];
+            weather = WeatherTypes[rand.Next(WeatherTypes.Count)];
             return weather;
         }
 
         public bool CheckTimeOfDay(int time) {
-            isNight = time > (int)(Timer.MOVE_THRESHOLD * DAY_TIME_PERCENT);
-            return isNight;
+            IsNight = time > (int)(Timer.MOVE_THRESHOLD * DAY_TIME_PERCENT);
+            return IsNight;
         }
 
         
