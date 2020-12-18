@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace TextGameDemo.Game {
     public class GameData : Kati.Module_Hub.GameData {

@@ -1,5 +1,4 @@
-﻿using System.Threading;
-
+﻿
 namespace Kati {
     /// <summary>
     /// Class contains a collection of constant values.  It may go to json in the future
