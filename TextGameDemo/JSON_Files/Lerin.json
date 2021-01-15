@@ -121,30 +121,27 @@
         "req": [],
         "lead to": [ "response.status" ]
       },
-      "affinity": {
-        "How do you like my hair?": {
-          "req": [],
-          "lead to": [ "response.love_me_hair" ]
-        }
-
-      },
-      "disgust": {
-        "What do you want from me?": {
-          "req": [],
-          "lead to": []
-        }
-      },
-      "hate": {
-        "Why are you bothering me?": {
-          "req": [],
-          "lead to": []
-        }
-      },
-      "rivalry": {
-        "You don't seem to be doing as good as I am.  How are you anyway?": {
-          "req": [],
-          "lead to": [ "response.status" ]
-        }
+      "How do you like my hair?": {
+        "req": [],
+        "lead to": [ "response.love_me_hair" ]
+      }
+    },
+    "disgust": {
+      "What do you want from me?": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "hate": {
+      "Why are you bothering me?": {
+        "req": [],
+        "lead to": []
+      }
+    },
+    "rivalry": {
+      "You don't seem to be doing as good as I am.  How are you anyway?": {
+        "req": [],
+        "lead to": [ "response.status" ]
       }
     }
   },
@@ -1322,6 +1319,5 @@
       }
     }
   }
-
 
 }

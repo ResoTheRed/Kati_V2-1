@@ -1,0 +1,81 @@
+{
+  "story part 1": {
+    "Town Center": {
+      "Christina": [ "AroundTown", "FightingWords", "YoungLove", "Questing" ],
+      "Helena": [ "AroundTown", "FightingWords", "YoungLove" ],
+      "Quinn": [ "AroundTown", "FightingWords", "YoungLove" ],
+      "Teta": [ "AroundTown", "FightingWords", "YoungLove", "Questing" ],
+      "Lafitte": [ "Laffite" ],
+      "Lerin": [ "Lerin" ],
+      "Romero": [ "AroundTown" ],
+      "Albrecht": [ "AroundTown", "Questing" ],
+      "Dan": [ "AroundTown", "Questing" ],
+      "Miciah": [ "AroundTown", "Questing" ],
+      "Collin": [ "AroundTown" ]
+    },
+    "Albrecht's House": {
+      "Albrecht": [ "AroundTown", "Questing" ]
+    },
+    "General Store": {
+      "Helena": [ "AroundTown", "FightingWords", "YoungLove" ],
+      "Quinn": [ "AroundTown", "FightingWords", "YoungLove" ],
+      "Teta": [ "AroundTown", "FightingWords", "YoungLove" ],
+      "Dan": [ "AroundTown", "Questing" ]
+    },
+    "Lafitte's House": {
+      "Lafitte": [ "Laffite" ]
+    },
+    "Black Smith's Shop": {
+      "Lerin": [ "Lerin" ],
+      "Albrecht": [ "AroundTown", "Questing" ]
+    },
+    "Lerin's House": {
+      "Lerin": [ "Lerin" ],
+      "Albrecht": [ "AroundTown" ]
+    },
+    "Benjamin's House": {
+      "Benjamin": [ "Benjamin" ]
+    },
+    "Dirty Peasant House": {
+      "Teta": [ "AroundTown", "FightingWords", "YoungLove", "Questing" ],
+      "Romero": [ "AroundTown" ],
+      "Collin": [ "AroundTown" ]
+    },
+    "Town Hall": {
+      "Sivian": [ "Questing" ]
+    },
+    "Town Gate": {
+      "Quinn": [ "AroundTown", "FightingWords", "YoungLove" ],
+      "Romero": [ "AroundTown" ],
+      "Dan": [ "AroundTown", "Questing" ],
+      "Miciah": [ "AroundTown", "Questing" ],
+      "Collin": [ "AroundTown" ],
+      "Benjamin": [ "Benjamin" ]
+    },
+    "Forest Entrance": {
+      "Christina": [ "ForestTalk", "FightingWords", "YoungLove" ]
+    },
+    "Wooded Path": {
+      "Christina": [ "ForestTalk", "FightingWords", "YoungLove" ],
+      "Collin": [ "ForestTalk" ],
+      "Benjamin": [ "Benjamin" ]
+    },
+    "Clearing": {
+      "Collin": [ "ForestTalk" ],
+      "Benjamin": [ "Benjamin" ]
+    },
+    "Mountain Base": {
+    },
+    "Cave Entrance": {
+      "Benjamin": [ "Benjamin" ]
+    },
+    "Narrow Passage": {
+    },
+    "Small Chamber": {
+      "Lerin": [ "Lerin" ]
+    },
+    "Large Chamber": {
+      "Lerin": [ "Lerin"]
+    }
+  }
+}

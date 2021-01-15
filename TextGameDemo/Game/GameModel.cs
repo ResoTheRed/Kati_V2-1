@@ -22,6 +22,7 @@ namespace TextGameDemo.Game {
         private CharacterLib lib;
         private Timer timer;
         private List<Character> charactersInRoom;
+        private KatiConnection connect;
         private GameData gameData;
         private bool nextDay;
 
@@ -30,6 +31,7 @@ namespace TextGameDemo.Game {
         public CharacterLib Lib { get => lib; set => lib = value; }
         public List<Character> CharactersInRoom { get => charactersInRoom; set => charactersInRoom = value; }
         public Timer Timer { get => timer; set => timer = value; }
+        public KatiConnection Connect { get => connect; set => connect = value; }
 
         public GameModel() {
             World = new World();
@@ -38,6 +40,7 @@ namespace TextGameDemo.Game {
             PlayersStats.Get();
             Lib = new CharacterLib(Player);
             Timer = Timer.Get();
+            connect = new KatiConnection();
             GetCharactersInRoom();
             TUI.Menus.SetupMenus(gameData,  Lib);
             nextDay = false;
@@ -118,9 +121,17 @@ namespace TextGameDemo.Game {
             }
             string choice = Console.ReadLine();
             index = Int32.Parse(choice) - 1;
-            TUI.Menus.Get().TextBox(CharactersInRoom[index].Name,CharactersInRoom[index].Talk());
+
+            TUI.Menus.Get().TextBox(CharactersInRoom[index].Name, Talk(index));
             //temp debug line
             ChangePositive(10,CharactersInRoom[index]);
+        }
+
+        public string Talk(int index) {
+            string speech = CharactersInRoom[index].Talk()+" - ";
+            (string area, string room) = lib.Lib[Characters.Cast.PLAYER].Locations.getLocation();
+            speech += connect.GetModuleInfo(room, CharactersInRoom[index].Name);
+            return speech;
         }
 
         /************************Change Character's Relationship statuses*************************/

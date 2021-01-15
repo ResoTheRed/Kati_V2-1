@@ -26,7 +26,6 @@ namespace Kati.Module_Hub {
                 <Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>>(json);
             return storyLine;
         }
-
        
     }
 

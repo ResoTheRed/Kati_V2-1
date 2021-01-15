@@ -16,10 +16,10 @@ namespace Kati.Module_Hub {
         public Dictionary<string, Module> Modules { get => modules; set => modules = value; }
         public DialoguePackage Package { get => package; set => package = value; }
 
-        public ModuleHub(string formatJsonPath) {
-            masterData = new DataLoader(formatJsonPath);
+        public ModuleHub(string startJsonPath) {
+            masterData = new DataLoader(startJsonPath);
             StoryLine = masterData.LoadJsonFile();
-            Modules = new Dictionary<string, GenericModule.Module>();
+            Modules = new Dictionary<string, Module>();
             Package = new DialoguePackage();
         }
 

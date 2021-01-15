@@ -35,7 +35,8 @@ namespace TextGameDemo.Game.Characters {
         }
 
         public string Talk() {
-            return "Hello from " + name;
+            string speech = "Hello from " + name;
+            return speech;
         }
 
 

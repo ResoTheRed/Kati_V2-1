@@ -2,25 +2,37 @@
 using System.IO;
 using System.Collections.Generic;
 using TextGameDemo.Game.Characters;
+using TextGameDemo.JSON_Files;
 
 namespace TextGameDemo {
     public class Program {
         static void Main(string[] args) {
-            //Game.GameModel.Run();
+            Game.GameModel.Run();
             //TestTextBox();
             //TestLinkedList();
-            TestGetCurrentDirectory();
+            //TestGetCurrentDirectory();
         }
 
         public static void TestGetCurrentDirectory() {
-            string path = AppDomain.CurrentDomain.BaseDirectory;
-            string[] directories = path.Split("\\");
-            path = "";
-            for(int i=0;i< directories.Length-3;i++) {
-                path += directories[i] + "\\";
-            }
-            path += "Module_Hub\\History\\file.txt";
+            string path = JsonToolkit.Get(JsonToolkit.AROUND_TOWN);
             Console.WriteLine(path);
+            path = JsonToolkit.Get(JsonToolkit.BENJAMIN);
+            Console.WriteLine(path);
+            path = JsonToolkit.Get(JsonToolkit.FIGHTING_WORDS);
+            Console.WriteLine(path);
+            path = JsonToolkit.Get(JsonToolkit.FOREST_TALK);
+            Console.WriteLine(path);
+            path = JsonToolkit.Get(JsonToolkit.LAFFITE);
+            Console.WriteLine(path);
+            path = JsonToolkit.Get(JsonToolkit.LERIN);
+            Console.WriteLine(path);
+            path = JsonToolkit.Get(JsonToolkit.QUESTING);
+            Console.WriteLine(path);
+            path = JsonToolkit.Get(JsonToolkit.SHOPPING);
+            Console.WriteLine(path);
+            path = JsonToolkit.Get(JsonToolkit.YOUNG_LOVE);
+            Console.WriteLine(path);
+            
         }
         
         public static void TestLinkedList() {

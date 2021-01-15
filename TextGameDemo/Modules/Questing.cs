@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using Kati.Module_Hub;
 using Kati.GenericModule;
+using TextGameDemo.JSON_Files;
 
 namespace TextGameDemo.Modules {
     public class Questing : Module{
 
-        public Questing(string path) : base("Questing", path) { }
+        public Questing(string path) : base(JsonToolkit.QUESTING, path) { }
 
         override
         public DialoguePackage Run() {

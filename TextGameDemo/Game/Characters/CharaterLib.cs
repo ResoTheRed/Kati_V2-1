@@ -6,9 +6,9 @@ using System.Text;
 namespace TextGameDemo.Game.Characters {
 
     struct ModuleNames {
-        public const string AROUND_TOWN = "Around_Town";
-        public const string LERIN = "Lerin";
-        public const string QUESTING = "Questing";
+        public const string AROUND_TOWN = JSON_Files.JsonToolkit.AROUND_TOWN;
+        public const string LERIN = JSON_Files.JsonToolkit.LERIN;
+        public const string QUESTING = JSON_Files.JsonToolkit.QUESTING;
     }
 
     struct Areas {
@@ -122,11 +122,11 @@ namespace TextGameDemo.Game.Characters {
             Collin(Cast.COLLIN);
             Dan(Cast.DAN);
             Albrecht(Cast.ALBRECHT);
-            Michiah(Cast.MICIAH);
+            Miciah(Cast.MICIAH);
             Romero(Cast.ROMERO);
             Sivian(Cast.SIVIAN);
             Lerin(Cast.LERIN);
-            Lafitte(Cast.LAFITTE);
+            Laffite(Cast.LAFITTE);
             Teta(Cast.TETA);
             Quinn(Cast.QUINN);
             Helena(Cast.HELENA);
@@ -223,7 +223,7 @@ namespace TextGameDemo.Game.Characters {
             Lib[name].ModuleNames.Add(ModuleNames.QUESTING);
         }
 
-        private void Lafitte(string name) {
+        private void Laffite(string name) {
             Lib[name].PersonalAttributes = new List<string>();
             Lib[name].PersonalAttributes.Add(Personal.ROMANTIC);
             Lib[name].PersonalAttributes.Add(Personal.HUNTER);
@@ -292,7 +292,7 @@ namespace TextGameDemo.Game.Characters {
             Lib[name].ModuleNames.Add(ModuleNames.AROUND_TOWN);
         }
 
-        private void Michiah(string name) {
+        private void Miciah(string name) {
             Lib[name].PersonalAttributes = new List<string>();
             Lib[name].PersonalAttributes.Add(Personal.PEASANT);
             Lib[name].PersonalAttributes.Add(Personal.BEGGAR);
@@ -444,6 +444,7 @@ namespace TextGameDemo.Game.Characters {
             SetBranchAttributes(name, Cast.ROMERO, 0, 0, 0, 0, 0, 0, 0, 0);
             SetBranchAttributes(name, Cast.MICIAH, 0, 0, 0, 0, 0, 0, 0, 0);
             SetBranchAttributes(name, Cast.COLLIN, 0, 0, 0, 0, 0, 0, 0, 0);
+            SetBranchAttributes(name, Cast.SIVIAN, 0, 0, 0, 0, 0, 0, 0, 0);
             SetBranchAttributes(name, Cast.LERIN, 0, 0, 0, 0, 0, 0, 0, 0);
             SetBranchAttributes(name, Cast.LAFITTE, 0, 0, 0, 0, 0, 0, 0, 0);
             SetBranchAttributes(name, Cast.CHRISTINA, 0, 0, 0, 0, 0, 0, 0, 0);
