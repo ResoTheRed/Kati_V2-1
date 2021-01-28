@@ -86,6 +86,15 @@ namespace TextGameDemo.Game.Characters {
         public const string RIVALRY = Constants.RIVALRY;
     }
 
+    struct Status {
+        public const string HAPPY = "happy"; //boost friend/professional
+        public const string SAD = "sad"; //lessen all stats
+        public const string ANGRY = "angry"; //boost hate/rivalry
+        public const string ANNOYED = "annoyed"; //boost disgust/hate
+        public const string FLIRTY = "flirty"; //boost romance/friend
+        public const string VULNERABLE = "vulnerable"; //doubles power of all response/quest stat changes
+    }
+
     public class CharacterLib {
 
         private Dictionary<string, Character> lib;

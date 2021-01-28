@@ -44,6 +44,7 @@ namespace TextGameDemo.Game {
             GetCharactersInRoom();
             TUI.Menus.SetupMenus(gameData,  Lib);
             nextDay = false;
+            connect.Model = this;
         }
 
         public void GameLoop() {
@@ -130,7 +131,7 @@ namespace TextGameDemo.Game {
         public string Talk(int index) {
             string speech = CharactersInRoom[index].Talk()+" - ";
             (string area, string room) = lib.Lib[Characters.Cast.PLAYER].Locations.getLocation();
-            speech += connect.GetModuleInfo(room, CharactersInRoom[index].Name);
+            speech += connect.RunSystem(room, CharactersInRoom[index].Name);
             return speech;
         }
 
