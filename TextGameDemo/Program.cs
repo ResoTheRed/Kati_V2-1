@@ -77,13 +77,13 @@ namespace TextGameDemo {
             CharacterLib lib = new CharacterLib(player);
             foreach (KeyValuePair<string, Character> item in lib.Lib) {
                 string area, room = "";
-                (area, room)= item.Value.Locations.getLocation();
+                (area, room)= item.Value.Locations.GetLocation();
                 Console.WriteLine(item.Key + " " + area + " " + room);
                 lib.Lib[item.Key].Locations.ChangeRooms();
             }
             foreach (KeyValuePair<string, Character> item in lib.Lib) {
                 string area, room = "";
-                (area, room) = item.Value.Locations.getLocation();
+                (area, room) = item.Value.Locations.GetLocation();
                 Console.WriteLine(item.Key + " " + area + " " + room);
             }
         }

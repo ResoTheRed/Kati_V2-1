@@ -64,7 +64,7 @@ namespace TextGameDemo.Game.TUI {
 
         public string WeatherAndTimeDisplay() {
             string timeOfDay = gameData.CheckTimeOfDay(Timer.Get().Moves) ? "Night" : "Day";
-            (string area, string room) = lib.Lib[Characters.Cast.PLAYER].Locations.getLocation();
+            (string area, string room) = lib.Lib[Characters.Cast.PLAYER].Locations.GetLocation();
             string money = Characters.PlayersStats.Get().Money.ToString();
             string[] graphics = GetWeatherAndTimeGraphics();
             string border = "=============================================================\n";

@@ -42,7 +42,7 @@ namespace Kati.GenericModule {
         }
 
         //set threshold levels
-        protected void SetThresholds() {
+        protected virtual void SetThresholds() {
             High = 700;
             Mid = 450;
             low = 200;
@@ -63,49 +63,49 @@ namespace Kati.GenericModule {
         }
 
         //romance += admiration - (disgust+(hate/2))
-        protected double RomanceRule(Dictionary<string, double> tone) {
+        protected virtual double RomanceRule(Dictionary<string, double> tone) {
             double romance = tone[ROMANCE] + tone[AFFINITY] / 2;
             romance -= tone[DISGUST] + tone[HATE] / 2;
             return romance;
         }
 
-        protected double DisgustRule(Dictionary<string, double> tone) {
+        protected virtual double DisgustRule(Dictionary<string, double> tone) {
             double disgust = tone[DISGUST] + tone[HATE] / 2;
             disgust -= tone[ROMANCE] + tone[AFFINITY] / 2;
             return disgust;
         }
 
-        protected double FriendRule(Dictionary<string, double> tone) {
+        protected virtual double FriendRule(Dictionary<string, double> tone) {
             double friend = tone[FRIEND] + tone[RESPECT] / 2 + tone[AFFINITY] / 2;
             friend -= tone[HATE] + tone[DISGUST] / 2;
             return friend;
         }
 
-        protected double HateRule(Dictionary<string, double> tone) {
+        protected virtual double HateRule(Dictionary<string, double> tone) {
             double hate = tone[HATE] + tone[DISGUST] / 2;
             hate -= tone[FRIEND] + tone[AFFINITY] / 2;
             return hate;
         }
 
-        protected double ProfessionalRule(Dictionary<string, double> tone) {
+        protected virtual double ProfessionalRule(Dictionary<string, double> tone) {
             double prof = tone[PROFESSIONAL] + tone[RESPECT] / 2;
             prof -= tone[RIVALRY] + tone[DISGUST] / 2;
             return prof;
         }
 
-        protected double RivalryRule(Dictionary<string, double> tone) {
+        protected virtual double RivalryRule(Dictionary<string, double> tone) {
             double prof = tone[RIVALRY] + tone[RESPECT] / 2;
             prof -= tone[PROFESSIONAL] + tone[AFFINITY] / 2;
             return prof;
         }
 
-        protected double Affinity(Dictionary<string, double> tone) {
+        protected virtual double Affinity(Dictionary<string, double> tone) {
             double admire = tone[AFFINITY] + tone[ROMANCE] / 2;
             admire -= tone[DISGUST] + tone[HATE] / 2;
             return admire;
         }
 
-        protected double RespectRule(Dictionary<string, double> tone) {
+        protected virtual double RespectRule(Dictionary<string, double> tone) {
             double respect = tone[RESPECT] + tone[PROFESSIONAL] / 2;
             respect -= tone[DISGUST] + tone[HATE] / 2;
             return respect;
@@ -185,7 +185,7 @@ namespace Kati.GenericModule {
 
         //weight the options to yeild some emotions as stronger than others
         //done by reference
-        public double ProbabilityOffset(Dictionary<string, double> copy) {
+        public virtual double ProbabilityOffset(Dictionary<string, double> copy) {
             if (IsNeutral) return 0;
             double total = 0;
             ReduceAttributeValue(copy);
@@ -220,7 +220,7 @@ namespace Kati.GenericModule {
         }
 
         //order attributes based on
-        public List<string> PickAtttibutes(Dictionary<string, double> copy, double max) {
+        public virtual List<string> PickAtttibutes(Dictionary<string, double> copy, double max) {
             List<string> sort = new List<string>();
             if (IsNeutral) {
                 sort.Add(Constants.NEUTRAL);

@@ -38,7 +38,7 @@ namespace TextGameDemo.Game.Characters {
             } 
         }
 
-        public (string, string) getLocation() {
+        public (string, string) GetLocation() {
             return (CurrentArea, CurrentRoom);
         }
 

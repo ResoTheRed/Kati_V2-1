@@ -76,7 +76,7 @@
         "lead to": []
       },
       "Hello my love.": {
-        "req": [ "player.social.dating" ],
+        "req": [ ],
         "lead to": []
       }
     },

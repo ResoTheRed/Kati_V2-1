@@ -484,7 +484,7 @@ namespace TextGameDemo.Game.Characters {
         public void ChangeLocations() {
             foreach (KeyValuePair<string, Character> item in Lib) {
                 item.Value.Locations.ChangeRooms();
-                (string area, string room) = item.Value.Locations.getLocation();
+                (string area, string room) = item.Value.Locations.GetLocation();
                 Console.WriteLine(item.Key+" "+area + " " + room);
             }
         }

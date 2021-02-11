@@ -12,7 +12,16 @@ namespace TextGameDemo.Game {
     
     public class GameModel {
 
+        //private static GameModel model; 
+
+        //public static GameModel GetModel() {
+        //    if (model == null)
+        //        model = new GameModel();
+        //    return model;
+        //}
+
         public static void Run() {
+            
             GameModel game = new GameModel();
             game.GameLoop();
         }
@@ -32,25 +41,26 @@ namespace TextGameDemo.Game {
         public List<Character> CharactersInRoom { get => charactersInRoom; set => charactersInRoom = value; }
         public Timer Timer { get => timer; set => timer = value; }
         public KatiConnection Connect { get => connect; set => connect = value; }
+        public GameData GameData { get => gameData; set => gameData = value; }
 
         public GameModel() {
             World = new World();
-            gameData = new GameData();
+            GameData = new GameData();
             Player = new Player();
             PlayersStats.Get();
             Lib = new CharacterLib(Player);
             Timer = Timer.Get();
-            connect = new KatiConnection();
             GetCharactersInRoom();
-            TUI.Menus.SetupMenus(gameData,  Lib);
+            TUI.Menus.SetupMenus(GameData,  Lib);
             nextDay = false;
-            connect.Model = this;
+            connect = new KatiConnection(this);
         }
 
         public void GameLoop() {
             bool isRunning = true;
             //each iteration is a tick
             while (isRunning) {
+                Console.WriteLine("In game loop");
                 isRunning = DisplayRoomOptions();
                 if (nextDay) {
                     UpdateNextDay();
@@ -64,7 +74,7 @@ namespace TextGameDemo.Game {
             foreach (KeyValuePair<string, Character> item in Lib.Lib) {
                 if (item.Key != Cast.PLAYER) {
                     string characterArea, characterRoom = "";
-                    (characterArea, characterRoom) = item.Value.Locations.getLocation();
+                    (characterArea, characterRoom) = item.Value.Locations.GetLocation();
                     string worldArea, worldRoom = "";
                     (worldArea, worldRoom) = World.GetLocation();
                     if (characterArea.Equals(worldArea) && characterRoom.Equals(worldRoom)) {
@@ -130,7 +140,7 @@ namespace TextGameDemo.Game {
 
         public string Talk(int index) {
             string speech = CharactersInRoom[index].Talk()+" - ";
-            (string area, string room) = lib.Lib[Characters.Cast.PLAYER].Locations.getLocation();
+            (string area, string room) = lib.Lib[Characters.Cast.PLAYER].Locations.GetLocation();
             speech += connect.RunSystem(room, CharactersInRoom[index].Name);
             return speech;
         }

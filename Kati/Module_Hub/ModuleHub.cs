@@ -36,6 +36,11 @@ namespace Kati.Module_Hub {
             return null;
         }
 
+        public Module GetModule(string moduleName) {
+            return PickModule(moduleName);
+        }
+
+
         private Module PickModule(string name) {
             try {
                 return Modules[name];

@@ -22,8 +22,9 @@ namespace TextGameDemo.Game {
         public GameTools Tools { get => tools; set => tools = value; }
         public DialoguePackage Package { get => package; set => package = value; }
 
-        public KatiConnection() {
+        public KatiConnection(GameModel model) {
             Hub = new ModuleHub(JsonToolkit.GetPath("JSON_Files\\_startup.json"));
+            Model = model;
             LoadModules();
             Tools = GameTools.Tools();
         }
@@ -31,7 +32,7 @@ namespace TextGameDemo.Game {
         //load all modules
         private void LoadModules() {
             string path = JsonToolkit.Get(JsonToolkit.AROUND_TOWN);
-            Hub.Modules[JsonToolkit.AROUND_TOWN] = new AroundTown(path);
+            Hub.Modules[JsonToolkit.AROUND_TOWN] = new AroundTown(path, Model);
             path = JsonToolkit.Get(JsonToolkit.BENJAMIN);
             Hub.Modules[JsonToolkit.BENJAMIN] = new Benjamin(path);
             path = JsonToolkit.Get(JsonToolkit.FIGHTING_WORDS);
@@ -53,12 +54,11 @@ namespace TextGameDemo.Game {
 
         public string RunSystem(string location, string character) {
             UpdateCharacterData(Model.Lib.Lib[character]);
-            string module = PickModule(location, character);
-            package = Hub.RunIteration(module);
-            if (module == "") {
-                module = "Empty";
-            }
-            return module;
+            string moduleName = PickModule(location, character);
+            Kati.GenericModule.Module module = Hub.GetModule(moduleName);
+            module.SetCurrentCharacter(character);
+            module.Run();
+            return module.Ctrl.Package.Dialogue;
         }
 
 

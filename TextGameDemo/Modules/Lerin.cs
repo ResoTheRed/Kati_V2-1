@@ -14,5 +14,10 @@ namespace TextGameDemo.Modules {
             return null;
         }
 
+        override
+        public void SetCurrentCharacter(string character) {
+
+        }
+
     }
 }

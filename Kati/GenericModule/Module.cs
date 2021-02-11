@@ -17,7 +17,7 @@ namespace Kati.GenericModule {
 
         public string ModuleKey { get => moduleKey;}
         public string Path { get => path; set => path = value; }
-        protected Controller Ctrl { get => ctrl; set => ctrl = value; }
+        public Controller Ctrl { get => ctrl; set => ctrl = value; }
 
         public Module(string name, string path) {
             moduleKey = name;
@@ -26,6 +26,8 @@ namespace Kati.GenericModule {
         }
 
         public abstract DialoguePackage Run();
+
+        public abstract void SetCurrentCharacter(string character);
 
         
        
