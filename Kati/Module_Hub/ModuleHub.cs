@@ -1,6 +1,7 @@
 ﻿using Kati.GenericModule;
 using System;
 using System.Collections.Generic;
+using Kati.Module_Hub.History;
 
 namespace Kati.Module_Hub {
     public class ModuleHub {
@@ -9,6 +10,7 @@ namespace Kati.Module_Hub {
         private DataLoader masterData;
         private Dictionary<string, Kati.GenericModule.Module> modules;
         private DialoguePackage package;
+        private History.History gameHistory;
         
 
         public Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> StoryLine 

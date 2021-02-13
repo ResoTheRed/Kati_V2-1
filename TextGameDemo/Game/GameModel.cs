@@ -4,27 +4,25 @@ using TextGameDemo.Game.Characters;
 using TextGameDemo.Game.Location;
 
 namespace TextGameDemo.Game {
-    
+
     /// <summary>
     /// Houses all of the game components and works as a central hub
     /// that holds composition with all major elements
     /// </summary>
-    
+
     public class GameModel {
 
-        //private static GameModel model; 
-
-        //public static GameModel GetModel() {
-        //    if (model == null)
-        //        model = new GameModel();
-        //    return model;
-        //}
+        const string pos = "Positive", neg = "Negative", rom = "Romance", dis ="Disgust", rand = "Random";
 
         public static void Run() {
             
             GameModel game = new GameModel();
             game.GameLoop();
+            game.connect.Exit();
         }
+
+        private readonly int relationshipDelta = 50;
+        private string botType = rom;
 
         private World world;
         private Player player;
@@ -135,37 +133,67 @@ namespace TextGameDemo.Game {
 
             TUI.Menus.Get().TextBox(CharactersInRoom[index].Name, Talk(index));
             //temp debug line
-            ChangePositive(10,CharactersInRoom[index]);
+            ChangeCharacterRelationships(relationshipDelta,CharactersInRoom[index]);
         }
 
         public string Talk(int index) {
             string speech = CharactersInRoom[index].Talk()+" - ";
             (string area, string room) = lib.Lib[Characters.Cast.PLAYER].Locations.GetLocation();
-            speech += connect.RunSystem(room, CharactersInRoom[index].Name);
+            speech += connect.RunSystem(area, room, CharactersInRoom[index].Name);
             return speech;
         }
 
         /************************Change Character's Relationship statuses*************************/
+        //"Positive","Negative","Romance","Disgust","Random"
+        public void ChangeCharacterRelationships(int value, Character character) {
+            switch (botType) {
+                case pos: { ChangePositive(value, character); }break;
+                case neg: { ChangeNegative(value, character); }break;
+                case rom: { ChangeRomantic(value, character); }break;
+                case dis: { ChangeAttribute(value,Social.DISGUST,character); }break;
+                case rand: { ChangeRandom(value, character); } break;
+            }
+        }
+
         //likely make this it's own class
         public void ChangePositive(int value, Character character) {
-            Random rand = new Random();
-            int index = rand.Next(3); ;
+            int index = GameTools.Tools().Next(3);
             string[] boy = { Social.FRIEND, Social.RESPECT, Social.PROFESSIONAL};
             string[] girl = { Social.FRIEND, Social.ROMANCE, Social.AFFINITY, Social.PROFESSIONAL };
             if (character.IsMale) {
                 ChangeAttribute(value,boy[index],character);
             } else {
-                index = rand.Next(4);
+                index = GameTools.Tools().Next(4);
                 ChangeAttribute(value, girl[index], character);
             }
         }
 
         //update relationship stats
         public void ChangeNegative(int value, Character character) {
-            Random rand = new Random();
-            int index = rand.Next(3);
+            int index = GameTools.Tools().Next(3);
             string[] at = { Social.DISGUST, Social.HATE, Social.RIVALRY};
             ChangeAttribute(value, at[index],character);
+        }
+
+        public void ChangeRomantic(int value, Character character) {
+            if (character.IsMale) {
+                ChangePositive(value, character);
+            } else {
+                ChangeAttribute(value, Social.ROMANCE, character);
+            }
+        }
+
+        public void ChangeRandom(int value, Character character) {
+            string[] boy = { Social.FRIEND, Social.RESPECT, Social.PROFESSIONAL, Social.DISGUST, Social.HATE, Social.RIVALRY };
+            string[] girl = { Social.FRIEND, Social.ROMANCE, Social.AFFINITY, Social.PROFESSIONAL, Social.DISGUST, Social.HATE, Social.RIVALRY };
+            int index;
+            if (character.IsMale) {
+                index = GameTools.Tools().Next(boy.Length);
+                ChangeAttribute(value, boy[index], character);
+            } else {
+                index = GameTools.Tools().Next(girl.Length);
+                ChangeAttribute(value, girl[index], character);
+            }
         }
 
         public void ChangeAttribute(int value, string attribute, Character character) {
@@ -177,6 +205,7 @@ namespace TextGameDemo.Game {
         public void UpdateNextDay() {
             Lib.ChangeLocations();
             GetCharactersInRoom();
+            connect.GameHistory.ResetShortTerm();
             nextDay = false;
         }
 

@@ -16,15 +16,18 @@ namespace TextGameDemo.Game {
         private GameModel model;
         private GameTools tools;
         private DialoguePackage package;
+        private History gameHistory;
 
         public ModuleHub Hub { get => hub; set => hub = value; }
         public GameModel Model { get => model; set => model = value; }
         public GameTools Tools { get => tools; set => tools = value; }
         public DialoguePackage Package { get => package; set => package = value; }
+        public History GameHistory { get => gameHistory; set => gameHistory = value; }
 
         public KatiConnection(GameModel model) {
             Hub = new ModuleHub(JsonToolkit.GetPath("JSON_Files\\_startup.json"));
             Model = model;
+            GameHistory = new History();
             LoadModules();
             Tools = GameTools.Tools();
         }
@@ -52,12 +55,15 @@ namespace TextGameDemo.Game {
         }
 
 
-        public string RunSystem(string location, string character) {
+        public string RunSystem(string area, string room, string character) {
             UpdateCharacterData(Model.Lib.Lib[character]);
-            string moduleName = PickModule(location, character);
+            string moduleName = PickModule(area,room, character);
             Kati.GenericModule.Module module = Hub.GetModule(moduleName);
             module.SetCurrentCharacter(character);
             module.Run();
+            string key = moduleName + "_" + module.Ctrl.Topic.Topic + "_" + module.Ctrl.Type.Type;
+            RecordHistory(character,moduleName,module.Ctrl.Package.Dialogue,key);
+            
             return module.Ctrl.Package.Dialogue;
         }
 
@@ -80,7 +86,9 @@ namespace TextGameDemo.Game {
             Dictionary<string, Dictionary<string, string>> social = new Dictionary<string, Dictionary<string, string>>();
             Dictionary<string, double> tones = new Dictionary<string, double>();
             social[Cast.PLAYER] = new Dictionary<string, string>();
-            foreach (KeyValuePair<string, int> item in c.BranchAttributes[Cast.PLAYER]) {
+            //Console.Write("Update Character Tones");
+            foreach (KeyValuePair<string, int> item in Model.Lib.Lib[Cast.PLAYER].BranchAttributes[c.Name]) {
+                //Console.Write(item.Value);
                 tones[item.Key] = (double)item.Value;
             }
             foreach (string item in c.PersonalAttributes) {
@@ -98,6 +106,27 @@ namespace TextGameDemo.Game {
 
         /////////////////////////////////// Module picking Rules ////////////////////////////////////////
 
+        public void RecordHistory(string name, string module_name,string dialogue,string key) {
+            var c = Model.Lib.Lib[Cast.PLAYER];
+            
+            List<int> list = new List<int>();
+            list.Add(c.BranchAttributes[name][Kati.Constants.ROMANCE]);
+            list.Add(c.BranchAttributes[name][Kati.Constants.FRIEND]);
+            list.Add(c.BranchAttributes[name][Kati.Constants.PROFESSIONAL]);
+            list.Add(c.BranchAttributes[name][Kati.Constants.AFFINITY]);
+            list.Add(c.BranchAttributes[name][Kati.Constants.RESPECT]);
+            list.Add(c.BranchAttributes[name][Kati.Constants.DISGUST]);
+            list.Add(c.BranchAttributes[name][Kati.Constants.HATE]);
+            list.Add(c.BranchAttributes[name][Kati.Constants.RIVALRY]);
+            GameHistory.AddEntry(name,module_name, dialogue,list,key);
+        }
+
+        public void Exit() {
+            GameHistory.WriteToFile();
+        }
+
+        /////////////////////////////////// Module picking Rules ////////////////////////////////////////
+
         /*
          ~~~ things to consider ~~~
             1. Narrow possiblities by location specific modules
@@ -111,10 +140,10 @@ namespace TextGameDemo.Game {
          */
 
         //if returned value is empty, cancel dialogue 
-        public string PickModule(string location, string character) {
+        public string PickModule(string area,string room, string character) {
             string mod = "";
-            var possibleMods = Hub.StoryLine[STORY_SEG_1][location][character];
-            possibleMods = GetLocationBasedModules(possibleMods,character);
+            var possibleMods = Hub.StoryLine[STORY_SEG_1][room][character];
+            possibleMods = GetLocationBasedModules(possibleMods,area);
             if (possibleMods.Count == 1) {
                 return possibleMods[0];
             } else if (possibleMods.Count == 0) {
@@ -176,7 +205,7 @@ namespace TextGameDemo.Game {
                         usable.Add(mod);
                 }
             }
-            return mods;
+            return usable;
         }
 
         public List<string> GetBranchToneBasedModules(List<string> mods, string character) {

@@ -1,0 +1,33 @@
+New file created: 2/13/2021 11:05:06 AM
+Collin
+
+Benjamin
+
+Dan
+0001_AroundTown_Greeting_statement,Greetings.,0,0,0,0,0,0,0,0,0,END
+0002_AroundTown_Greeting_statement,Good day.,0,0,0,0,0,50,0,0,0,END
+0003_AroundTown_Greeting_statement,Hello.,0,0,50,0,0,50,0,0,0,END
+0004_AroundTown_Greeting_statement,Greetings. I'm Dan.  I own the General Store here in Biggs.,0,0,100,0,0,50,0,0,0,END
+
+Albrecht
+
+Romero
+
+Miciah
+
+Sivian
+
+Lerin
+
+Lafitte
+
+Teta
+
+Quinn
+
+Helena
+
+Christina
+
+Crumples
+

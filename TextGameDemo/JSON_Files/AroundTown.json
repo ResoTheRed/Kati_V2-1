@@ -9,7 +9,7 @@
         "req": [ "Character.Teta", "play_once" ],
         "lead to": []
       },
-      "Greetings. I'm Dan.  I own the General Stor here in Biggs.": {
+      "Greetings. I'm Dan.  I own the General Store here in Biggs.": {
         "req": [ "Character.Dan", "play_once" ],
         "lead to": []
       },
@@ -18,7 +18,7 @@
         "lead to": []
       },
       "They call me Maciah. Most people won't talk to me.  #new_textbox# How about you give me some money.": {
-        "req": [ "Character.Machiah", "play_once" ],
+        "req": [ "Character.Miciah", "play_once" ],
         "lead to": []
       },
       "Hello.  You must be #player_name#.  I've heard some customers talking about a new person in town.  #new_textbox# I'm Albrecht the town's blacksmith. #new_textbox# Nice to meet you.": {

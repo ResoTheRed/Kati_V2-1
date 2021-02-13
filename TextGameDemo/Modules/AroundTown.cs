@@ -15,6 +15,7 @@ namespace TextGameDemo.Modules {
         const string PEOPLE_IN_TOWN = "PeopleInTown";
 
         private string[] topics = { GREETING, SINGLE_ROOM, HISTORY_LESSON, PEOPLE_IN_TOWN };
+        private AroundTownParser parse;
 
         private GameModel model;
 
@@ -23,22 +24,20 @@ namespace TextGameDemo.Modules {
 
         public AroundTown(string path, GameModel model) : base(JsonToolkit.AROUND_TOWN, path) {
             AroundTownParser parse = new AroundTownParser(Ctrl);
-            parse.SetGameRules(Model.GameData);
-            parse.SetLocationRules(Model.Player);
+            parse.SetGameRules(model.GameData);
+            parse.SetLocationRules(model.Player);
             Ctrl.Parser = parse;
             Ctrl.Game = model.GameData;
             AroundTownResponse res = new AroundTownResponse();
             Ctrl.Parser.Response = res;
             Model = model;
+            this.parse = parse;
         }
-        /* to run module
-            SetCurrentCharacter()
-            Run()
-         */
-
 
         override
         public DialoguePackage Run() {
+            if (parse.HRules == null)
+                parse.SetHistoryRules(Model.Connect.GameHistory);
             SetupController();
             Ctrl.RunParser();
             return Ctrl.Package;
@@ -47,6 +46,8 @@ namespace TextGameDemo.Modules {
         override
         public void SetCurrentCharacter(string character) {
             this.character = character;
+            AroundTownParser v = (AroundTownParser)Ctrl.Parser;
+            v.Npc = Model.Lib.Lib[character];
         }
 
         public void SetupController() {
@@ -64,6 +65,8 @@ namespace TextGameDemo.Modules {
             } else { //annoy character
                 AnnoyCharacter();                
             }
+            Model.GameData.IncrementConversationCounter(character);
+            int value = Model.GameData.GetConversationCounter(character);
             return topic;
         }
 
@@ -100,6 +103,7 @@ namespace TextGameDemo.Modules {
 
         PersonalRules personal;
         GameRules gRules;
+        HistoryRules hRules;
         LocationRules local;
         Game.Characters.Character npc;
         GameModel model;
@@ -108,16 +112,21 @@ namespace TextGameDemo.Modules {
         public Character Npc { get => npc; set => npc = value; }
         public GameRules GRules { get => gRules; set => gRules = value; }
         public GameModel Model { get => model; set => model = value; }
+        public HistoryRules HRules { get => hRules; set => hRules = value; }
 
         public AroundTownParser(Controller ctrl) : base(ctrl){
             Personal = new PersonalRules(ctrl); ;
             //GRules = new GameRules(Model);
         }
 
+        public void SetHistoryRules(History h) {
+            HRules = new HistoryRules(h);
+        }
+
         public void SetGameRules(Game.GameData game) {
             GRules = new GameRules(game);
         }
-        public void SetLocationRules(CharacterLocations local) {
+        public void SetLocationRules(Player local) {
             this.local = new LocationRules(local);
         }
 
@@ -135,11 +144,13 @@ namespace TextGameDemo.Modules {
 
         private Dictionary<string, Dictionary<string, List<string>>> ParseHelper(Dictionary<string, Dictionary<string, List<string>>> data) {
             try {
-                data = Game.ParseGameRequirments(data);
+                data = HRules.ParseHistoryRequirments(data,Npc.Name);
+                data = GRules.ParseGameRequirments(data);
                 data = Personal.ParsePersonalRequirments(data,Npc);
                 data = Social.ParseSocialRequirments(data);
-                //data = ForcedNextRequirement(data);  //this is something to add to the default version
+                //data = ForcedNextRequirement(data);
                 data = Weight.GetDialogue(data);
+                hRules.AddPlayOnceDialogue(data, Npc.Name);
                 SetPackage(ref data);
             } catch (Exception e) {
                 Console.WriteLine(e);
@@ -154,7 +165,9 @@ namespace TextGameDemo.Modules {
             foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in data) {
                 bool keep = true;
                 foreach (string item2 in data[item.Key][Kati.Constants.REQ]) {
-                    string[] arr = Ctrl.Package.LeadTo[Ctrl.Package.Dialogue][0].Split('.');//////////////////////////this needs to look at every leads to not just index 0
+                    if (Ctrl.Package.LeadTo[Ctrl.Package.Dialogue].Count == 0 || Ctrl.Package.LeadTo[Ctrl.Package.Dialogue][0].Equals(""))
+                        return data;
+                    string[] arr = Ctrl.Package.LeadTo[Ctrl.Package.Dialogue][0].Split('.');
                     if (arr.Length >= 4 && arr[0].Equals("forced")) {
                         //Console.WriteLine(item2 + "==" + arr[3]);
                         if (item2.Equals(arr[3])) { //check if
@@ -271,6 +284,9 @@ namespace TextGameDemo.Modules {
             var temp = new Dictionary<string, Dictionary<string, List<string>>>();
             foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in data) {
                 bool keep = GameReq(data[item.Key]["req"]);
+                if (keep) {
+                    temp[item.Key] = data[item.Key];
+                }
             }
             return temp;
         }
@@ -299,8 +315,6 @@ namespace TextGameDemo.Modules {
         //game
 
         /* req rules
-            play_once : Greeting_statement
-
                 responseTag.status : Greeting_response
                 responseTag.nice_day : Greeting_response
                 responseTag.nice_weather : Greeting_response
@@ -347,9 +361,9 @@ namespace TextGameDemo.Modules {
 
     class LocationRules {
 
-        CharacterLocations local;
+        Player local;
 
-        public LocationRules(CharacterLocations local) {
+        public LocationRules(Player local) {
             this.local = local;
         }
 
@@ -370,7 +384,7 @@ namespace TextGameDemo.Modules {
                 if (rule.Length > 0) {
                     var elements = rule.Split(".");
                     if (elements[0].Equals("Location")) {
-                        (string area, string room) = local.GetLocation();
+                        (string area, string room) = local.Locations.GetLocation();
                         if (elements.Length >= 3) {
                             if (!area.Equals(elements[1]) || !room.Equals(elements[2])) {
                                 keep = false; 
@@ -400,7 +414,74 @@ namespace TextGameDemo.Modules {
 
     }
 
+    class HistoryRules {
+
+        private History h;
+        private Dictionary<string, Dictionary<string, bool>> playOnce;
+
+        public HistoryRules(History h) {
+            this.h = h;
+            playOnce = new Dictionary<string, Dictionary<string,bool>>();
+        }
+
+        public Dictionary<string, Dictionary<string, List<string>>> ParseHistoryRequirments
+                                       (Dictionary<string, Dictionary<string, List<string>>> data,string name) {
+            var temp = new Dictionary<string, Dictionary<string, List<string>>>();
+            foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in data) {
+                bool keep = ShortTermHistoryRule(item.Key, name) && LongTermHistory(item.Key,data[item.Key]["req"],name);
+                if (keep)
+                    temp[item.Key] = data[item.Key];
+            }
+            return temp;
+        }
+
+        private bool ShortTermHistoryRule(string dialogue, string name) {
+            bool keep = true;
+            if (h.ShortTerm.ContainsKey(name)) {
+                foreach (string d in h.ShortTerm[name]) {
+                    if (dialogue.Equals(d)) {
+                        keep = false; break;
+                    }
+                }
+            }
+            return keep;
+        }
+
+        private bool LongTermHistory(string dialogue, List<string> req, string name) {
+            bool keep = true;
+            if (!playOnce.ContainsKey(name))
+                playOnce[name] = new Dictionary<string, bool>();
+            foreach (string item in req) {
+                if (item.Equals("play_once") && playOnce[name].ContainsKey(dialogue)) {
+                    Console.WriteLine(name+":"+dialogue);
+                    keep = false;
+                    break;
+                }
+            }
+            return keep;
+        }
+
+        public void AddPlayOnceDialogue(Dictionary<string, Dictionary<string, List<string>>> data, string name) {
+            foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in data) {
+                if (!playOnce.ContainsKey(name))
+                    playOnce[name] = new Dictionary<string, bool>();
+                foreach (string value in data[item.Key]["req"]) {
+                    Console.WriteLine(name + ":" + item.Key);
+                    if (value.Equals("play_once") && !playOnce[name].ContainsKey(item.Key)) {
+                        Console.WriteLine(name + ":" + item.Key);
+                        playOnce[name][item.Key] = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+
+    }
+
     class AroundTownBranchDecision : BranchDecision {
+
+        
 
         public AroundTownBranchDecision(Controller ctrl) : base(ctrl) { }
 
