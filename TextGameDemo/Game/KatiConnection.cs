@@ -55,16 +55,16 @@ namespace TextGameDemo.Game {
         }
 
 
-        public string RunSystem(string area, string room, string character) {
+        public (string,bool) RunSystem(string area, string room, string character) {
             UpdateCharacterData(Model.Lib.Lib[character]);
-            string moduleName = PickModule(area,room, character);
+            string moduleName = "AroundTown";//PickModule(area,room, character); //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ temp.  Undo comment.
             Kati.GenericModule.Module module = Hub.GetModule(moduleName);
             module.SetCurrentCharacter(character);
             module.Run();
             string key = moduleName + "_" + module.Ctrl.Topic.Topic + "_" + module.Ctrl.Type.Type;
             RecordHistory(character,moduleName,module.Ctrl.Package.Dialogue,key);
-            
-            return module.Ctrl.Package.Dialogue;
+            bool isChain = module.Ctrl.Package.IsChain;
+            return (module.Ctrl.Package.Dialogue,isChain);
         }
 
 

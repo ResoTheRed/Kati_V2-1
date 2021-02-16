@@ -49,10 +49,21 @@ namespace Kati.Module_Hub {
         private Dictionary<string, double> forcedTopic;
         private Dictionary<string, double> forcedType;
 
+        //*************Dialogue Chaining***************//
+        private bool isChain;
+        private bool isReponse;
+        private string nextModule;
+        private string nextTopic;
+        private string nextType;
+        private string nextTone;
+        private string nextReq;
+
+        
+
         //**************module hub data****************//
         private ModuleStatus status;
         //points to next module directed by parser: "lead to"
-        private string nextModule;
+        //private string nextModule;
 
         //**************history data******************//
         //True if a new conversation is started
@@ -82,7 +93,6 @@ namespace Kati.Module_Hub {
 
         public string Dialogue { get => dialogue; set => dialogue = value; }
         public ModuleStatus Status { get => status; set => status = value; }
-        public string NextModule { get => nextModule; set => nextModule = value; }
         public Dictionary<string, double> ForcedTopic { get => forcedTopic; set => forcedTopic = value; }
         public Dictionary<string, double> ForcedType { get => forcedType; set => forcedType = value; }
         public Dictionary<string, List<string>> Req { get => req; set => req = value; }
@@ -99,12 +109,48 @@ namespace Kati.Module_Hub {
         public string LocationNode { get => locationNode; set => locationNode = value; }
         public string Tone { get => tone; set => tone = value; }
 
+
+        public bool IsChain { get => isChain; set => isChain = value; }
+        public string NextModule { get => nextModule; set => nextModule = value; }
+        public string NextTopic { get => nextTopic; set => nextTopic = value; }
+        public string NextType { get => nextType; set => nextType = value; }
+        public string NextTone { get => nextTone; set => nextTone = value; }
+        public string NextReq { get => nextReq; set => nextReq = value; }
+        public bool IsResponse { get => isReponse; set => isReponse = value; }
+
         public void AddForcedTopic(string topic, double weight) {
             forcedTopic[topic] = weight;
         }        
         
-        public void AddForcedType(string topic, double weight) {
-            forcedType[topic] = weight;
+        public void AddForcedType(string type, double weight) {
+            forcedType[type] = weight;
+        }
+
+        public void SetForChain(string topic, string type, string tone, string req) {
+            IsChain = true;
+            NextTopic = topic;
+            NextType = type;
+            NextTone = tone; 
+            NextReq = req;
+        }
+
+        public void NotAChain() {
+            IsChain = false;
+            NextModule = NextTopic= NextType = NextTone = NextReq ="";
+        }
+        
+        public void SetForResponse(string topic, string type, string tone, string req) {
+            IsChain = false;
+            IsResponse = true;
+            NextTopic = topic;
+            NextType = type;
+            NextTone = tone; 
+            NextReq = req;
+        }
+
+        public void NotAResponse() {
+            IsResponse = false;
+            //NextModule = NextTopic= NextType = NextTone = NextReq ="";
         }
     }
     

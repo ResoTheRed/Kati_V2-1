@@ -1,13 +1,11 @@
-New file created: 2/13/2021 11:05:06 AM
+New file created: 2/15/2021 7:42:12 PM
 Collin
 
 Benjamin
 
 Dan
-0001_AroundTown_Greeting_statement,Greetings.,0,0,0,0,0,0,0,0,0,END
-0002_AroundTown_Greeting_statement,Good day.,0,0,0,0,0,50,0,0,0,END
-0003_AroundTown_Greeting_statement,Hello.,0,0,50,0,0,50,0,0,0,END
-0004_AroundTown_Greeting_statement,Greetings. I'm Dan.  I own the General Store here in Biggs.,0,0,100,0,0,50,0,0,0,END
+0001_AroundTown_HistoryLessons_statement,The village of Biggs grows some of the best fruits and vegetables for miles around.,0,0,0,0,0,0,0,0,0,END
+0002_AroundTown_HistoryLessons_statement,It's almost like there is magic in the ground or something.,0,0,0,0,0,0,0,0,0,END
 
 Albrecht
 

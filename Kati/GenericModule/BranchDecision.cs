@@ -34,7 +34,7 @@ namespace Kati.GenericModule {
         }
 
         //holds all method calls for ease of use
-        public Dictionary<string, Dictionary<string, List<string>>> RunDecision
+        public (string,Dictionary<string, Dictionary<string, List<string>>>) RunDecision
             (Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
             SetThresholds();
             var tone = CancelAttributeTones();
@@ -125,15 +125,15 @@ namespace Kati.GenericModule {
         }
 
         //return first dialogue branch from list of ordered branches
-        public Dictionary<string, Dictionary<string, List<string>>> GetAttributeBranch
+        public (string, Dictionary<string, Dictionary<string, List<string>>>) GetAttributeBranch
            (Dictionary<string, double> tone, Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> data) {
             List<string> full = OrderConversationBranches(tone);//orders all branches from most important to least
             for (int i = 0; i < full.Count; i++) {
                 if (data.ContainsKey(full[i])) {
-                    return data[full[i]];
+                    return (full[i],data[full[i]]);
                 }
             }
-            return null;
+            return (null,null);
         }
 
         //returns an ordered list of conversation branches

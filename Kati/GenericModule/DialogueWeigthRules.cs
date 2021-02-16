@@ -46,6 +46,8 @@ namespace Kati.GenericModule {
             Dictionary<string, Dictionary<string, List<string>>> temp = 
                 new Dictionary<string, Dictionary<string, List<string>>>();
             temp[ChooseDialogue(ref weights)] = Data[ChooseDialogue(ref weights)];
+            //loosing reqs and leads to here
+
             return temp;
         }
 

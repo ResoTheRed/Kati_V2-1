@@ -239,7 +239,7 @@ namespace KatiUnitTest.Module_Tests.GlobalModuleTest {
         public void TestRunDecision() {
             double[] arr = { 700, 600, 500, 400, 300, 200, 100, 0 };
             SetNpcTone(arr);
-            var decision = bd.RunDecision(ctrl.Lib.Data[ctrl.Lib.Keys["dream"][ctrl.Lib.STATEMENT]]);
+            (string tone, var decision) = bd.RunDecision(ctrl.Lib.Data[ctrl.Lib.Keys["dream"][ctrl.Lib.STATEMENT]]);
             Assert.IsTrue(decision.Count == 14);
             Assert.IsTrue(decision.ContainsKey("I've been day dreaming a lot lately.  I wonder why?"));
 

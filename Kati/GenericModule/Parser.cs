@@ -46,7 +46,7 @@ namespace Kati.GenericModule {
         //used for statements and questions only
         virtual public void Parse() {
             //Data must not point to Lib data but be a copy
-            var data = Branch.RunDecision(Data);
+            (string tone,var data) = Branch.RunDecision(Data);
             data = Game.ParseGameRequirments(data);
             data = Personal.ParsePersonalRequirments(data);
             data = Social.ParseSocialRequirments(data);
@@ -55,7 +55,7 @@ namespace Kati.GenericModule {
         }
 
         //define this method 
-        protected void SetPackage(ref Dictionary<string, Dictionary<string, List<string>>> data) {
+        public void SetPackage(ref Dictionary<string, Dictionary<string, List<string>>> data) {
             foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in data) {
                 if (!Type.Equals(Constants.RESPONSE))
                     Ctrl.Package.Dialogue = item.Key;

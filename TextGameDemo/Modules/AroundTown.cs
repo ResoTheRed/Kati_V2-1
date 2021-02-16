@@ -7,6 +7,7 @@ using TextGameDemo.Game;
 using TextGameDemo.Game.Characters;
 
 namespace TextGameDemo.Modules {
+
     public class AroundTown : Module {
 
         const string GREETING = "Greeting";
@@ -39,7 +40,14 @@ namespace TextGameDemo.Modules {
             if (parse.HRules == null)
                 parse.SetHistoryRules(Model.Connect.GameHistory);
             SetupController();
-            Ctrl.RunParser();
+            if (Ctrl.Topic.Topic == "") {
+                // fix topics issue with annoying character
+                // there should be specific or no dialogue here 
+            }
+            if (Ctrl.Package.IsChain)
+                RunChain();
+            else
+                Ctrl.RunParser();
             return Ctrl.Package;
         }
 
@@ -58,9 +66,10 @@ namespace TextGameDemo.Modules {
 
         public string SetTopic() {
             string topic = "";
-            if (Model.GameData.GetConversationCounter(character) == 0) { 
-                topic = GREETING;
-            } else if (Model.GameData.GetConversationCounter(character) < 5) { //uniform distribution
+            if (Model.GameData.GetConversationCounter(character) <= 17) {
+                //topic = GREETING;
+                topic = "HistoryLessons";
+            } else if (Model.GameData.GetConversationCounter(character) < 25) { //uniform distribution
                 topic = topics[GameTools.Tools().Next(topics.Length)];
             } else { //annoy character
                 AnnoyCharacter();                
@@ -97,6 +106,33 @@ namespace TextGameDemo.Modules {
             return type;
         }
 
+
+        //run chain
+        public void RunChain() {
+            //int key = Ctrl.Package.Type == "statement" ? 0 : Ctrl.Package.Type == "question" ? 1 : 2;
+            var temp = Ctrl.Lib.DeepCopyDictionaryByTopic(Ctrl.Package.NextTopic, Ctrl.Package.NextType);
+            var temp2 = new Dictionary<string, Dictionary<string, List<string>>>();
+            bool found = false;
+            foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in temp[Ctrl.Package.NextTone]) {
+                foreach (string value in temp[Ctrl.Package.NextTone][item.Key]["req"]) {
+                    Console.WriteLine(value + " : " + Ctrl.Package.NextReq);
+                    if (value.Equals(Ctrl.Package.NextReq)) {
+                        temp2[item.Key] =  temp[Ctrl.Package.NextTone][item.Key];
+                        found = true;
+                        break;
+                    }
+                }
+                if (found)
+                    break;
+            }
+            if (found) {
+                parse.SetPackage(ref temp2);
+                var p = DialoguePackageHandler.Get();
+                p = Ctrl.Package;
+                parse.LeadTo.ParseLeadTo(temp2, p, Ctrl, Ctrl.Package.NextTone);
+            }
+        }
+
     }
 
     class AroundTownParser : Parser {
@@ -105,17 +141,20 @@ namespace TextGameDemo.Modules {
         GameRules gRules;
         HistoryRules hRules;
         LocationRules local;
+        LeadToRules leadTo;
         Game.Characters.Character npc;
         GameModel model;
 
-        internal PersonalRules Personal { get => personal; set => personal = value; }
+        public PersonalRules Personal { get => personal; set => personal = value; }
         public Character Npc { get => npc; set => npc = value; }
         public GameRules GRules { get => gRules; set => gRules = value; }
-        public GameModel Model { get => model; set => model = value; }
+        //public GameModel Model { get => model; set => model = value; }
         public HistoryRules HRules { get => hRules; set => hRules = value; }
+        internal LeadToRules LeadTo { get => leadTo; set => leadTo = value; }
 
         public AroundTownParser(Controller ctrl) : base(ctrl){
             Personal = new PersonalRules(ctrl); ;
+            LeadTo = new LeadToRules();
             //GRules = new GameRules(Model);
         }
 
@@ -133,24 +172,26 @@ namespace TextGameDemo.Modules {
         override
         public void Parse() {
             //Data must not point to Lib data but be a copy
-            var data = Branch.RunDecision(Data);
-            data = ParseHelper(data);
+            (string tone, var data) = Branch.RunDecision(Data);
+            data = ParseHelper(data,tone);
             //if branch doesn't contain data move to neutral
             if (data == null) {
-                data = Ctrl.Lib.DeepCopyDictionaryByTopic(Ctrl.Topic.Topic, Ctrl.Lib.GetType(Ctrl.Type.Type))[Kati.Constants.NEUTRAL];
-                data = ParseHelper(data);
+                //data = Ctrl.Lib.DeepCopyDictionaryByTopic(Ctrl.Topic.Topic, Ctrl.Lib.GetType(Ctrl.Type.Type))[Kati.Constants.NEUTRAL];
+                //ParseHelper(data,tone);
+                Console.WriteLine("Data is null in parser");
             }
         }
 
-        private Dictionary<string, Dictionary<string, List<string>>> ParseHelper(Dictionary<string, Dictionary<string, List<string>>> data) {
+        private Dictionary<string, Dictionary<string, List<string>>> ParseHelper(Dictionary<string, Dictionary<string, List<string>>> data, string tone) {
             try {
-                data = HRules.ParseHistoryRequirments(data,Npc.Name);
+                data = HRules.ParseHistoryRequirments(data, Npc.Name);
                 data = GRules.ParseGameRequirments(data);
-                data = Personal.ParsePersonalRequirments(data,Npc);
+                data = Personal.ParsePersonalRequirments(data, Npc);
                 data = Social.ParseSocialRequirments(data);
-                //data = ForcedNextRequirement(data);
-                data = Weight.GetDialogue(data);
-                hRules.AddPlayOnceDialogue(data, Npc.Name);
+                data = LeadTo.DialogueChainReqRules(data,Ctrl.Package);
+                data = GetDialogueWeights(data);
+                HRules.AddPlayOnceDialogue(data, Npc.Name);
+                LeadTo.ParseLeadTo(data, Ctrl.Package,Ctrl,tone);
                 SetPackage(ref data);
             } catch (Exception e) {
                 Console.WriteLine(e);
@@ -159,31 +200,21 @@ namespace TextGameDemo.Modules {
             return data;
         }
 
-        private Dictionary<string, Dictionary<string, List<string>>> ForcedNextRequirement
-                                   (Dictionary<string, Dictionary<string, List<string>>> data) {
-            var temp = new Dictionary<string, Dictionary<string, List<string>>>();
+        public Dictionary<string, Dictionary<string, List<string>>> GetDialogueWeights
+            (Dictionary<string, Dictionary<string, List<string>>> data) {
+            int count = GameTools.Tools().Next(data.Count);
+            int counter = 0;
+            Dictionary<string, Dictionary<string, List<string>>> temp = new Dictionary<string, Dictionary<string, List<string>>>();
             foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in data) {
-                bool keep = true;
-                foreach (string item2 in data[item.Key][Kati.Constants.REQ]) {
-                    if (Ctrl.Package.LeadTo[Ctrl.Package.Dialogue].Count == 0 || Ctrl.Package.LeadTo[Ctrl.Package.Dialogue][0].Equals(""))
-                        return data;
-                    string[] arr = Ctrl.Package.LeadTo[Ctrl.Package.Dialogue][0].Split('.');
-                    if (arr.Length >= 4 && arr[0].Equals("forced")) {
-                        //Console.WriteLine(item2 + "==" + arr[3]);
-                        if (item2.Equals(arr[3])) { //check if
-                            //Console.WriteLine("req: " + item2 + " lead to " + Ctrl.Package.LeadTo[Ctrl.Package.Dialogue][0] + " dialogue " + item.Key);
-                            keep = true;
-                        } else {
-                            keep = false;
-                        }
-                    }
-                }
-                if (keep) {
+                if (count == counter) {
                     temp[item.Key] = data[item.Key];
+                    break;
                 }
+                counter++;
             }
             return temp;
         }
+
     }
 
     class AroundTownResponse : Response {
@@ -310,9 +341,6 @@ namespace TextGameDemo.Modules {
             return keep;
         }
 
-        //play_once
-
-        //game
 
         /* req rules
                 responseTag.status : Greeting_response
@@ -479,6 +507,123 @@ namespace TextGameDemo.Modules {
 
     }
 
+    class LeadToRules {
+
+        public LeadToRules() { }
+
+        //play first
+        public Dictionary<string, Dictionary<string, List<string>>> DialogueChainReqRules
+            (Dictionary<string, Dictionary<string, List<string>>> data, DialoguePackage package) {
+            var temp = new Dictionary<string, Dictionary<string, List<string>>>();
+            if (package.IsChain) {
+                // continue the chain by checking lead to
+            } else {
+                foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in data) {
+                    foreach (string req in data[item.Key]["req"]) {
+                        var arr = req.Split("_");
+                        if (arr.Length > 0) {
+                            // only keep options that don't have chainRules 
+                            if (CheckRule(arr[0]))
+                                temp[item.Key] = data[item.Key];
+                        }
+                        //keep Items with no rules
+                            
+                    }
+                    if(data[item.Key]["req"].Count==0)
+                        temp[item.Key] = data[item.Key];
+                }
+            }
+            return temp;
+        }
+
+        private bool CheckRule(string req) {
+            bool keep = true;
+            switch (req) {
+                case "village": { keep = false; }break;
+                case "Smith": { keep = false; } break;
+                case "lesson": { keep = false; } break;
+                case "friend": { keep = false; } break;
+            }
+            return keep;
+        }
+  
+        //toggle dialogue chain on and off
+        public void ParseLeadTo(Dictionary<string, Dictionary<string, List<string>>> data, DialoguePackage package, Controller ctrl, string tone) {
+            //should only ever run once
+            foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in data) {
+                foreach (string lead in data[item.Key]["lead to"]) {
+                    var arr = lead.Split(".");
+                    if (arr.Length > 0) {
+                        if (LeadToAction(lead,arr[0], package, ctrl, tone))
+                            return;
+                    }
+                }
+                if (data[item.Key]["lead to"].Count == 0) {
+                    package.NotAChain();
+                }
+            }
+        }
+        //toggle dialogue chain on and off
+        private bool LeadToAction(string lead, string command, DialoguePackage package,Controller ctrl, string tone) {
+            bool isAction = true;
+            var arr = lead.Split(".");
+            if (arr.Length >= 2)
+                lead = arr[1];
+            Console.WriteLine(lead);
+            switch (command) {
+                case "end_conversation": { Console.WriteLine("end conversation"); }break;
+                //case "response": { package.SetForResponse(ctrl.Topic.Topic,"response",tone, lead); }break;
+                case "HistoryLesson_statement": { package.SetForChain(ctrl.Topic.Topic, "statement", tone, lead); }break;
+                case "SingleRooms_statement": { package.SetForChain(ctrl.Topic.Topic, "statement", tone, lead); } break;
+                case "Greeting_statement": { package.SetForChain(ctrl.Topic.Topic, "statement", tone, lead); } break;
+                case "PeopleInTown_statement": { package.SetForChain(ctrl.Topic.Topic, "statement", tone, lead); } break;
+                default: { isAction = false; package.NotAChain(); } break;
+            }
+            return isAction;
+        }
+        /* lead to
+                end_conversation : SingleRooms_question
+                response.weather.nice_day : Greeting_question
+                response.status : Greeting_question
+                response.like_town : SingleRooms_question
+                response.like_town_center : SingleRooms_question
+                response.like_store : SingleRooms_question
+                response.like_blacksmith : SingleRooms_question
+                response.entered_forest : SingleRooms_question
+
+                SingleRooms_statement.village_a1 : SingleRooms_statement
+                SingleRooms_statement.village_a2 : SingleRooms_statement
+                SingleRooms_statement.village_b1 : SingleRooms_statement
+                SingleRooms_statement.village_b2 : SingleRooms_statement
+                SingleRooms_statement.Smith_a1 : SingleRooms_statement
+                
+                HistoryLesson_statement.lesson_a1 : HistoryLessons_statement
+                HistoryLesson_statement.lesson_a2 : HistoryLessons_statement
+                HistoryLesson_statement.lesson_a3 : HistoryLessons_statement
+                HistoryLesson_statement.lesson_b1 : HistoryLessons_statement
+                HistoryLesson_statement.lesson_c1 : HistoryLessons_statement
+                HistoryLesson_statement.lesson_c2 : HistoryLessons_statement
+                HistoryLesson_statement.lesson_d1 : HistoryLessons_statement
+                HistoryLesson_statement.lesson_e1 : HistoryLessons_statement
+                HistoryLesson_statement.lesson_f1 : HistoryLessons_statement
+                HistoryLesson_statement.lesson_g1 : HistoryLessons_statement
+                HistoryLesson_statement.lesson_g2 : HistoryLessons_statement
+                HistoryLesson_statement.lesson_h1 : HistoryLessons_statement
+                HistoryLesson_statement.lesson_h2 : HistoryLessons_statement
+                HistoryLesson_statement.lesson_h3 : HistoryLessons_statement
+                HistoryLesson_statement.lesson_h4 : HistoryLessons_statement
+                HistoryLesson_statement.lesson_h5 : HistoryLessons_statement
+                HistoryLesson_statement.lesson_h6 : HistoryLessons_statement
+                HistoryLesson_statement.lesson_h7 : HistoryLessons_statement
+                HistoryLesson_statement.lesson_romance_a1 : HistoryLessons_statement
+                HistoryLesson_statement.friend_a1 : HistoryLessons_statement
+                HistoryLesson_statement.friend_a2 : HistoryLessons_statement
+                HistoryLesson_statement.friend_a3 : HistoryLessons_statement
+                HistoryLesson_statement.friend_b1 : HistoryLessons_statement
+              
+         */
+    }
+
     class AroundTownBranchDecision : BranchDecision {
 
         
@@ -495,9 +640,6 @@ namespace TextGameDemo.Modules {
             if (IsNeutral) return 0;
             double total = 0;
             ReduceAttributeValue(copy);
-            //total = ProbabilityOffsetSingle(copy, Constants.DISGUST, total, GameConstants.DISGUST_OFFSET);
-            //total = ProbabilityOffsetSingle(copy, Constants.FRIEND, total, GameConstants.FREIND_OFFSET);
-            //total = ProbabilityOffsetSingle(copy, Constants.RESPECT, total, GameConstants.RESPECT_OFFSET);
             return total;
         }
 
@@ -509,9 +651,6 @@ namespace TextGameDemo.Modules {
                 return sort;
             }
             copy = new Dictionary<string, double>();
-            //copy[Constants.RESPECT] = Ctrl.Npc.InitiatorsTone[Constants.RESPECT];
-            //copy[Constants.FRIEND] = Ctrl.Npc.InitiatorsTone[Constants.FRIEND];
-            //copy[Constants.DISGUST] = Ctrl.Npc.InitiatorsTone[Constants.DISGUST];
 
             List<string> temp = SortAttributes(copy);
             string item = "";

@@ -96,5 +96,24 @@ namespace Kati.GenericModule {
             return dict;
         }
 
+        public Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> DeepCopyDictionaryByTopic
+           (string topic, string type) {
+            string key = topic + "_" + type;
+            Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> dict =
+                new Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>();
+            foreach (KeyValuePair<string, Dictionary<string, Dictionary<string, List<string>>>> s1 in Data[key]) {
+                dict[s1.Key] = new Dictionary<string, Dictionary<string, List<string>>>();
+                foreach (KeyValuePair<string, Dictionary<string, List<string>>> s2 in Data[key][s1.Key]) {
+                    dict[s1.Key][s2.Key] = new Dictionary<string, List<string>>();
+                    foreach (KeyValuePair<string, List<string>> s3 in Data[key][s1.Key][s2.Key]) {
+                        dict[s1.Key][s2.Key][s3.Key] = new List<string>();
+                        foreach (string element in Data[key][s1.Key][s2.Key][s3.Key]) {
+                            dict[s1.Key][s2.Key][s3.Key].Add(element);
+                        }
+                    }
+                }
+            }
+            return dict;
+        }
     }
 }

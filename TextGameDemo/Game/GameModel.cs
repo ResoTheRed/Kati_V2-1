@@ -21,7 +21,7 @@ namespace TextGameDemo.Game {
             game.connect.Exit();
         }
 
-        private readonly int relationshipDelta = 50;
+        private readonly int relationshipDelta = 10;
         private string botType = rom;
 
         private World world;
@@ -139,7 +139,16 @@ namespace TextGameDemo.Game {
         public string Talk(int index) {
             string speech = CharactersInRoom[index].Talk()+" - ";
             (string area, string room) = lib.Lib[Characters.Cast.PLAYER].Locations.GetLocation();
-            speech += connect.RunSystem(area, room, CharactersInRoom[index].Name);
+            speech += RunDialogueConnection(area, room, CharactersInRoom[index].Name,speech);
+            return speech;
+        }
+
+        public string RunDialogueConnection(string area, string room,string name, string speech) {
+            (string temp, bool isChain) = connect.RunSystem(area, room, name);
+            speech += temp;
+            if (isChain) {
+                return RunDialogueConnection(area,room,name,speech+" #chained_dialogue# ");
+            }
             return speech;
         }
 
