@@ -128,6 +128,7 @@ namespace Kati.Module_Hub {
 
         public void SetForChain(string topic, string type, string tone, string req) {
             IsChain = true;
+            IsResponse = false;
             NextTopic = topic;
             NextType = type;
             NextTone = tone; 

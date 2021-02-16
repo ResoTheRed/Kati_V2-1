@@ -25,8 +25,7 @@ namespace TextGameDemo.Game {
         }
 
         public string ChangeTheWeather() {
-            Random rand = new Random();
-            weather = WeatherTypes[rand.Next(WeatherTypes.Count)];
+            weather = WeatherTypes[GameTools.Tools().Next(WeatherTypes.Count)];
             return weather;
         }
 

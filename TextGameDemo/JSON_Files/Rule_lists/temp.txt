@@ -1,11 +1,10 @@
-New file created: 2/15/2021 7:42:12 PM
+New file created: 2/16/2021 11:34:39 AM
 Collin
 
 Benjamin
 
 Dan
-0001_AroundTown_HistoryLessons_statement,The village of Biggs grows some of the best fruits and vegetables for miles around.,0,0,0,0,0,0,0,0,0,END
-0002_AroundTown_HistoryLessons_statement,It's almost like there is magic in the ground or something.,0,0,0,0,0,0,0,0,0,END
+0001_-,Life is good. I like to keep things positive.,5,0,0,0,0,0,0,0,0,END
 
 Albrecht
 

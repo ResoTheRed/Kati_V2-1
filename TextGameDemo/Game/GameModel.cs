@@ -144,10 +144,16 @@ namespace TextGameDemo.Game {
         }
 
         public string RunDialogueConnection(string area, string room,string name, string speech) {
-            (string temp, bool isChain) = connect.RunSystem(area, room, name);
-            speech += temp;
+            (Kati.Module_Hub.DialoguePackage pack, bool isChain) = connect.RunSystem(area, room, name);
+            speech += pack.Dialogue;
             if (isChain) {
-                return RunDialogueConnection(area,room,name,speech+" #chained_dialogue# ");
+                return RunDialogueConnection(area, room, name, speech + " #chained_dialogue# ");
+            } else if (pack.IsResponse) {
+                connect.RunSystem(area,room,name);
+                string value = TUI.Menus.GetResponseOption(pack.Response);
+                speech += "\n#player_response# "+value;
+                connect.RecordPlayerResponse(name, value);
+                pack.IsResponse = false;
             }
             return speech;
         }
@@ -212,6 +218,7 @@ namespace TextGameDemo.Game {
 
 
         public void UpdateNextDay() {
+            GameData.ChangeTheWeather();
             Lib.ChangeLocations();
             GetCharactersInRoom();
             connect.GameHistory.ResetShortTerm();

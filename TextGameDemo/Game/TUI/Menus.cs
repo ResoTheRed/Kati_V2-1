@@ -165,6 +165,21 @@ namespace TextGameDemo.Game.TUI {
             return graphics;
         }
 
+        /************************************** Response Methods *********************************************/
+
+        public static string GetResponseOption(List<string> responses) {
+            string response = responses[0];
+            Console.WriteLine("Select a response:");
+            for (int i = 0; i < responses.Count; i++) {
+                Console.WriteLine((i+1)+". "+responses[i]);
+            }
+            string selection = Console.ReadLine();
+            int index = Int32.Parse(selection);
+            if (index > 0 && index <= responses.Count) {
+                response = responses[index - 1];
+            }
+            return response;
+        }
 
         /***********************************Dialogue Textbox Methods*****************************************/
         public void TextBox(string speaker, string phrase) {

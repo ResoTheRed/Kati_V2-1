@@ -50,7 +50,7 @@ namespace Kati.GenericModule {
         public Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>> ApplicableResponses { get => applicableResponses; set => applicableResponses = value; }
 
 
-        /**************************** Setup for Branch Defined Response*******************************/
+        /**************************** Setup for Branch Defined Response *******************************/
 
         //pull branches from BranchDecision CancelAttributes method
         public List<string> OrderRelationshipBranches(ref DialoguePackage package, Dictionary<string, double> branches) {

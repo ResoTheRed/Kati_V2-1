@@ -46,9 +46,38 @@ namespace TextGameDemo.Modules {
             }
             if (Ctrl.Package.IsChain)
                 RunChain();
+            else if (Ctrl.Package.IsResponse)
+                RunResponse();
             else
                 Ctrl.RunParser();
             return Ctrl.Package;
+        }
+
+        //response
+        public void RunResponse() {
+            //OrderRelationshipBranches(ref package, npc_tones);
+            DialoguePackage p = Ctrl.Package;
+            Ctrl.Parser.Response.OrderRelationshipBranches(ref p, Ctrl.Npc.InitiatorsTone);
+            //pull response data from library
+            var data = Ctrl.Lib.DeepCopyDictionaryByTopic(Ctrl.Package.NextTopic, Ctrl.Package.NextType);
+            //find best response options
+            Ctrl.Parser.Response.ParseResponses(data);
+            //get response options
+            var respond = Ctrl.Parser.Response.Responses;
+
+            LoadResponsesIntoPackage(respond);
+        }
+
+        public void LoadResponsesIntoPackage(List<Dictionary<string,Dictionary<string,List<string>>>> resp) {
+            Ctrl.Package.Response = new List<string>();
+            for (int i = 0; i < resp.Count; i++) {
+                foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in resp[i]) {
+                    //adding dialogue only.  loosing leads to and req
+                    Ctrl.Package.Response.Add(item.Key);
+                }
+            }
+            //remove response status
+            //Ctrl.Package.NotAResponse();
         }
 
         override
@@ -61,14 +90,14 @@ namespace TextGameDemo.Modules {
         public void SetupController() {
             Ctrl.Package = Game.DialoguePackageHandler.Get();
             Ctrl.Topic.Topic = SetTopic();
-            Ctrl.Type.Type = SetType(Ctrl.Package,Ctrl.Topic.Topic);
+            Ctrl.Type.Type = "question";//SetType(Ctrl.Package,Ctrl.Topic.Topic);
         }
 
         public string SetTopic() {
             string topic = "";
             if (Model.GameData.GetConversationCounter(character) <= 17) {
-                //topic = GREETING;
-                topic = "HistoryLessons";
+                topic = GREETING;
+                //topic = "HistoryLessons";
             } else if (Model.GameData.GetConversationCounter(character) < 25) { //uniform distribution
                 topic = topics[GameTools.Tools().Next(topics.Length)];
             } else { //annoy character
@@ -525,9 +554,7 @@ namespace TextGameDemo.Modules {
                             // only keep options that don't have chainRules 
                             if (CheckRule(arr[0]))
                                 temp[item.Key] = data[item.Key];
-                        }
-                        //keep Items with no rules
-                            
+                        }   
                     }
                     if(data[item.Key]["req"].Count==0)
                         temp[item.Key] = data[item.Key];
@@ -572,12 +599,12 @@ namespace TextGameDemo.Modules {
             Console.WriteLine(lead);
             switch (command) {
                 case "end_conversation": { Console.WriteLine("end conversation"); }break;
-                //case "response": { package.SetForResponse(ctrl.Topic.Topic,"response",tone, lead); }break;
+                case "response": { package.SetForResponse(ctrl.Topic.Topic,"response",tone, lead); }break;
                 case "HistoryLesson_statement": { package.SetForChain(ctrl.Topic.Topic, "statement", tone, lead); }break;
                 case "SingleRooms_statement": { package.SetForChain(ctrl.Topic.Topic, "statement", tone, lead); } break;
                 case "Greeting_statement": { package.SetForChain(ctrl.Topic.Topic, "statement", tone, lead); } break;
                 case "PeopleInTown_statement": { package.SetForChain(ctrl.Topic.Topic, "statement", tone, lead); } break;
-                default: { isAction = false; package.NotAChain(); } break;
+                default: { isAction = false; package.NotAChain(); package.NotAResponse(); } break;
             }
             return isAction;
         }

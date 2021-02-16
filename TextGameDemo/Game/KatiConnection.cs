@@ -55,16 +55,17 @@ namespace TextGameDemo.Game {
         }
 
 
-        public (string,bool) RunSystem(string area, string room, string character) {
+        public (DialoguePackage,bool) RunSystem(string area, string room, string character) {
             UpdateCharacterData(Model.Lib.Lib[character]);
             string moduleName = "AroundTown";//PickModule(area,room, character); //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ temp.  Undo comment.
             Kati.GenericModule.Module module = Hub.GetModule(moduleName);
             module.SetCurrentCharacter(character);
             module.Run();
             string key = moduleName + "_" + module.Ctrl.Topic.Topic + "_" + module.Ctrl.Type.Type;
+            //if(!module.Ctrl.Package.IsResponse)
             RecordHistory(character,moduleName,module.Ctrl.Package.Dialogue,key);
             bool isChain = module.Ctrl.Package.IsChain;
-            return (module.Ctrl.Package.Dialogue,isChain);
+            return (module.Ctrl.Package,isChain);
         }
 
 
@@ -119,6 +120,11 @@ namespace TextGameDemo.Game {
             list.Add(c.BranchAttributes[name][Kati.Constants.HATE]);
             list.Add(c.BranchAttributes[name][Kati.Constants.RIVALRY]);
             GameHistory.AddEntry(name,module_name, dialogue,list,key);
+        }
+
+        public void RecordPlayerResponse(string name, string dialogue) {
+            List<int> list = new List<int> {0,0,0,0,0,0,0,0 };
+            GameHistory.AddEntry(name,"-", dialogue, list, "-");
         }
 
         public void Exit() {
