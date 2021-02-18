@@ -1,10 +1,13 @@
-New file created: 2/16/2021 11:34:39 AM
+New file created: 2/17/2021 3:02:30 PM
 Collin
 
 Benjamin
 
 Dan
-0001_-,Life is good. I like to keep things positive.,5,0,0,0,0,0,0,0,0,END
+0001_AroundTown_Greeting_statement,Hello.,0,0,0,0,0,0,0,0,0,END
+0002_AroundTown_HistoryLessons_statement,The village of Biggs is primarily a farming comunity.,0,0,0,10,0,0,0,0,0,END
+0003_AroundTown_HistoryLessons_statement,Lucky not many invading countries make their way up here. This is probably due to the number of monsters here.,0,0,0,10,0,0,0,0,0,END
+0004_AroundTown_PeopleInTown_statement,Have you met Sir Benjamin?  He is a noble knight of the order.  You won't meet a happier, kinder soul in Biggs.,0,0,10,10,0,0,0,0,0,END
 
 Albrecht
 

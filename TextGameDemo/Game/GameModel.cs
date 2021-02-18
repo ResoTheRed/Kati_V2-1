@@ -151,7 +151,7 @@ namespace TextGameDemo.Game {
             } else if (pack.IsResponse) {
                 connect.RunSystem(area,room,name);
                 string value = TUI.Menus.GetResponseOption(pack.Response);
-                speech += "\n#player_response# "+value;
+                speech += " #player_response# "+value;
                 connect.RecordPlayerResponse(name, value);
                 pack.IsResponse = false;
             }

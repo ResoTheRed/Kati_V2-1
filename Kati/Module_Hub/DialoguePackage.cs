@@ -151,7 +151,7 @@ namespace Kati.Module_Hub {
 
         public void NotAResponse() {
             IsResponse = false;
-            //NextModule = NextTopic= NextType = NextTone = NextReq ="";
+            NextModule = NextTopic= NextType = NextTone = NextReq ="";
         }
     }
     

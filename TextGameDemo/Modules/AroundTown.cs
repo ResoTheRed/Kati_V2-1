@@ -90,12 +90,12 @@ namespace TextGameDemo.Modules {
         public void SetupController() {
             Ctrl.Package = Game.DialoguePackageHandler.Get();
             Ctrl.Topic.Topic = SetTopic();
-            Ctrl.Type.Type = "question";//SetType(Ctrl.Package,Ctrl.Topic.Topic);
+            Ctrl.Type.Type = SetType(Ctrl.Package,Ctrl.Topic.Topic);
         }
 
         public string SetTopic() {
             string topic = "";
-            if (Model.GameData.GetConversationCounter(character) <= 17) {
+            if (Model.GameData.GetConversationCounter(character) <= 0) {
                 topic = GREETING;
                 //topic = "HistoryLessons";
             } else if (Model.GameData.GetConversationCounter(character) < 25) { //uniform distribution
@@ -159,6 +159,9 @@ namespace TextGameDemo.Modules {
                 var p = DialoguePackageHandler.Get();
                 p = Ctrl.Package;
                 parse.LeadTo.ParseLeadTo(temp2, p, Ctrl, Ctrl.Package.NextTone);
+                parse.SetPackage(ref temp2);
+            } else {
+                Ctrl.Package.NotAChain();
             }
         }
 
@@ -467,7 +470,7 @@ namespace TextGameDemo.Modules {
             Location.Town.Laffite : SingleRooms_statement
             Location.Forest : SingleRooms_statement
             Location.Town.Dans : SingleRooms_question
-         */
+         */ 
 
     }
 
