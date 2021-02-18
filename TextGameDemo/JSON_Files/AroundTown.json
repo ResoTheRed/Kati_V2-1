@@ -181,7 +181,7 @@
       },
       "Nice day isn't it?": {
         "req": [ "game.weather.nice_day" ],
-        "lead to": [ "response.weather.nice_day" ]
+        "lead to": [ "response.nice_day" ]
       }
     },
     "romance": {
@@ -270,7 +270,7 @@
         "lead to": [ "attribute.positive.1", "attribute.affinity.1", "attribute.professional.1" ]
       },
       "I agree, it is a lovely day.": {
-        "req": [ "responseTag.nice_weather" ],
+        "req": [ "responseTag.nice_day" ],
         "lead to": [ "attribute.friend.1", "attribute.positive.1" ]
       }
     },

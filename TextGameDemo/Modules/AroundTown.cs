@@ -98,7 +98,7 @@ namespace TextGameDemo.Modules {
             if (Model.GameData.GetConversationCounter(character) <= 0) {
                 topic = GREETING;
                 //topic = "HistoryLessons";
-            } else if (Model.GameData.GetConversationCounter(character) < 25) { //uniform distribution
+            } else if (Model.GameData.GetConversationCounter(character) < 1000) { //uniform distribution
                 topic = topics[GameTools.Tools().Next(topics.Length)];
             } else { //annoy character
                 AnnoyCharacter();                
@@ -144,7 +144,7 @@ namespace TextGameDemo.Modules {
             bool found = false;
             foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in temp[Ctrl.Package.NextTone]) {
                 foreach (string value in temp[Ctrl.Package.NextTone][item.Key]["req"]) {
-                    Console.WriteLine(value + " : " + Ctrl.Package.NextReq);
+                    //Console.WriteLine(value + " : " + Ctrl.Package.NextReq);
                     if (value.Equals(Ctrl.Package.NextReq)) {
                         temp2[item.Key] =  temp[Ctrl.Package.NextTone][item.Key];
                         found = true;
@@ -256,18 +256,31 @@ namespace TextGameDemo.Modules {
           (Dictionary<string, Dictionary<string, List<string>>> data) {
             if (Package == null)
                 return data;
-            var copy = DeepCopy(data);
-            foreach (KeyValuePair<string, List<string>> item in Package.Req) {
-                foreach (string req in Package.Req[item.Key]) {
+            //var copy = DeepCopy(data);
+            var copy = new Dictionary<string, Dictionary<string, List<string>>>();
+            string rule = ParseReq(Package.NextReq);
+
+            foreach (KeyValuePair<string, Dictionary<string, List<string>>> item in data) {
+                foreach (string req in data[item.Key]["req"]) {
                     string[] arr = req.Split('.');
-                    if (arr.Length > 1 && arr[0].Equals(Kati.Constants.RESPONSE_TAG)) {
-                        foreach (KeyValuePair<string, Dictionary<string, List<string>>> item2 in data) {
-                            RemoveElement(ref copy, item2.Key, ref arr);
+                    if (arr.Length > 1) {
+                        if(arr[1].Equals(rule)) {
+                            copy[item.Key] = data[item.Key];
                         }
                     }
                 }
             }
             return copy;
+        }
+
+        private string ParseReq(string req) {
+            string rule = "";
+            if (Package.NextReq.Length > 0) {
+                //string[] arr = Package.NextReq.Split(".");
+                //if (arr.Length > 1)
+                    rule = req;
+            }
+            return rule;
         }
 
         private Dictionary<string, Dictionary<string, List<string>>> DeepCopy
@@ -526,9 +539,9 @@ namespace TextGameDemo.Modules {
                 if (!playOnce.ContainsKey(name))
                     playOnce[name] = new Dictionary<string, bool>();
                 foreach (string value in data[item.Key]["req"]) {
-                    Console.WriteLine(name + ":" + item.Key);
+                    //Console.WriteLine(name + ":" + item.Key);
                     if (value.Equals("play_once") && !playOnce[name].ContainsKey(item.Key)) {
-                        Console.WriteLine(name + ":" + item.Key);
+                        //Console.WriteLine(name + ":" + item.Key);
                         playOnce[name][item.Key] = true;
                         break;
                     }
@@ -599,7 +612,7 @@ namespace TextGameDemo.Modules {
             var arr = lead.Split(".");
             if (arr.Length >= 2)
                 lead = arr[1];
-            Console.WriteLine(lead);
+            //Console.WriteLine(lead);
             switch (command) {
                 case "end_conversation": { Console.WriteLine("end conversation"); }break;
                 case "response": { package.SetForResponse(ctrl.Topic.Topic,"response",tone, lead); }break;

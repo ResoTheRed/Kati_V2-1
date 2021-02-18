@@ -137,7 +137,7 @@ namespace TextGameDemo.Game {
         }
 
         public string Talk(int index) {
-            string speech = CharactersInRoom[index].Talk()+" - ";
+            string speech = ""; //CharactersInRoom[index].Talk()+" - ";
             (string area, string room) = lib.Lib[Characters.Cast.PLAYER].Locations.GetLocation();
             speech += RunDialogueConnection(area, room, CharactersInRoom[index].Name,speech);
             return speech;

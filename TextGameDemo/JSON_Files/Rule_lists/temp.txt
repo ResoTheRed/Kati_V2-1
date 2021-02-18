@@ -1,13 +1,9 @@
-New file created: 2/17/2021 3:02:30 PM
+New file created: 2/18/2021 3:13:07 PM
 Collin
 
 Benjamin
 
 Dan
-0001_AroundTown_Greeting_statement,Hello.,0,0,0,0,0,0,0,0,0,END
-0002_AroundTown_HistoryLessons_statement,The village of Biggs is primarily a farming comunity.,0,0,0,10,0,0,0,0,0,END
-0003_AroundTown_HistoryLessons_statement,Lucky not many invading countries make their way up here. This is probably due to the number of monsters here.,0,0,0,10,0,0,0,0,0,END
-0004_AroundTown_PeopleInTown_statement,Have you met Sir Benjamin?  He is a noble knight of the order.  You won't meet a happier, kinder soul in Biggs.,0,0,10,10,0,0,0,0,0,END
 
 Albrecht
 
@@ -16,6 +12,25 @@ Romero
 Miciah
 
 Sivian
+0001_AroundTown_Greeting_statement,Hello.,0,0,0,0,0,0,0,0,0,END
+0002_AroundTown_Greeting_statement,Good day.,0,0,0,0,0,10,0,0,0,END
+0003_AroundTown_HistoryLessons_statement,The Gringor Forest is an excellent source of lumber, but it take a brave person to ventrue in there to claim it.,0,0,0,0,0,20,0,0,0,END
+0004_AroundTown_HistoryLessons_statement,Did you know that the village of Biggs is located in the region of Elvor.,0,0,0,10,0,20,0,0,0,END
+0005_AroundTown_HistoryLessons_statement,We came to this land a little over three hundred years ago, from the south.,0,0,0,10,0,20,0,0,0,END
+0006_AroundTown_PeopleInTown_statement,This is a hard dangerous land.  Not a lot of people can make it here.,0,0,0,10,0,20,0,0,0,END
+0007_AroundTown_PeopleInTown_statement,This is a hard dangerous land.  Not a lot of people can make it here.,0,0,0,10,0,20,0,0,0,END
+0008_AroundTown_Greeting_statement,Ahh Hello #player_name#. I heard of your arrival in town. #new_textbox# I'm glad to have and andventurer like you around.  #new_textbox# If you are ever looking for work come and see me.  There is always something that needs to be done around here.,0,0,0,20,0,20,0,0,0,END
+0009_AroundTown_HistoryLessons_statement,I overheard someone talking about a cave in the mountians. I think they said something about crystals.,0,0,0,20,0,30,0,0,0,END
+0010_AroundTown_Greeting_question,I would love to see it some day.,0,0,0,20,0,30,0,0,0,END
+0011_AroundTown_Greeting_question,What can I do for you?,0,0,10,20,0,30,0,0,0,END
+0012_AroundTown_Greeting_question,What can I do for you?,0,0,10,20,0,40,0,0,0,END
+0013_AroundTown_Greeting_statement,Greetings.,0,0,20,20,0,40,0,0,0,END
+0014_AroundTown_SingleRooms_question,What do you think of Albrecht's Blacksmith shop?,0,0,20,30,0,40,0,0,0,END
+0015_AroundTown_SingleRooms_question,What do you think of Albrecht's Blacksmith shop?,0,0,20,30,0,40,0,0,0,END
+0016_-,It's a useful shop.,5,0,0,0,0,0,0,0,0,END
+0017_AroundTown_SingleRooms_question,Everything we need is close by. This is a nice place to live don't you think?,0,0,20,40,0,40,0,0,0,END
+0018_AroundTown_Greeting_statement,Everything we need is close by. This is a nice place to live don't you think?,0,0,20,40,0,40,0,0,0,END
+0019_-,The village of Biggs is a dump.,5,0,0,0,0,0,0,0,0,END
 
 Lerin
 

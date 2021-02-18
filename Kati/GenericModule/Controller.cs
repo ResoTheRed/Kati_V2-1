@@ -54,11 +54,15 @@ namespace Kati.GenericModule {
         //broken -> does not full function
         public void RunParser() {
             string key = Topic.Topic + "_" + Type.Type;
-            Console.WriteLine("null lib: "+Lib.DeepCopyDictionaryByTopic(Topic.Topic, Lib.GetType(Type.Type))==null);
-            
-            Parser.Setup(Topic.Topic, Type.Type, Lib.DeepCopyDictionaryByTopic(Topic.Topic,Lib.GetType(Type.Type)));
-            //Parser.Setup(Topic.Topic, Type.Type, Lib.Data[key]);
-            Parser.Parse();
+            if (Topic.Topic.Length > 0 && Type.Type.Length > 0) {
+                Console.WriteLine("null lib: " + Lib.DeepCopyDictionaryByTopic(Topic.Topic, Lib.GetType(Type.Type)) == null);
+
+                Parser.Setup(Topic.Topic, Type.Type, Lib.DeepCopyDictionaryByTopic(Topic.Topic, Lib.GetType(Type.Type)));
+                //Parser.Setup(Topic.Topic, Type.Type, Lib.Data[key]);
+                Parser.Parse();
+            } else {
+                Console.WriteLine("Topic or Type is empty");
+            }
         }
 
         //need to decide which topic
