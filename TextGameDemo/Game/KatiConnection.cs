@@ -17,6 +17,7 @@ namespace TextGameDemo.Game {
         private GameTools tools;
         private DialoguePackage package;
         private History gameHistory;
+        private string previousModuleName;
 
         public ModuleHub Hub { get => hub; set => hub = value; }
         public GameModel Model { get => model; set => model = value; }
@@ -36,28 +37,28 @@ namespace TextGameDemo.Game {
         private void LoadModules() {
             string path = JsonToolkit.Get(JsonToolkit.AROUND_TOWN);
             Hub.Modules[JsonToolkit.AROUND_TOWN] = new AroundTown(path, Model);
-            path = JsonToolkit.Get(JsonToolkit.BENJAMIN);
-            Hub.Modules[JsonToolkit.BENJAMIN] = new Benjamin(path);
+            //path = JsonToolkit.Get(JsonToolkit.BENJAMIN);
+            //Hub.Modules[JsonToolkit.BENJAMIN] = new Benjamin(path);
             path = JsonToolkit.Get(JsonToolkit.FIGHTING_WORDS);
-            Hub.Modules[JsonToolkit.FIGHTING_WORDS] = new FightingWords(path);
+            Hub.Modules[JsonToolkit.FIGHTING_WORDS] = new FightingWords(path, Model);
             path = JsonToolkit.Get(JsonToolkit.FOREST_TALK);
-            Hub.Modules[JsonToolkit.FOREST_TALK] = new ForestTalk(path);
-            path = JsonToolkit.Get(JsonToolkit.LAFFITE);
-            Hub.Modules[JsonToolkit.LAFFITE] = new Lafitte(path);
+            Hub.Modules[JsonToolkit.FOREST_TALK] = new ForestTalk(path,Model);
+            //path = JsonToolkit.Get(JsonToolkit.LAFFITE);
+            //Hub.Modules[JsonToolkit.LAFFITE] = new Lafitte(path);
             path = JsonToolkit.Get(JsonToolkit.LERIN);
-            Hub.Modules[JsonToolkit.LERIN] = new Lerin(path);
+            Hub.Modules[JsonToolkit.LERIN] = new Lerin(path,Model);
             path = JsonToolkit.Get(JsonToolkit.QUESTING);
             Hub.Modules[JsonToolkit.QUESTING] = new Questing(path);
-            path = JsonToolkit.Get(JsonToolkit.SHOPPING);
-            Hub.Modules[JsonToolkit.SHOPPING] = new Shopping(path);
+            //path = JsonToolkit.Get(JsonToolkit.SHOPPING);
+            //Hub.Modules[JsonToolkit.SHOPPING] = new Shopping(path);
             path = JsonToolkit.Get(JsonToolkit.YOUNG_LOVE);
-            Hub.Modules[JsonToolkit.YOUNG_LOVE] = new YoungLove(path);
+            Hub.Modules[JsonToolkit.YOUNG_LOVE] = new YoungLove(path,Model);
         }
 
 
         public (DialoguePackage,bool) RunSystem(string area, string room, string character) {
             UpdateCharacterData(Model.Lib.Lib[character]);
-            string moduleName = "AroundTown";//PickModule(area,room, character); //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ temp.  Undo comment.
+            string moduleName = PickModule(area,room, character); //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ temp.  Undo comment.
             Kati.GenericModule.Module module = Hub.GetModule(moduleName);
             module.SetCurrentCharacter(character);
             module.Run();
@@ -65,7 +66,8 @@ namespace TextGameDemo.Game {
             //if(!module.Ctrl.Package.IsResponse)
             RecordHistory(character,moduleName,module.Ctrl.Package.Dialogue,key);
             bool isChain = module.Ctrl.Package.IsChain;
-            return (module.Ctrl.Package,isChain);
+            package = module.Ctrl.Package;
+            return (package,isChain);
         }
 
 
@@ -148,6 +150,11 @@ namespace TextGameDemo.Game {
         //if returned value is empty, cancel dialogue 
         public string PickModule(string area,string room, string character) {
             string mod = "";
+            if (Package != null && (package.IsChain || package.IsResponse)) {
+                return previousModuleName; 
+            }
+            if (character.Equals("Lerin"))
+                return character;
             var possibleMods = Hub.StoryLine[STORY_SEG_1][room][character];
             possibleMods = GetLocationBasedModules(possibleMods,area);
             if (possibleMods.Count == 1) {
@@ -157,6 +164,7 @@ namespace TextGameDemo.Game {
             }
             possibleMods = GetBranchToneBasedModules(possibleMods, character);
             mod = PickModule(possibleMods, character);
+            previousModuleName = mod;
             return mod;
         }
 
@@ -174,9 +182,10 @@ namespace TextGameDemo.Game {
                     usable.Remove(JsonToolkit.FIGHTING_WORDS);
                 }
             } else if (usable.Contains(JsonToolkit.YOUNG_LOVE)) {
-                if (Model.Lib.Lib[character].Statuses[Status.FLIRTY] && percent <= 70) {
+                if ((Model.Lib.Lib[character].Statuses[Status.FLIRTY] || 
+                    Model.Lib.Lib[Cast.PLAYER].BranchAttributes[character][Kati.Constants.ROMANCE]>400) && percent <= 75) {
                     return JsonToolkit.YOUNG_LOVE;
-                } else if (percent <= 55) {
+                } else if (percent <= 50) {
                     return JsonToolkit.YOUNG_LOVE;
                 } else if (Model.Lib.Lib[character].Statuses[Status.ANNOYED] && percent <=5) {
                     return JsonToolkit.YOUNG_LOVE;
@@ -223,12 +232,12 @@ namespace TextGameDemo.Game {
         }
 
         private List<string> CheckForFightingWords(List<string> usable, string character) {
-            int hate = Model.Lib.Lib[character].BranchAttributes[Cast.PLAYER][Kati.Constants.HATE];
-            int dis = Model.Lib.Lib[character].BranchAttributes[Cast.PLAYER][Kati.Constants.DISGUST];
-            int fri = Model.Lib.Lib[character].BranchAttributes[Cast.PLAYER][Kati.Constants.FRIEND];
-            int rom = Model.Lib.Lib[character].BranchAttributes[Cast.PLAYER][Kati.Constants.ROMANCE];
+            int hate = Model.Lib.Lib[Cast.PLAYER].BranchAttributes[character][Kati.Constants.HATE];
+            int dis = Model.Lib.Lib[Cast.PLAYER].BranchAttributes[character][Kati.Constants.DISGUST];
+            int fri = Model.Lib.Lib[Cast.PLAYER].BranchAttributes[character][Kati.Constants.FRIEND];
+            int rom = Model.Lib.Lib[Cast.PLAYER].BranchAttributes[character][Kati.Constants.ROMANCE];
             if (usable.Contains(JsonToolkit.FIGHTING_WORDS)) {
-                if ((hate + dis + 100 > fri + rom) || Model.Lib.Lib[character].Statuses[Status.ANGRY]) {
+                if ((hate + dis > fri + rom + 75) || Model.Lib.Lib[character].Statuses[Status.ANGRY]) {
                     return usable;
                 }
                 usable.Remove(JsonToolkit.FIGHTING_WORDS);
@@ -237,11 +246,11 @@ namespace TextGameDemo.Game {
         }
 
         private List<string> CheckForYoungLove(List<string> usable, string character) {
-            int rom = Model.Lib.Lib[character].BranchAttributes[Cast.PLAYER][Kati.Constants.ROMANCE];
-            int hate = Model.Lib.Lib[character].BranchAttributes[Cast.PLAYER][Kati.Constants.HATE];
-            int dis = Model.Lib.Lib[character].BranchAttributes[Cast.PLAYER][Kati.Constants.DISGUST];
+            int rom = Model.Lib.Lib[Cast.PLAYER].BranchAttributes[character][Kati.Constants.ROMANCE];
+            int hate = Model.Lib.Lib[Cast.PLAYER].BranchAttributes[character][Kati.Constants.HATE];
+            int dis = Model.Lib.Lib[Cast.PLAYER].BranchAttributes[character][Kati.Constants.DISGUST];
             if (usable.Contains(JsonToolkit.YOUNG_LOVE)) {
-                if (rom >= 300) {
+                if (rom >= 200) {
                     if (hate + dis + 150 < rom)
                         return usable;
                 }
@@ -253,7 +262,7 @@ namespace TextGameDemo.Game {
         public Dictionary<string, int> ApplyStatusEffects(string character) {
             //need to pass character data back and forth
             Dictionary<string, int> tones = new Dictionary<string, int>();
-            foreach (KeyValuePair<string, int> item in Model.Lib.Lib[character].BranchAttributes[Cast.PLAYER]) {
+            foreach (KeyValuePair<string, int> item in Model.Lib.Lib[Cast.PLAYER].BranchAttributes[character]) {
                 tones[item.Key] = item.Value;     
             }
             if (Model.Lib.Lib[character].Statuses[Status.ANGRY]) {

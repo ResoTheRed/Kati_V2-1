@@ -1,52 +1,128 @@
 {
-  "sample01_statement": {
+  "Talk_statement": {
     "neutral": {
-      " neutral test 0": {
+      "Be on your guard.  This place is dangerous.": {
+        "req": ["Character.Christina"],
+        "lead to": []
+      },
+      "The forest is so peaceful. It's a shame that so many monsters live here.": {
+        "req": ["Character.Christina"],
+        "lead to": []
+      },
+      "Do you venture out here often? If so you are either very brave or a fool.": {
+        "req": ["Character.Christina"],
+        "lead to": []
+      },
+      "Lots of people talk about how dangerous the forest is, but to tell you the truth, it's not so bad. #new_textbox# Now a dark alley with a couple of cut throats itching to take your coin.  Now that's dangerous.": {
+        "req": ["Character.Collin"],
+        "lead to": []
+      },
+      "The forest is a great place for me to clear my head. #new_textbox# I can sort of leave all of my trouble from town and find meyself out here.": {
+        "req": ["Character.Collin"],
+        "lead to": []
+      },
+      "Look alive mate. You don't want to just wander around aimlessly out here.": {
+        "req": ["Character.Collin"],
+        "lead to": []
+      },
+      "I have some advice for you. #new_textbox# Tread carefully. #new_textbox# This is a rule you should not only follow in the forest but in town too.": {
+        "req": ["Character.Collin"],
+        "lead to": []
+      },
+      "A keen blade and a sharp eye can get you through a lot of scrapes. #new_textbox# Gringor's forest is a good place to tighten up your techniques.": {
+        "req": ["Character.Collin"],
+        "lead to": []
+      },
+      "Hello mate.": {
+        "req": ["Character.Collin"],
+        "lead to": []
+      },
+      "Greetings fellow adventurer.  You best be on your guard here.": {
+        "req": ["Character.Benjamin"],
+        "lead to": []
+      },
+      "This is a dangerous place.  A sharp mind is often better than a sharp blade.": {
+        "req": ["Character.Benjamin"],
+        "lead to": []
+      },
+      "You should use wisdom when traveling through the forest. #new_textbox# You should never travel at night and alway let someone know where you are going when you enter here.": {
+        "req": ["Character.Benjamin"],
+        "lead to": []
+      },
+      "I sometimes patrol the forest to help gaurd the town from danger.": {
+        "req": ["Character.Benjamin"],
+        "lead to": []
+      },
+      "I would advise you to return to the town. It is very dangerous here. #new_textbox# If you must travel through the forest, please us caution.": {
+        "req": ["Character.Benjamin"],
+        "lead to": []
+      },
+      "Greetings. May you be safe in your travels.": {
+        "req": ["Character.Benjamin"],
+        "lead to": []
+      },
+      "Remember that skill alone will not always prevail, but a wise heart will not fall.": {
+        "req": ["Character.Benjamin"],
+        "lead to": []
+      },
+      "I've seen many a hardy adventurer meet thier demise because of thier own pride. #new_textblock# To be a true warrior, one must know how to humble themself and control thier emotions on and off the battle field.": {
+        "req": ["Character.Benjamin"],
+        "lead to": []
+      },
+      "Use caution, this place is dangerous.": {
         "req": [],
         "lead to": []
       },
-      " neutral test 1": {
+      "It would be wise to stick to the trail when traveling through the forest.": {
         "req": [],
         "lead to": []
       },
-      " neutral test 2": {
+      "I saw a lot of movement in the bushes, earlier today.  Thankfully, I haven't seen any other signs.": {
         "req": [],
         "lead to": []
       },
-      " neutral test 3": {
+      "Hello. I don't see to many folks wandering out this far.": {
+        "req": [],
+        "lead to": []
+      },
+      "When I was a kid, the town elders told me that the natural magic in the earth was what caused all of the monsters to congregate here. #new_textbox# I don't know how true that is, but I must admit, there is a certain aura here.": {
+        "req": [],
+        "lead to": []
+      },
+      "A fellow brave soul I see. #new_textbox# Just be sure that your bravery is based in logic and not stupidity.": {
+        "req": [],
+        "lead to": []
+      },
+      "Take care when passing through the forest.": {
         "req": [],
         "lead to": []
       }
     },
     "romance": {
       "romance test 0": {
-        "req": [],
+        "req": [ "Character.Christina" ],
         "lead to": []
       },
       "romance test 1": {
-        "req": [],
+        "req": [ "Character.Christina" ],
         "lead to": []
       },
       "romance test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 3": {
-        "req": [],
+        "req": [ "Character.Christina" ],
         "lead to": []
       }
     },
     "friend": {
       "friend test 0": {
-        "req": [],
+        "req": [ "Character.Christina" ],
         "lead to": []
       },
       "friend test 1": {
-        "req": [],
+        "req": [ "Character.Collin" ],
         "lead to": []
       },
       "friend test 2": {
-        "req": [],
+        "req": [ "Character.Benjamin" ],
         "lead to": []
       },
       "friend test 3": {
@@ -56,15 +132,15 @@
     },
     "respect": {
       "respect test 0": {
-        "req": [],
+        "req": [ "Character.Christina" ],
         "lead to": []
       },
       "respect test 1": {
-        "req": [],
+        "req": [ "Character.Collin" ],
         "lead to": []
       },
       "respect test 2": {
-        "req": [],
+        "req": [ "Character.Benjamin" ],
         "lead to": []
       },
       "respect test 3": {
@@ -72,53 +148,17 @@
         "lead to": []
       }
     },
-    "affinity": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "professional": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
     "disgust": {
       "disgust test 0": {
-        "req": [],
+        "req": [ "Character.Christina" ],
         "lead to": []
       },
       "disgust test 1": {
-        "req": [],
+        "req": [ "Character.Collin" ],
         "lead to": []
       },
       "disgust test 2": {
-        "req": [],
+        "req": [ "Character.Benjamin" ],
         "lead to": []
       },
       "disgust test 3": {
@@ -128,15 +168,15 @@
     },
     "hate": {
       "hate test 0": {
-        "req": [],
+        "req": [ "Character.Christina" ],
         "lead to": []
       },
       "hate test 1": {
-        "req": [],
+        "req": [ "Character.Collin" ],
         "lead to": []
       },
       "hate test 2": {
-        "req": [],
+        "req": [ "Character.Benjamin" ],
         "lead to": []
       },
       "hate test 3": {
@@ -146,15 +186,15 @@
     },
     "rivalry": {
       "rivalry test 0": {
-        "req": [],
+        "req": [ "Character.Christina" ],
         "lead to": []
       },
       "rivalry test 1": {
-        "req": [],
+        "req": [ "Character.Collin" ],
         "lead to": []
       },
       "rivalry test 2": {
-        "req": [],
+        "req": [ "Character.Benjamin" ],
         "lead to": []
       },
       "rivalry test 3": {
@@ -163,171 +203,117 @@
       }
     }
   },
-  "sample01_question": {
+  "Talk_question": {
     "neutral": {
-      " neutral test 0": {
+      "What brings you to the forest?": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      " neutral test 1": {
+      "It's dangerous here.  I hope you are armed.  #new_textbox# you are armed aren't you?": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      " neutral test 2": {
+      "Despite the danger that lurks around every corner, the forest is beutiful, don't you think?": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
       " neutral test 3": {
         "req": [],
-        "lead to": []
-      }
-    },
-    "romance": {
-      "romance test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 3": {
-        "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       }
     },
     "friend": {
-      "friend test 0": {
+      "Are you coming to patrol the town border?": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
       "friend test 1": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
       "friend test 2": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
       "friend test 3": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       }
     },
     "respect": {
       "respect test 0": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
       "respect test 1": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
       "respect test 2": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
       "respect test 3": {
         "req": [],
-        "lead to": []
-      }
-    },
-    "affinity": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "professional": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       }
     },
     "disgust": {
-      "disgust test 0": {
+      "I know there are a lot of different monsters here but you are the ugliest monster I've ever seen.": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "disgust test 1": {
+      "Why must you follow me around?": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "disgust test 2": {
+      "What do you want? I was hoping for some peace out here.": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "disgust test 3": {
+      "What makes you think you can make it out here?": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       }
     },
     "hate": {
-      "hate test 0": {
+      "You should stop talking to me and venture to the mountains.": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "hate test 1": {
+      "I bet you can't stay the night in the forest.": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "hate test 2": {
+      "What is a coward like you doing here!? GET OUT OF HERE!": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "hate test 3": {
+      "Is there no escape from you?": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       }
     },
     "rivalry": {
-      "rivalry test 0": {
+      "Good luck.  You are going to need it.": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "rivalry test 1": {
+      "You are dead meat my friend.": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "rivalry test 2": {
+      "For some reason, I don't think you are going to make very far in the forest.": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "rivalry test 3": {
+      "Oh you are dead.  You better run back to town if you know what's good for you.": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       }
     }
   },
-  "sample01_response": {
+  "Talk_response": {
     "positive+": {
       "positive+ test 0": {
         "req": [ "responseTag.tag1" ],
@@ -419,426 +405,5 @@
       }
     }
   },
-
-  "sample02_statement": {
-    "neutral": {
-      " neutral test 0": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral test 1": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral test 2": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "romance": {
-      "romance test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "friend": {
-      "friend test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "respect": {
-      "respect test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "affinity": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "professional": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "disgust": {
-      "disgust test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "hate": {
-      "hate test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "rivalry": {
-      "rivalry test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 3": {
-        "req": [],
-        "lead to": []
-      }
-    }
-  },
-  "sample02_question": {
-    "neutral": {
-      " neutral test 0": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral test 1": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral test 2": {
-        "req": [],
-        "lead to": []
-      },
-      " neutral test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "romance": {
-      "romance test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "romance test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "friend": {
-      "friend test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "respect": {
-      "respect test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "affinity": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "professional": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "disgust": {
-      "disgust test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "hate": {
-      "hate test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "rivalry": {
-      "rivalry test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 3": {
-        "req": [],
-        "lead to": []
-      }
-    }
-  },
-  "sample02_response": {
-    "positive+": {
-      "positive+ test 0": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.20" ]
-      },
-      "positive+ test 1": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.20" ]
-      },
-      "positive+ test 2": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.20" ]
-      },
-      "positive+ test 3": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.20" ]
-      }
-    },
-    "positive": {
-      "positive test 0": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.10" ]
-      },
-      "positive test 1": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.10" ]
-      },
-      "positive test 2": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.10" ]
-      },
-      "positive test 3": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.10" ]
-      }
-    },
-    "neutral": {
-      "neutral test 0": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": []
-      },
-      "neutral test 1": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": []
-      },
-      "neutral test 2": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": []
-      },
-      "neutral test 3": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": []
-      }
-    },
-    "negative": {
-      "negative test 0": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-10" ]
-      },
-      "negative test 1": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-10" ]
-      },
-      "negative test 2": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-10" ]
-      },
-      "negative test 3": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-10" ]
-      }
-    },
-    "negative+": {
-      "negative+ test 0": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-20" ]
-      },
-      "negative+ test 1": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-20" ]
-      },
-      "negative+ test 2": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-20" ]
-      },
-      "negative+ test 3": {
-        "req": [ "responseTag.tag1" ],
-        "lead to": [ "attribute.friend.-20" ]
-      }
-    }
-  }
-
+ 
 }

@@ -21,7 +21,7 @@ namespace TextGameDemo.Game {
             game.connect.Exit();
         }
 
-        private readonly int relationshipDelta = 10;
+        private readonly int relationshipDelta = 20;
         private string botType = rom;
 
         private World world;
@@ -103,7 +103,7 @@ namespace TextGameDemo.Game {
 
         public bool ExecuteRoomOptions(bool continuePlaying) {
             string choice = Console.ReadLine();
-            if (choice.Equals("T") || choice.Equals("t") && CharactersInRoom.Count > 0) {
+            if ((choice.Equals("T") || choice.Equals("t") || choice.Equals("1")) && CharactersInRoom.Count > 0) {
                 TalkToPeople();
                 nextDay = Timer.TakeTurn();
             } else if (choice.Equals("M") || choice.Equals("m")) {
@@ -114,9 +114,9 @@ namespace TextGameDemo.Game {
                 ExecuteRoomOptions(continuePlaying);
             } else if (choice.Equals("w") || choice.Equals("W")) {
                 nextDay = Timer.TakeTurn();
-            } else {
+            } else if (choice.Equals("q") || choice.Equals("Q")) {
                 continuePlaying = false;
-            }
+            } 
             return continuePlaying;
         }
 
@@ -129,7 +129,11 @@ namespace TextGameDemo.Game {
                 index++;
             }
             string choice = Console.ReadLine();
-            index = Int32.Parse(choice) - 1;
+            try {
+                index = Int32.Parse(choice) - 1;
+            } catch (Exception) {
+                index = 0;
+            }
 
             TUI.Menus.Get().TextBox(CharactersInRoom[index].Name, Talk(index));
             //temp debug line

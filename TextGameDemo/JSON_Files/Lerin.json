@@ -24,7 +24,7 @@
         "lead to": []
       },
       "Hello my love.": {
-        "req": [ "player.social.dating" ],
+        "req": [ "attribute.romance.>599" ],
         "lead to": []
       }
     },
@@ -837,6 +837,22 @@
       "I've seen some of butchered livestock, and it chills me to the bone. #new_textbox# It doesn't matter how much I learn, there is always something else I can't answer.": {
         "req": [ "lesson_t3" ],
         "lead to": [ "HistoryLesson_statement.lesson_t2" ]
+      },
+      "I'm sure you've gathered that there is an unnatural amount of monsters congregate to this area and you wouldn't be wrong.": {
+        "req": [ "attribute.romance.>.349" ],
+        "lead to": [ "HistoryLesson_statement.lesson_u1" ]
+      },
+      "The truth of the matter is that the mountain and earth under the forest radiate a strong magical aura that is directly effecting the monster population in the area.": {
+        "req": ["lesson_u1"],
+        "lead to": [ "HistoryLesson_statement.lesson_u2" ]
+      },
+      "I've been studying the area and I've notive a direct correlation with magical hot spots and strange phenomenon.": {
+        "req": ["lesson_u2"],
+        "lead to": [ "HistoryLesson_statement.lesson_u3" ]
+      },
+      "There is a lot more to this town than meets the eye.": {
+        "req": ["lesson_u2"],
+        "lead to": [ "HistoryLesson_statement.lesson_u3" ]
       }
     },
     "friend": {
@@ -996,7 +1012,7 @@
         "lead to": []
       },
       "I've been trying to brush up on my conjuration techniques, but I just can't focus.": {
-        "req": [ "attribute.romance.>599" ],
+        "req": [ "attribute.romance.>.599" ],
         "lead to": [ "Close_question.action_c1" ]
       },
       "#art_happy# #player_name#, you're so sweet.": {
@@ -1189,68 +1205,104 @@
 
   "MagicLesson_statement": {
     "neutral": {
-      "If you are looking for magic lessons you will need to travel to Oxenfel an join the Wizards Academy.": {
+      "If you are looking for magic lessons you will need to travel to Oxenfel and join the Wizards Academy.": {
+        "req": [],
+        "lead to": []
+      },
+      "The art of magic is a difficult one to learn and nearly impossible to master.  I do not teach my techniques, you will have to travel to Oxenfel and join the Wizards Academy if you wish to learn.": {
+        "req": [ ],
+        "lead to": []
+      },
+      "Unfortunately, I am not looking to take on any pupils and I doubt that I ever will.  You may want to find a tutor somewhere else.": {
+        "req": [ ],
+        "lead to": []
+      },
+      "Sorry, I will not be teaching magic techniques. You will need to look elsewhere if you are interested in learning the arcane.": {
         "req": [ ],
         "lead to": []
       }
     },
     "romance": {
-      "lesson 1": {
-        "req": ["attribute.romance.>.49"],
+      "I don't know you very well yet but you seem nice and are cute, so dispite my better judgement I'll teach you the basics. #unlock_magicLesson_01#": {
+        "req": [ "attribute.romance.>.149", "play_once" ],
         "lead to": []
       },
-      "lesson 2": {
-        "req": [ "attribute.romance.>.149" ],
+      "#player_name# you are growing on me.  Let's resume your training and expand on the basics I tought you last time. #unlock_magicLesson_02#": {
+        "req": [ "attribute.romance.>.249", "play_once" ],
         "lead to": []
       },
-      "lesson 3": {
-        "req": [ "attribute.romance.>.249" ],
+      "I have a real soft spot for you #player_name#. #new_textbox# #art_blush# You give me butterflies in my stomach when you are around. #new_textbox# I was thinking that I would pass along more of my knowledge with you. #unlock_magicLesson_03#": {
+        "req": [ "attribute.romance.>.349", "play_once" ],
         "lead to": []
       },
-      "lesson 4": {
-        "req": [ "attribute.romance.>.349" ],
+      "#art_blush# You are quickly becoming one of my favorite people and I view you as more than a friend. #new_textbox# I want to elaborate on some of the concepts and practices we've discussed last time. #unlock_magicLesson_04#": {
+        "req": [ "attribute.romance.>.449", "play_once" ],
         "lead to": []
       },
-      "lesson 5": {
-        "req": [ "attribute.romance.>.449" ],
+      "#player_name#, I am starting to find it difficult to live without you so I want to draw you closer to me by teaching you some secrets I've discovered during my time as a sorceress. #new_textbox# I will reveil things that I have never told anyone before. #unlock_magicLesson_05#": {
+        "req": [ "attribute.romance.>.549", "play_once" ],
         "lead to": []
       },
-      "lesson 6": {
-        "req": [ "attribute.romance.>.549" ],
+      "You are so precious to me. Let me give you a piece of myself, a secret piece of knowledge from my craft. #unlock_magicLesson_06#": {
+        "req": [ "attribute.romance.>.649", "play_once" ],
         "lead to": []
       },
-      "lesson 7": {
-        "req": [ "attribute.romance.>.649" ],
+      "#player_name# I love you dearly. Of course I will teach you. #unlock_magicLesson_07#": {
+        "req": [ "attribute.romance.>.749", "play_once" ],
         "lead to": []
       },
-      "lesson 8": {
-        "req": [ "attribute.romance.>.699" ],
+      "We've been together for a long time now and my love for you is only growing stronger. #new_textbox# I want to bring you further on your magical journey. With this knowledge you will know more than most mages around the world. #unlock_magicLesson_08#": {
+        "req": [ "attribute.romance.>.899", "play_once" ],
         "lead to": []
       },
-      "lesson 9": {
-        "req": [ "attribute.romance.>.799" ],
+      "Very few people know the depths of my power. #player_name# you and I are like one so I want to bring you to the edges of all knowledge. Once I do, our souls will be enter-twinded and become one. #new_textbox# #art_blush# You and I must marry and become one. It is what I want more than any thing else. #unlock_magicLesson_09#": {
+        "req": [ "attribute.romance.>.999", "play_once" ],
         "lead to": []
       },
-      "lesson 10": {
-        "req": [ "attribute.romance.>.899" ],
+      "You are more precious to me then I am to myself.  I have yet one lesson to give then you will know all that I know. #unlock_magicLesson_10#": {
+        "req": [ "attribute.romance.>.1200", "play_once" ],
+        "lead to": []
+      },
+      "I've given you a great step up in your magical abilities. Let's see how you fare before we move on.": {
+        "req": [ "attribute.romance.<.350" ],
+        "lead to": []
+      },
+      "It warms my heart to see myself reflected in your abilities. There is more to learn but I don't think you or I are ready to take those steps": {
+        "req": [ "attribute.romance.>.349", "attribute.romance.<.900" ],
+        "lead to": []
+      },
+      "You are my deepest love! I have given you my body and mind, but I don't have much left to teach you.": {
+        "req": [ "attribute.romance.>.899", "attribute.romance.<.1200" ],
+        "lead to": []
+      },
+      "I have taught you all I know. I never though I'd fined a mate I love so much.": {
+        "req": [ "attribute.romance.>.1200" ],
         "lead to": []
       }
     },
     "friend": {
-      "lesson 1": {
-        "req": [ "attribute.friend.>199" ],
+      "You are fairly trust worthy.  I guess I can teach you a thing or two. #unlock_magicLesson_01#": {
+        "req": [ "attribute.friend.>.199", "play_once" ],
         "lead to": []
       },
-      "lesson 2": {
-        "req": [ "attribute.friend.>399" ],
+      "You have been a good friend to me and we'll friends help each other out so I guess I can train you further. #unlock_magicLesson_02#": {
+        "req": [ "attribute.friend.>.399", "play_once" ],
         "lead to": []
       },
-      "lesson 3": {
-        "req": [ "attribute.friend.>599" ],
+      "I don't usually give out my knowledge like this to everyone. Since you are one of the few here that I respect, I'll take your magic skill to the next level. #unlock_magicLesson_03#": {
+        "req": [ "attribute.friend.>.599", "play_once" ],
         "lead to": []
       },
-      "lesson 4": {
-        "req": [ "attribute.friend.>799" ],
+      "#player_name# you've been a good loyal friend to me and what good is knowledge you it is not shared. Let me reveil a few arcane secrets to you. #unlock_magicLesson_04#": {
+        "req": [ "attribute.friend.>.799", "play_once" ],
+        "lead to": []
+      },
+      "You've been a good friend to me but I have my limits and my secrets.  If you are serious about learning the arcane trade, you should travel to Oxenfel.": {
+        "req": [ "attribute.friend.>.799" ],
+        "lead to": []
+      },
+      "Those that know the arcane arts hold thier knowledge close and rarely train for free. #new_textbox# If you want to learn more you will need to travel to Oxenfel.": {
+        "req": [],
         "lead to": []
       }
     },
@@ -1258,66 +1310,57 @@
       "If you're interested in learning magic forget it. #new_textbox# I don't think you're cut out for it.": {
         "req": [],
         "lead to": []
+      },
+      "I really don't think you have the aptitude for magic and I don't really care to teach you.": {
+        "req": [],
+        "lead to": []
+      },
+      "If you are looking for an arcane tutor, then you've come to the wrong place. I have no reason to share any knowledge with you and I don't very much care for you.": {
+        "req": [ "attribute.disgust.>.99" ],
+        "lead to": []
+      },
+      "I've already told you that I will not teach you anything.  Please stop asking me.": {
+        "req": [],
+        "lead to": []
+      },
+      "Sorry, I will not teach you my craft. Try taking up another, easier trade, like ditch digging or panhandling.": {
+        "req": [ "first", "play_once" ],
+        "lead to": []
+      },
+      "I will not teach you. Leave me alone!": {
+        "req": [ "attribute.disgust.>.399" ],
+        "lead to": []
+      },
+      "You are trying my patience. I've told you I will not teach you anything, and I'd rather not talk to you for any reason if I can help it.": {
+        "req": [ "attribute.disgust.>.599" ],
+        "lead to": []
+      },
+      "I WILL NEVER TEACH YOU ANYTHING!! If you keep bothering me, you may loose ownership of your tongue or maybe I'll take your sight. #new_textbox# Don't force my hand against you and quit while you are still whole.": {
+        "req": [ "attribute.disgust.>.799" ],
+        "lead to": []
       }
     },
     "hate": {
       "I'm very busy. Please leave me alone.": {
         "req": [],
         "lead to": []
-      }
-    }
-  },
-  "MagicLesson_question": {
-    "neutral": {
-      "mg q": {
-        "req": [],
+      },
+      "I will not teach you my craft so don't ask. #new_textbox# If you do not have an appointment with me, I have nothing more to say.": {
+        "req": ["first","play_once"],
         "lead to": []
-      }
-    },
-    "romance": {
-      "?": {
-        "req": [],
-        "lead to": [ "response.status" ]
-      }
-    },
-    "friend": {
-      "?": {
-        "req": [],
-        "lead to": [ "response.status" ]
-      }
-    }
-  },
-  "MagicLesson_response": {
-    "positive+": {
-      "I'm doing excellent!": {
-        "req": [ "responseTag.status" ],
-        "lead to": [ "attribute.friend.4", "attribute.positive.2" ]
-      }
-    },
-    "positive": {
-      "I'm wonderful. You are looking to as vibrant as ever.": {
-        "req": [ "responseTag.status" ],
-        "lead to": [ "attribute.friend.1", "attribute.affinity.2", "attribute.positive.3" ]
-      }
-    },
-    "neutral": {
-      "Life is good. I like to keep things positive.": {
-        "req": [ "responseTag.status" ],
-        "lead to": [ "attribute.positive.2" ]
-      }
-    },
-    "negative": {
-      "Yeah, I'm good or whatever.": {
-        "req": [ "responseTag.status" ],
-        "lead to": [ "attribute.positive.-2", "attribute.professional.-2", "attribute.respect.-1", "attribute.romance.-2" ]
-      }
-    },
-    "negative+": {
-      "How I'm doing is none of your business.": {
-        "req": [ "responseTag.status" ],
-        "lead to": [ "attribute.friend.-5", "attribute.positive.-3", "attribute.romance.-3", "attribute.disgust.6" ]
+      },
+      "I've already told you that I won't teach you anything. Please go away!": {
+        "req": [ "attribute.hate.>.99" ],
+        "lead to": []
+      },
+      "You are a miserable piece of shit! LEAVE ME ALONE!": {
+        "req": [ "attribute.hate.>.399" ],
+        "lead to": []
+      },
+      "GET AWAY FROM ME!!": {
+        "req": [ "attribute.hate.>.599" ],
+        "lead to": []
       }
     }
   }
-
 }

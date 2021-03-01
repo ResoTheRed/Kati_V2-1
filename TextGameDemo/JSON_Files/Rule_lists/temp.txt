@@ -1,9 +1,35 @@
-New file created: 2/18/2021 3:13:07 PM
+New file created: 2/28/2021 10:51:55 AM
 Collin
 
 Benjamin
 
 Dan
+0001_AroundTown_Greeting_question,Nice day isn't it?,0,0,0,0,0,0,0,0,0,END
+0002_AroundTown_HistoryLessons_statement,Nice day isn't it?,0,0,0,0,0,0,0,0,0,END
+0003_-,It is a wonderful day. I'm glad I can share this moment with you.,5,0,0,0,0,0,0,0,0,END
+0004_AroundTown_Greeting_question,What can I do for you?,0,0,0,20,0,0,0,0,0,END
+0005_AroundTown_SingleRooms_statement,Laffite lives here. She is warrior at heart.,0,0,0,20,0,20,0,0,0,END
+0006_AroundTown_HistoryLessons_statement,The village of Biggs is primarily a farming comunity.,0,0,20,20,0,20,0,0,0,END
+0007_AroundTown_PeopleInTown_statement,Lucky not many invading countries make their way up here. This is probably due to the number of monsters here.,0,0,20,20,0,20,0,0,0,END
+0008_AroundTown_PeopleInTown_statement,If you've gone down to the General Store then you've probably met Dan.  He runs it.,0,0,20,40,0,20,0,0,0,END
+0009_AroundTown_Greeting_statement,Good day.,0,0,20,60,0,20,0,0,0,END
+0010_AroundTown_HistoryLessons_statement,There is a lot of wild game in the forest, but you have to be a good shot.,0,0,20,60,0,40,0,0,0,END
+0011_AroundTown_PeopleInTown_statement,Have you met Laffite? She is a lovely looking lady but watch out.  She's one tough cookie.,0,0,20,60,0,60,0,0,0,END
+0012_AroundTown_Greeting_statement,Greetings. I'm Dan.  I own the General Store here in Biggs.,0,0,20,60,0,80,0,0,0,END
+0013_AroundTown_SingleRooms_statement,There is always something to see and do in the Town Center.  If you have time, you should browse through some of the shops.,0,0,20,60,0,100,0,0,0,END
+0014_AroundTown_HistoryLessons_statement,You know that there are faeries in the forest.  They're prankster and often a bad omen.,0,0,40,60,0,100,0,0,0,END
+0015_AroundTown_PeopleInTown_statement,If you've gone down to the General Store then you've probably met Dan.  He runs it.,0,0,60,60,0,100,0,0,0,END
+0016_AroundTown_PeopleInTown_statement,Have you met Laffite? She is a lovely looking lady but watch out.  She's one tough cookie.,0,0,80,60,0,100,0,0,0,END
+0017_AroundTown_HistoryLessons_statement,We have flocks of sheep and goats here and also raise buffalo too.  They're some good eating.,0,0,80,80,0,100,0,0,0,END
+0018_AroundTown_PeopleInTown_statement,Have you met Sir Benjamin?  He is a noble knight of the order.  You won't meet a happier, kinder soul in Biggs.,0,0,80,100,0,100,0,0,0,END
+0019_AroundTown_PeopleInTown_statement,Have you met Albrect yet?  He's the village's blacksmith.,0,0,80,120,0,100,0,0,0,END
+0020_AroundTown_HistoryLessons_statement,It's not to often we get visitors here at Biggs.  It's nice to see a new face.,0,0,80,140,0,100,0,0,0,END
+0021_AroundTown_SingleRooms_statement,I've seen some pretty horrible monsters scuttling about.  It's best to be on your guard.,0,0,80,140,0,120,0,0,0,END
+0022_AroundTown_Greeting_statement,Hello.,0,0,100,140,0,120,0,0,0,END
+0023_AroundTown_HistoryLessons_statement,There is a lot of tradition here in Biggs.  Craftsman take on apprentences to pass on there trade.,0,0,120,140,0,120,0,0,0,END
+0024_AroundTown_SingleRooms_question,We take our proffession very seriously here. It can be hard to get excepted by a mater to learn from.,0,0,120,140,0,120,0,0,0,END
+0025_AroundTown_PeopleInTown_statement,We take our proffession very seriously here. It can be hard to get excepted by a mater to learn from.,0,0,120,140,0,120,0,0,0,END
+0026_AroundTown_HistoryLessons_statement,Sometimes the going gets tough here, especially in the winter months. You'll make a fine addition to this town.,0,0,120,140,0,140,0,0,0,END
 
 Albrecht
 
@@ -12,25 +38,6 @@ Romero
 Miciah
 
 Sivian
-0001_AroundTown_Greeting_statement,Hello.,0,0,0,0,0,0,0,0,0,END
-0002_AroundTown_Greeting_statement,Good day.,0,0,0,0,0,10,0,0,0,END
-0003_AroundTown_HistoryLessons_statement,The Gringor Forest is an excellent source of lumber, but it take a brave person to ventrue in there to claim it.,0,0,0,0,0,20,0,0,0,END
-0004_AroundTown_HistoryLessons_statement,Did you know that the village of Biggs is located in the region of Elvor.,0,0,0,10,0,20,0,0,0,END
-0005_AroundTown_HistoryLessons_statement,We came to this land a little over three hundred years ago, from the south.,0,0,0,10,0,20,0,0,0,END
-0006_AroundTown_PeopleInTown_statement,This is a hard dangerous land.  Not a lot of people can make it here.,0,0,0,10,0,20,0,0,0,END
-0007_AroundTown_PeopleInTown_statement,This is a hard dangerous land.  Not a lot of people can make it here.,0,0,0,10,0,20,0,0,0,END
-0008_AroundTown_Greeting_statement,Ahh Hello #player_name#. I heard of your arrival in town. #new_textbox# I'm glad to have and andventurer like you around.  #new_textbox# If you are ever looking for work come and see me.  There is always something that needs to be done around here.,0,0,0,20,0,20,0,0,0,END
-0009_AroundTown_HistoryLessons_statement,I overheard someone talking about a cave in the mountians. I think they said something about crystals.,0,0,0,20,0,30,0,0,0,END
-0010_AroundTown_Greeting_question,I would love to see it some day.,0,0,0,20,0,30,0,0,0,END
-0011_AroundTown_Greeting_question,What can I do for you?,0,0,10,20,0,30,0,0,0,END
-0012_AroundTown_Greeting_question,What can I do for you?,0,0,10,20,0,40,0,0,0,END
-0013_AroundTown_Greeting_statement,Greetings.,0,0,20,20,0,40,0,0,0,END
-0014_AroundTown_SingleRooms_question,What do you think of Albrecht's Blacksmith shop?,0,0,20,30,0,40,0,0,0,END
-0015_AroundTown_SingleRooms_question,What do you think of Albrecht's Blacksmith shop?,0,0,20,30,0,40,0,0,0,END
-0016_-,It's a useful shop.,5,0,0,0,0,0,0,0,0,END
-0017_AroundTown_SingleRooms_question,Everything we need is close by. This is a nice place to live don't you think?,0,0,20,40,0,40,0,0,0,END
-0018_AroundTown_Greeting_statement,Everything we need is close by. This is a nice place to live don't you think?,0,0,20,40,0,40,0,0,0,END
-0019_-,The village of Biggs is a dump.,5,0,0,0,0,0,0,0,0,END
 
 Lerin
 
@@ -39,10 +46,81 @@ Lafitte
 Teta
 
 Quinn
+0001_AroundTown_Greeting_statement,Hello.,0,0,0,0,0,0,0,0,0,END
+0002_AroundTown_Greeting_statement,Good day.,0,20,0,0,0,0,0,0,0,END
+0003_AroundTown_PeopleInTown_statement,Have you met Sir Benjamin?  He is a noble knight of the order.  You won't meet a happier, kinder soul in Biggs.,0,40,0,0,0,0,0,0,0,END
+0004_AroundTown_SingleRooms_statement,This is Albrecht's Black Smith Shop. He make all sorts of goods like nail, pots, hinges, hoes, and hooks.,0,60,0,0,0,0,0,0,0,END
+0005_AroundTown_HistoryLessons_statement,Every home and business in this village is held together by his craftsmanship.,0,60,0,0,0,0,0,0,0,END
+0006_AroundTown_PeopleInTown_statement,If you've gone down to the General Store then you've probably met Dan.  He runs it.,0,80,0,0,0,0,0,0,0,END
+0007_AroundTown_Greeting_statement,Greetings.,0,100,0,0,0,0,0,0,0,END
+0008_AroundTown_HistoryLessons_statement,Did you know that there are mountains in the Gringor forest? They are loaded with coal and iron ore.,0,120,0,0,0,0,0,0,0,END
+0009_AroundTown_PeopleInTown_statement,Have you met Albrect yet?  He's the village's blacksmith.,0,140,0,0,0,0,0,0,0,END
+0010_AroundTown_PeopleInTown_statement,We have a resident sorceress here in Biggs.  Her name is Lerin.  She's always so busy though.  Not much time to chat.,0,160,0,0,0,0,0,0,0,END
+0011_AroundTown_SingleRooms_statement,There is always something to see and do in the Town Center.  If you have time, you should browse through some of the shops.,0,180,0,0,0,0,0,0,0,END
+0012_AroundTown_PeopleInTown_statement,You may have seen some buff woman running around here. Her name is Laffite. You probably don't want to mess with her too much.,0,200,0,0,0,0,0,0,0,END
+0013_AroundTown_Greeting_statement,Hello my love.,0,220,0,0,0,0,0,0,0,END
+0014_AroundTown_HistoryLessons_statement,I can tell a lot about a person and their future by looking in their eyes. With you, I can see myself. Hehehe,0,240,0,0,0,0,0,0,0,END
+0015_AroundTown_HistoryLessons_statement,You know they say that if lovers stay out in the forest all night up and watch the sunrise through the mountains, then they will be destined for each other.,0,260,0,0,0,0,0,0,0,END
+0016_AroundTown_HistoryLessons_statement,The forest is scary but I think I could risk it with you.,0,260,0,0,0,0,0,0,0,END
+0017_AroundTown_Greeting_statement,There is nothing better than to see your handsome face.,0,280,0,0,0,0,0,0,0,END
+0018_AroundTown_PeopleInTown_statement,Have you met the sorceress yet?  Her name is Lerin, she's not important. You shouldn't talk to her.,0,300,0,0,0,0,0,0,0,END
+0019_AroundTown_Greeting_statement,Hello gorgeous!,0,320,0,0,0,0,0,0,0,END
+0020_AroundTown_HistoryLessons_statement,I didn't know something was missing in my life until you came along. I'm so glad that we've met.,0,340,0,0,0,0,0,0,0,END
+0021_AroundTown_Greeting_statement,Well hello there sweetie.,0,360,0,0,0,0,0,0,0,END
+0022_AroundTown_PeopleInTown_statement,I don't know if you've met Dan yet.  He runs the general store in the Town Center. You should take me there to go shopping sometime.,0,380,0,0,0,0,0,0,0,END
+0023_AroundTown_SingleRooms_statement,This is the Black Smith Shop. It is kind of grimy in here.,0,400,0,0,0,0,0,0,0,END
+0024_AroundTown_SingleRooms_question,But Albrecht, the owner is a nice guy.  I pop in from time-to-time.,0,400,0,0,0,0,0,0,0,END
+0025_AroundTown_SingleRooms_statement,The Town Center is always busy with people. I better not catch your eyes wandering.,0,420,0,0,0,0,0,0,0,END
+0026_AroundTown_SingleRooms_statement,This is Lerin the sorceress's home. I think it best if we left here and go look around the Town Center.,0,440,0,0,0,0,0,0,0,END
+0027_AroundTown_SingleRooms_statement,Dan's General Store is a bit pricy is the best place to shop.,0,460,0,0,0,0,0,0,0,END
+0028_AroundTown_Greeting_statement,There is nothing better than to see your handsome face.,0,480,0,0,0,0,0,0,0,END
+0029_AroundTown_Greeting_statement,Hello my love.,0,500,0,0,0,0,0,0,0,END
+0030_AroundTown_HistoryLessons_statement,I can tell a lot about a person and their future by looking in their eyes. With you, I can see myself. Hehehe,0,520,0,0,0,0,0,0,0,END
+0031_AroundTown_SingleRooms_statement,Albrecht is the owner of this Black Smith Shop. He's a real strong guy. Ohh, I don't want to get you jealous.,0,540,0,0,0,0,0,0,0,END
+0032_AroundTown_Greeting_statement,Hello gorgeous!,0,560,0,0,0,0,0,0,0,END
+0033_AroundTown_PeopleInTown_statement,You may have seen some buff woman running around here. Her name is Laffite. You probably don't want to mess with her too much.,0,580,0,0,0,0,0,0,0,END
+0034_AroundTown_SingleRooms_statement,What are you doing here? This is Lerin's house. She is a powerful and annoyingly beautiful sorceress. You should leave this place.  No need to see her.,0,600,0,0,0,0,0,0,0,END
+0035_AroundTown_HistoryLessons_statement,I didn't know something was missing in my life until you came along. I'm so glad that we've met.,0,620,0,0,0,0,0,0,0,END
+0036_AroundTown_SingleRooms_question,How do you like the Town Center.,0,640,0,0,0,0,0,0,0,END
+0037_AroundTown_PeopleInTown_statement,How do you like the Town Center.,0,640,0,0,0,0,0,0,0,END
+0038_-,There is so much to see and do, how can I not love it?,5,0,0,0,0,0,0,0,0,END
+0039_AroundTown_SingleRooms_statement,Albrecht is the owner of this Black Smith Shop. He's a real strong guy. Ohh, I don't want to get you jealous.,0,660,0,0,0,0,0,0,0,END
+0040_AroundTown_HistoryLessons_statement,I didn't know something was missing in my life until you came along. I'm so glad that we've met.,0,680,0,0,0,0,0,0,0,END
+0041_AroundTown_SingleRooms_statement,The village usually is a quiet and quaint.,0,700,0,0,0,0,0,0,0,END
+0042_AroundTown_HistoryLessons_statement,It is a nice escape from the crazy world out there and now I would even say it's a paradise.,0,700,0,0,0,0,0,0,0,END
+0043_AroundTown_Greeting_question,It is a nice escape from the crazy world out there and now I would even say it's a paradise.,0,700,0,0,0,0,0,0,0,END
+0044_AroundTown_PeopleInTown_statement,Have you met Albrect yet?  He's the blacksmith here and he's so strong and so amazing! I mean not as amazing as you of course. Uhmm, well, nevermind.,0,720,0,0,0,0,0,0,0,END
+0045_AroundTown_SingleRooms_statement,You know this village wasn't always this big.,0,740,0,0,0,0,0,0,0,END
+0046_AroundTown_PeopleInTown_statement,When I was young, it was half of the size, but people seem to keep wandering in.,0,740,0,0,0,0,0,0,0,END
+0047_AroundTown_Greeting_statement,When I was young, it was half of the size, but people seem to keep wandering in.,0,740,0,0,0,0,0,0,0,END
+0048_AroundTown_SingleRooms_statement,There is always something to see and do in the Town Center.  Maybe we should go on a date sometime.,0,760,0,0,0,0,0,0,0,END
+0049_AroundTown_PeopleInTown_statement,Have you met the sorceress yet?  Her name is Lerin, she's not important. You shouldn't talk to her.,0,780,0,0,0,0,0,0,0,END
+0050_AroundTown_HistoryLessons_statement,I can tell a lot about a person and their future by looking in their eyes. With you, I can see myself. Hehehe,0,800,0,0,0,0,0,0,0,END
+0051_AroundTown_SingleRooms_statement,Laffite lives here. Why are you at this woman's house?,0,820,0,0,0,0,0,0,0,END
+0052_AroundTown_HistoryLessons_statement,You know they say that if lovers stay out in the forest all night up and watch the sunrise through the mountains, then they will be destined for each other.,0,840,0,0,0,0,0,0,0,END
+0053_AroundTown_HistoryLessons_statement,The forest is scary but I think I could risk it with you.,0,840,0,0,0,0,0,0,0,END
+0054_AroundTown_Greeting_question,How are you today?,0,860,0,0,0,0,0,0,0,END
+0055_AroundTown_HistoryLessons_statement,How are you today?,0,860,0,0,0,0,0,0,0,END
+0056_-,I'm doing excellent. Thank you for asking.,5,0,0,0,0,0,0,0,0,END
 
 Helena
 
 Christina
+0001_AroundTown_Greeting_statement,Well, who do we have here. A new Man in town, and you're cute too. You must be an adventurer.  I can tell by how you carry yourself. #new_textbox# I'm Christina. I'm a farm hand by day and monster slayer by night. #new_textbox# You should come and visit me some time.,0,0,0,0,0,0,0,0,0,END
+0002_AroundTown_SingleRooms_statement,The village of Biggs is a small settlement on the outskirts of Gringor's forest.,0,20,0,0,0,0,0,0,0,END
+0003_AroundTown_Greeting_statement,Grigor the founder of this region and the first Burgermeister of the neighboring villages.,0,20,0,0,0,0,0,0,0,END
+0004_AroundTown_Greeting_statement,Grigor the founder of this region and the first Burgermeister of the neighboring villages.,0,20,0,0,0,0,0,0,0,END
+0005_AroundTown_SingleRooms_statement,Dan's General Store is a bit pricy, but he has the corner on the market.  I always end up here.,0,40,0,0,0,0,0,0,0,END
+0006_AroundTown_SingleRooms_statement,This is the residence of Lerin. She is a powerful sorceress.,0,60,0,0,0,0,0,0,0,END
+0007_AroundTown_Greeting_statement,Greetings.,0,80,0,0,0,0,0,0,0,END
+0008_AroundTown_PeopleInTown_statement,Have you met Laffite? She is a lovely looking lady but watch out.  She's one tough cookie.,0,100,0,0,0,0,0,0,0,END
+0009_AroundTown_HistoryLessons_statement,It gets cold here during winter and food can be hard to come by.,0,120,0,0,0,0,0,0,0,END
+0010_AroundTown_Greeting_statement,During the spring and especially in the summer, agricultural production is super important.,0,120,0,0,0,0,0,0,0,END
+0011_AroundTown_PeopleInTown_statement,During the spring and especially in the summer, agricultural production is super important.,0,120,0,0,0,0,0,0,0,END
+0012_AroundTown_PeopleInTown_statement,Have you met Albrect yet?  He's the village's blacksmith.,0,140,0,0,0,0,0,0,0,END
+0013_AroundTown_PeopleInTown_statement,We have a resident sorceress here in Biggs.  Her name is Lerin.  She's always so busy though.  Not much time to chat.,0,160,0,0,0,0,0,0,0,END
+0014_AroundTown_PeopleInTown_statement,Have you met Sir Benjamin?  He is a noble knight of the order.  You won't meet a happier, kinder soul in Biggs.,0,180,0,0,0,0,0,0,0,END
+0015_AroundTown_Greeting_statement,Hello gorgeous!,0,200,0,0,0,0,0,0,0,END
 
 Crumples
 

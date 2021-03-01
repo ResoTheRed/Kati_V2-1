@@ -46,7 +46,7 @@ namespace TextGameDemo.Game.TUI {
                     option = Int32.Parse(Console.ReadLine());
                 } catch (Exception) {
                     Console.WriteLine("Enter a number 1 - 4.");
-                    continue;
+                    option = 0;
                 }
                 if (option == 1) {
                     ItemDisplay();
@@ -60,6 +60,7 @@ namespace TextGameDemo.Game.TUI {
                     Console.WriteLine("Enter a number 1 - 4.");
                 }
             } while (option != 5);
+            //Console.ReadLine();
         }
 
         public string WeatherAndTimeDisplay() {
@@ -174,6 +175,10 @@ namespace TextGameDemo.Game.TUI {
                 Console.WriteLine((i+1)+". "+responses[i]);
             }
             string selection = Console.ReadLine();
+            switch (selection) {
+                case "1": case "2": case "3": case "4": case "5": { }break;
+                default: selection = "1";break;
+            }
             int index = Int32.Parse(selection);
             if (index > 0 && index <= responses.Count) {
                 response = responses[index - 1];

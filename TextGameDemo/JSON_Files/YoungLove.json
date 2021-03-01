@@ -1,333 +1,333 @@
 {
-  "sample01_statement": {
+  "puppyLove_statement": {
     "neutral": {
-      " neutral test 0": {
+      "puppyLove neutral test 0": {
         "req": [],
         "lead to": []
       },
-      " neutral test 1": {
+      "puppyLove neutral test 1": {
         "req": [],
         "lead to": []
       },
-      " neutral test 2": {
+      "puppyLove neutral test 2": {
         "req": [],
         "lead to": []
       },
-      " neutral test 3": {
+      "puppyLove neutral test 3": {
         "req": [],
         "lead to": []
       }
     },
     "romance": {
-      "romance test 0": {
+      "puppyLove romance test 0": {
         "req": [],
         "lead to": []
       },
-      "romance test 1": {
+      "puppyLove romance test 1": {
         "req": [],
         "lead to": []
       },
-      "romance test 2": {
+      "puppyLove romance test 2": {
         "req": [],
         "lead to": []
       },
-      "romance test 3": {
+      "puppyLove romance test 3": {
         "req": [],
         "lead to": []
       }
     },
     "friend": {
-      "friend test 0": {
+      "puppyLove friend test 0": {
         "req": [],
         "lead to": []
       },
-      "friend test 1": {
+      "puppyLove friend test 1": {
         "req": [],
         "lead to": []
       },
-      "friend test 2": {
+      "puppyLove friend test 2": {
         "req": [],
         "lead to": []
       },
-      "friend test 3": {
+      "puppyLove friend test 3": {
         "req": [],
         "lead to": []
       }
     },
     "respect": {
-      "respect test 0": {
+      "puppyLove respect test 0": {
         "req": [],
         "lead to": []
       },
-      "respect test 1": {
+      "puppyLove respect test 1": {
         "req": [],
         "lead to": []
       },
-      "respect test 2": {
+      "puppyLove respect test 2": {
         "req": [],
         "lead to": []
       },
-      "respect test 3": {
+      "puppyLove respect test 3": {
         "req": [],
         "lead to": []
       }
     },
     "affinity": {
-      "affinity test 0": {
+      "puppyLove affinity test 0": {
         "req": [],
         "lead to": []
       },
-      "affinity test 1": {
+      "puppyLove affinity test 1": {
         "req": [],
         "lead to": []
       },
-      "affinity test 2": {
+      "puppyLove affinity test 2": {
         "req": [],
         "lead to": []
       },
-      "affinity test 3": {
+      "puppyLove affinity test 3": {
         "req": [],
         "lead to": []
       }
     },
     "professional": {
-      "affinity test 0": {
+      "puppyLove affinity test 0": {
         "req": [],
         "lead to": []
       },
-      "affinity test 1": {
+      "puppyLove affinity test 1": {
         "req": [],
         "lead to": []
       },
-      "affinity test 2": {
+      "puppyLove affinity test 2": {
         "req": [],
         "lead to": []
       },
-      "affinity test 3": {
+      "puppyLove affinity test 3": {
         "req": [],
         "lead to": []
       }
     },
     "disgust": {
-      "disgust test 0": {
+      "puppyLove disgust test 0": {
         "req": [],
         "lead to": []
       },
-      "disgust test 1": {
+      "puppyLove disgust test 1": {
         "req": [],
         "lead to": []
       },
-      "disgust test 2": {
+      "puppyLove disgust test 2": {
         "req": [],
         "lead to": []
       },
-      "disgust test 3": {
+      "puppyLove disgust test 3": {
         "req": [],
         "lead to": []
       }
     },
     "hate": {
-      "hate test 0": {
+      "puppyLove hate test 0": {
         "req": [],
         "lead to": []
       },
-      "hate test 1": {
+      "puppyLove hate test 1": {
         "req": [],
         "lead to": []
       },
-      "hate test 2": {
+      "puppyLove hate test 2": {
         "req": [],
         "lead to": []
       },
-      "hate test 3": {
+      "puppyLove hate test 3": {
         "req": [],
         "lead to": []
       }
     },
     "rivalry": {
-      "rivalry test 0": {
+      "puppyLove rivalry test 0": {
         "req": [],
         "lead to": []
       },
-      "rivalry test 1": {
+      "puppyLove rivalry test 1": {
         "req": [],
         "lead to": []
       },
-      "rivalry test 2": {
+      "puppyLove rivalry test 2": {
         "req": [],
         "lead to": []
       },
-      "rivalry test 3": {
+      "puppyLove rivalry test 3": {
         "req": [],
         "lead to": []
       }
     }
   },
-  "sample01_question": {
+  "puppyLove_question": {
     "neutral": {
-      " neutral test 0": {
+      "puppyLove neutral test 0": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      " neutral test 1": {
+      "puppyLove neutral test 1": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      " neutral test 2": {
+      "puppyLove neutral test 2": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      " neutral test 3": {
+      "puppyLove neutral test 3": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       }
     },
     "romance": {
-      "romance test 0": {
+      "puppyLove romance test 0": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "romance test 1": {
+      "puppyLove romance test 1": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "romance test 2": {
+      "puppyLove romance test 2": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "romance test 3": {
+      "puppyLove romance test 3": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       }
     },
     "friend": {
-      "friend test 0": {
+      "puppyLove friend test 0": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "friend test 1": {
+      "puppyLove friend test 1": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "friend test 2": {
+      "puppyLove friend test 2": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "friend test 3": {
+      "puppyLove friend test 3": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       }
     },
     "respect": {
-      "respect test 0": {
+      "puppyLove respect test 0": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "respect test 1": {
+      "puppyLove respect test 1": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "respect test 2": {
+      "puppyLove respect test 2": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "respect test 3": {
+      "puppyLove respect test 3": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       }
     },
     "affinity": {
-      "affinity test 0": {
+      "puppyLove affinity test 0": {
         "req": [],
         "lead to": []
       },
-      "affinity test 1": {
+      "puppyLove affinity test 1": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "affinity test 2": {
+      "puppyLove affinity test 2": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "affinity test 3": {
+      "puppyLove affinity test 3": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       }
     },
     "professional": {
-      "affinity test 0": {
+      "puppyLove affinity test 0": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "affinity test 1": {
+      "puppyLove affinity test 1": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "affinity test 2": {
+      "puppyLove affinity test 2": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "affinity test 3": {
+      "puppyLove affinity test 3": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       }
     },
     "disgust": {
-      "disgust test 0": {
+      "puppyLove disgust test 0": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "disgust test 1": {
+      "puppyLove disgust test 1": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "disgust test 2": {
+      "puppyLove disgust test 2": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "disgust test 3": {
+      "puppyLove disgust test 3": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       }
     },
     "hate": {
-      "hate test 0": {
+      "puppyLove hate test 0": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "hate test 1": {
+      "puppyLove hate test 1": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "hate test 2": {
+      "puppyLove hate test 2": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "hate test 3": {
+      "puppyLove hate test 3": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       }
     },
     "rivalry": {
-      "rivalry test 0": {
+      "puppyLove rivalry test 0": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "rivalry test 1": {
+      "puppyLove rivalry test 1": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "rivalry test 2": {
+      "puppyLove rivalry test 2": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "rivalry test 3": {
+      "puppyLove rivalry test 3": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       }
     }
   },
-  "sample01_response": {
+  "puppyLove_response": {
     "positive+": {
       "positive+ test 0": {
         "req": [ "responseTag.tag1" ],
@@ -420,335 +420,352 @@
     }
   },
 
-  "sample02_statement": {
+  "IsItLove_statement": {
     "neutral": {
-      " neutral test 0": {
+      "Oooh you lookin fine.": {
+        "req": [ "Character.Christina" ],
+        "lead to": []
+      },
+      "Everytime you are around I feel my heart beating faster.": {
+        "req": [ "Character.Christina" ],
+        "lead to": []
+      },
+      "I would really love it if you'd hang around for a while.": {
+        "req": [ "Character.Christina" ],
+        "lead to": []
+      },
+      "#art_blush# Stop looking at me like that! You are making me blush.": {
+        "req": [ "Character.Christina" ],
+        "lead to": []
+      },
+      "If there is anything I can do for you #new_textbox# #art_blush# and I mean anything. Please let me know.": {
+        "req": [ "Character.Christina" ],
+        "lead to": []
+      },
+      "Why don't we just stop here and enjoy each other for a moment. ": {
+        "req": [ "Character.Christina" ],
+        "lead to": []
+      },
+      "I didn't really notice you when you first rolled into town, now you are always on my mind.": {
+        "req": [ "Character.Christina" ],
+        "lead to": []
+      },
+      "You are really something to get a girl like me fawning over you.": {
+        "req": [ "Character.Christina" ],
+        "lead to": []
+      },
+      "When I'm with you, my troubles seem to melt away.": {
+        "req": [ "Character.Teta" ],
+        "lead to": []
+      },
+      "I'm so glad you came to this little town.  I have a feeling, this winter will be a lot warmer with you here.": {
+        "req": [ "Character.Teta" ],
+        "lead to": []
+      },
+      "I just want to say thank you for being there for me. Ya know, you being who I need and all. #new_textbox# #art_blush# so thank you.": {
+        "req": [ "Character.Teta" ],
+        "lead to": []
+      },
+      "Why are you sooo cute.  It just isn't fair!": {
+        "req": [ "Character.Teta" ],
+        "lead to": []
+      },
+      "We've been struggling on the farm.  It's been a bad year but I feel better knowing you are here with me.": {
+        "req": [ "Character.Teta" ],
+        "lead to": []
+      },
+      "I'm not sure what I did to deserve you.": {
+        "req": [ "Character.Teta" ],
+        "lead to": []
+      },
+      "If I'm ever in trouble, I know my strong, cute hero will come and rescue me. Right?": {
+        "req": [ "Character.Teta" ],
+        "lead to": []
+      },
+      "I had a pretty good day today. I got my chores done early and managed to patch a hole in my dress. #new_textbox# Life is good.": {
+        "req": [ "Character.Teta" ],
+        "lead to": []
+      },
+      "Ohh, hi #player_name#! You startled me.": {
+        "req": [ "Character.Helena" ],
+        "lead to": []
+      },
+      "#player_name# I'm so glad you came to visit me.": {
+        "req": [ "Character.Helena" ],
+        "lead to": []
+      },
+      "The world is a scary place when I'm not with you.": {
+        "req": [ "Character.Helena" ],
+        "lead to": []
+      },
+      "I was thinking about how glad I am that you came to Biggs.  #new_textbox# I don't think I can go back to life without you.": {
+        "req": [ "Character.Helena" ],
+        "lead to": []
+      },
+      "What do you think about this fragrance I'm wearing?  I was thinking of you when I bought it.": {
+        "req": [ "Character.Helena" ],
+        "lead to": []
+      },
+      "#player_name# I just wanted to say. ... Well I, uhhm... I lov.. uhmm. Well? ... #new_textbox# I really like you okay.": {
+        "req": [ "Character.Helena" ],
+        "lead to": []
+      },
+      "Let's just stop and enjoy this moment. I've been thinking how precious life is when you are with someone special and I'm trying to be more mindful of how beutiful these moments are.": {
+        "req": [ "Character.Helena" ],
+        "lead to": []
+      },
+      "You are the best.  I just wanted to tell you that.": {
+        "req": [ "Character.Helena" ],
+        "lead to": []
+      },
+      "I generally wouldn't give an adventurer of your status the time of day, but there is something special about you.": {
+        "req": [ "Character.Quinn" ],
+        "lead to": []
+      },
+      "I was out discussing town survival strategies with the mayor and I mentioned you might be a great asset to the town. #new_textbox# I hope you don't mind.": {
+        "req": [ "Character.Quinn" ],
+        "lead to": []
+      },
+      "For being a part of the common rabble, you are quite the charmer #player_name#.": {
+        "req": [ "Character.Quinn" ],
+        "lead to": []
+      },
+      "I was thinking about how I could help you climb up the social ladder. #new_textbox# #art_blush# It could open up doors for you and for me.": {
+        "req": [ "Character.Quinn" ],
+        "lead to": []
+      },
+      "I was wondering about you lately.  Do you have any noble ancestry? #new_textbox# You must, because only one of noble decent could stir me up like you do.": {
+        "req": [ "Character.Quinn" ],
+        "lead to": []
+      },
+      "#player_name#, it is a pleasure to see you in good health, though your attire is a bit meager.": {
+        "req": [ "Character.Quinn" ],
+        "lead to": []
+      },
+      "#player_name#, you are quite the specimen. What you lack in refinement, you make up in boyish charm and rugged good looks.": {
+        "req": [ "Character.Quinn" ],
+        "lead to": []
+      },
+      "I must say that dispite our differences, I am not ashamed to be seen with you.": {
+        "req": [ "Character.Quinn" ],
+        "lead to": []
+      },
+      "You're strong.  I like that.": {
+        "req": [ "Character.Lafitte" ],
+        "lead to": []
+      },
+      "Oh #player_name#, how nice to see you.": {
         "req": [],
         "lead to": []
       },
-      " neutral test 1": {
+      "I've been running around town all day and nothing seemed to be going right. #new_textbox# Sigh. I guess I can atleast enjoy your company.": {
         "req": [],
         "lead to": []
       },
-      " neutral test 2": {
+      "The clouds look angry in the distance.  Can I count on you to protect me?": {
         "req": [],
         "lead to": []
       },
-      " neutral test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "romance": {
-      "romance test 0": {
+      "You seem to alway be here when I need you. You're the best.": {
         "req": [],
         "lead to": []
       },
-      "romance test 1": {
+      "What do you think of this outfit? Pretty snazzy huh. I knew you would like it.": {
         "req": [],
         "lead to": []
       },
-      "romance test 2": {
+      "You are looking good today.  Have you been working out or is it all natural?": {
         "req": [],
         "lead to": []
       },
-      "romance test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "friend": {
-      "friend test 0": {
+      "You give me butterflies in my stomach sometimes. I just can't help it.": {
         "req": [],
         "lead to": []
       },
-      "friend test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "friend test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "respect": {
-      "respect test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "affinity": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "professional": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "disgust": {
-      "disgust test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "hate": {
-      "hate test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "rivalry": {
-      "rivalry test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 3": {
+      "My day is getting better now that you've come to talk to me.": {
         "req": [],
         "lead to": []
       }
     }
   },
-  "sample02_question": {
+  "IsItLove_question": {
     "neutral": {
-      " neutral test 0": {
+      "I was thinking about cutting may hair shorter.  What do you think?": {
         "req": [],
+        "lead to": [ "response.tag1" ]
+      },
+      "How do you like my outfit? I wore it for you.": {
+        "req": [  ],
+        "lead to": [ "response.tag1" ]
+      },
+      "Would it be out of line if I hold your hand?": {
+        "req": [  ],
+        "lead to": [ "response.tag1" ]
+      },
+      "I think you are cute, what do you think about me?": {
+        "req": [ ],
+        "lead to": [ "response.tag1" ]
+      },
+      "I was thinking about our relationship and where it's going. Where do you think it's going?": {
+        "req": [ ],
+        "lead to": [ "response.tag1" ]
+      },
+      "Do you like spending time with me? Really do you?": {
+        "req": [  ],
+        "lead to": [ "response.tag1" ]
+      },
+      "I wouldn't mind joining you on one of your adventures.  What do you say?": {
+        "req": [ ],
+        "lead to": [ "response.tag1" ]
+      },
+      "How dangerous is it to be an adventurer? Please tell me it isn't as bad as people say it is.": {
+        "req": [ ],
+        "lead to": [ "response.tag1" ]
+      },
+      "What do you think about taking me out sometime?": {
+        "req": [ ],
+        "lead to": [ "response.tag1" ]
+      },
+      "One day I hope to settle down with someone special like you some day.  How about you?": {
+        "req": [ ],
+        "lead to": [ "response.tag1" ]
+      }
+    }
+  },
+  "IsItLove_response": {
+    "positive+": {
+      "positive+ test 0": {
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.20" ]
+      },
+      "positive+ test 1": {
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.20" ]
+      },
+      "positive+ test 2": {
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.20" ]
+      },
+      "positive+ test 3": {
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.20" ]
+      }
+    },
+    "positive": {
+      "positive test 0": {
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.10" ]
+      },
+      "positive test 1": {
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.10" ]
+      },
+      "positive test 2": {
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.10" ]
+      },
+      "positive test 3": {
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.10" ]
+      }
+    },
+    "neutral": {
+      "neutral test 0": {
+        "req": [ "responseTag.tag1" ],
         "lead to": []
       },
-      " neutral test 1": {
-        "req": [],
+      "neutral test 1": {
+        "req": [ "responseTag.tag1" ],
         "lead to": []
       },
-      " neutral test 2": {
-        "req": [],
+      "neutral test 2": {
+        "req": [ "responseTag.tag1" ],
         "lead to": []
       },
-      " neutral test 3": {
-        "req": [],
+      "neutral test 3": {
+        "req": [ "responseTag.tag1" ],
         "lead to": []
       }
     },
-    "romance": {
-      "romance test 0": {
-        "req": [],
-        "lead to": []
+    "negative": {
+      "negative test 0": {
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.-10" ]
       },
-      "romance test 1": {
-        "req": [],
-        "lead to": []
+      "negative test 1": {
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.-10" ]
       },
-      "romance test 2": {
-        "req": [],
-        "lead to": []
+      "negative test 2": {
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.-10" ]
       },
-      "romance test 3": {
-        "req": [],
-        "lead to": []
+      "negative test 3": {
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.-10" ]
       }
     },
-    "friend": {
-      "friend test 0": {
-        "req": [],
-        "lead to": []
+    "negative+": {
+      "negative+ test 0": {
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.-20" ]
       },
-      "friend test 1": {
-        "req": [],
-        "lead to": []
+      "negative+ test 1": {
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.-20" ]
       },
-      "friend test 2": {
-        "req": [],
-        "lead to": []
+      "negative+ test 2": {
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.-20" ]
       },
-      "friend test 3": {
-        "req": [],
-        "lead to": []
+      "negative+ test 3": {
+        "req": [ "responseTag.tag1" ],
+        "lead to": [ "attribute.friend.-20" ]
       }
-    },
-    "respect": {
-      "respect test 0": {
+    }
+  },
+
+  "SoulMates_statement": {
+    "neutral": {
+      "I wish I was hearing wedding bells if you catch my drift.": {
         "req": [],
         "lead to": []
       },
-      "respect test 1": {
+      "#player_name#, I love you.  I just wanted to tell you.": {
         "req": [],
         "lead to": []
       },
-      "respect test 2": {
+      "I want to spend the rest of my life with you.": {
         "req": [],
         "lead to": []
       },
-      "respect test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "affinity": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "professional": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "disgust": {
-      "disgust test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "hate": {
-      "hate test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "rivalry": {
-      "rivalry test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 3": {
+      "You are the greatest.": {
         "req": [],
         "lead to": []
       }
     }
   },
-  "sample02_response": {
+  "SoulMates_question": {
+    "neutral": {
+      "Do you love me?": {
+        "req": [],
+        "lead to": [ "response.tag1" ]
+      },
+      "How much do you love me?": {
+        "req": [  ],
+        "lead to": [ "response.tag1" ]
+      },
+      "Give me a complement.": {
+        "req": [  ],
+        "lead to": [ "response.tag1" ]
+      },
+      "What do you think about marriage?": {
+        "req": [  ],
+        "lead to": [ "response.tag1" ]
+      }
+    }
+  },
+  "SoulMates_response": {
     "positive+": {
       "positive+ test 0": {
         "req": [ "responseTag.tag1" ],
@@ -840,4 +857,5 @@
       }
     }
   }
+
 }

@@ -126,7 +126,8 @@ namespace TextGameDemo.Modules {
             if (pack != null && pack.Type == Kati.Constants.RESPONSE) {
                 type = Kati.Constants.RESPONSE;
             } else if (!topic.Equals("")) {
-                if (GameTools.Tools().Next(10) > 7 && topic.Equals(GREETING) || topic.Equals(SINGLE_ROOM)) {
+                int value = GameTools.Tools().Next(10) + 1;
+                if (value > 7 && topic.Equals(GREETING) || value > 7 && topic.Equals(SINGLE_ROOM)) {
                     type = Kati.Constants.QUESTION;
                 } else {
                     type = Kati.Constants.STATEMENT;
@@ -459,7 +460,7 @@ namespace TextGameDemo.Modules {
                     if (elements[0].Equals("Location")) {
                         (string area, string room) = local.Locations.GetLocation();
                         if (elements.Length >= 3) {
-                            if (!area.Equals(elements[1]) || !room.Equals(elements[2])) {
+                            if (!area.Equals(elements[1]) && !room.Equals(elements[2])) {
                                 keep = false; 
                             }
                         } else if (elements.Length >= 2) {

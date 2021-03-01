@@ -1,6 +1,6 @@
 import json
 
-f = open("../AroundTown.json","r")
+f = open("../Lerin.json","r")
 
 data = json.load(f)
 dict = {}
@@ -27,12 +27,12 @@ for k,v in dict.items():
 	# Done # handle lead to problem 
 	# Done # Handle response req problem
 	# Done # Work the bugs out of the around town module 
-	#	copy around town module setup to fighting words,young love, questing, and others 
-	# 	play test with all modules and fix bugs or rig it to by-pass bugs 
+	# Done # copy around town module setup to fighting words,young love, questing, and others 
 	# 	add A TON of dialogue (good or bad) to each module 
 	
 	
 	#TODO: 22th-25th
+	# 	play test with all modules and fix bugs or rig it to by-pass bugs 
 	# 	track different play throughs using all negative, positive, neutral, lover, disgust, and random 
 	# 	Open job interview game to 1583 students 
 	# 	model data to fit into research
@@ -41,3 +41,4 @@ for k,v in dict.items():
 	#TODO: March 1st-15th
 	# 	Write Paper
 	# 	Submit paper by march 15th
+	

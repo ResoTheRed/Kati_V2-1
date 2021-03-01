@@ -1,754 +1,858 @@
-{
-  "sample01_statement": {
+{//generic
+  "argument_statement": {
     "neutral": {
-      " neutral test 0": {
+      "You're a real turd aren't you! #new_textbox# Why don't you go bother someone else for a while. Huh.": {
+        "req": ["Character.Dan"],
+        "lead to": []
+      },
+      "You are just too persistant! #new_textbox# ... #new_textbox# ...": {
+        "req": [],
+        "lead to": ["argument_statement.argue01"]
+      },
+      " You're still here! #new_textbox# Well, I'll go then. Goodbye!": {
+        "req": ["argue01"],
+        "lead to": []
+      },
+      "You aren't a whole lot of help are you. #new_textbox# Only the strong survive in Biggs.  It'd probabaly be best if you left before winter.": {
+        "req": ["Character.Sivian"],
+        "lead to": []
+      },
+      "You're always hanging around my shop and you never buy anything. #new_textbox# Seriously, #player_name#, you're trying my patience.": {
+        "req": ["Character.Dan"],
+        "lead to": []
+      },
+      "Oh looky, looky who it is to see me!  #new_textbox#  Why don't you give me some coin if you want to talk.": {
+        "req": [ "Character.Miciah" ],
+        "lead to": []
+      },
+      "I ain't tellin you nothin until you cough-up some cash!": {
+        "req": ["Character.Miciah"],
+        "lead to": []
+      },
+      "Look, I have to live on the streets and starve for half of the year and freeze for the other half.  Don't make my life any worse by talking at me!": {
+        "req": [ "Character.Miciah" ],
+        "lead to": []
+      },
+      "I'll be frank with ya.  I don't want to talk to you right now.": {
+        "req": [ "Character.Miciah" ],
+        "lead to": []
+      },
+      "Why don't we cut the chatter and you go buy something from my shop.  #new_textbox# Make it expensive, and ... oh no discounts!": {
+        "req": [ "Character.Dan" ],
+        "lead to": []
+      },
+      "I really wish you could be more productive. Everyone here has to pull their own wieght you know.": {
+        "req": [ "Character.Sivian" ],
+        "lead to": []
+      },
+      "I don't have anything for you.  #new_textbox# You should probably talk to someone else.": {
+        "req": [ "Character.Collin" ],
+        "lead to": []
+      },
+      "If you need help, I'm not your man.": {
+        "req": [ "Character.Collin" ],
+        "lead to": []
+      },
+      "If you get too far on my badside, you'll regret it with the rest of your short life.": {
+        "req": ["Character.Collin"],
+        "lead to": []
+      },
+      "Excuse me #player_name#.  I don't want to come off as rude, but you are a bit rude and even pushy.": {
+        "req": [ "Character.Benjamin" ],
+        "lead to": []
+      },
+      "You should be more mindful of how you act. #new_textbox# You are pushing people away. I would hate to see you lose a valuable ally.": {
+        "req": [ "Character.Benjamin" ],
+        "lead to": []
+      },
+      "Have you ever considered becoming a Knight?  #new_textbox# You would definitely benefit from learning and practicing Knightly Virtues.": {
+        "req": [ "Character.Benjamin" ],
+        "lead to": []
+      },
+      "I don't have time to waste talking with you. #new_textbox# If you have something to say then just spit it out.": {
+        "req": [ "Character.Albrecht" ],
+        "lead to": []
+      },
+      "I though I saw you hanging around the sorceress's house.  #new_textbox# you just know that I have my eye on you.": {
+        "req": [ "Character.Albrecht" ],
+        "lead to": []
+      },
+      "What is it? #new_textbox# Do you want to buy something? Maybe a new hinge or a shovel? #new_textbox# If not, please leave me alone.": {
+        "req": [ "Character.Albrecht" ],
+        "lead to": []
+      },
+      "I'm really busy trying to survive here.  #new_textbox# What do you want already!": {
+        "req": ["Character.Romero"],
+        "lead to": []
+      },
+      "Unless you are going to line my pockets with jewels or tend to my field, then I don't have time to talk right now.": {
+        "req": [ "Character.Romero" ],
+        "lead to": []
+      },
+      "Why are you always talking so much.  You should be doing more work.  Winter will be here soon.": {
+        "req": [ "Character.Romero" ],
+        "lead to": []
+      },
+      "Why are you talking to me.  I only talk to the strong.": {
+        "req": [ "Character.Lafitte" ],
+        "lead to": []
+      },
+      "Come back when you are not such an annoying weakling.  Then I'll consider you.": {
+        "req": [ "Character.Lafitte" ],
+        "lead to": []
+      },
+      "I just want to let you know that you're not 'Hot Stuff' like you think you are.  #new_textbox# You are kind of pathetic.": {
+        "req": [ "Character.Lafitte" ],
+        "lead to": []
+      },
+      "Uhhm, what. ... #new_textbox# You are kind of creeping me out.": {
+        "req": ["Character.Teta"],
+        "lead to": []
+      },
+      "I don't have anything for you and I'm not interested in anything you might be peddling.": {
+        "req": [ "Character.Teta" ],
+        "lead to": []
+      },
+      "Yikes! Please give me some personal space.": {
+        "req": [ "Character.Teta" ],
+        "lead to": []
+      },
+      "I don't know what you want but you should probably go ask someone else.": {
+        "req": [ "Character.Teta" ],
+        "lead to": []
+      },
+      "Why do you act like that?  You'll never get a girl if you always act like a child.": {
+        "req": [ "Character.Christina" ],
+        "lead to": []
+      },
+      "You know, I thought you were cute once, but now I think you are more of a jerk.": {
+        "req": [ "Character.Christina" ],
+        "lead to": []
+      },
+      "You should show some more respect to pretty girls like myself.": {
+        "req": [ "Character.Christina" ],
+        "lead to": []
+      },
+      "I'm sorry, I only have time for real men.": {
+        "req": [ "Character.Christina" ],
+        "lead to": []
+      },
+      "Please leave me alone.  #new_textbox# Gulp!": {
+        "req": [ "Character.Helena" ],
+        "lead to": []
+      },
+      "I assure you, I don't have anything for you or of value even.": {
+        "req": [ "Character.Helena" ],
+        "lead to": []
+      },
+      "Ahh! Oh. I don't have anything to say to you. #new_textbox# Please Don't be scary and just leave.": {
+        "req": [ "Charcter.Helena" ],
+        "lead to": []
+      },
+      "Don't take this the wrong way but you can be annoying sometimes.": {
+        "req": [ "Character.Helena" ],
+        "lead to": []
+      },
+      "I don't have time to talk to you. #new_textbox# Go find a peasant or a tree stump to talk to.": {
+        "req": [ "Character.Quinn" ],
+        "lead to": []
+      },
+      "Sorry, you just aren't worth my time.": {
+        "req": [ "Character.Quinn" ],
+        "lead to": []
+      },
+      "Perhaps if you were more important a person, I would suffer through whatever it is you have to say.  #new_textbox# but you're not.  Goodbye.": {
+        "req": [ "Character.Quinn" ],
+        "lead to": []
+      },
+      "Watchout!  Don't put your dirty hands near my fine clothes.": {
+        "req": [ "Character.Quinn" ],
+        "lead to": []
+      },
+      "You are kind of a gross little adventurer aren't you.": {
+        "req": [ "Character.Quinn" ],
+        "lead to": []
+      },
+      "If you would just carry yourself better, then maybe people would give you the time of day.": {
+        "req": [ "Character.Quinn" ],
+        "lead to": []
+      },
+      "I don't want to talk right now.  I'm not in the mood.": {
         "req": [],
         "lead to": []
       },
-      " neutral test 1": {
+      "Let me tell you a little story. #new_textbox# There once was an annoying little fox adventurer that bummed around town all day.": {
+        "req": ["Character.Romero"],
+        "lead to": [ "argument_statement.argue02" ]
+      },
+      "He would always come around and bother people while they were trying to work. #new_textbox# While he wasted everyone's time, winter was slowly approaching.": {
+        "req": ["argue02"],
+        "lead to": [ "argument_statement.argue03" ]
+      },
+      "Then, winter struck with all of her might and was particularly bitter. #new_textbox# Since the poor souls wasted so much precious time listening to the adventurer, ": {
+        "req": ["argue03"],
+        "lead to": []
+      },
+      "I have to go.": {
         "req": [],
         "lead to": []
       },
-      " neutral test 2": {
+      "Why are you here?  #new_textbox# You should probably leave Biggs before you are stuck here for winter.": {
         "req": [],
         "lead to": []
       },
-      " neutral test 3": {
+      "Look, I really don't have time to talk right now.  #new_textbox# Perhaps another time when I'm in a better mood.": {
+        "req": [],
+        "lead to": []
+      },
+      "Let me stop you there. I really don't want to talk right now.": {
+        "req": [],
+        "lead to": []
+      },
+      "What is it? Why are you bothering me?": {
+        "req": [],
+        "lead to": []
+      },
+      "I guess you need help with something. You always do.": {
+        "req": [],
+        "lead to": []
+      },
+      "Sorry, I don't want to talk.": {
         "req": [],
         "lead to": []
       }
     },
     "romance": {
-      "romance test 0": {
+      "Uggh.  You can be so frustrating some times.": {
         "req": [],
         "lead to": []
       },
-      "romance test 1": {
+      "You really know how to get under my skin sometimes.": {
         "req": [],
         "lead to": []
       },
-      "romance test 2": {
+      "I think I need a little space.  Why don't you go do something for a while.": {
         "req": [],
         "lead to": []
       },
-      "romance test 3": {
+      "I just can't right now.  Please go.": {
         "req": [],
         "lead to": []
       }
     },
     "friend": {
-      "friend test 0": {
+      "#player_name# why are you being such a jerk? Cut it out.": {
         "req": [],
         "lead to": []
       },
-      "friend test 1": {
+      "Stop being such an A-hole.": {
         "req": [],
         "lead to": []
       },
-      "friend test 2": {
+      "I love you like a brother, but you are really irritating!": {
         "req": [],
         "lead to": []
       },
-      "friend test 3": {
+      "If it's not my favorite turd.": {
         "req": [],
         "lead to": []
-      }
+      } 
     },
     "respect": {
-      "respect test 0": {
+      "It would benefit you if you could control yourself better.": {
         "req": [],
         "lead to": []
       },
-      "respect test 1": {
+      "You should really work on your people skills.": {
         "req": [],
         "lead to": []
       },
-      "respect test 2": {
+      "You should be considerate of others before you act.  Actions have concequences.": {
         "req": [],
         "lead to": []
       },
-      "respect test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "affinity": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "professional": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "disgust": {
-      "disgust test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "hate": {
-      "hate test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "rivalry": {
-      "rivalry test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 3": {
+      "Think before you act. It can save you a lot of heartache.": {
         "req": [],
         "lead to": []
       }
     }
   },
-  "sample01_question": {
+  "argument_question": {
     "neutral": {
-      " neutral test 0": {
+      "Why are you so annoying?": {
         "req": [],
-        "lead to": []
+        "lead to": ["response.annoy"]
       },
-      " neutral test 1": {
+      "You can be a real jerk sometimes.": {
         "req": [],
-        "lead to": []
+        "lead to": ["response.annoy"]
       },
-      " neutral test 2": {
+      "Would you do everyone a favor and hold your tongue?": {
         "req": [],
-        "lead to": []
+        "lead to": ["response.annoy"]
       },
-      " neutral test 3": {
+      "Could you do me a favor and go away?": {
         "req": [],
-        "lead to": []
-      }
-    },
-    "romance": {
-      "romance test 0": {
-        "req": [],
-        "lead to": []
+        "lead to": ["response.go_away"]
       },
-      "romance test 1": {
+      "I would really love it if you would leave me alone.": {
         "req": [],
-        "lead to": []
+        "lead to": ["response.go_away"]
       },
-      "romance test 2": {
+      "Please just leave me alone.  I don't want to talk right now.": {
         "req": [],
-        "lead to": []
+        "lead to": ["response.go_away"]
       },
-      "romance test 3": {
+      "I don't have any business with you, so I'll be on my way then.": {
         "req": [],
-        "lead to": []
-      }
-    },
-    "friend": {
-      "friend test 0": {
-        "req": [],
-        "lead to": []
+        "lead to": ["response.go_away"]
       },
-      "friend test 1": {
+      "From what I see, I don't think you have what it takes to make it here.": {
         "req": [],
-        "lead to": []
+        "lead to": ["response.survivor"]
       },
-      "friend test 2": {
+      "I hope you are a lot more resourceful than you act or you will be in big trouble come winter.": {
         "req": [],
-        "lead to": []
-      },
-      "friend test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "respect": {
-      "respect test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "affinity": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "professional": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "disgust": {
-      "disgust test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "hate": {
-      "hate test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "rivalry": {
-      "rivalry test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 3": {
-        "req": [],
-        "lead to": []
+        "lead to": ["response.survivor"]
       }
     }
   },
-  "sample01_response": {
+  "argument_response": {
     "positive+": {
-      "positive+ test 0": {
-        "req": [ "responseTag.tag1" ],
+      "I'm sorry that I come off as annoying. I'll just go then.": {
+        "req": [ "responseTag.annoy" ],
         "lead to": [ "attribute.friend.20" ]
       },
-      "positive+ test 1": {
-        "req": [ "responseTag.tag1" ],
+      "You are right.  I really need to think about what I say and do.": {
+        "req": [ "responseTag.annoy" ],
         "lead to": [ "attribute.friend.20" ]
       },
-      "positive+ test 2": {
-        "req": [ "responseTag.tag1" ],
+      "I'm sorry, I will just go then. I hope next time we meet we'll be on better terms.": {
+        "req": [ "responseTag.go_away" ],
         "lead to": [ "attribute.friend.20" ]
       },
-      "positive+ test 3": {
-        "req": [ "responseTag.tag1" ],
+      "I'm sorry if I've offended you. I will do better next time.": {
+        "req": [ "responseTag.go_away" ],
+        "lead to": [ "attribute.friend.20" ]
+      },
+      "You know you are right. I better talk to the town elders for some advice.": {
+        "req": [ "responseTag.survivor" ],
         "lead to": [ "attribute.friend.20" ]
       }
     },
     "positive": {
-      "positive test 0": {
-        "req": [ "responseTag.tag1" ],
+      "It troubles me to hear you say that.": {
+        "req": [ "responseTag.annoy" ],
         "lead to": [ "attribute.friend.10" ]
       },
-      "positive test 1": {
-        "req": [ "responseTag.tag1" ],
+      "Please forgive me if I've done something offensive.": {
+        "req": [ "responseTag.annoy" ],
         "lead to": [ "attribute.friend.10" ]
       },
-      "positive test 2": {
-        "req": [ "responseTag.tag1" ],
+      "Sorry to disturb you. I'll leave.": {
+        "req": [ "responseTag.go_away" ],
         "lead to": [ "attribute.friend.10" ]
       },
-      "positive test 3": {
-        "req": [ "responseTag.tag1" ],
+      "I see I should give you your space.  Until next time.": {
+        "req": [ "responseTag.go_away" ],
+        "lead to": [ "attribute.friend.10" ]
+      },
+      "I do have a lot to learn, I suppose.": {
+        "req": [ "responseTag.survivor" ],
         "lead to": [ "attribute.friend.10" ]
       }
     },
     "neutral": {
-      "neutral test 0": {
-        "req": [ "responseTag.tag1" ],
+      "Well then if that's how you feel, Goodbye.": {
+        "req": [ "responseTag.annoy" ],
         "lead to": []
       },
-      "neutral test 1": {
-        "req": [ "responseTag.tag1" ],
+      "Hmm... I think you are being a bit harsh": {
+        "req": [ "responseTag.annoy" ],
         "lead to": []
       },
-      "neutral test 2": {
-        "req": [ "responseTag.tag1" ],
+      "Alright, alright, I'll leave you to your temper.": {
+        "req": [ "responseTag.go_away" ],
         "lead to": []
       },
-      "neutral test 3": {
-        "req": [ "responseTag.tag1" ],
+      "Fine, I'll leave.": {
+        "req": [ "responseTag.go_away" ],
+        "lead to": []
+      },
+      "I can take pretty good care of myself.": {
+        "req": [ "responseTag.survivor" ],
+        "lead to": []
+      },
+      "Don't worry about me. I'll manage": {
+        "req": [ "responseTag.survivor" ],
         "lead to": []
       }
     },
     "negative": {
-      "negative test 0": {
-        "req": [ "responseTag.tag1" ],
+      "You have some nerve talking to me like that.": {
+        "req": [ "responseTag.annoy" ],
         "lead to": [ "attribute.friend.-10" ]
       },
-      "negative test 1": {
-        "req": [ "responseTag.tag1" ],
+      "Did you ever consider the problem might be you?": {
+        "req": [ "responseTag.annoy" ],
         "lead to": [ "attribute.friend.-10" ]
       },
-      "negative test 2": {
-        "req": [ "responseTag.tag1" ],
+      "Well, it's like the pot calling the kettle black.": {
+        "req": [ "responseTag.annoy" ],
         "lead to": [ "attribute.friend.-10" ]
       },
-      "negative test 3": {
-        "req": [ "responseTag.tag1" ],
+      "You should look in a mirror when you give these speeches.": {
+        "req": [ "responseTag.annoy" ],
+        "lead to": [ "attribute.friend.-10" ]
+      },
+      "Nothing I'd rather do more.": {
+        "req": [ "responseTag.go_away" ],
+        "lead to": [ "attribute.friend.-10" ]
+      },
+      "You're right.  I don't know why anyone would talk to you. I'll leave.": {
+        "req": [ "responseTag.go_away" ],
+        "lead to": [ "attribute.friend.-10" ]
+      },
+      "Somebody's a little fussy baby today.": {
+        "req": [ "responseTag.go_away" ],
+        "lead to": [ "attribute.friend.-10" ]
+      },
+      "You don't know what I can and can't do.": {
+        "req": [ "responseTag.survivor" ],
+        "lead to": [ "attribute.friend.-10" ]
+      },
+      "Worry less about me and more about the crap that is coming out of your mouth.": {
+        "req": [ "responseTag.survivor" ],
+        "lead to": [ "attribute.friend.-10" ]
+      },
+      "You sound like fool sometimes.": {
+        "req": [ "responseTag.survivor" ],
         "lead to": [ "attribute.friend.-10" ]
       }
     },
     "negative+": {
-      "negative+ test 0": {
-        "req": [ "responseTag.tag1" ],
+      "Look, I'm not going to put up with your crap.": {
+        "req": [ "responseTag.annoy" ],
         "lead to": [ "attribute.friend.-20" ]
       },
-      "negative+ test 1": {
-        "req": [ "responseTag.tag1" ],
+      "I don't know what your problem is but you should say that about yourself, not me.": {
+        "req": [ "responseTag.annoy" ],
         "lead to": [ "attribute.friend.-20" ]
       },
-      "negative+ test 2": {
-        "req": [ "responseTag.tag1" ],
+      "No one will like you if you talk like an idiot all day.": {
+        "req": [ "responseTag.annoy" ],
         "lead to": [ "attribute.friend.-20" ]
       },
-      "negative+ test 3": {
-        "req": [ "responseTag.tag1" ],
+      "SOUNDS LIKE A GREAT IDEA! F$&! you too!": {
+        "req": [ "responseTag.go_away" ],
+        "lead to": [ "attribute.friend.-20" ]
+      },
+      "Alright!  I don't want to hang around a good-for-nothing like you anyway.": {
+        "req": [ "responseTag.go_away" ],
+        "lead to": [ "attribute.friend.-20" ]
+      },
+      "You don't know the first thing about me! Judge yourself.": {
+        "req": [ "responseTag.survivor" ],
+        "lead to": [ "attribute.friend.-20" ]
+      },
+      "I'd be happy to demostrate my combat skill on your face.": {
+        "req": [ "responseTag.survivor" ],
         "lead to": [ "attribute.friend.-20" ]
       }
     }
   },
-
-  "sample02_statement": {
+  //high rival
+  "rivalSpat_statement": {
     "neutral": {
-      " neutral test 0": {
+      "I bet you don't have any friends here.  Why would you. Hehehehee..": {
+        "req": ["Location.town"],
+        "lead to": []
+      },
+      "Did you go shopping today. Oh wait, you don't have any money. Haha": {
+        "req": ["Location.town"],
+        "lead to": []
+      },
+      "I surprised to see you out here. I though for sure you were all talk.": {
+        "req": [ "Location.forest" ],
+        "lead to": []
+      },
+      "Watch out, the forest is dangerous and I don't feel like bailing you out when you get in trouble.": {
+        "req": [ "Location.forest" ],
+        "lead to": []
+      },
+      "I'm impressed that you are brave enough to come out here.  I doubt you stay very long.": {
+        "req": [ "Location.forest" ],
+        "lead to": []
+      },
+      "I just can't believe you actually came here. I really didn't think you had it in you.": {
+        "req": [ "Location.cave" ],
+        "lead to": []
+      },
+      "Look who it is, my favorite want-to-be adventurer. What adventures have you gone on today. Maybe conquered the chamberpot?": {
         "req": [],
         "lead to": []
       },
-      " neutral test 1": {
+      "Here, here. The jester has arrived.  Go on #player_name#, tell us a joke, like how you'll survive this winter.": {
         "req": [],
         "lead to": []
       },
-      " neutral test 2": {
+      "What are you doing #player_name#. You just bumbling about taking up space as ususal?": {
         "req": [],
         "lead to": []
       },
-      " neutral test 3": {
+      "It's okay if you look up to me.  Maybe one day you can make something of your life too, though you'll have to really try.": {
+        "req": [],
+        "lead to": []
+      },
+      "It's good ole dunderhead #player_name#, how ya been. Oh wait, don't answer that because I don't care.": {
+        "req": [],
+        "lead to": []
+      },
+      "Is taking up space your goal in life.  If so you are doing a fantastic job of it.": {
+        "req": [],
+        "lead to": []
+      },
+      "I just wonder how you'll manage come winter. #new_textblock# You'll probably freeze to death with the first snow.": {
+        "req": [],
+        "lead to": []
+      },
+      "What do you need? Help tying your shoe?": {
+        "req": [],
+        "lead to": []
+      },
+      "Bore any monster to death lately.  I know I have to be on my gaurd when you come around.": {
+        "req": [],
+        "lead to": []
+      },
+      "Hey #player_name#.  Coming talk to me huh. I don't blame you. Perhaps you might actually start to develope a personality of your own if I give you some pointers.": {
+        "req": [],
+        "lead to": []
+      },
+      "You kind of remind me of a stray that used to hang around town. It was blind, deaf, and missing a leg. #new_textbox# the townsfolk took pitty on it.": {
+        "req": [],
+        "lead to": []
+      },
+      "Haha it's #player_name#.  Nothing makes me laugh like your face does.": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+  "rivalSpat_question": {
+    "neutral": {
+      "Got any real adventuring gear or are you just swinging around sticks?": {
+        "req": [],
+        "lead to": [ "response.fortune" ]
+      },
+      "When's that last time you had money? Probably never, right?": {
+        "req": [],
+        "lead to": [ "response.fortune" ]
+      },
+      "You are going to be in trouble come winter.": {
+        "req": [],
+        "lead to": [ "response.survivor" ]
+      },
+      "When are you going to hightail it out of here? It'll be a rough place soon": {
+        "req": [],
+        "lead to": [ "response.survivor" ]
+      },
+      "I just need to know, why do you look like that?": {
+        "req": [],
+        "lead to": [ "response.insult" ]
+      },
+      "I like it when you come around, you make me look good.  What say you to that?": {
+        "req": [],
+        "lead to": [ "response.insult" ]
+      }
+    }
+  },
+  "rivalSpat_response": {
+    "positive+": {
+      "positive+ 1": {
+        "req": [ "responseTag.fortune" ],
+        "lead to": [ "attribute.friend.20" ]
+      },
+      "positive+ 2": {
+        "req": [ "responseTag.survivor" ],
+        "lead to": [ "attribute.friend.20" ]
+      },
+      "positive+ 3": {
+        "req": [ "responseTag.insult" ],
+        "lead to": [ "attribute.friend.20" ]
+      }
+    },
+    "positive": {
+      "positive 1": {
+        "req": [ "responseTag.fortune" ],
+        "lead to": [ "attribute.friend.20" ]
+      },
+      "positive 2": {
+        "req": [ "responseTag.survivor" ],
+        "lead to": [ "attribute.friend.20" ]
+      },
+      "positive 3": {
+        "req": [ "responseTag.insult" ],
+        "lead to": [ "attribute.friend.20" ]
+      }
+    },
+    "neutral": {
+      "neutral 1": {
+        "req": [ "responseTag.fortune" ],
+        "lead to": []
+      },
+      "neutral test 1": {
+        "req": [ "responseTag.survivor" ],
+        "lead to": []
+      },
+      "neutral test 2": {
+        "req": [ "responseTag.insult" ],
+        "lead to": []
+      }
+    },
+    "negative": {
+      "negative 1": {
+        "req": [ "responseTag.fortune" ],
+        "lead to": [ "attribute.friend.-10" ]
+      },
+      "negative 2": {
+        "req": [ "responseTag.survivor" ],
+        "lead to": [ "attribute.friend.-10" ]
+      },
+      "negative 3": {
+        "req": [ "responseTag.insult" ],
+        "lead to": [ "attribute.friend.-10" ]
+      }
+    },
+    "negative+": {
+      "negative+ 1": {
+        "req": [ "responseTag.fortune" ],
+        "lead to": [ "attribute.friend.-20" ]
+      },
+      "negative+ 2": {
+        "req": [ "responseTag.survivor" ],
+        "lead to": [ "attribute.friend.-20" ]
+      },
+      "negative+ 3": {
+        "req": [ "responseTag.insult" ],
+        "lead to": [ "attribute.friend.-20" ]
+      }
+    }
+  },
+  //high hate or disgust
+  "hatred_statement": {
+    "neutral": {
+      "Will you get the hell out of here already!": {
+        "req": [],
+        "lead to": []
+      },
+      "I will be sick if I have to look at you any longer.": {
+        "req": [],
+        "lead to": []
+      },
+      "Leave! Just leave! We don't want you here in Biggs.": {
+        "req": [],
+        "lead to": []
+      },
+      "Why can't you just go get lost in th eforset already!": {
+        "req": [],
+        "lead to": []
+      },
+      "I would rather get the plague than talk to you. ": {
+        "req": [],
+        "lead to": []
+      },
+      "Scram!  I don't want to see you around here anymore!": {
+        "req": [],
+        "lead to": []
+      },
+      "If i have to see that stupid smile of yours again I might loose it.  Get lost!": {
+        "req": [],
+        "lead to": []
+      },
+      "You are useless and a pest. Don't let anyone else tell you otherwise.": {
+        "req": [],
+        "lead to": []
+      },
+      "Just the sight of you puts me in a bad mood.": {
+        "req": [],
+        "lead to": []
+      },
+      "It takes a lot of self control to not throw you out of here.": {
+        "req": ["Location.town"],
+        "lead to": []
+      },
+      "You are ruining my shipping experience. Go outside with the horses.": {
+        "req": ["Location.town.store"],
+        "lead to": []
+      },
+      "The sight of you is offensive. Do us all a favor and get lost.": {
+        "req": [],
+        "lead to": []
+      },
+      "I've had just about enough of you.": {
+        "req": [],
+        "lead to": []
+      },
+      "Please tell me you are not planning to live here permenantly.": {
+        "req": [],
+        "lead to": []
+      },
+      "Go away!": {
+        "req": [],
+        "lead to": []
+      },
+      "Don't talk to me for any reason!": {
+        "req": [],
+        "lead to": []
+      },
+      "I've had just about enough of you! I don't like violence but your face just sets me off!": {
+        "req": [],
+        "lead to": []
+      },
+      "Go scuttle down south to the warmth like the cockroach that you are.": {
+        "req": [],
+        "lead to": []
+      }
+    }
+  },
+  //high negative and high positive
+  "isHurt_statement": {
+    "neutral": {
+      "I just don't know what to think about you.": {
+        "req": [],
+        "lead to": []
+      },
+      "It's hard to tell if you are a friend or foe sometimes.": {
+        "req": [],
+        "lead to": []
+      },
+      "You are erratic and maybe even barking mad, but I guess I have a soft spot for you.": {
+        "req": [],
+        "lead to": []
+      },
+      "asdfghjkl;": {
         "req": [],
         "lead to": []
       }
     },
     "romance": {
-      "romance test 0": {
+      "isHurt romance test 0": {
         "req": [],
         "lead to": []
       },
-      "romance test 1": {
+      "isHurt romance test 1": {
         "req": [],
         "lead to": []
       },
-      "romance test 2": {
+      "isHurt romance test 2": {
         "req": [],
         "lead to": []
       },
-      "romance test 3": {
+      "isHurtromance test 3": {
         "req": [],
         "lead to": []
       }
     },
     "friend": {
-      "friend test 0": {
+      "isHurt friend test 0": {
         "req": [],
         "lead to": []
       },
-      "friend test 1": {
+      "isHurt friend test 1": {
         "req": [],
         "lead to": []
       },
-      "friend test 2": {
+      "isHurt friend test 2": {
         "req": [],
         "lead to": []
       },
-      "friend test 3": {
+      "isHurt friend test 3": {
         "req": [],
         "lead to": []
       }
     },
     "respect": {
-      "respect test 0": {
+      "isHurt respect test 0": {
         "req": [],
         "lead to": []
       },
-      "respect test 1": {
+      "isHurt respect test 1": {
         "req": [],
         "lead to": []
       },
-      "respect test 2": {
+      "isHurt respect test 2": {
         "req": [],
         "lead to": []
       },
-      "respect test 3": {
+      "isHurt respect test 3": {
         "req": [],
         "lead to": []
       }
     },
     "affinity": {
-      "affinity test 0": {
+      "isHurt affinity test 0": {
         "req": [],
         "lead to": []
       },
-      "affinity test 1": {
+      "isHurt affinity test 1": {
         "req": [],
         "lead to": []
       },
-      "affinity test 2": {
+      "isHurt affinity test 2": {
         "req": [],
         "lead to": []
       },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "professional": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "disgust": {
-      "disgust test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "hate": {
-      "hate test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "rivalry": {
-      "rivalry test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 3": {
+      "isHurt affinity test 3": {
         "req": [],
         "lead to": []
       }
     }
   },
-  "sample02_question": {
+  "isHurt_question": {
     "neutral": {
       " neutral test 0": {
         "req": [],
-        "lead to": []
+        "lead to": ["response.tag1"]
       },
       " neutral test 1": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
       " neutral test 2": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
       " neutral test 3": {
         "req": [],
-        "lead to": []
-      }
-    },
-    "romance": {
-      "romance test 0": {
-        "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "romance test 1": {
+      " neutral test 4": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "romance test 2": {
+      " neutral test 5": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "romance test 3": {
+      " neutral test 6": {
         "req": [],
-        "lead to": []
-      }
-    },
-    "friend": {
-      "friend test 0": {
-        "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "friend test 1": {
+      " neutral test 7": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "friend test 2": {
+      " neutral test 8": {
         "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       },
-      "friend test 3": {
+      " neutral test 9": {
         "req": [],
-        "lead to": []
-      }
-    },
-    "respect": {
-      "respect test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "respect test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "affinity": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "professional": {
-      "affinity test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "affinity test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "disgust": {
-      "disgust test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "disgust test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "hate": {
-      "hate test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "hate test 3": {
-        "req": [],
-        "lead to": []
-      }
-    },
-    "rivalry": {
-      "rivalry test 0": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 1": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 2": {
-        "req": [],
-        "lead to": []
-      },
-      "rivalry test 3": {
-        "req": [],
-        "lead to": []
+        "lead to": [ "response.tag1" ]
       }
     }
   },
-  "sample02_response": {
+  "isHurt_response": {
     "positive+": {
       "positive+ test 0": {
         "req": [ "responseTag.tag1" ],
@@ -840,5 +944,4 @@
       }
     }
   }
-
 }

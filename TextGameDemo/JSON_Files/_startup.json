@@ -1,73 +1,73 @@
 {
   "story part 1": {
     "Town Center": {
-      "Christina": [ "AroundTown", "FightingWords", "YoungLove", "Questing" ],
+      "Christina": [ "AroundTown", "FightingWords", "YoungLove" ],
       "Helena": [ "AroundTown", "FightingWords", "YoungLove" ],
       "Quinn": [ "AroundTown", "FightingWords", "YoungLove" ],
-      "Teta": [ "AroundTown", "FightingWords", "YoungLove", "Questing" ],
-      "Lafitte": [ "Laffite" ],
+      "Teta": [ "AroundTown", "FightingWords", "YoungLove" ],
+      "Lafitte": [ "AroundTown", "FightingWords", "YoungLove" ],
       "Lerin": [ "Lerin" ],
-      "Romero": [ "AroundTown" ],
-      "Albrecht": [ "AroundTown", "Questing" ],
-      "Dan": [ "AroundTown", "Questing" ],
-      "Miciah": [ "AroundTown", "Questing" ],
-      "Collin": [ "AroundTown" ]
+      "Romero": [ "AroundTown", "FightingWords" ],
+      "Albrecht": [ "AroundTown", "FightingWords" ],
+      "Dan": [ "AroundTown", "FightingWords" ],
+      "Miciah": [ "AroundTown", "FightingWords" ],
+      "Collin": [ "AroundTown", "FightingWords" ]
     },
     "Albrecht's House": {
-      "Albrecht": [ "AroundTown", "Questing" ]
+      "Albrecht": [ "AroundTown", "FightingWords" ]
     },
     "General Store": {
       "Helena": [ "AroundTown", "FightingWords", "YoungLove" ],
       "Quinn": [ "AroundTown", "FightingWords", "YoungLove" ],
       "Teta": [ "AroundTown", "FightingWords", "YoungLove" ],
-      "Dan": [ "AroundTown", "Questing" ]
+      "Dan": [ "AroundTown", "FightingWords" ]
     },
     "Lafitte's House": {
-      "Lafitte": [ "Laffite" ]
+      "Lafitte": [ "AroundTown", "FightingWords" ]
     },
     "Black Smith's Shop": {
       "Lerin": [ "Lerin" ],
-      "Albrecht": [ "AroundTown", "Questing" ]
+      "Albrecht": [ "AroundTown", "FightingWords" ]
     },
     "Lerin's House": {
       "Lerin": [ "Lerin" ],
-      "Albrecht": [ "AroundTown" ]
+      "Albrecht": [ "AroundTown", "FightingWords" ]
     },
     "Benjamin's House": {
-      "Benjamin": [ "Benjamin" ]
+      "Benjamin": [ "AroundTown", "FightingWords" ]
     },
     "Dirty Peasant House": {
-      "Teta": [ "AroundTown", "FightingWords", "YoungLove", "Questing" ],
+      "Teta": [ "AroundTown", "FightingWords", "YoungLove" ],
       "Romero": [ "AroundTown" ],
       "Collin": [ "AroundTown" ]
     },
     "Town Hall": {
-      "Sivian": [ "Questing" ]
+      "Sivian": [ "AroundTown" ]
     },
     "Town Gate": {
       "Quinn": [ "AroundTown", "FightingWords", "YoungLove" ],
-      "Romero": [ "AroundTown" ],
-      "Dan": [ "AroundTown", "Questing" ],
-      "Miciah": [ "AroundTown", "Questing" ],
-      "Collin": [ "AroundTown" ],
-      "Benjamin": [ "Benjamin" ]
+      "Romero": [ "AroundTown", "FightingWords" ],
+      "Dan": [ "AroundTown", "FightingWords" ],
+      "Miciah": [ "AroundTown", "FightingWords" ],
+      "Collin": [ "AroundTown", "FightingWords" ],
+      "Benjamin": [ "AroundTown", "FightingWords" ]
     },
     "Forest Entrance": {
       "Christina": [ "ForestTalk", "FightingWords", "YoungLove" ]
     },
     "Wooded Path": {
       "Christina": [ "ForestTalk", "FightingWords", "YoungLove" ],
-      "Collin": [ "ForestTalk" ],
-      "Benjamin": [ "Benjamin" ]
+      "Collin": [ "ForestTalk", "FightingWords" ],
+      "Benjamin": [ "ForestTalk", "FightingWords" ]
     },
     "Clearing": {
-      "Collin": [ "ForestTalk" ],
-      "Benjamin": [ "Benjamin" ]
+      "Collin": [ "ForestTalk", "FightingWords" ],
+      "Benjamin": [ "ForestTalk", "FightingWords" ]
     },
     "Mountain Base": {
     },
     "Cave Entrance": {
-      "Benjamin": [ "Benjamin" ]
+      "Benjamin": [ "ForestTalk", "FightingWords" ]
     },
     "Narrow Passage": {
     },
@@ -75,7 +75,7 @@
       "Lerin": [ "Lerin" ]
     },
     "Large Chamber": {
-      "Lerin": [ "Lerin"]
+      "Lerin": [ "Lerin" ]
     }
   }
 }

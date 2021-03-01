@@ -1,0 +1,75 @@
+req:
+
+---game.time.not.isNight : Greeting_statement
+
+first : MagicLesson_statement
+
+responseTag.status : Greeting_response
+responseTag.nice_day : Greeting_response
+responseTag.love_me : Greeting_response
+responseTag.love_me_looks : Greeting_response
+responseTag.love_me_hair : Greeting_response
+responseTag.nice_weather : Greeting_response
+responseTag.like_town : SingleRooms_response
+responseTag.like_town_center : SingleRooms_response
+responseTag.like_blacksmith : SingleRooms_response
+
+responseTag.special_a1 : Close_response
+responseTag.special_b1 : Close_response
+responseTag.special_b2 : Close_response
+responseTag.special_c1 : Close_response
+responseTag.special_c2 : Close_response
+
+not_mushroom : Quest_statement
+mushroom_complete : Quest_statement
+not_yellowCrystal : Quest_statement
+yellowCrystal_complete : Quest_statement
+mushroom : Quest_question
+yellowCrystal : Quest_question
+responseTag.mushroom : Quest_response
+responseTag.yellowCrystal : Quest_response
+
+attribute.romance.>599 : Close_statement
+attribute.romance.<.1200 : MagicLesson_statement
+
+
+Lead to:
+
+end_conversation : SingleRooms_question
+response.weather.nice_day : Greeting_question
+response.status : Greeting_question
+response.love_me : Greeting_question
+response.love_me_looks : Greeting_question
+response.love_me_hair : Greeting_question
+
+SingleRooms_statement.village_b1 : SingleRooms_statement
+SingleRooms_statement.Smith_a1 : SingleRooms_statement
+
+SingleRooms_statement.village_p1 : SingleRooms_statement
+SingleRooms_statement.village_p2 : SingleRooms_statement
+SingleRooms_statement.village_a1 : SingleRooms_statement
+SingleRooms_statement.village_a2 : SingleRooms_statement
+SingleRooms_statement.village_b2 : SingleRooms_statement
+SingleRooms_statement.toggle_a1 : SingleRooms_statement
+SingleRooms_statement.toggle_b1 : SingleRooms_statement
+SingleRooms_statement.toggle_b2 : SingleRooms_statement
+
+HistoryLesson_statement.lesson_a1 : HistoryLessons_statement
+Close_statement.action_a1 : Close_statement
+Close_question.action_a1 : Close_statement
+Quest_question.mushroom : Quest_statement
+
+response.special_a1 : Close_question
+response.special_b1 : Close_question
+response.special_b2 : Close_question
+response.special_c1 : Close_question
+response.special_c2 : Close_question
+response.like_town : SingleRooms_question
+response.like_town_center : SingleRooms_question
+response.like_blacksmith : SingleRooms_question
+
+Quest_question.yellowCrystal : Quest_statement
+response.mushroom : Quest_question
+response.yellowCrystal : Quest_question
+New_Quest.mushroom : Quest_response
+New_Quest.yellowCrystal : Quest_response
